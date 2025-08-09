@@ -1,87 +1,87 @@
-# 10 Adversarial Robustness & Privacy Defense
+# 10 Adversarial Robustness and Privacy Defense
 
 ## Control Objective
 
-Ensure that AI models remain reliable, privacy-preserving, and abuse-resistant when facing evasion, inference, extraction, or poisoning attacks.
+Ensure that AI models remain reliable, privacy-preserving, and resistant to abuse when facing evasion, inference, extraction, or poisoning attacks.
 
 ---
 
-## 10.1 Model Alignment & Safety
+## 10.1 Model Alignment and Safety
 
-Guard against harmful or policy-breaking outputs.
+Guard against harmful or policy-violating outputs.
 
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.1.1** | **Verify that** an alignment test-suite (red-team prompts, jailbreak probes, disallowed content) is version-controlled and run on every model release. | 1 | D/V |
-| **10.1.2** | **Verify that** refusal and safe-completion guard-rails are enforced. | 1 | D |
-| **10.1.3** | **Verify that** an automated evaluator measures harmful-content rate and flags regressions beyond a set threshold. | 2 | D/V |
-| **10.1.4** | **Verify that** counter-jailbreak training is documented and reproducible. | 2 | D |
-| **10.1.5** | **Verify that** formal policy-compliance proofs or certified monitoring cover critical domains. | 3 | V |
-
----
-
-## 10.2 Adversarial-Example Hardening
-
-Increase resilience to manipulated inputs. Robust adversarial-training and benchmark scoring are the current best practice.
-
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.2.1** | **Verify that** project repositories include adversarial-training configurations with reproducible seeds. | 1 | D |
-| **10.2.2** | **Verify that** adversarial-example detection raises blocking alerts in production pipelines. | 2 | D/V |
-| **10.2.4** | **Verify that** certified‐robustness proofs or interval-bound certificates cover at least the top critical classes. | 3 | V |
-| **10.2.5** | **Verify that** regression tests use adaptive attacks to confirm no measurable robustness loss. | 3 | V |
+|   #    | Description                                                                                                                                                             | Level | Role |
+| :----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.1.1 | Ensure that an alignment test suite (including red-team prompts, jailbreak probes, and disallowed content) is version-controlled and executed with every model release. |   1   | D/V  |
+| 10.1.2 | Verify that refusal and safe-completion guardrails are enforced.                                                                                                        |   1   |  D   |
+| 10.1.3 | Verify that an automated evaluator measures the harmful content rate and flags regressions that exceed a set threshold.                                                 |   2   | D/V  |
+| 10.1.4 | Ensure that counter-jailbreak training is thoroughly documented and can be consistently reproduced.                                                                     |   2   |  D   |
+| 10.1.5 | Verify that formal policy compliance proofs or certified monitoring cover critical domains.                                                                             |   3   |  V   |
 
 ---
 
-## 10.3 Membership-Inference Mitigation
+## 10.2 Adversarial Example Hardening
 
-Limit the ability to decide whether a record was in training data. Differential privacy and confidence-score masking remain the most effective known defenses.
+Increase resilience to manipulated inputs. Robust adversarial training and benchmark scoring are currently the best practices.
 
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.3.1** | **Verify that** per-query entropy regularisation or temperature-scaling reduces overconfident predictions. | 1 | D |
-| **10.3.2** | **Verify that** training employs ε-bounded differentially-private optimization for sensitive datasets. | 2 | D |
-| **10.3.3** | **Verify that** attack simulations (shadow-model or black-box) show attack AUC ≤ 0.60 on held-out data. | 2 | V |
-
----
-
-## 10.4 Model-Inversion Resistance
-
-Prevent reconstruction of private attributes. Recent surveys emphasize output truncation and DP guarantees as practical defenses.
-
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.4.1** | **Verify that** sensitive attributes are never directly output; where needed, use buckets or one-way transforms. | 1 | D |
-| **10.4.2** | **Verify that** query-rate limits throttle repeated adaptive queries from the same principal. | 1 | D/V |
-| **10.4.3** | **Verify that** the model is trained with privacy-preserving noise. | 2 | D |
+|   #    | Description                                                                                                          | Level | Role |
+| :----: | -------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.2.1 | Verify that project repositories contain adversarial training configurations with reproducible seeds.                |   1   |  D   |
+| 10.2.2 | Verify that adversarial example detection triggers blocking alerts in production pipelines.                          |   2   | D/V  |
+| 10.2.4 | Verify that certified-robustness proofs or interval-bound certificates cover at least the most critical top classes. |   3   |  V   |
+| 10.2.5 | Verify that regression tests use adaptive attacks to confirm there is no measurable loss of robustness.              |   3   |  V   |
 
 ---
 
-## 10.5 Model-Extraction Defense
+## 10.3 Membership Inference Mitigation
 
-Detect and deter unauthorized cloning. Watermarking and query-pattern analysis are recommended.
+Limit the ability to determine whether a record was included in the training data. Differential privacy and confidence score masking continue to be the most effective known defenses.
 
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.5.1** | **Verify that** inference gateways enforce global and per-API-key rate limits tuned to the model's memorization threshold. | 1 | D |
-| **10.5.2** | **Verify that** query-entropy and input-plurality statistics feed an automated extraction detector. | 2 | D/V |
-| **10.5.3** | **Verify that** fragile or probabilistic watermarks can be proved with p < 0.01 in ≤ 1 000 queries against a suspected clone. | 2 | V |
-| **10.5.4** | **Verify that** watermark keys and trigger sets are stored in a hardware-security-module and rotated yearly. | 3 | D |
-| **10.5.5** | **Verify that** extraction-alert events include offending queries and are integrated with incident-response playbooks. | 3 | V |
+|   #    | Description                                                                                                      | Level | Role |
+| :----: | ---------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.3.1 | Verify that per-query entropy regularization or temperature scaling reduces overconfident predictions.           |   1   |  D   |
+| 10.3.2 | Verify that training uses ε-bounded differentially private optimization for sensitive datasets.                  |   2   |  D   |
+| 10.3.3 | Verify that attack simulations (shadow-model or black-box) demonstrate an attack AUC of ≤ 0.60 on held-out data. |   2   |  V   |
 
 ---
 
-## 10.6 Inference-Time Poisoned-Data Detection
+## 10.4 Resistance to Model Inversion
 
-Identify and neutralize backdoored or poisoned inputs.
+Prevent the reconstruction of private attributes. Recent surveys highlight output truncation and differential privacy guarantees as effective practical defenses.
 
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.6.1** | **Verify that** inputs pass through an anomaly detector (e.g., STRIP, consistency-scoring) before model inference. | 1 | D |
-| **10.6.2** | **Verify that** detector thresholds are tuned on clean/poisoned validation sets to achieve less that 5% false positives. | 1 | V |
-| **10.6.3** | **Verify that** inputs flagged as poisoned trigger soft-blocking and human review workflows. | 2 | D |
-| **10.6.4** | **Verify that** detectors are stress-tested with adaptive, triggerless backdoor attacks. | 2 | V |
-| **10.6.5** | **Verify that** detection efficacy metrics are logged and periodically re-evaluated with fresh threat intel. | 3 | D |
+|   #    | Description                                                                                                         | Level | Role |
+| :----: | ------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.4.1 | Ensure that sensitive attributes are never directly output; when necessary, use buckets or one-way transformations. |   1   |  D   |
+| 10.4.2 | Verify that query rate limits throttle repeated adaptive queries from the same principal.                           |   1   | D/V  |
+| 10.4.3 | Verify that the model is trained using privacy-preserving noise.                                                    |   2   |  D   |
+
+---
+
+## 10.5 Model Extraction Defense
+
+Detect and prevent unauthorized cloning. Watermarking and query pattern analysis are recommended.
+
+|   #    | Description                                                                                                                                | Level | Role |
+| :----: | ------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :--: |
+| 10.5.1 | Verify that inference gateways enforce both global and per-API-key rate limits adjusted to the model's memorization threshold.             |   1   |  D   |
+| 10.5.2 | Verify that query-entropy and input-plurality statistics are used to feed an automated extraction detector.                                |   2   | D/V  |
+| 10.5.3 | Verify that fragile or probabilistic watermarks can be demonstrated with p < 0.01 in no more than 1,000 queries against a suspected clone. |   2   |  V   |
+| 10.5.4 | Ensure that watermark keys and trigger sets are stored in a hardware security module and rotated annually.                                 |   3   |  D   |
+| 10.5.5 | Verify that extraction-alert events include offending queries and are integrated with incident response playbooks.                         |   3   |  V   |
+
+---
+
+## 10.6 Detection of Poisoned Data During Inference Time
+
+Identify and neutralize inputs that have been backdoored or poisoned.
+
+|   #    | Description                                                                                                          | Level | Role |
+| :----: | -------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.6.1 | Verify that inputs pass through an anomaly detector (e.g., STRIP, consistency scoring) before model inference.       |   1   |  D   |
+| 10.6.2 | Verify that detector thresholds are tuned on clean/poisoned validation sets to achieve less than 5% false positives. |   1   |  V   |
+| 10.6.3 | Verify that inputs flagged as poisoned trigger soft-blocking and human review processes.                             |   2   |  D   |
+| 10.6.4 | Verify that detectors are stress-tested using adaptive, triggerless backdoor attacks.                                |   2   |  V   |
+| 10.6.5 | Verify that detection efficacy metrics are logged and periodically re-evaluated using updated threat intelligence.   |   3   |  D   |
 
 ---
 
@@ -89,41 +89,41 @@ Identify and neutralize backdoored or poisoned inputs.
 
 Real-time security policy updates based on threat intelligence and behavioral analysis.
 
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.7.1** | **Verify that** security policies can be updated dynamically without agent restart while maintaining policy version integrity. | 1 | D/V |
-| **10.7.2** | **Verify that** policy updates are cryptographically signed by authorized security personnel and validated before application. | 2 | D/V |
-| **10.7.3** | **Verify that** dynamic policy changes are logged with full audit trails including justification, approval chains, and rollback procedures. | 2 | D/V |
-| **10.7.4** | **Verify that** adaptive security mechanisms adjust threat detection sensitivity based on risk context and behavioral patterns. | 3 | D/V |
-| **10.7.5** | **Verify that** policy adaptation decisions are explainable and include evidence trails for security team review. | 3 | D/V |
+|   #    | Description                                                                                                                                  | Level | Role |
+| :----: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.7.1 | Verify that security policies can be updated dynamically without restarting the agent while maintaining the integrity of the policy version. |   1   | D/V  |
+| 10.7.2 | Ensure that policy updates are cryptographically signed by authorized security personnel and validated before being applied.                 |   2   | D/V  |
+| 10.7.3 | Ensure that dynamic policy changes are logged with complete audit trails, including justification, approval chains, and rollback procedures. |   2   | D/V  |
+| 10.7.4 | Verify that adaptive security mechanisms adjust threat detection sensitivity according to risk context and behavioral patterns.              |   3   | D/V  |
+| 10.7.5 | Ensure that policy adaptation decisions are explainable and include evidence trails for review by the security team.                         |   3   | D/V  |
 
 ---
 
 ## 10.8 Reflection-Based Security Analysis
 
-Security validation through agent self-reflection and meta-cognitive analysis.
+Security validation through agent self-reflection and metacognitive analysis.
 
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.8.1** | **Verify that** agent reflection mechanisms include security-focused self-assessment of decisions and actions. | 1 | D/V |
-| **10.8.2** | **Verify that** reflection outputs are validated to prevent manipulation of self-assessment mechanisms by adversarial inputs. | 2 | D/V |
-| **10.8.3** | **Verify that** meta-cognitive security analysis identifies potential bias, manipulation, or compromise in agent reasoning processes. | 2 | D/V |
-| **10.8.4** | **Verify that** reflection-based security warnings trigger enhanced monitoring and potential human intervention workflows. | 3 | D/V |
-| **10.8.5** | **Verify that** continuous learning from security reflections improves threat detection without degrading legitimate functionality. | 3 | D/V |
+|   #    | Description                                                                                                                        | Level | Role |
+| :----: | ---------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.8.1 | Verify that agent reflection mechanisms include security-focused self-assessment of decisions and actions.                         |   1   | D/V  |
+| 10.8.2 | Ensure that reflection outputs are validated to prevent adversarial inputs from manipulating self-assessment mechanisms.           |   2   | D/V  |
+| 10.8.3 | Verify that meta-cognitive security analysis detects potential bias, manipulation, or compromise in agent reasoning processes.     |   2   | D/V  |
+| 10.8.4 | Verify that reflection-based security warnings activate enhanced monitoring and potential human intervention workflows.            |   3   | D/V  |
+| 10.8.5 | Verify that continuous learning from security reflections improves threat detection without compromising legitimate functionality. |   3   | D/V  |
 
 ---
 
-## 10.9 Evolution & Self-Improvement Security
+## 10.9 Evolution and Self-Improvement Security
 
-Security controls for agent systems capable of self-modification and evolution.
+Security controls for agent systems that are capable of self-modification and evolution.
 
-| # | Description | Level | Role |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.9.1** | **Verify that** self-modification capabilities are restricted to designated safe areas with formal verification boundaries. | 1 | D/V |
-| **10.9.2** | **Verify that** evolution proposals undergo security impact assessment before implementation. | 2 | D/V |
-| **10.9.3** | **Verify that** self-improvement mechanisms include rollback capabilities with integrity verification. | 2 | D/V |
-| **10.9.4** | **Verify that** meta-learning security prevents adversarial manipulation of improvement algorithms. | 3 | D/V |
-| **10.9.5** | **Verify that** recursive self-improvement is bounded by formal safety constraints with mathematical proofs of convergence. | 3 | D/V |
+|   #    | Description                                                                                                                      | Level | Role |
+| :----: | -------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+| 10.9.1 | Verify that self-modification capabilities are limited to designated safe areas with formally defined verification boundaries.   |   1   | D/V  |
+| 10.9.2 | Ensure that evolution proposals undergo a security impact assessment before implementation.                                      |   2   | D/V  |
+| 10.9.3 | Verify that self-improvement mechanisms include rollback capabilities with integrity verification.                               |   2   | D/V  |
+| 10.9.4 | Verify that meta-learning security prevents adversarial manipulation of improvement algorithms.                                  |   3   | D/V  |
+| 10.9.5 | Ensure that recursive self-improvement is limited by formal safety constraints, supported by mathematical proofs of convergence. |   3   | D/V  |
 
 ---
 
@@ -141,3 +141,4 @@ Security controls for agent systems capable of self-modification and evolution.
 * [Fragile Model Watermarking Survey — 2025](https://www.sciencedirect.com/science/article/abs/pii/S0165168425002026)
 * [Data Poisoning in Deep Learning: A Survey — Zhao et al., 2025](https://arxiv.org/abs/2503.22759)
 * [BDetCLIP: Multimodal Prompting Backdoor Detection — Niu et al., 2024](https://arxiv.org/abs/2405.15269)
+
