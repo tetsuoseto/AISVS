@@ -165,16 +165,17 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
     def compile_two_lines(headers: List[str], contents: List[str]):
         assert len(headers) == len(contents)
         level: int = 0
+        level_str: str = "TRANS ERR"
         try:
             level = int(contents[2])
+            level_str = str(level)
             level_colors = LEVEL_COLORS.get(level, DFLT_LEVEL_COLORS)
         except Exception:
             level_colors = DFLT_LEVEL_COLORS
         line1: str = ">"+level_colors[0]+"|black||||hb  "+\
             headers[0]+contents[0]
         if len(headers) == 4:
-            assert level > 0
-            line1 += ("    "+headers[2]+": "+str(level))
+            line1 += ("    "+headers[2]+": "+level_str)
         line1 += ("    "+headers[-1]+": "+str(contents[-1]))
         line2: str = ">"+level_colors[1]+"|black  "+contents[1]
         return line1, line2

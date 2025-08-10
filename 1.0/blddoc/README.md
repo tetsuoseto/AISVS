@@ -2,7 +2,7 @@
 
 1. Click [Download ZIP](https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip) link to download the all-in-one zip file, AISVS-main.zip (143MB) on your Ubuntu Desktop 24.04.2 LTS or Ubuntu instance on cloud. The zip file contains the original AISVS repo + the owasp_pdf_5 build environment: `AISVS-main/1.0/blddoc` directory.
 
-2. Open terminal window, `cd` to `AISVS-main/1.0/blddoc` directory and run `shasum -a 256 owasp_pdf` to calculate the sha256 hash code of `owasp_pdf` executable. It should match 746aa8db20a9e101a96f7d6c516e5cd70773492774acf902a73116e9d191114c
+2. Open terminal window, `cd` to `AISVS-main/1.0/blddoc` directory and run `shasum -a 256 owasp_pdf` to calculate the sha256 hash code of `owasp_pdf` executable. It should match 705ed302ab84538fbf9f9bc18062fcb9833fc3292081b5e62657f751542693bd
 
 3. Make sure all the source MD files under `AISVS-main/1.0/blddoc/asv/` are symbolic-linked to the original MD files on `AISVS-main/1.0/en/` Note that the source MD file (symbolic link) names follow owasp_pdf naming convention, e.g., `ASV1001_0x01-Frontispiece.md` for `0x01-Frontispiece.md`.
 
@@ -13,7 +13,7 @@
 ```
 $ cd ~/AISVS-main/1.0/blddoc
 $ shasum -a 256 owasp_pdf
-746aa8db20a9e101a96f7d6c516e5cd70773492774acf902a73116e9d191114c  owasp_pdf
+705ed302ab84538fbf9f9bc18062fcb9833fc3292081b5e62657f751542693bd  owasp_pdf
 $ ./owasp_pdf -v
 OWASP_PDF Version: OWASP PDF v5.0.0 20250731-214352
 $ ./owasp_pdf -y -l ASV_en-US
@@ -41,6 +41,46 @@ $ ./owasp_pdf --mt gpt-4.1-nano -l ASV_de-DE
         2,596 lines written to ~/AISVS-main/1.0/blddoc/asv/de-DE/baseline/ASVAll_de-DE.md
         92 page PDF created on ~/AISVS-main/1.0/blddoc/asv/de-DE/baseline/ASVAll_de-DE.pdf
     Processing time: 1,565 seconds
+```
+
+## OWASP PDF 5 Command Options
+
+#### Help (-h)
+```
+$ ./owasp_pdf -h
+```
+#### Registered Projects and Languages (-r)
+```
+$ ./owasp_pdf -r
+```
+#### Build PDF of One Language (-l)
+```
+$ ./owasp_pdf -l ASV_en-US
+```
+#### Build PDF of One Language with Auto-Hyphenation (-y)
+```
+$ ./owasp_pdf -l ASV_en-US -y
+```
+#### Build PDFs of All the Registered Languages (-a)
+```
+$ ./owasp_pdf -a ASV
+```
+#### Machine Translate and Build PDF of One Language (--mt)
+```
+$ ./owasp_pdf --mt gpt-4.1-nano -l ASV_de-DE
+```
+#### Run English Grammar and Spell Check, then Build PDF (--mt, -e)
+```
+$ ./owasp_pdf --mt gpt-4.1-nano -e -l ASV_en-US
+```
+#### Run English Grammar and Spell Check, then Build PDF with Auto-Hyphenation (--mt, -e, -y)
+```
+$ ./owasp_pdf --mt gpt-4.1-nano -e -l ASV_en-US -y
+```
+#### Full Fledged Build (--mt, -e, -y, -a)
+Run English Grammar and Spell Check, Machine Translate All the Registered Languages, then Build PDFs with Auto-Hyphenation. Note that grammar/spell check of US English MD files is done first, then machine translate non-English languages.
+```
+$ ./owasp_pdf --mt gpt-4.1-mini -e -a ASV -y
 ```
 
 # Directory Structure of AISVS project repo with owasp_pdf_5 build environment
