@@ -182,7 +182,7 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
 
     re_sharp = "^([\\#]+)( .*)$"
     re_exclam = "^(\\!\\[)(.*)$"
-    re_bar = "^\\|[^\\|].*$"
+    re_bar = "^[\\|｜][^\\|｜].*$"
     re_id_num = f"^{proj_code}([0-9]+)_"
     re_special_color = r"^[#]{4}.+([1-3一二三])"
 
@@ -247,7 +247,7 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
 
                 # table translation
                 #-----------------------
-                # Does the line start with "|"?
+                # Does the line start with "|" or "｜"?
                 matched = re.match(re_bar, raw_line)
                 if matched and matched.group(0):
                     # table detected
@@ -255,7 +255,7 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                         if is_processing_table:
                             assert len(headers) > 0
                             contents = [content.strip(" :-") \
-                                for content in raw_line.split("|")]
+                                for content in re.split(r"[|｜]", raw_line)]
                             assert len(contents) >= len(headers)
                             contents = contents[1:len(headers)+1]
                             if all(len(content)==0 for content in contents):
@@ -272,7 +272,7 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                                 # table header
                                 is_processing_table = True
                                 headers = [header.strip(" ") \
-                                    for header in raw_line.split("|")]
+                                    for header in re.split(r"[|｜]", raw_line)]
                                 assert len(headers) >= 2
                                 headers = headers[1:3]
                                 skip_write = True
@@ -280,7 +280,7 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                         if is_processing_table:
                             assert len(headers) > 0
                             contents = [content.strip(" :-") \
-                                for content in raw_line.split("|")]
+                                for content in re.split(r"[|｜]", raw_line)]
                             len_contents = len(headers) + 1
                             contents = contents[1:len_contents]
                             if all(len(content)==0 for content in contents):
@@ -297,11 +297,13 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                                 # table header
                                 is_processing_table = True
                                 headers = [header.strip(" ") \
-                                    for header in raw_line.split("|")]
-                                len_headers = len(headers)
+                                    for header in re.split(r"[|｜]", raw_line)]
+                                len_headers = 5 if id_num == 1204 else 6
                                 if headers[-1] == "":
                                     len_headers -= 1
-                                assert len_headers >= 4
+                                assert len_headers >= 4, "".join(
+                                    ["ASV Plugin:len_headers >= 4, ",
+                                    f"but it's {len_headers}"])
                                 headers = headers[1:len_headers]
                                 skip_write = True
                 else:
