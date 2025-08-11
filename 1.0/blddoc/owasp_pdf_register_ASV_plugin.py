@@ -98,7 +98,7 @@ def _set_lang_specific_fields(cs: Dict[str, Any], lang:str):
         "",
         "Initial Version Work In Progress",
         "",
-        "",
+        "" if lang[:2].lower() == "en" else "~~ MACHINE TRANSLATED ~~",
         "",
         "",
         "",
