@@ -2,7 +2,7 @@
 
 1. Click [Download ZIP](https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip) link to download the all-in-one zip file, AISVS-main.zip (143MB) on your Ubuntu Desktop 24.04.2 LTS or Ubuntu instance on cloud. The zip file contains the original AISVS repo + the owasp_pdf_5 build environment: `AISVS-main/1.0/blddoc` directory.
 
-2. Open terminal window, `cd` to `AISVS-main/1.0/blddoc` directory and run `shasum -a 256 owasp_pdf` to calculate the sha256 hash code of `owasp_pdf` executable. It should match 705ed302ab84538fbf9f9bc18062fcb9833fc3292081b5e62657f751542693bd
+2. Open terminal window, `cd` to `AISVS-main/1.0/blddoc` directory and run `shasum -a 256 owasp_pdf` to calculate the sha256 hash code of `owasp_pdf` executable. It should match 451e5c6d8bc463cf8175dce1d3c5fdb4d1a50d5acfb977c5676ef53539c3b86b
 
 3. Make sure all the source MD files under `AISVS-main/1.0/blddoc/asv/` are symbolic-linked to the original MD files on `AISVS-main/1.0/en/` Note that the source MD file (symbolic link) names follow owasp_pdf naming convention, e.g., `ASV1001_0x01-Frontispiece.md` for `0x01-Frontispiece.md`.
 
@@ -13,7 +13,7 @@
 ```
 $ cd ~/AISVS-main/1.0/blddoc
 $ shasum -a 256 owasp_pdf
-705ed302ab84538fbf9f9bc18062fcb9833fc3292081b5e62657f751542693bd  owasp_pdf
+451e5c6d8bc463cf8175dce1d3c5fdb4d1a50d5acfb977c5676ef53539c3b86b  owasp_pdf
 $ ./owasp_pdf -v
 OWASP_PDF Version: OWASP PDF v5.0.0 20250731-214352
 $ ./owasp_pdf -y -l ASV_en-US
