@@ -1,0 +1,19 @@
+name: Build Documents
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  build_en-US_pdf:
+    name: Build en-US PDF
+    runs-on: ubuntu-24.04
+    if: github.ref == 'refs/heads/bld_pdf'
+    steps:
+      - run: |
+          echo 'buillding pdf of ASV_en-US ...'
+          ./1.0/blddoc/owasp_pdf -s -l ASV_en-US
+          echo 'PDF of ASV_en-US has been built.'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
