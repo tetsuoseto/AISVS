@@ -1,6 +1,11 @@
 name: Build Documents
 
-on: issue_comment
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created, edited]
 
 jobs:
   build_en-US_pdf:
