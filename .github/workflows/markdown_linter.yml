@@ -4,8 +4,8 @@ on:
   # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
   # Scan mainline branches and report all findings: 
-  push:
-    branches: ["main"]
+  # push:
+  #   branches: ["main"]
 
 jobs:
   markdown-lint-check:
