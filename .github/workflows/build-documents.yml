@@ -20,11 +20,21 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
         with:
-          lfs: true
+          fetch-depth: 1 # Only fetch the latest commit
+          submodules: false # Do not fetch submodules if not required
+      - name: Download zip file
+        run: |
+          curl -L -o main.zip "https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip"
+      - name: Unzip the file
+        run: |
+          unzip main.zip -d UNZIPPED
       - run: echo "The source commit SHA is ${{ github.sha }}"
       - name: List the files checked out to the build workspace
         run: |
           ls -la ${{ github.workspace }}
+      - name: Copy owasp_pdf
+        run: |
+          cp UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
       - name: List files under 1.0/blddoc
         run: |
           cd 1.0/blddoc
@@ -38,10 +48,6 @@ jobs:
         run: |
           cd 1.0/blddoc
           ./owasp_pdf -l ASV_en-US --hdr '${{ github.sha }}'
-          # mkdir -p asv/en-US/baseline
-          # cd asv/en-US/baseline
-          # echo "Branch to be created and PR'ed" >> bld_result.txt
-          # cat bld_result.txt
       - name: Commit the changes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
