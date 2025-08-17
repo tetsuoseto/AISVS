@@ -19,8 +19,8 @@ jobs:
       - run: echo "Repo is ${{ github.repository }}"
       - name: Check out repository code
         uses: actions/checkout@v4
-        # with:
-        #   lfs: true
+        with:
+          lfs: true
       - run: echo "The source commit SHA is ${{ github.sha }}"
       - name: List the files checked out to the build workspace
         run: |
