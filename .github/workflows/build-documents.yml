@@ -15,6 +15,32 @@ jobs:
       - run: echo "Repo is ${{ github.repository }}"
       - name: Check out repository code
         uses: actions/checkout@v4
+      - name: Read owasp_pdf parameters
+        run: |
+          COMMENT_BODY='${{ github.event.comment.body }}'
+          echo "COMMENT=$COMMENT_BODY" >> $GITHUB_ENV
+      - name: Parse env.COMMENT
+        run: |
+          echo ${{ env.COMMENT }}
+          IFS=',' read -ra PARAMS <<< '${{ env.COMMENT }}'
+          if echo ${PARAMS[0]};
+          then
+            echo "LANG=${PARAMS[0]}" >> $GITHUB_ENV
+          else
+            echo "LANG=" >> $GITHUB_ENV;
+          fi
+          if echo ${PARAMS[1]};
+          then
+            echo "MT=${PARAMS[1]}" >> $GITHUB_ENV
+          else
+            echo "MT=" >> $GITHUB_ENV;
+          fi
+          if echo ${PARAMS[2]};
+          then
+            echo "X=${PARAMS[2]}" >> $GITHUB_ENV
+          else
+            echo "X=" >> $GITHUB_ENV;
+          fi
       - name: Define branch name
         run: |
           MAIN_SHA="PDF_${{ github.sha }}"
@@ -67,6 +93,7 @@ jobs:
         if: ${{ env.BRANCH_EXISTS == 'false' }}
         run: |
           cd 1.0/blddoc
+          # ./owasp_pdf -s -l ASV_${{ env.LANG }} --hdr '${{ github.sha }}'
           ./owasp_pdf -s -l ASV_en-US --hdr '${{ github.sha }}'
       - name: Delete large used files
         if: ${{ env.BRANCH_EXISTS == 'false' }}
