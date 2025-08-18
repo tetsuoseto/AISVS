@@ -68,6 +68,11 @@ jobs:
         run: |
           cd 1.0/blddoc
           ./owasp_pdf -s -l ASV_en-US --hdr '${{ github.sha }}'
+      - name: Delete large used files
+        if: ${{ env.BRANCH_EXISTS == 'false' }}
+        run: |
+          rm ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          rm main.zip
       - name: Commit the changes
         if: ${{ env.BRANCH_EXISTS == 'false' }}
         env:
