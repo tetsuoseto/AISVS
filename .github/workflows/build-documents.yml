@@ -22,33 +22,48 @@ jobs:
         with:
           fetch-depth: 1 # Only fetch the latest commit
           submodules: false # Do not fetch submodules if not required
+      - name: Check if the branch exists
+        run: |
+          BRANCH_NAME="PDF_${{ github.sha }}"
+          if git branch -r | grep -q "origin/${BRANCH_NAME}"; then
+            echo "BRANCH_EXISTS=true" >> $GITHUB_ENV
+          else
+            echo "BRANCH_EXISTS=false" >> $GITHUB_ENV
+          fi
       - name: Download zip file
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         run: |
           curl -L -o main.zip "https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip"
       - name: Unzip the file
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         run: |
           unzip main.zip -d UNZIPPED
-      - run: echo "The source commit SHA is ${{ github.sha }}"
       - name: List the files checked out to the build workspace
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         run: |
           ls -la ${{ github.workspace }}
       - name: Copy owasp_pdf
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         run: |
           cp UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
       - name: List files under 1.0/blddoc
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         run: |
           cd 1.0/blddoc
           ls -la
           cat version_time_stamp.txt
       - name: List files under 1.0/blddoc/asv
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         run: |
           cd 1.0/blddoc/asv
           ls -la
       - name: Call ./owasp_pdf
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         run: |
           cd 1.0/blddoc
           ./owasp_pdf -s -l ASV_en-US --hdr '${{ github.sha }}'
       - name: Commit the changes
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:  |
@@ -59,6 +74,7 @@ jobs:
           git commit -m "PDF created with the commit ${{ github.sha }}"
           git push --set-upstream origin PDF_${{ github.sha }}
       - name: Create Pull Request with the geenrated PDF
+        if: ${{ env.BRANCH_EXISTS }} == "false"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:  |
