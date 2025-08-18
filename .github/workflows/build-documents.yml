@@ -10,6 +10,17 @@ jobs:
     if: ${{ github.event.issue.title }} == 'Document Build Request'
     runs-on: ubuntu-24.04
     steps:
+      - name: Read owasp_pdf parameters
+        run: |
+          ISSUE_BODY='${{ toJSON(github.event.comment.body) }}'
+          echo "ISSUE=$ISSUE_BODY" >> $GITHUB_ENV
+      - name: Print env.ISSUE
+        run: |
+          echo ${{ env.ISSUE }}
+          IFS=',' read -ra PARAMS <<< '${{ env.ISSUE }}'
+          echo "1st: ${PARAMS[0]}"
+          echo "2nd: ${PARAMS[1]}"
+          echo "3rd: ${PARAMS[2]}"
       - run: echo "The issue title is ${{ github.event.issue.title }}"
       - run: echo "Branch is ${{ github.ref }}"
       - run: echo "Repo is ${{ github.repository }}"
