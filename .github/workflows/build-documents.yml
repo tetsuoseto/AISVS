@@ -36,6 +36,12 @@ jobs:
           else
             echo "X=" >> $GITHUB_ENV;
           fi
+      - run: echo "${{ env.LANG }}"
+      - run: echo "${{ env.MT }}"
+      - run: echo "${{ env.X }}"
+      - name: Adjust LANG
+        if: ! contains(env.LANG, '-')
+        run: echo "LANG=" >> $GITHUB_ENV
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Define target branch name
