@@ -13,10 +13,12 @@ jobs:
       - run: echo "The issue title is ${{ github.event.issue.title }}"
       - run: echo "Branch is ${{ github.ref }}"
       - run: echo "Repo is ${{ github.repository }}"
-      - name: Read owasp_pdf parameters
+      - name: Save comment
         run: |
           COMMENT_BODY="${{ github.event.comment.body }}"
           echo "COMMENT=$COMMENT_BODY" >> $GITHUB_ENV
+      - name: Read owasp_pdf parameters
+        run: |
           IFS=',' read -ra PARAMS <<< '${{ env.COMMENT }}'
           if echo ${PARAMS[0]};
           then
@@ -36,6 +38,9 @@ jobs:
           else
             echo "X=" >> $GITHUB_ENV;
           fi
+      - name: Adjust LANG
+        if: ${{ !contains(env.LANG, '-') }}
+        run: echo "LANG=" >> $GITHUB_ENV
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Define target branch name
