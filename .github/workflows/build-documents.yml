@@ -13,10 +13,12 @@ jobs:
       - run: echo "The issue title is ${{ github.event.issue.title }}"
       - run: echo "Branch is ${{ github.ref }}"
       - run: echo "Repo is ${{ github.repository }}"
-      - name: Read owasp_pdf parameters
+      - name: Save comment
         run: |
           COMMENT_BODY="${{ github.event.comment.body }}"
           echo "COMMENT=$COMMENT_BODY" >> $GITHUB_ENV
+      - name: Read owasp_pdf parameters
+        run: |
           IFS=',' read -ra PARAMS <<< '${{ env.COMMENT }}'
           if echo ${PARAMS[0]};
           then
@@ -26,16 +28,16 @@ jobs:
           fi
           if echo ${PARAMS[1]};
           then
-            echo "MT=${PARAMS[1]}" >> $GITHUB_ENV
+            echo "MT_X=${PARAMS[1]}" >> $GITHUB_ENV
           else
-            echo "MT=" >> $GITHUB_ENV;
+            echo "MT_X=" >> $GITHUB_ENV;
           fi
-          if echo ${PARAMS[2]};
-          then
-            echo "X=${PARAMS[2]}" >> $GITHUB_ENV
-          else
-            echo "X=" >> $GITHUB_ENV;
-          fi
+      - name: Adjust LANG
+        if: ${{ !contains(env.LANG, '-') }}
+        run: echo "LANG=en-US" >> $GITHUB_ENV
+      - name: Adjust MT_X
+        if: ${{ !contains(fromJSON('["mt", "x"]'), env.MT_X) }}
+        run: echo "MT_X=" >> $GITHUB_ENV
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Define target branch name
@@ -81,12 +83,21 @@ jobs:
         run: |
           cd 1.0/blddoc/asv
           ls -la
-      - name: Call ./owasp_pdf
-        if: ${{ env.BRANCH_EXISTS == 'no' }}
+      - name: Call ./owasp_pdf with ${{ env.LANG }}
+        if: ${{ env.BRANCH_EXISTS == 'no' && ! env.LANG=='' && env.MT_X == '' }}
         run: |
           cd 1.0/blddoc
-          # ./owasp_pdf -s -l ASV_${{ env.LANG }} --hdr '${{ github.sha }}'
-          ./owasp_pdf -s -l ASV_en-US --hdr '${{ github.sha }}'
+          ./owasp_pdf -s -l ASV_${{ env.LANG }} --hdr '${{ github.sha }}'
+      - name: Call ./owasp_pdf with ${{ env.LANG }} and 'mt'
+        if: ${{ env.BRANCH_EXISTS == 'no' && ! env.LANG=='' && env.MT_X == 'mt' }}
+        run: |
+          cd 1.0/blddoc
+          ./owasp_pdf -s --mt gpt-4.1-mini -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
+      - name: Call ./owasp_pdf with ${{ env.LANG }} and 'x'
+        if: ${{ env.BRANCH_EXISTS == 'no' && ! env.LANG=='' && env.MT_X == 'x' }}
+        run: |
+          cd 1.0/blddoc
+          ./owasp_pdf -s -x -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Delete large used files
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
