@@ -1,0 +1,106 @@
+# C3 模型生命周期管理与变更控制
+
+## 控制目标
+
+人工智能系统必须实施变更控制流程，以防止未经授权或不安全的模型修改进入生产环境。该控制通过整个生命周期——从开发到部署再到退役——确保模型的完整性，从而实现快速事件响应并保持对所有变更的责任追踪。
+
+核心安全目标：通过采用控制流程，确保只有经过授权、验证的模型才能进入生产环节，并保持完整性、可追溯性和可恢复性。
+
+---
+
+## C3.1 模型授权与完整性
+
+只有经过验证完整性的授权模型才能进入生产环境。
+
+|   #   | 描述                                                       | 级别  | 角色  |
+| :---: | -------------------------------------------------------- | :-: | :-: |
+| 3.1.1 | 在部署之前，验证所有模型产物（权重、配置、分词器）是否由授权实体进行过加密签名。                 |  1  | D/V |
+| 3.1.2 | 验证模型完整性是否在部署时进行验证，并且签名验证失败时阻止模型加载。                       |  1  | D/V |
+| 3.1.3 | 验证模型来源记录是否包含授权实体的身份、训练数据校验和、带有通过/未通过状态的验证测试结果以及创建时间戳。    |  2  | D/V |
+| 3.1.4 | 验证所有模型工件均使用语义版本控制（主版本号.次版本号.修订号），并且有文档明确规定每个版本组件递增的具体标准。 |  2  | D/V |
+| 3.1.5 | 验证依赖跟踪是否保持实时库存，从而能够快速识别所有使用该依赖的系统。                       |  2  |  V  |
+
+---
+
+## C3.2 模型验证与测试
+
+模型必须通过定义的安全性和安全验证后才能部署。
+
+|   #   | 描述                                                      | 级别  | 角色  |
+| :---: | ------------------------------------------------------- | :-: | :-: |
+| 3.2.1 | 确保模型在部署前经过自动化安全测试，包括输入验证、输出清理和安全评估，并且符合预先商定的组织通过/不通过阈值。 |  1  | D/V |
+| 3.2.2 | 验证验证失败是否在预先指定的授权人员明确覆盖批准后自动阻止模型部署，并附有记录在案的业务理由。         |  1  | D/V |
+| 3.2.3 | 验证测试结果经过加密签名，并以不可篡改的方式链接到正在验证的特定模型版本哈希。                 |  2  |  V  |
+| 3.2.4 | 验证紧急部署是否需要记录的安全风险评估，并在预先约定的时间范围内获得预先指定的安全权限的批准。         |  2  | D/V |
+
+---
+
+## C3.3 受控部署与回滚
+
+模型部署必须受到控制、监控且可逆。
+
+|   #   | 描述                                                                 | 级别  | 角色  |
+| :---: | ------------------------------------------------------------------ | :-: | :-: |
+| 3.3.1 | 验证生产部署是否实施了渐进式发布机制（金丝雀部署、蓝绿部署），并基于预先约定的错误率、延迟阈值或安全警报标准，设置了自动回滚触发器。 |  1  |  D  |
+| 3.3.2 | 验证回滚功能是否能够在预定义的组织时间窗口内原子性地恢复完整的模型状态（权重、配置、依赖项）。                    |  1  | D/V |
+| 3.3.3 | 验证部署过程在模型激活前是否验证了加密签名并计算了完整性校验和，如有不匹配则部署失败。                        |  2  | D/V |
+| 3.3.4 | 验证紧急模型关闭功能是否能够通过自动断路器或手动终止开关，在预定义的响应时间内禁用模型端点。                     |  2  | D/V |
+| 3.3.5 | 验证回滚工件（先前的模型版本、配置、依赖项）是否按照组织政策通过不可变存储进行保留，以支持事件响应。                 |  2  |  V  |
+
+---
+
+## C3.4 变更问责与审计
+
+所有模型生命周期的变更必须可追踪且可审计。
+
+|   #   | 描述                                                                | 级别  | 角色  |
+| :---: | ----------------------------------------------------------------- | :-: | :-: |
+| 3.4.1 | 验证所有模型更改（部署、配置、退役）是否生成不可变的审计记录，包括时间戳、经过身份验证的操作人员身份、变更类型以及变更前后的状态。 |  1  |  V  |
+| 3.4.2 | 验证审计日志访问是否需要适当的授权，并且所有访问尝试均记录有用户身份和时间戳。                           |  2  | D/V |
+| 3.4.3 | 验证提示模板和系统消息是否在 git 仓库中进行版本控制，并且在部署前必须经过指定审核者的代码审查和批准。             |  2  | D/V |
+| 3.4.4 | 验证审计记录是否包含足够的详细信息（模型哈希、配置快照、依赖版本），以便在保留期内的任何时间戳都能完整重建模型状态。        |  2  |  V  |
+
+---
+
+## C3.5 安全开发实践
+
+模型开发和训练过程必须遵循安全实践以防止被攻击。
+
+|   #   | 描述                                                           | 级别  | 角色  |
+| :---: | ------------------------------------------------------------ | :-: | :-: |
+| 3.5.1 | 验证模型开发、测试和生产环境在物理上或逻辑上是分离的。它们没有共享的基础设施，拥有独立的访问控制，并且数据存储是隔离的。 |  1  |  D  |
+| 3.5.2 | 验证模型训练和微调是否在具有受控网络访问的隔离环境中进行。                                |  1  |  D  |
+| 3.5.3 | 验证训练数据源通过完整性检查且通过受信任的来源进行身份验证，并在模型开发使用前具备有文件记录的责任链。          |  1  | D/V |
+| 3.5.4 | 验证模型开发工件（超参数、训练脚本、配置文件）是否存储在版本控制中，并且在用于训练之前需要同行评审批准。         |  2  |  D  |
+
+---
+
+## C3.6 模型退役与停用
+
+当模型不再需要或发现安全问题时，必须安全地退役。
+
+|   #   | 描述                                                  | 级别  | 角色  |
+| :---: | --------------------------------------------------- | :-: | :-: |
+| 3.6.1 | 验证模型退役流程是否自动扫描依赖图，识别所有使用系统，并在退役前提供预先约定的提前通知期限。      |  1  |  D  |
+| 3.6.2 | 根据已验证的销毁证书，按照记录的数据保留政策，使用密码擦除或多遍覆盖方法，确保退役模型工件被安全清除。 |  1  | D/V |
+| 3.6.3 | 验证模型退役事件是否带有时间戳和行为者身份的日志记录，并撤销模型签名以防止重复使用。          |  2  |  V  |
+| 3.6.4 | 验证紧急模型退役功能能否通过自动断开开关在预设的紧急响应时间内禁用模型访问，以防发现关键安全漏洞。   |  2  | D/V |
+
+---
+
+## 参考文献
+
+* [MLOps Principles](https://ml-ops.org/content/mlops-principles)
+* [Securing AI/ML Ops – Cisco.com](https://sec.cloudapps.cisco.com/security/center/resources/SecuringAIMLOps)
+* [Audit logs security: cryptographically signed tamper-proof logs](https://www.cossacklabs.com/blog/audit-logs-security/)
+* [Machine Learning Model Versioning: Top Tools & Best Practices](https://lakefs.io/blog/model-versioning/)
+* [AI Hygiene Starts with Models and Data Loaders – SEI Blog](https://insights.sei.cmu.edu/documents/6190/AI-Hygiene-Starts-with-Models-and-Data-Loaders_1G0KTRh.pdf)
+* [How to handle versioning and rollback of a deployed ML model?](https://learn.microsoft.com/en-au/answers/questions/1845378/how-to-handle-versioning-and-rollback-of-a-deploye)
+* [Reinforcement fine-tuning – OpenAI API](https://platform.openai.com/docs/guides/reinforcement-fine-tuning)
+* [Auditing Machine Learning models: Governance, Data Security and …](https://www.linkedin.com/pulse/auditing-machine-learning-models-governance-data-security-negrete-yn81f)
+* [Adversarial Training to Improve Model Robustness](https://medium.com/%40amit25173/adversarial-training-to-improve-model-robustness-5e285b516713)
+* [What is AI adversarial robustness? – IBM Research](https://research.ibm.com/blog/securing-ai-workflows-with-adversarial-robustness)
+* [Exploring Data Provenance: Ensuring Data Integrity and Authenticity](https://www.astera.com/type/blog/data-provenance/)
+* [MITRE ATLAS](https://atlas.mitre.org/)
+* [AWS Prescriptive Guidance – Best practices for retiring applications …](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/migration-app-retirement-best-practices/migration-app-retirement-best-practices.pdf)
+
