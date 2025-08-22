@@ -3,29 +3,33 @@ name: Build Documents
 on:
   issue_comment:
     types: [created, edited]
-  # push:
-  #   branches:
-  #     - main
-  #   paths:
-  #     - '**/*.md'
-  #     - '**/*.markdown'
+  push:
+    branches:
+      - main
+    paths:
+      # - '1.0/en/*.md'
+      - '1.0/blddoc/*.txt'
 
 jobs:
   build_pdf:
     name: Build PDF
-    if: ${{ github.event.issue.title }} == 'Document Build Request'
+    if: ${{ github.event.issue.title == 'Document Build Request' || github.event_name == 'push' }} 
     runs-on: ubuntu-24.04
     steps:
+      - run: echo "The event name is ${{ github.event_name }}"
       - run: echo "The issue title is ${{ github.event.issue.title }}"
-      - run: echo "Branch is ${{ github.ref }}"
-      - run: echo "Repo is ${{ github.repository }}"
+      # STEP 0: Check out repository code
       - name: Check out repository code
         uses: actions/checkout@v4
+
+      # STEP 1: Define LANG, MT_X, owasp_pdf parameters
       - name: Save comment
+        if: ${{ github.event.issue.title == 'Document Build Request' }}
         run: |
           COMMENT_BODY="${{ github.event.comment.body }}"
           echo "COMMENT=$COMMENT_BODY" >> $GITHUB_ENV
       - name: Read owasp_pdf parameters
+        if: ${{ github.event.issue.title == 'Document Build Request' }}
         run: |
           IFS=',' read -ra PARAMS <<< '${{ env.COMMENT }}'
           if echo ${PARAMS[0]};
@@ -40,14 +44,26 @@ jobs:
           else
             echo "MT_X=" >> $GITHUB_ENV;
           fi
+      - name: Define LANG for 'en'
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          echo "LANG=en" >> $GITHUB_ENV
+          echo "MT_X=skip" >> $GITHUB_ENV
       - name: Adjust LANG
         if: ${{ !contains(env.LANG, '-') }}
         run: echo "LANG=en-US" >> $GITHUB_ENV
       - name: Adjust MT_X
         if: ${{ !contains(fromJSON('["mt", "x"]'), env.MT_X) }}
         run: echo "MT_X=" >> $GITHUB_ENV
+
+      # STEP 2: Define target branch name
+      - name: Define target branch name with 'en'
+        if: ${{ env.MT_X == 'skip' }}
+        run: |
+          MAIN_SHA="PDF_en_${{ github.sha }}"
+          echo "TARGET_BRANCH_NAME=$MAIN_SHA" >> $GITHUB_ENV
       - name: Define target branch name with MT_X
-        if: ${{ env.MT_X != '' }}
+        if: ${{ env.MT_X != '' && env.MT_X != 'skip' }}
         run: |
           MAIN_SHA="PDF_${{ env.LANG }}_${{ env.MT_X }}_${{ github.sha }}"
           echo "TARGET_BRANCH_NAME=$MAIN_SHA" >> $GITHUB_ENV
@@ -56,6 +72,8 @@ jobs:
         run: |
           MAIN_SHA="PDF_${{ env.LANG }}_${{ github.sha }}"
           echo "TARGET_BRANCH_NAME=$MAIN_SHA" >> $GITHUB_ENV
+
+      # STEP 3: Check if the target branch exists
       - name: Check if the target branch exists
         run: |
           echo ${{ env.TARGET_BRANCH_NAME }}
@@ -69,6 +87,8 @@ jobs:
             echo "BRANCH_EXISTS=no" >> $GITHUB_ENV;
           fi
       - run: echo "The target branch exists? ${{ env.BRANCH_EXISTS }}"
+
+      # STEP 4: Pref for build
       - name: Download zip file
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
@@ -95,6 +115,8 @@ jobs:
         run: |
           cd 1.0/blddoc/asv
           ls -la
+
+      # STEP 5: Build
       - name: Call ./owasp_pdf with ${{ env.LANG }}
         env:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
@@ -116,6 +138,8 @@ jobs:
         run: |
           cd 1.0/blddoc
           ./owasp_pdf -s -x -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
+   
+      # STEP 6: Clean up
       - name: Delete large used files
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
@@ -123,6 +147,8 @@ jobs:
           rm main.zip
           rm -rf UNZIPPED
           rm -rf ${{ github.workspace }}/1.0/blddoc/asv/en-ZZ
+
+      # STEP 7: Commit adn PR
       - name: Commit the changes
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         env:
