@@ -57,6 +57,7 @@ jobs:
       # STEP 2: Define target branch name
       - name: Define target branch name with 'en'
         if: ${{ env.MT_X == 'skip' }}
+        run: |
           MAIN_SHA="PDF_en_${{ github.sha }}"
           echo "TARGET_BRANCH_NAME=$MAIN_SHA" >> $GITHUB_ENV
       - name: Define target branch name with MT_X
