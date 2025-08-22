@@ -119,8 +119,10 @@ jobs:
       - name: Delete large used files
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
-          rm ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          # rm ${{ github.workspace }}/1.0/blddoc/owasp_pdf
           rm main.zip
+          rm -rf UNZIPPED
+          rm -rf ${{ github.workspace }}/1.0/blddoc/asv/en-ZZ
       - name: Commit the changes
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         env:
