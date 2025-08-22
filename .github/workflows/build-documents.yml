@@ -45,7 +45,7 @@ jobs:
             echo "MT_X=" >> $GITHUB_ENV;
           fi
       - name: Define LANG for 'en'
-        if: ${{ github.event.name == 'push' }}
+        if: ${{ github.event_name == 'push' }}
         run: |
           echo "LANG=en" >> $GITHUB_ENV
           echo "MT_X=skip" >> $GITHUB_ENV
