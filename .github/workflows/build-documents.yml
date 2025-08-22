@@ -13,9 +13,11 @@ on:
 jobs:
   build_pdf:
     name: Build PDF
-    if: ${{ github.event.issue.title == 'Document Build Request' || github.event.name == 'push' }} 
+    if: ${{ github.event.issue.title == 'Document Build Request' || github.event_name == 'push' }} 
     runs-on: ubuntu-24.04
     steps:
+      - run: echo "The event name is ${{ github.event_name }}"
+      - run: echo "The issue title is ${{ github.event.issue.title }}"
       # STEP 0: Check out repository code
       - name: Check out repository code
         uses: actions/checkout@v4
