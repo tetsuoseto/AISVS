@@ -117,13 +117,6 @@ jobs:
           ls -la
 
       # STEP 5: Build
-      - name: Call ./owasp_pdf default
-        env:
-          TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
-        if: ${{ env.BRANCH_EXISTS == 'no' && env.LANG == 'en' }}
-        run: |
-          cd 1.0/blddoc
-          ./owasp_pdf -s -y -l ASV_en-US --hdr '${{ github.sha }}'
       - name: Call ./owasp_pdf with ${{ env.LANG }}
         env:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
