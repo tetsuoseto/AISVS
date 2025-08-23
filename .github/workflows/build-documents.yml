@@ -22,6 +22,17 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
+      # STEP A: Remove the files
+      - name: Remove the files
+        run: |
+          cd ${{ github.workspace }}/1.0/blddoc
+          rm -f LICENSE
+          rm -f owasp_pdf
+          rm -rf owasp_pdf_data_ASV
+          rm -f owasp_pdf_register_ASV_plugin.py
+          rm -f README.md
+          rm -f version_time_stamp.txt
+
       # STEP 1: Define LANG, MT_X, owasp_pdf parameters
       - name: Save comment
         if: ${{ github.event.issue.title == 'Document Build Request' }}
@@ -88,7 +99,7 @@ jobs:
           fi
       - run: echo "The target branch exists? ${{ env.BRANCH_EXISTS }}"
 
-      # STEP 4: Pref for build
+      # STEP 4: Prep for build
       - name: Download zip file
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
@@ -105,15 +116,17 @@ jobs:
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
           cp UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          cp -r UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
+          cp UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
       - name: List files under 1.0/blddoc
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
-          cd 1.0/blddoc
+          cd ${{ github.workspace }}/1.0/blddoc
           ls -la
       - name: List files under 1.0/blddoc/asv
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
-          cd 1.0/blddoc/asv
+          cd ${{ github.workspace }}/1.0/blddoc/asv
           ls -la
 
       # STEP 5: Build
@@ -122,33 +135,51 @@ jobs:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
         if: ${{ env.BRANCH_EXISTS == 'no' && ! env.LANG=='' && env.MT_X == '' }}
         run: |
-          cd 1.0/blddoc
+          cd ${{ github.workspace }}/1.0/blddoc
           ./owasp_pdf -s -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }}'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'mt'
         env:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
         if: ${{ env.BRANCH_EXISTS == 'no' && ! env.LANG=='' && env.MT_X == 'mt' }}
         run: |
-          cd 1.0/blddoc
+          cd ${{ github.workspace }}/1.0/blddoc
           ./owasp_pdf -s --mt gpt-4.1-mini -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'x'
         env:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
         if: ${{ env.BRANCH_EXISTS == 'no' && ! env.LANG=='' && env.MT_X == 'x' }}
         run: |
-          cd 1.0/blddoc
+          cd ${{ github.workspace }}/1.0/blddoc
           ./owasp_pdf -s -x -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
    
-      # STEP 6: Clean up
-      - name: Delete large used files
+      # STEP 6: Delete used files
+      - name: Delete used files
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
-          # rm ${{ github.workspace }}/1.0/blddoc/owasp_pdf
-          rm main.zip
-          rm -rf UNZIPPED
-          rm -rf ${{ github.workspace }}/1.0/blddoc/asv/en-ZZ
+          rm -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          rm -rf ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
+          rm -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
 
-      # STEP 7: Commit adn PR
+      # STEP B: Recover the files
+      - name: Recover the files
+        if: ${{ env.BRANCH_EXISTS == 'no' }}
+        run: |
+          cp -f UNZIPPED/AISVS-main/1.0/blddoc/LICENSE ${{ github.workspace }}/1.0/blddoc/LICENSE
+          cp -f UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          cp -rf UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
+          cp -f UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
+          cp -f UNZIPPED/AISVS-main/1.0/blddoc/README.md ${{ github.workspace }}/1.0/blddoc/README.md
+          cp -f UNZIPPED/AISVS-main/1.0/blddoc/version_time_stamp.txt ${{ github.workspace }}/1.0/blddoc/version_time_stamp.txt
+
+      # STEP 7: Clean up
+      - name: Clean up
+        if: ${{ env.BRANCH_EXISTS == 'no' }}
+        run: |
+          rm -rf ${{ github.workspace }}/1.0/blddoc/asv/en-ZZ
+          rm -rf UNZIPPED
+          rm -f main.zip
+
+      # STEP 8: Commit adn PR
       - name: Commit the changes
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         env:
