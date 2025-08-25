@@ -13,11 +13,13 @@ on:
 jobs:
   build_pdf:
     name: Build PDF
-    if: ${{ github.event.issue.title == 'Document Build Request' || github.event_name == 'push' }} 
+    if: ${{ startsWith(github.event.issue.title, 'Document Build Request') || github.event_name == 'push' }}
     runs-on: ubuntu-24.04
+
     steps:
       - run: echo "The event name is ${{ github.event_name }}"
       - run: echo "The issue title is ${{ github.event.issue.title }}"
+
       # STEP 0: Check out repository code
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -35,24 +37,28 @@ jobs:
 
       # STEP 1: Define LANG, MT_X, owasp_pdf parameters
       - name: Save comment
-        if: ${{ github.event.issue.title == 'Document Build Request' }}
+        if: ${{ startsWith(github.event.issue.title, 'Document Build Request') }}
         run: |
           COMMENT_BODY="${{ github.event.comment.body }}"
           echo "COMMENT=$COMMENT_BODY" >> $GITHUB_ENV
       - name: Read owasp_pdf parameters
-        if: ${{ github.event.issue.title == 'Document Build Request' }}
+        if: ${{ startsWith(github.event.issue.title, 'Document Build Request') }}
         run: |
           IFS=',' read -ra PARAMS <<< '${{ env.COMMENT }}'
           if echo ${PARAMS[0]};
           then
+            echo ${PARAMS[0]}
             echo "LANG=${PARAMS[0]}" | tr -d " " | cut -c -10 >> $GITHUB_ENV
           else
+            echo ${PARAMS[0]}
             echo "LANG=" >> $GITHUB_ENV;
           fi
           if echo ${PARAMS[1]};
           then
+            echo ${PARAMS[1]}
             echo "MT_X=${PARAMS[1]}" | tr -d " " >> $GITHUB_ENV
           else
+            echo ${PARAMS[1]}
             echo "MT_X=" >> $GITHUB_ENV;
           fi
       - name: Define LANG for 'en'
@@ -103,6 +109,7 @@ jobs:
       - name: Download zip file
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
+          # curl -L -o main.zip "https://github.com/OWASP/pdf5/archive/refs/heads/main.zip"
           curl -L -o main.zip "https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip"
       - name: Unzip the file
         if: ${{ env.BRANCH_EXISTS == 'no' }}
@@ -115,9 +122,11 @@ jobs:
       - name: Copy owasp_pdf
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
-          cp UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
-          cp -r UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
-          cp UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
+          # cd UNZIPPED/pdf5-main/1.0/blddoc
+          cd UNZIPPED/AISVS-main/1.0/blddoc
+          cp owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          cp -r owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
+          cp owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
       - name: List files under 1.0/blddoc
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
@@ -164,12 +173,14 @@ jobs:
       - name: Recover the files
         if: ${{ env.BRANCH_EXISTS == 'no' }}
         run: |
-          cp -f UNZIPPED/AISVS-main/1.0/blddoc/LICENSE ${{ github.workspace }}/1.0/blddoc/LICENSE
-          cp -f UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
-          cp -rf UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
-          cp -f UNZIPPED/AISVS-main/1.0/blddoc/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
-          cp -f UNZIPPED/AISVS-main/1.0/blddoc/README.md ${{ github.workspace }}/1.0/blddoc/README.md
-          cp -f UNZIPPED/AISVS-main/1.0/blddoc/version_time_stamp.txt ${{ github.workspace }}/1.0/blddoc/version_time_stamp.txt
+          # cd UNZIPPED/pdf5-main/1.0/blddoc
+          cd UNZIPPED/AISVS-main/1.0/blddoc
+          cp -f LICENSE ${{ github.workspace }}/1.0/blddoc/LICENSE
+          cp -f owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          cp -rf owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
+          cp -f owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
+          cp -f README.md ${{ github.workspace }}/1.0/blddoc/README.md
+          cp -f version_time_stamp.txt ${{ github.workspace }}/1.0/blddoc/version_time_stamp.txt
 
       # STEP 7: Clean up
       - name: Clean up
