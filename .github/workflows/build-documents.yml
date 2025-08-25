@@ -13,7 +13,7 @@ on:
 jobs:
   build_pdf:
     name: Build PDF
-    if: ${{ github.event.issue.title == 'Document Build Request' || github.event_name == 'push' }} 
+    if: ${{ startsWith(github.event.issue.title, 'Document Build Request') || github.event_name == 'push' }}
     runs-on: ubuntu-24.04
     steps:
       - run: echo "The event name is ${{ github.event_name }}"
