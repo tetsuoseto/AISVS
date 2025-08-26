@@ -10,14 +10,24 @@ on:
       # - '1.0/en/*.md'
       - '1.0/blddoc/*.txt'
 
+env:
+  ISSUE_TITLE: ${{ github.event.issue.title }}
+  ISSUE_IS_BUILD_REQUEST: ${{ startsWith(github.event.issue.title, 'Document Build Request') }}
+  EVENT_NAME: ${{ github.event_name }}
+  EVENT_IS_PUSH: ${{ github.event_name == 'push' }}
+  COMMENT: ${{ github.event.comment.body }}
+
 jobs:
   build_pdf:
     name: Build PDF
-    runs-on: ubuntu-24.04
     if: ${{ startsWith(github.event.issue.title, 'Document Build Request') || github.event_name == 'push' }}
+    runs-on: ubuntu-24.04
     steps:
-      - run: echo "The event name is ${{ github.event_name }}"
-      - run: echo "The issue title is ${{ github.event.issue.title }}"
+      - run: echo "ISSUE_TITLE is ${ISSUE_TITLE}"
+      - run: echo "ISSUE_IS_BUILD_REQUEST is ${ISSUE_IS_BUILD_REQUEST}"
+      - run: echo "EVENT_NAME is ${EVENT_NAME}"
+      - run: echo "EVENT_IS_PUSH is ${EVENT_IS_PUSH}"
+      - run: echo "COMMENT_BODY is ${COMMENT_BODY}"
 
       # STEP 0: Check out repository code
       - name: Check out repository code
@@ -35,13 +45,8 @@ jobs:
           rm -f version_time_stamp.txt
 
       # STEP 1: Define LANG, MT_X, owasp_pdf parameters
-      - name: Save comment
-        if: ${{ startsWith(github.event.issue.title, 'Document Build Request') }}
-        run: |
-          COMMENT_BODY="${{ github.event.comment.body }}"
-          echo "COMMENT=$COMMENT_BODY" >> $GITHUB_ENV
       - name: Read owasp_pdf parameters
-        if: ${{ startsWith(github.event.issue.title, 'Document Build Request') }}
+        if: ${{ env.ISSUE_IS_BUILD_REQUEST }}
         run: |
           IFS=',' read -ra PARAMS <<< '${{ env.COMMENT }}'
           if echo ${PARAMS[0]};
@@ -57,13 +62,13 @@ jobs:
             echo "MT_X=" >> $GITHUB_ENV;
           fi
       - name: Define LANG for 'push' event
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ env.EVENT_IS_PUSH }}
         run: |
           echo "LANG=en-US" >> $GITHUB_ENV
           echo "MT_X=skip" >> $GITHUB_ENV
       - name: Adjust LANG (default en-US)
         run: |
-          if [[ ! ${{ env.LANG }} =~ ^[a-z]{2}-[A-Z]{2}$ ]];
+          if [[ ! ${{ env.LANG }} =~ ^[a-z]{2}\-[A-Z]{2}$ ]];
           then
             echo "LANG=en-US" >> $GITHUB_ENV
           fi
