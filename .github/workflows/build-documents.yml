@@ -13,9 +13,8 @@ on:
 jobs:
   build_pdf:
     name: Build PDF
-    if: ${{ startsWith(github.event.issue.title, 'Document Build Request') || github.event_name == 'push' }}
     runs-on: ubuntu-24.04
-
+    if: ${{ startsWith(github.event.issue.title, 'Document Build Request') || github.event_name == 'push' }}
     steps:
       - run: echo "The event name is ${{ github.event_name }}"
       - run: echo "The issue title is ${{ github.event.issue.title }}"
@@ -57,14 +56,17 @@ jobs:
           else
             echo "MT_X=" >> $GITHUB_ENV;
           fi
-      - name: Define LANG for 'en'
+      - name: Define LANG for 'push' event
         if: ${{ github.event_name == 'push' }}
         run: |
-          echo "LANG=en" >> $GITHUB_ENV
+          echo "LANG=en-US" >> $GITHUB_ENV
           echo "MT_X=skip" >> $GITHUB_ENV
-      - name: Adjust LANG
-        if: ${{ !contains(env.LANG, '-') }}
-        run: echo "LANG=en-US" >> $GITHUB_ENV
+      - name: Adjust LANG (default en-US)
+        run: |
+          if [[ ! ${{ env.LANG }} =~ ^[a-z]{2}-[A-Z]{2}$ ]];
+          then
+            echo "LANG=en-US" >> $GITHUB_ENV
+          fi
       - name: Adjust MT_X
         if: ${{ !contains(fromJSON('["mt", "x"]'), env.MT_X) }}
         run: echo "MT_X=" >> $GITHUB_ENV
