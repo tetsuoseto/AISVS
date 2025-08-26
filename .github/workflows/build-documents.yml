@@ -10,12 +10,25 @@ on:
       # - '1.0/en/*.md'
       - '1.0/blddoc/*.txt'
 
+env:
+  ISSUE_TITLE: ${{ github.event.issue.title }}
+  ISSUE_IS_BUILD_REQUEST: ${{ startsWith(github.event.issue.title, 'Document Build Request') }}
+  EVENT_NAME: ${{ github.event_name }}
+  EVENT_IS_PUSH: ${{ github.event_name == 'push' }}
+  COMMENT_BODY: ${{ github.event.comment.body }}
+
 jobs:
   build_pdf:
     name: Build PDF
-    runs-on: ubuntu-24.04
     if: ${{ startsWith(github.event.issue.title, 'Document Build Request') || github.event_name == 'push' }}
+    runs-on: ubuntu-24.04
     steps:
+      - run: echo "ISSUE_TITLE is ${ISSUE_TITLE}"
+      - run: echo "ISSUE_IS_BUILD_REQUEST is ${ISSUE_IS_BUILD_REQUEST}"
+      - run: echo "EVENT_NAME is ${EVENT_NAME}"
+      - run: echo "EVENT_IS_PUSH is ${EVENT_IS_PUSH}"
+      - run: echo "COMMENT_BODY is ${COMMENT_BODY}"
+
       - run: echo "The event name is ${{ github.event_name }}"
       - run: echo "The issue title is ${{ github.event.issue.title }}"
 
