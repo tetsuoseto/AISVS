@@ -23,7 +23,7 @@ jobs:
         env:
           EVENT_COMMENT_BODY: ${{ github.event.comment.body }}
         run: |
-          IFS=',' read -ra PARAMS <<< '${{ env.EVENT_COMMENT_BODY }}'
+          IFS=',' read -ra PARAMS <<< $EVENT_COMMENT_BODY
           if echo ${PARAMS[0]}; then
             echo "LANG=${PARAMS[0]}" | tr -d " " >> $GITHUB_ENV
           else
@@ -54,7 +54,7 @@ jobs:
           EVENT_COMMENT_BODY: ${{ github.event.comment.body }}
         run: |
           if ${{ env.LANG == '' }}; then
-            echo "The command '${{ env.EVENT_COMMENT_BODY }}' is invalid."
+            echo "The command '$EVENT_COMMENT_BODY' is invalid."
             exit 1
           fi
 
