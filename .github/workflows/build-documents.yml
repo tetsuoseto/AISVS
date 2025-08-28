@@ -10,6 +10,21 @@ on:
       # - '1.0/en/*.md'
       - '1.0/blddoc/*.txt'
 
+permissions:
+  actions: none
+  checks: none
+  contents: write
+  deployments: none
+  id-token: none
+  issues: read
+  discussions: none
+  packages: none
+  pages: none
+  pull-requests: write
+  repository-projects: none
+  security-events: none
+  statuses: none
+
 jobs:
   build_pdf:
     name: Build PDF
