@@ -34,7 +34,7 @@
     "doc_toc_title_pivot.pt_y": 80,
     "doc_toc_contents_title": "Table of Contents",
     "doc_toc_figures_title": "Figures",
-    "doc_watermark": true,
+    "doc_watermark": false,
     "doc_appendix_titles": [],
     "doc_sponsor_page_titles": [],
     "doc_title_font.size": 32,
