@@ -1,10 +1,10 @@
-# Gestión del Ciclo de Vida del Modelo C3 y Control de Cambios
+# C3 Gestión del ciclo de vida del modelo y control de cambios
 
-## Objetivo de Control
+## Objetivo de control
 
-Los sistemas de IA deben implementar procesos de control de cambios que eviten que modificaciones no autorizadas o inseguras del modelo lleguen a producción. Este control garantiza la integridad del modelo durante todo el ciclo de vida--desde el desarrollo hasta el despliegue y la desactivación--lo que permite una respuesta rápida a incidentes y mantiene la responsabilidad por todos los cambios.
+Los sistemas de IA deben implementar procesos de control de cambios que eviten modificaciones no autorizadas o inseguras del modelo que lleguen a producción. Este control garantiza la integridad del modelo a lo largo de todo el ciclo de vida--desde el desarrollo hasta la implementación y el descomisionamiento--lo que permite una respuesta rápida a incidentes y mantiene la rendición de cuentas por todos los cambios.
 
-Objetivo principal de seguridad: Solo los modelos autorizados y validados llegan a producción mediante la implementación de procesos controlados que mantienen la integridad, trazabilidad y recuperabilidad.
+Objetivo central de seguridad: Solo los modelos autorizados y validados llegan a producción mediante procesos controlados que mantienen la integridad, la trazabilidad y la recuperabilidad.
 
 ---
 
@@ -12,79 +12,79 @@ Objetivo principal de seguridad: Solo los modelos autorizados y validados llegan
 
 Solo los modelos autorizados con integridad verificada llegan a los entornos de producción.
 
-|   #   | Descripción                                                                                                                                                                                                                                                             | Nivel | Rol |
-| :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 3.1.1 | Verifique que todos los artefactos del modelo (pesos, configuraciones, tokenizadores) estén firmados criptográficamente por entidades autorizadas antes del despliegue.                                                                                                 |   1   | D/V |
-| 3.1.2 | Verifique que la integridad del modelo se valide en el momento del despliegue y que los fallos en la verificación de la firma impidan la carga del modelo.                                                                                                              |   1   | D/V |
-| 3.1.3 | Verifique que los registros de procedencia del modelo incluyan la identidad de la entidad autorizante, sumas de verificación de los datos de entrenamiento, resultados de las pruebas de validación con estado de aprobado/reprobado y una marca de tiempo de creación. |   2   | D/V |
-| 3.1.4 | Verifique que todos los artefactos del modelo utilicen versionado semántico (MAYOR.MENOR.PARCHE) con criterios documentados que especifiquen cuándo se incrementa cada componente de la versión.                                                                        |   2   | D/V |
-| 3.1.5 | Verifique que el seguimiento de dependencias mantenga un inventario en tiempo real que permita la identificación rápida de todos los sistemas consumidores.                                                                                                             |   2   |  V  |
+|   #   | Descripción                                                                                                                                                                                                                                                                | Nivel | Rol |
+| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 3.1.1 | Verifique que todos los artefactos del modelo (pesos, configuraciones, tokenizadores) estén firmados criptográficamente por entidades autorizadas antes del despliegue.                                                                                                    |   1   | D/V |
+| 3.1.2 | Verifique que se valide la integridad del modelo en el momento del despliegue y que las fallas de verificación de firmas impidan la carga del modelo.                                                                                                                      |   1   | D/V |
+| 3.1.3 | Verifique que los registros de procedencia del modelo incluyan la identidad de la entidad autorizante, sumas de verificación de los datos de entrenamiento, resultados de las pruebas de validación con estado de aprobado o reprobado, y una marca de tiempo de creación. |   2   | D/V |
+| 3.1.4 | Verifique que todos los artefactos del modelo utilicen versionado semántico (MAJOR.MINOR.PATCH) con criterios documentados que indiquen cuándo se incrementa cada componente de la versión.                                                                                |   2   | D/V |
+| 3.1.5 | Verifique que el seguimiento de dependencias mantenga un inventario en tiempo real que permita la identificación rápida de todos los sistemas que consumen.                                                                                                                |   2   |  V  |
 
 ---
 
-## C3.2 Validación y Pruebas del Modelo
+## C3.2 Validación del modelo y pruebas
 
-Los modelos deben pasar las validaciones definidas de seguridad y protección antes de su despliegue.
+Los modelos deben superar las validaciones de seguridad y protección definidas antes del despliegue.
 
-|   #   | Descripción                                                                                                                                                                                                                                                  | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
-| 3.2.1 | Verifique que los modelos se sometan a pruebas automatizadas de seguridad que incluyan validación de entradas, saneamiento de salidas y evaluaciones de seguridad con umbrales de aprobación/reprobación organizacionales preacordados antes del despliegue. |   1   | D/V |
-| 3.2.2 | Verifique que las fallas de validación bloqueen automáticamente el despliegue del modelo después de la aprobación explícita de anulación por parte del personal autorizado predesignado con justificaciones comerciales documentadas.                        |   1   | D/V |
-| 3.2.3 | Verifique que los resultados de las pruebas estén firmados criptográficamente y vinculados de manera inmutable al hash de la versión específica del modelo que se está validando.                                                                            |   2   |  V  |
-| 3.2.4 | Verificar que los despliegues de emergencia requieran una evaluación de riesgo de seguridad documentada y la aprobación de una autoridad de seguridad predesignada dentro de los plazos preestablecidos.                                                     |   2   | D/V |
-
----
-
-## C3.3 Despliegue Controlado y Reversión
-
-Las implementaciones de modelos deben ser controladas, monitoreadas y reversibles.
-
-|   #   | Descripción                                                                                                                                                                                                                                                                          | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
-| 3.3.1 | Verifique que los despliegues en producción implementen mecanismos de implementación gradual (despliegues canary, despliegues blue-green) con disparadores automáticos de reversión basados en tasas de error, umbrales de latencia o criterios de alerta de seguridad preacordados. |   1   |  D  |
-| 3.3.2 | Verifique que las capacidades de reversión restauran el estado completo del modelo (pesos, configuraciones, dependencias) de forma atómica dentro de las ventanas de tiempo organizacionales predefinidas.                                                                           |   1   | D/V |
-| 3.3.3 | Verifique que los procesos de implementación validen las firmas criptográficas y calculen sumas de verificación de integridad antes de la activación del modelo, fallando la implementación en caso de cualquier discrepancia.                                                       |   2   | D/V |
-| 3.3.4 | Verifique que las capacidades de apagado de emergencia del modelo puedan deshabilitar los puntos finales del modelo dentro de los tiempos de respuesta predefinidos mediante interruptores automáticos de circuito o interruptores manuales de apagado.                              |   2   | D/V |
-| 3.3.5 | Verifique que los artefactos de reversión (versiones anteriores del modelo, configuraciones, dependencias) se conserven de acuerdo con las políticas organizacionales mediante almacenamiento inmutable para la respuesta a incidentes.                                              |   2   |  V  |
+|   #   | Descripción                                                                                                                                                                                                                                                    | Nivel | Rol |
+| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 3.2.1 | Verifique que los modelos se sometan a pruebas de seguridad automatizadas que incluyan validación de entradas, sanitización de salidas y evaluaciones de seguridad con umbrales de aceptación y rechazo preacordados por la organización antes del despliegue. |   1   | D/V |
+| 3.2.2 | Verifique que las fallas de validación bloqueen automáticamente el despliegue del modelo tras la aprobación explícita de la anulación por parte del personal autorizado pre-designado, con justificaciones comerciales documentadas.                           |   1   | D/V |
+| 3.2.3 | Verifique que los resultados de pruebas estén firmados criptográficamente y vinculados de forma inmutable al hash de la versión específica del modelo que se está validando.                                                                                   |   2   |  V  |
+| 3.2.4 | Verifique que los despliegues de emergencia requieren una evaluación de riesgos de seguridad documentada y la aprobación de una autoridad de seguridad predesignada dentro de los plazos previamente acordados.                                                |   2   | D/V |
 
 ---
 
-## C3.4 Cambio de Responsabilidad y Auditoría
+## C3.3 Despliegue controlado y reversión
 
-Todos los cambios en el ciclo de vida del modelo deben ser rastreables y auditables.
+Los despliegues de modelos deben ser controlados, monitorizados y reversibles.
 
-|   #   | Descripción                                                                                                                                                                                                                                                                         | Nivel | Rol |
-| :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 3.4.1 | Verifique que todos los cambios del modelo (despliegue, configuración, retiro) generen registros de auditoría inmutables que incluyan una marca de tiempo, una identidad de actor autenticada, un tipo de cambio y los estados antes y después.                                     |   1   |  V  |
-| 3.4.2 | Verifique que el acceso al registro de auditoría requiera la autorización adecuada y que todos los intentos de acceso se registren con la identidad del usuario y una marca de tiempo.                                                                                              |   2   | D/V |
-| 3.4.3 | Verifique que las plantillas de indicaciones y los mensajes del sistema estén controlados por versiones en repositorios git con revisión de código obligatoria y aprobación de revisores designados antes del despliegue.                                                           |   2   | D/V |
-| 3.4.4 | Verifique que los registros de auditoría incluyan detalles suficientes (hashes del modelo, instantáneas de configuración, versiones de dependencias) para permitir la reconstrucción completa del estado del modelo para cualquier marca de tiempo dentro del período de retención. |   2   |  V  |
+|   #   | Descripción                                                                                                                                                                                                                                                                                 | Nivel | Rol |
+| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 3.3.1 | Verifique que los despliegues de producción implementen mecanismos de despliegue gradual (despliegues canary, despliegues blue-green) con disparadores de reversión automatizados basados en tasas de error acordadas previamente, umbrales de latencia o criterios de alerta de seguridad. |   1   |  D  |
+| 3.3.2 | Verifique que las capacidades de rollback restauren el estado completo del modelo (pesos, configuraciones, dependencias) de forma atómica dentro de ventanas de tiempo predefinidas por la organización.                                                                                    |   1   | D/V |
+| 3.3.3 | Verifique que los procesos de implementación validen las firmas criptográficas y calculen las sumas de verificación de integridad antes de la activación del modelo, y que la implementación falle ante cualquier desajuste.                                                                |   2   | D/V |
+| 3.3.4 | Verifique que las capacidades de apagado de emergencia del modelo puedan deshabilitar los puntos finales del modelo dentro de los tiempos de respuesta predefinidos mediante disyuntores automáticos o interruptores de apagado manual.                                                     |   2   | D/V |
+| 3.3.5 | Verifique que los artefactos de reversión (versiones anteriores del modelo, configuraciones, dependencias) se conserven de acuerdo con las políticas de la organización, con almacenamiento inmutable para la respuesta ante incidentes.                                                    |   2   |  V  |
+
+---
+
+## C3.4 Rendición de cuentas y auditoría de cambios
+
+Todos los cambios en el ciclo de vida del modelo deben ser trazables y susceptibles de auditoría.
+
+|   #   | Descripción                                                                                                                                                                                                                                                                        | Nivel | Rol |
+| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 3.4.1 | Verifique que todos los cambios de modelo (despliegue, configuración, retiro) generen registros de auditoría inmutables que incluyan una marca de tiempo, la identidad de un actor autenticado, un tipo de cambio y estados previos y posteriores.                                 |   1   |  V  |
+| 3.4.2 | Verifique que el acceso al registro de auditoría requiera la autorización adecuada y que todos los intentos de acceso se registren con la identidad del usuario y una marca de tiempo.                                                                                             |   2   | D/V |
+| 3.4.3 | Verifique que las plantillas de prompts y los mensajes del sistema estén bajo control de versiones en repositorios Git, con revisión de código obligatoria y aprobación de revisores designados antes del despliegue.                                                              |   2   | D/V |
+| 3.4.4 | Verifique que los registros de auditoría incluyan detalles suficientes (hashes del modelo, instantáneas de configuración, versiones de dependencias) para permitir la reconstrucción completa del estado del modelo para cualquier marca temporal dentro del período de retención. |   2   |  V  |
 
 ---
 
 ## C3.5 Prácticas de Desarrollo Seguro
 
-Los procesos de desarrollo y entrenamiento del modelo deben seguir prácticas seguras para evitar compromisos.
-
-|   #   | Descripción                                                                                                                                                                                                                                                 | Nivel | Rol |
-| :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 3.5.1 | Verifique que los entornos de desarrollo, prueba y producción del modelo estén separados física o lógicamente. No deben compartir infraestructura, deben tener controles de acceso distintos y almacenar los datos de forma aislada.                        |   1   |  D  |
-| 3.5.2 | Verifique que el entrenamiento y ajuste fino del modelo se realicen en entornos aislados con acceso controlado a la red.                                                                                                                                    |   1   |  D  |
-| 3.5.3 | Verifique que las fuentes de datos de entrenamiento sean validadas mediante controles de integridad y autenticadas a través de fuentes confiables con una cadena de custodia documentada antes de su uso en el desarrollo del modelo.                       |   1   | D/V |
-| 3.5.4 | Verifique que los artefactos de desarrollo del modelo (hiperparámetros, scripts de entrenamiento, archivos de configuración) estén almacenados en control de versiones y requieran la aprobación de revisión por pares antes de su uso en el entrenamiento. |   2   |  D  |
-
----
-
-## C3.6 Retiro y Desmantelamiento del Modelo
-
-Los modelos deben ser retirados de forma segura cuando ya no se necesiten o cuando se identifiquen problemas de seguridad.
+Los procesos de desarrollo y entrenamiento de modelos deben seguir prácticas seguras para prevenir violaciones de seguridad.
 
 |   #   | Descripción                                                                                                                                                                                                                                           | Nivel | Rol |
 | :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 3.6.1 | Verifique que los procesos de retiro de modelos escaneen automáticamente los gráficos de dependencias, identifiquen todos los sistemas consumidores y proporcionen períodos de aviso previo preacordados antes de la desactivación.                   |   1   |  D  |
-| 3.6.2 | Verifique que los artefactos de modelos retirados se eliminen de forma segura mediante borrado criptográfico o sobreescritura múltiple de acuerdo con las políticas de retención de datos documentadas y con certificados de destrucción verificados. |   1   | D/V |
-| 3.6.3 | Verifique que los eventos de retiro del modelo se registren con la marca de tiempo y la identidad del actor, y que las firmas del modelo se revoquen para evitar su reutilización.                                                                    |   2   |  V  |
-| 3.6.4 | Verifique que la retirada de modelos de emergencia pueda deshabilitar el acceso al modelo dentro de los plazos preestablecidos de respuesta a emergencias mediante interruptores automáticos si se descubren vulnerabilidades críticas de seguridad.  |   2   | D/V |
+| 3.5.1 | Verifique que los entornos de desarrollo, pruebas y producción de modelos estén separados física o lógicamente. No comparten infraestructura, cuentan con controles de acceso distintos y almacenes de datos aislados.                                |   1   |  D  |
+| 3.5.2 | Verifique que el entrenamiento y el ajuste fino del modelo ocurran en entornos aislados con acceso a la red controlado.                                                                                                                               |   1   |  D  |
+| 3.5.3 | Verifique que las fuentes de datos de entrenamiento estén validadas mediante verificaciones de integridad y autenticadas a través de fuentes confiables con una cadena de custodia documentada antes de su uso en el desarrollo de modelos.           |   1   | D/V |
+| 3.5.4 | Verifique que los artefactos de desarrollo del modelo (hiperparámetros, scripts de entrenamiento, archivos de configuración) estén almacenados en el control de versiones y que cuenten con aprobación por pares antes de su uso en el entrenamiento. |   2   |  D  |
+
+---
+
+## C3.6 Retiro y desactivación del modelo
+
+Los modelos deben ser retirados de forma segura cuando ya no sean necesarios o cuando se identifiquen problemas de seguridad.
+
+|   #   | Descripción                                                                                                                                                                                                                                                    | Nivel | Rol |
+| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 3.6.1 | Verifique que los procesos de retirada de modelos escaneen automáticamente los grafos de dependencias, identifiquen todos los sistemas que los consumen y proporcionen plazos de preaviso acordados previamente antes de su retirada.                          |   1   |  D  |
+| 3.6.2 | Verifique que los artefactos de modelos retirados se borren de forma segura mediante borrado criptográfico o sobreescritura en múltiples pases, de acuerdo con las políticas documentadas de retención de datos y con certificados de destrucción verificados. |   1   | D/V |
+| 3.6.3 | Verifique que los eventos de retiro de modelos se registren con marca de tiempo e identidad del actor, y que las firmas del modelo se revocen para evitar su reutilización.                                                                                    |   2   |  V  |
+| 3.6.4 | Verifique que el retiro de emergencia del modelo pueda deshabilitar el acceso al modelo dentro de los plazos de respuesta de emergencia preestablecidos mediante interruptores automáticos de apagado si se descubren vulnerabilidades de seguridad críticas.  |   2   | D/V |
 
 ---
 

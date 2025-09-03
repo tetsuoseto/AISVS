@@ -1,34 +1,34 @@
-# C13 Supervisión Humana, Responsabilidad y Gobernanza
+# C13 Supervisión humana, rendición de cuentas y gobernanza
 
-## Objetivo de Control
+## Objetivo de control
 
-Este capítulo proporciona requisitos para mantener la supervisión humana y cadenas claras de responsabilidad en los sistemas de IA, garantizando explicabilidad, transparencia y una gestión ética a lo largo del ciclo de vida de la IA.
+Este capítulo proporciona requisitos para mantener la supervisión humana y cadenas de rendición de cuentas claras en los sistemas de IA, asegurando explicabilidad, transparencia y una gestión ética a lo largo del ciclo de vida de la IA.
 
 ---
 
-## C13.1 Mecanismos de Interruptor de Emergencia y Anulación
+## C13.1 Kill-Switch & Mecanismos de Anulación
 
 Proporcionar rutas de apagado o reversión cuando se observe un comportamiento inseguro del sistema de IA.
 
-|   #    | Descripción                                                                                                                                  | Nivel | Rol |
-| :----: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 13.1.1 | Verifique que exista un mecanismo manual de interruptor de apagado para detener inmediatamente la inferencia y las salidas del modelo de IA. |   1   | D/V |
-| 13.1.2 | Verifique que los controles de anulación sean accesibles únicamente para el personal autorizado.                                             |   1   |  D  |
-| 13.1.3 | Verifique que los procedimientos de reversión puedan restaurar versiones anteriores del modelo o las operaciones en modo seguro.             |   3   | D/V |
-| 13.1.4 | Verifique que los mecanismos de anulación se prueben regularmente.                                                                           |   3   |  V  |
+|   #    | Descripción                                                                                                                   | Nivel | Rol |
+| :----: | ----------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 13.1.1 | Verifique que exista un interruptor de parada manual para detener de inmediato la inferencia del modelo de IA y sus salidas.  |   1   | D/V |
+| 13.1.2 | Verifique que los controles de anulación sean accesibles solo para el personal autorizado.                                    |   1   |  D  |
+| 13.1.3 | Verifique que los procedimientos de reversión puedan volver a versiones anteriores del modelo o a operaciones en modo seguro. |   3   | D/V |
+| 13.1.4 | Verifique que los mecanismos de anulación se prueben regularmente.                                                            |   3   |  V  |
 
 ---
 
-## C13.2 Puntos de Control de Decisión con Intervención Humana
+## C13.2 Puntos de control de decisiones con intervención humana
 
-Requerir aprobaciones humanas cuando las apuestas superen los umbrales de riesgo predefinidos.
+Exigir aprobaciones humanas cuando los montos en juego superen umbrales de riesgo predefinidos.
 
-|   #    | Descripción                                                                                                                                                         | Nivel | Rol |
-| :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 13.2.1 | Verifique que las decisiones de IA de alto riesgo requieran la aprobación explícita de un humano antes de su ejecución.                                             |   1   | D/V |
-| 13.2.2 | Verifique que los umbrales de riesgo estén claramente definidos y activen automáticamente los flujos de trabajo de revisión humana.                                 |   1   |  D  |
-| 13.2.3 | Verifique que las decisiones sensibles al tiempo tengan procedimientos de respaldo cuando no se pueda obtener la aprobación humana dentro de los plazos requeridos. |   2   |  D  |
-| 13.2.4 | Verifique que los procedimientos de escalamiento definan niveles claros de autoridad para diferentes tipos de decisiones o categorías de riesgo, si corresponde.    |   3   | D/V |
+|   #    | Descripción                                                                                                                                                                  | Nivel | Rol |
+| :----: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 13.2.1 | Verifique que las decisiones de IA de alto riesgo requieran la aprobación explícita de un humano antes de su ejecución.                                                      |   1   | D/V |
+| 13.2.2 | Verifique que los umbrales de riesgo estén claramente definidos y que se activen automáticamente los flujos de trabajo de revisión humana.                                   |   1   |  D  |
+| 13.2.3 | Verifique que las decisiones sensibles al tiempo cuenten con procedimientos de contingencia cuando no se pueda obtener la aprobación humana dentro de los plazos requeridos. |   2   |  D  |
+| 13.2.4 | Verifique que los procedimientos de escalamiento definan niveles de autoridad claros para diferentes tipos de decisiones o categorías de riesgo, si aplica.                  |   3   | D/V |
 
 ---
 
@@ -36,61 +36,61 @@ Requerir aprobaciones humanas cuando las apuestas superen los umbrales de riesgo
 
 Registrar las acciones del operador y las decisiones del modelo.
 
-|   #    | Descripción                                                                                                                                                                    | Nivel | Rol |
-| :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
-| 13.3.1 | Verifique que todas las decisiones del sistema de IA y las intervenciones humanas se registren con marcas de tiempo, identidades de usuario y la justificación de la decisión. |   1   | D/V |
-| 13.3.2 | Verifique que los registros de auditoría no puedan ser alterados e incluyan mecanismos de verificación de integridad.                                                          |   2   |  D  |
+|   #    | Descripción                                                                                                                                                                          | Nivel | Rol |
+| :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
+| 13.3.1 | Verifique que todas las decisiones del sistema de IA y las intervenciones humanas queden registradas con marcas de tiempo, identidades de usuario y la justificación de la decisión. |   1   | D/V |
+| 13.3.2 | Verifique que los registros de auditoría no puedan ser manipulados y que se incluyan mecanismos de verificación de integridad.                                                       |   2   |  D  |
 
 ---
 
-## C13.4 Técnicas de IA Explicable
+## C13.4 Técnicas de IA explicable
 
 Importancia de características superficiales, contrafactuales y explicaciones locales.
 
-|   #    | Descripción                                                                                                                                                               | Nivel | Rol |
-| :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 13.4.1 | Verifique que los sistemas de IA proporcionen explicaciones básicas de sus decisiones en un formato comprensible para los humanos.                                        |   1   | D/V |
-| 13.4.2 | Verifique que la calidad de la explicación se valide mediante estudios y métricas de evaluación humana.                                                                   |   2   |  V  |
-| 13.4.3 | Verifique que las puntuaciones de importancia de características o los métodos de atribución (SHAP, LIME, etc.) estén disponibles para decisiones críticas.               |   3   | D/V |
-| 13.4.4 | Verifique que las explicaciones contrafactuales muestren cómo se podrían modificar las entradas para cambiar los resultados, si es aplicable al caso de uso y al dominio. |   3   |  V  |
+|   #    | Descripción                                                                                                                                                              | Nivel | Rol |
+| :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
+| 13.4.1 | Verifique que los sistemas de IA proporcionen explicaciones básicas de sus decisiones en un formato legible por humanos.                                                 |   1   | D/V |
+| 13.4.2 | Verifique que la calidad de las explicaciones esté validada mediante estudios de evaluación humana y métricas.                                                           |   2   |  V  |
+| 13.4.3 | Verifique que las puntuaciones de importancia de características o los métodos de atribución (SHAP, LIME, etc.) estén disponibles para decisiones críticas.              |   3   | D/V |
+| 13.4.4 | Verifique que las explicaciones contrafactuales muestren cómo podrían modificarse las entradas para cambiar los resultados, si es aplicable al caso de uso y al dominio. |   3   |  V  |
 
 ---
 
 ## C13.5 Tarjetas de Modelo y Divulgaciones de Uso
 
-Mantener tarjetas de modelo para el uso previsto, métricas de rendimiento y consideraciones éticas.
+Mantenga las tarjetas de modelo para el uso previsto, métricas de rendimiento y consideraciones éticas.
 
-|   #    | Descripción                                                                                                                                                                                                                                    | Nivel | Rol |
-| :----: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 13.5.1 | Verifique que las tarjetas de modelo documenten los casos de uso previstos, las limitaciones y los modos de falla conocidos.                                                                                                                   |   1   |  D  |
-| 13.5.2 | Verifique que se divulguen las métricas de rendimiento en los diferentes casos de uso aplicables.                                                                                                                                              |   1   | D/V |
-| 13.5.3 | Verifique que las consideraciones éticas, evaluaciones de sesgo, evaluaciones de equidad, características de los datos de entrenamiento y limitaciones conocidas de los datos de entrenamiento estén documentadas y actualizadas regularmente. |   2   |  D  |
-| 13.5.4 | Verifique que las tarjetas de modelo estén bajo control de versiones y se mantengan durante todo el ciclo de vida del modelo con seguimiento de cambios.                                                                                       |   2   | D/V |
-
----
-
-## C13.6 Cuantificación de la Incertidumbre
-
-Propagar puntajes de confianza o medidas de entropía en las respuestas.
-
-|   #    | Descripción                                                                                                                | Nivel | Rol |
-| :----: | -------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 13.6.1 | Verifique que los sistemas de IA proporcionen puntajes de confianza o medidas de incertidumbre con sus resultados.         |   1   |  D  |
-| 13.6.2 | Verifique que los umbrales de incertidumbre desencadenen una revisión humana adicional o caminos de decisión alternativos. |   2   | D/V |
-| 13.6.3 | Verifique que los métodos de cuantificación de incertidumbre estén calibrados y validados con datos de referencia.         |   2   |  V  |
-| 13.6.4 | Verifique que la propagación de incertidumbre se mantenga a través de flujos de trabajo de IA de múltiples pasos.          |   3   | D/V |
+|   #    | Descripción                                                                                                                                                                                                                                                     | Nivel | Rol |
+| :----: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 13.5.1 | Verifique que las tarjetas de modelo documenten los casos de uso previstos, las limitaciones y los modos de fallo conocidos.                                                                                                                                    |   1   |  D  |
+| 13.5.2 | Verifique que se divulguen las métricas de rendimiento para los distintos casos de uso aplicables.                                                                                                                                                              |   1   | D/V |
+| 13.5.3 | Verifique que las consideraciones éticas, las evaluaciones de sesgos, las evaluaciones de equidad, las características de los datos de entrenamiento y las limitaciones conocidas de los datos de entrenamiento estén documentadas y actualizadas regularmente. |   2   |  D  |
+| 13.5.4 | Verifique que las tarjetas de modelo estén bajo control de versiones y se mantengan a lo largo del ciclo de vida del modelo con seguimiento de cambios.                                                                                                         |   2   | D/V |
 
 ---
 
-## C13.7 Informes de Transparencia para Usuarios
+## C13.6 Cuantificación de la incertidumbre
 
-Proporcionar divulgaciones periódicas sobre incidentes, desviaciones y uso de datos.
+Propague puntuaciones de confianza o medidas de entropía en las respuestas.
+
+|   #    | Descripción                                                                                                                      | Nivel | Rol |
+| :----: | -------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 13.6.1 | Verifique que los sistemas de IA proporcionen puntuaciones de confianza o medidas de incertidumbre junto con sus salidas.        |   1   |  D  |
+| 13.6.2 | Verifique que los umbrales de incertidumbre activen una revisión humana adicional o rutas de decisión alternativas.              |   2   | D/V |
+| 13.6.3 | Verifique que los métodos de cuantificación de la incertidumbre estén calibrados y validados con respecto a datos de referencia. |   2   |  V  |
+| 13.6.4 | Verifique que la propagación de la incertidumbre se mantenga a través de flujos de trabajo de IA de múltiples pasos.             |   3   | D/V |
+
+---
+
+## C13.7 Informes de Transparencia para el Usuario
+
+Proporcionar informes periódicos sobre incidentes, deriva de datos y uso de datos.
 
 |   #    | Descripción                                                                                                                                              | Nivel | Rol |
 | :----: | -------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
 | 13.7.1 | Verifique que las políticas de uso de datos y las prácticas de gestión del consentimiento del usuario se comuniquen claramente a las partes interesadas. |   1   | D/V |
-| 13.7.2 | Verifique que se realicen evaluaciones de impacto de IA y que los resultados se incluyan en los informes.                                                |   2   | D/V |
-| 13.7.3 | Verifique que los informes de transparencia publicados regularmente divulguen incidentes de IA y métricas operativas con un nivel de detalle razonable.  |   2   | D/V |
+| 13.7.2 | Verifique que se realicen evaluaciones de impacto de IA y que los resultados estén incluidos en los informes.                                            |   2   | D/V |
+| 13.7.3 | Verifique que los informes de transparencia publicados regularmente divulguen incidentes de IA y métricas operativas con un nivel razonable de detalle.  |   2   | D/V |
 
 ### Referencias
 

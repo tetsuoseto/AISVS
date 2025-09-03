@@ -1,111 +1,111 @@
-# Control de Acceso C5 e Identidad para Componentes y Usuarios de IA
+# C5 Control de Acceso e Identidad para Componentes de IA y Usuarios
 
-## Objetivo de Control
+## Objetivo de control
 
-El control de acceso efectivo para los sistemas de IA requiere una gestión de identidad robusta, autorización con conciencia del contexto y aplicación en tiempo de ejecución siguiendo los principios de confianza cero. Estos controles aseguran que los humanos, servicios y agentes autónomos solo interactúen con modelos, datos y recursos computacionales dentro de los ámbitos explícitamente otorgados, con capacidades continuas de verificación y auditoría.
-
----
-
-## C5.1 Gestión de Identidad y Autenticación
-
-Establecer identidades respaldadas criptográficamente para todas las entidades con autenticación multifactor para operaciones privilegiadas.
-
-|   #   | Descripción                                                                                                                                                                                                                                                                           | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 5.1.1 | Verifique que todos los usuarios humanos y los principales de servicio se autentiquen a través de un proveedor de identidad empresarial centralizado (IdP) utilizando los protocolos OIDC/SAML con asignaciones únicas de identidad a token (sin cuentas o credenciales compartidas). |   1   | D/V |
-| 5.1.2 | Verifique que las operaciones de alto riesgo (despliegue del modelo, exportación de pesos, acceso a datos de entrenamiento, cambios en la configuración de producción) requieran autenticación multifactor o autenticación escalonada con revalidación de sesión.                     |   1   | D/V |
-| 5.1.3 | Verifique que los nuevos responsables pasen por un proceso de verificación de identidad alineado con NIST 800-63-3 IAL-2 o estándares equivalentes antes de recibir acceso al sistema de producción.                                                                                  |   2   |  D  |
-| 5.1.4 | Verifique que las revisiones de acceso se realicen trimestralmente con detección automatizada de cuentas inactivas, aplicación de la rotación de credenciales y flujos de trabajo de desprovisionamiento.                                                                             |   2   |  V  |
-| 5.1.5 | Verifique que los agentes de IA federada se autentiquen mediante aserciones JWT firmadas que tengan una vida máxima de 24 horas e incluyan prueba criptográfica de origen.                                                                                                            |   3   | D/V |
+El control de acceso efectivo para los sistemas de IA requiere una gestión de identidades robusta, autorización basada en el contexto y una aplicación en tiempo de ejecución que siga los principios de confianza cero. Estos controles aseguran que personas, servicios y agentes autónomos solo interactúen con modelos, datos y recursos computacionales dentro de alcances explícitamente concedidos, con verificación continua y capacidades de auditoría.
 
 ---
 
-## C5.2 Autorización de Recursos y Mínimos Privilegios
+## C5.1 Gestión de identidades y autenticación
 
-Implemente controles de acceso detallados para todos los recursos de IA con modelos de permiso explícitos y registros de auditoría.
+Establezca identidades respaldadas criptográficamente para todas las entidades, con autenticación multifactor para operaciones privilegiadas.
 
 |   #   | Descripción                                                                                                                                                                                                                                                                       | Nivel | Rol |
 | :---: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 5.2.1 | Verifique que cada recurso de IA (conjuntos de datos, modelos, puntos de enlace, colecciones vectoriales, índices de incrustación, instancias de cómputo) aplique controles de acceso basados en roles con listas de permitidos explícitas y políticas de denegación por defecto. |   1   | D/V |
-| 5.2.2 | Verifique que los principios de mínimo privilegio se apliquen por defecto con las cuentas de servicio, comenzando con permisos de solo lectura y requiriendo una justificación comercial documentada para el acceso de escritura.                                                 |   1   | D/V |
-| 5.2.3 | Verifique que todas las modificaciones de control de acceso estén vinculadas a solicitudes de cambio aprobadas y registradas de manera inmutable con marcas de tiempo, identidades de actores, identificadores de recursos y deltas de permisos.                                  |   1   |  V  |
-| 5.2.4 | Verifique que las etiquetas de clasificación de datos (PII, PHI, controladas para exportación, propietarias) se propaguen automáticamente a los recursos derivados (incrustaciones, cachés de indicaciones, salidas de modelos) con una aplicación coherente de la política.      |   2   |  D  |
-| 5.2.5 | Verifique que los intentos de acceso no autorizado y los eventos de escalamiento de privilegios generen alertas en tiempo real con metadatos contextuales hacia los sistemas SIEM dentro de 5 minutos.                                                                            |   2   | D/V |
+| 5.1.1 | Verifique que todos los usuarios humanos y los principales de servicio se autentiquen a través de un proveedor de identidad empresarial centralizado (IdP) utilizando los protocolos OIDC/SAML, con mapeos únicos de identidad a token (sin cuentas ni credenciales compartidas). |   1   | D/V |
+| 5.1.2 | Verifique que las operaciones de alto riesgo (despliegue de modelos, exportación de pesos, acceso a datos de entrenamiento, cambios en la configuración de producción) requieran autenticación multifactor o autenticación reforzada con revalidación de sesión.                  |   1   | D/V |
+| 5.1.3 | Asegúrese de que los nuevos principales se sometan a una verificación de identidad que esté alineada con NIST 800-63-3 IAL-2 o estándares equivalentes antes de recibir acceso al sistema de producción.                                                                          |   2   |  D  |
+| 5.1.4 | Verifique que las revisiones de acceso se realicen trimestralmente con detección automatizada de cuentas inactivas, cumplimiento de la rotación de credenciales y flujos de desprovisionamiento.                                                                                  |   2   |  V  |
+| 5.1.5 | Verifique que los agentes de IA federados se autentiquen mediante aserciones JWT firmadas que tengan una duración máxima de 24 horas y que incluyan prueba criptográfica de origen.                                                                                               |   3   | D/V |
 
 ---
 
-## C5.3 Evaluación Dinámica de Políticas
+## C5.2 Autorización de recursos y el principio de mínimo privilegio
 
-Despliegue motores de control de acceso basado en atributos (ABAC) para decisiones de autorización conscientes del contexto con capacidades de auditoría.
-
-|   #   | Descripción                                                                                                                                                                                                                                                              | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
-| 5.3.1 | Verifique que las decisiones de autorización estén externalizadas a un motor de políticas dedicado (OPA, Cedar o equivalente) accesible a través de APIs autenticadas con protección criptográfica de integridad.                                                        |   1   | D/V |
-| 5.3.2 | Verifique que las políticas evalúen atributos dinámicos en tiempo de ejecución, incluyendo el nivel de autorización del usuario, la clasificación de sensibilidad del recurso, el contexto de la solicitud, el aislamiento del inquilino y las restricciones temporales. |   1   | D/V |
-| 5.3.3 | Verifique que las definiciones de políticas estén controladas por versiones, revisadas por pares y validadas mediante pruebas automatizadas en las canalizaciones de CI/CD antes del despliegue en producción.                                                           |   2   |  D  |
-| 5.3.4 | Verifique que los resultados de la evaluación de políticas incluyan racionales estructurados de decisión y se transmitan a los sistemas SIEM para el análisis de correlación y la generación de informes de cumplimiento.                                                |   2   |  V  |
-| 5.3.5 | Verifique que los valores de tiempo de vida (TTL) de la caché de políticas no excedan los 5 minutos para recursos de alta sensibilidad y 1 hora para recursos estándar con capacidades de invalidación de caché.                                                         |   3   | D/V |
-
----
-
-## C5.4 Aplicación de Seguridad en Tiempo de Consulta
-
-Implemente controles de seguridad a nivel de base de datos con filtrado obligatorio y políticas de seguridad a nivel de fila.
-
-|   #   | Descripción                                                                                                                                                                                                                                                         | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 5.4.1 | Verifique que todas las consultas a bases de datos vectoriales y SQL incluyan filtros de seguridad obligatorios (ID de inquilino, etiquetas de sensibilidad, alcance del usuario) aplicados a nivel del motor de base de datos, y no en el código de la aplicación. |   1   | D/V |
-| 5.4.2 | Verifique que las políticas de seguridad a nivel de fila (RLS) y el enmascaramiento a nivel de campo estén habilitados con herencia de políticas para todas las bases de datos vectoriales, índices de búsqueda y conjuntos de datos de entrenamiento.              |   1   | D/V |
-| 5.4.3 | Verifique que las evaluaciones de autorización fallidas eviten los ataques de "confused deputy" abortando inmediatamente las consultas y devolviendo códigos de error de autorización explícitos en lugar de devolver conjuntos de resultados vacíos.               |   2   |  D  |
-| 5.4.4 | Verifique que la latencia de evaluación de políticas se monitoree continuamente con alertas automatizadas para condiciones de tiempo de espera que podrían permitir eludir la autorización.                                                                         |   2   |  V  |
-| 5.4.5 | Verifique que los mecanismos de reintento de consultas reevalúan las políticas de autorización para tener en cuenta los cambios dinámicos de permisos dentro de las sesiones activas de usuario.                                                                    |   3   | D/V |
-
----
-
-## Filtrado de Salida C5.5 y Prevención de Pérdida de Datos
-
-Implemente controles de posprocesamiento para prevenir la exposición no autorizada de datos en el contenido generado por IA.
-
-|   #   | Descripción                                                                                                                                                                                                                                                 | Nivel | Rol |
-| :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 5.5.1 | Verifique que los mecanismos de filtrado posteriores a la inferencia escaneen y redacten la información personal identificable (PII), la información clasificada y los datos propietarios no autorizados antes de entregar el contenido a los solicitantes. |   1   | D/V |
-| 5.5.2 | Verifique que las citas, referencias y atribuciones de fuentes en las salidas del modelo estén validadas según los derechos del llamante y se eliminen si se detecta un acceso no autorizado.                                                               |   1   | D/V |
-| 5.5.3 | Verificar que se apliquen las restricciones del formato de salida (PDFs sanitizados, imágenes con metadatos eliminados, tipos de archivo aprobados) según los niveles de permiso del usuario y las clasificaciones de datos.                                |   2   |  D  |
-| 5.5.4 | Verifique que los algoritmos de redacción sean deterministas, controlados por versiones y mantengan registros de auditoría para apoyar las investigaciones de cumplimiento y el análisis forense.                                                           |   2   |  V  |
-| 5.5.5 | Verifique que los eventos de redacción de alto riesgo generen registros adaptativos que incluyan hashes criptográficos del contenido original para la recuperación forense sin exposición de datos.                                                         |   3   |  V  |
-
----
-
-## C5.6 Aislamiento Multiinquilino
-
-Garantizar el aislamiento criptográfico y lógico entre los inquilinos en una infraestructura de IA compartida.
-
-|   #   | Descripción                                                                                                                                                                                                                                 | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 5.6.1 | Verificar que los espacios de memoria, almacenes de incrustaciones, entradas de caché y archivos temporales estén separados por espacio de nombres para cada inquilino, con purga segura al eliminar al inquilino o al finalizar la sesión. |   1   | D/V |
-| 5.6.2 | Verifique que cada solicitud de API incluya un identificador de inquilino autenticado que sea validado criptográficamente contra el contexto de la sesión y los derechos del usuario.                                                       |   1   | D/V |
-| 5.6.3 | Verifique que las políticas de red implementen reglas de denegación predeterminadas para la comunicación entre inquilinos en mallas de servicios y plataformas de orquestación de contenedores.                                             |   2   |  D  |
-| 5.6.4 | Verificar que las claves de cifrado sean únicas por arrendatario con soporte para claves gestionadas por el cliente (CMK) y aislamiento criptográfico entre los almacenes de datos de los arrendatarios.                                    |   3   |  D  |
-
----
-
-## C5.7 Autorización de Agentes Autónomos
-
-Controla los permisos para agentes de IA y sistemas autónomos mediante tokens de capacidad con alcance y autorización continua.
+Implementa controles de acceso granulares para todos los recursos de IA, con modelos de permisos explícitos y registros de auditoría.
 
 |   #   | Descripción                                                                                                                                                                                                                                                                      | Nivel | Rol |
 | :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 5.7.1 | Verifique que los agentes autónomos reciban tokens de capacidad con alcance que enumeren explícitamente las acciones permitidas, los recursos accesibles, los límites de tiempo y las restricciones operativas.                                                                  |   1   | D/V |
-| 5.7.2 | Verifique que las capacidades de alto riesgo (acceso al sistema de archivos, ejecución de código, llamadas a API externas, transacciones financieras) estén deshabilitadas por defecto y requieran autorizaciones explícitas para su activación con justificaciones comerciales. |   1   | D/V |
-| 5.7.3 | Verifique que los tokens de capacidad estén vinculados a las sesiones de usuario, incluyan protección criptográfica de integridad y aseguren que no puedan ser almacenados ni reutilizados en escenarios sin conexión.                                                           |   2   |  D  |
-| 5.7.4 | Verifique que las acciones iniciadas por el agente pasen por una autorización secundaria a través del motor de políticas ABAC con evaluación de contexto completo y registro de auditoría.                                                                                       |   2   |  V  |
-| 5.7.5 | Verifique que las condiciones de error del agente y el manejo de excepciones incluyan información sobre el alcance de la capacidad para respaldar el análisis de incidentes y la investigación forense.                                                                          |   3   |  V  |
+| 5.2.1 | Verifique que cada recurso de IA (conjuntos de datos, modelos, puntos finales, colecciones vectoriales, índices de embeddings, instancias de cómputo) aplique controles de acceso basados en roles con listas de permitidos explícitas y políticas de denegación por defecto.    |   1   | D/V |
+| 5.2.2 | Verifique que los principios de mínimo privilegio se apliquen por defecto con cuentas de servicio que comienzan con permisos de solo-lectura y se requiera una justificación comercial documentada para el acceso de escritura.                                                  |   1   | D/V |
+| 5.2.3 | Verifique que todas las modificaciones del control de acceso estén vinculadas a solicitudes de cambio aprobadas y registradas de forma inmutable con marcas de tiempo, identidades de los actores, identificadores de recursos y deltas de permisos.                             |   1   |  V  |
+| 5.2.4 | Verifique que las etiquetas de clasificación de datos (PII, PHI, export-controlled, propietarias) se propaguen automáticamente a los recursos derivados (representaciones vectoriales, cachés de indicaciones, salidas del modelo) con la aplicación consistente de la política. |   2   |  D  |
+| 5.2.5 | Verifique que los intentos de acceso no autorizado y los eventos de escalada de privilegios activen alertas en tiempo real con metadatos contextuales a los sistemas SIEM dentro de 5 minutos.                                                                                   |   2   | D/V |
+
+---
+
+## C5.3 Evaluación dinámica de políticas
+
+Desplegar motores de control de acceso basado en atributos (ABAC) para decisiones de autorización sensibles al contexto con capacidades de auditoría.
+
+|   #   | Descripción                                                                                                                                                                                                                                                                    | Nivel | Rol |
+| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
+| 5.3.1 | Verifique que las decisiones de autorización estén externalizadas a un motor de políticas dedicado (OPA, Cedar, u equivalente) accesible a través de APIs autenticadas con protección de integridad criptográfica.                                                             |   1   | D/V |
+| 5.3.2 | Verifique que las políticas evalúen atributos dinámicos en tiempo de ejecución, incluyendo el nivel de autorización del usuario, la clasificación de la sensibilidad del recurso, el contexto de la solicitud, el aislamiento entre inquilinos y las restricciones temporales. |   1   | D/V |
+| 5.3.3 | Verifique que las definiciones de políticas estén bajo control de versiones, sean revisadas por pares y validadas mediante pruebas automatizadas en pipelines de CI/CD antes del despliegue en producción.                                                                     |   2   |  D  |
+| 5.3.4 | Verifique que los resultados de la evaluación de políticas incluyan fundamentos de decisión estructurados y se transmitan a los sistemas SIEM para análisis de correlación y reportes de cumplimiento.                                                                         |   2   |  V  |
+| 5.3.5 | Verifique que los valores de TTL de la caché de políticas no excedan 5 minutos para recursos de alta sensibilidad y 1 hora para recursos estándar con capacidades de invalidación de caché.                                                                                    |   3   | D/V |
+
+---
+
+## C5.4 Aplicación de seguridad en tiempo de consulta
+
+Implementar controles de seguridad en la capa de base de datos con filtrado obligatorio y políticas de seguridad a nivel de fila.
+
+|   #   | Descripción                                                                                                                                                                                                                                                                             | Nivel | Rol |
+| :---: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 5.4.1 | Verifique que todas las consultas de bases de datos vectoriales y consultas SQL incluyan filtros de seguridad obligatorios (ID de inquilino, etiquetas de sensibilidad, alcance del usuario) que se apliquen a nivel del motor de la base de datos, y no en el código de la aplicación. |   1   | D/V |
+| 5.4.2 | Verifique que las políticas de seguridad a nivel de fila (RLS) y la ocultación a nivel de campo estén habilitadas con herencia de políticas para todas las bases de datos vectoriales, índices de búsqueda y conjuntos de datos de entrenamiento.                                       |   1   | D/V |
+| 5.4.3 | Verifique que las evaluaciones de autorización fallidas eviten los ataques del ayudante confundido al abortar de inmediato las consultas y devolver códigos de error de autorización explícitos en lugar de devolver conjuntos de resultados vacíos.                                    |   2   |  D  |
+| 5.4.4 | Verifique que la latencia de la evaluación de políticas se supervise de forma continua con alertas automáticas para condiciones de tiempo de espera que podrían permitir eludir la autorización.                                                                                        |   2   |  V  |
+| 5.4.5 | Verifique que los mecanismos de reintento de consultas reevalúen las políticas de autorización para tener en cuenta los cambios dinámicos de permisos dentro de las sesiones de usuario activas.                                                                                        |   3   | D/V |
+
+---
+
+## C5.5 Filtrado de salida y Prevención de pérdida de datos
+
+Desplegar controles de posprocesamiento para prevenir la exposición no autorizada de datos en contenido generado por IA.
+
+|   #   | Descripción                                                                                                                                                                                                                | Nivel | Rol |
+| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 5.5.1 | Verifique que los mecanismos de filtrado posteriores a la inferencia escaneen y redacten PII no autorizada, información clasificada y datos propietarios antes de entregar el contenido a los solicitantes.                |   1   | D/V |
+| 5.5.2 | Verifique que las citas, referencias y atribuciones de origen en las salidas del modelo se validen frente a los derechos del solicitante y se eliminen si se detecta acceso no autorizado.                                 |   1   | D/V |
+| 5.5.3 | Verifique que las restricciones de formato de salida (PDFs sanitizados, imágenes sin metadatos, tipos de archivos aprobados) se apliquen de acuerdo con los niveles de permisos de usuario y las clasificaciones de datos. |   2   |  D  |
+| 5.5.4 | Verifique que los algoritmos de enmascaramiento sean deterministas, tengan control de versiones y mantengan registros de auditoría para respaldar investigaciones de cumplimiento y análisis forense.                      |   2   |  V  |
+| 5.5.5 | Verificar que los eventos de redacción de alto riesgo generen registros adaptativos que incluyan hashes criptográficos del contenido original para recuperación forense sin exponer los datos.                             |   3   |  V  |
+
+---
+
+## C5.6 Aislamiento multitenante
+
+Garantice el aislamiento criptográfico y lógico entre inquilinos en una infraestructura de IA compartida.
+
+|   #   | Descripción                                                                                                                                                                                                                                           | Nivel | Rol |
+| :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 5.6.1 | Verifique que los espacios de memoria, los almacenes de embeddings, las entradas de caché y los archivos temporales estén segmentados por espacio de nombres para cada inquilino, con purga segura al eliminar el inquilino o al finalizar la sesión. |   1   | D/V |
+| 5.6.2 | Verifique que cada solicitud de API incluya un identificador de inquilino autenticado que esté validado criptográficamente frente al contexto de la sesión y a los derechos del usuario.                                                              |   1   | D/V |
+| 5.6.3 | Verifique que las políticas de red implementen reglas de denegación por defecto para la comunicación entre inquilinos dentro de las mallas de servicios y las plataformas de orquestación de contenedores.                                            |   2   |  D  |
+| 5.6.4 | Verifique que las claves de cifrado sean únicas por inquilino, con soporte para clave gestionada por el cliente (CMK) y aislamiento criptográfico entre los almacenes de datos de los inquilinos.                                                     |   3   |  D  |
+
+---
+
+## C5.7 Autorización de Agente Autónomo
+
+Controlar permisos para los agentes de IA y los sistemas autónomos mediante tokens de capacidad con alcance definido y autorización continua.
+
+|   #   | Descripción                                                                                                                                                                                                                                                                        | Nivel | Rol |
+| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 5.7.1 | Asegúrese de que los agentes autónomos reciban tokens de capacidad acotados que enumeren explícitamente las acciones permitidas, los recursos accesibles, los límites de tiempo y las restricciones operativas.                                                                    |   1   | D/V |
+| 5.7.2 | Verifique que las capacidades de alto riesgo (acceso al sistema de archivos, ejecución de código, llamadas a API externas, transacciones financieras) estén deshabilitadas por defecto y requieran autorizaciones explícitas para su activación con justificaciones empresariales. |   1   | D/V |
+| 5.7.3 | Verifique que los tokens de capacidad estén vinculados a las sesiones de usuario, incluyan protección de integridad criptográfica y asegúrese de que no puedan ser persistidos ni reutilizados en escenarios sin conexión.                                                         |   2   |  D  |
+| 5.7.4 | Verifique que las acciones iniciadas por un agente pasen por una autorización secundaria a través del motor de políticas ABAC con evaluación de contexto completa y registro de auditoría.                                                                                         |   2   |  V  |
+| 5.7.5 | Verifique que las condiciones de error del agente y el manejo de excepciones incluyan información sobre el alcance de las capacidades para apoyar el análisis de incidentes y la investigación forense.                                                                            |   3   |  V  |
 
 ---
 
 ## Referencias
 
-### Normas y Marcos de Referencia
+### Estándares y Marcos
 
 * [NIST SP 800-63-3: Digital Identity Guidelines](https://pages.nist.gov/800-63-3/)
 * [Zero Trust Architecture – NIST SP 800-207](https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-207.pdf)
@@ -117,7 +117,7 @@ Controla los permisos para agentes de IA y sistemas autónomos mediante tokens d
 * [Attribute-Based Access Control with OPA – Permify](https://medium.com/permify-tech-blog/attribute-based-access-control-abac-implementation-with-open-policy-agent-opa-b47052248f29)
 * [How We Designed Cedar to Be Intuitive, Fast, and Safe – AWS](https://aws.amazon.com/blogs/security/how-we-designed-cedar-to-be-intuitive-to-use-fast-and-safe/)
   ​
-### Seguridad Específica para IA
+### Seguridad específica de IA
 
 * [Row Level Security in Vector DBs for RAG – Bluetuple.ai](https://medium.com/bluetuple-ai/implementing-row-level-security-in-vector-dbs-for-rag-applications-fdbccb63d464)
 * [Tenant Isolation in Multi-Tenant Systems – WorkOS](https://workos.com/blog/tenant-isolation-in-multi-tenant-systems)

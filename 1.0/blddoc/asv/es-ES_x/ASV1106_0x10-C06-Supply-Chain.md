@@ -1,104 +1,104 @@
-# C6 Seguridad en la Cadena de Suministro para Modelos, Frameworks y Datos
+# C6 Seguridad de la cadena de suministro para modelos, marcos de trabajo y datos
 
-## Objetivo de Control
+## Objetivo de control
 
-Los ataques a la cadena de suministro de IA explotan modelos, frameworks o conjuntos de datos de terceros para insertar puertas traseras, sesgos o código explotable. Estos controles proporcionan un control completo de la procedencia, gestión de vulnerabilidades y monitoreo para proteger todo el ciclo de vida del modelo.
-
----
-
-## C6.1 Verificación y Procedencia del Modelo Preentrenado
-
-Evaluar y autenticar los orígenes, licencias y comportamientos ocultos de modelos de terceros antes de cualquier ajuste fino o despliegue.
-
-|   #   | Descripción                                                                                                                                                            | Nivel | Rol |
-| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 6.1.1 | Verifique que cada artefacto de modelo de terceros incluya un registro de procedencia firmado que identifique el repositorio de origen y el hash de la confirmación.   |   1   | D/V |
-| 6.1.2 | Verifique que los modelos sean escaneados en busca de capas maliciosas o disparadores de troyanos utilizando herramientas automatizadas antes de la importación.       |   1   | D/V |
-| 6.1.3 | Verifique que el ajuste fino de transferencia de aprendizaje supere la evaluación adversarial para detectar comportamientos ocultos.                                   |   2   |  D  |
-| 6.1.4 | Verifique que las licencias del modelo, las etiquetas de control de exportación y las declaraciones de origen de los datos estén registradas en una entrada de ML‑BOM. |   2   |  V  |
-| 6.1.5 | Verifique que los modelos de alto riesgo (pesos subidos públicamente, creadores no verificados) permanezcan en cuarentena hasta la revisión y aprobación humana.       |   3   | D/V |
+Los ataques de la cadena de suministro de IA explotan modelos, marcos o conjuntos de datos de terceros para incrustar puertas traseras, sesgos o código explotable. Estos controles proporcionan trazabilidad de extremo a extremo, gestión de vulnerabilidades y monitoreo para proteger todo el ciclo de vida del modelo.
 
 ---
 
-## C6.2 Escaneo de Framework y Bibliotecas
+## C6.1 Evaluación de modelos preentrenados y su procedencia
 
-Escanee continuamente los frameworks y bibliotecas de ML en busca de CVE y código malicioso para mantener segura la pila de ejecución.
+Evaluar y autenticar los orígenes, licencias y comportamientos ocultos de los modelos de terceros antes de cualquier ajuste fino o despliegue.
 
-|   #   | Descripción                                                                                                                                                | Nivel | Rol |
-| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 6.2.1 | Verifique que las canalizaciones de CI ejecuten escáneres de dependencias en los frameworks de IA y las bibliotecas críticas.                              |   1   | D/V |
-| 6.2.2 | Verifique que las vulnerabilidades críticas (CVSS ≥ 7.0) bloqueen la promoción a imágenes de producción.                                                   |   1   | D/V |
-| 6.2.3 | Verifique que el análisis estático de código se ejecute en las bibliotecas de ML bifurcadas o incluidas.                                                   |   2   |  D  |
-| 6.2.4 | Verifique que las propuestas de actualización del framework incluyan una evaluación de impacto de seguridad que haga referencia a fuentes públicas de CVE. |   2   |  V  |
-| 6.2.5 | Verifique que los sensores en tiempo de ejecución alerten sobre cargas inesperadas de bibliotecas dinámicas que se desvíen del SBOM firmado.               |   3   |  V  |
-
----
-
-## C6.3 Fijación y Verificación de Dependencias
-
-Fije cada dependencia a sumas de verificación inmutables y reproduzca las compilaciones para garantizar artefactos idénticos y libres de manipulación.
-
-|   #   | Descripción                                                                                                                                 | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 6.3.1 | Verifique que todos los gestores de paquetes apliquen el bloqueo de versiones mediante archivos de bloqueo.                                 |   1   | D/V |
-| 6.3.2 | Verifique que se utilicen resúmenes inmutables en lugar de etiquetas mutables en las referencias de contenedores.                           |   1   | D/V |
-| 6.3.3 | Verifique que las comprobaciones de compilación reproducible comparen los hashes entre ejecuciones de CI para garantizar salidas idénticas. |   2   |  D  |
-| 6.3.4 | Verifique que las atestaciones de compilación se almacenen durante 18 meses para la trazabilidad de auditoría.                              |   2   |  V  |
-| 6.3.5 | Verifique que las dependencias vencidas activen solicitudes de extracción automatizadas para actualizar o bifurcar las versiones fijadas.   |   3   |  D  |
+|   #   | Descripción                                                                                                                                                                       | Nivel | Rol |
+| :---: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 6.1.1 | Verifique que cada artefacto de modelo de terceros incluya un registro de procedencia firmado que identifique el repositorio fuente y el hash de confirmación.                    |   1   | D/V |
+| 6.1.2 | Verifique que los modelos sean escaneados en busca de capas maliciosas o disparadores de troyanos mediante herramientas automatizadas antes de la importación.                    |   1   | D/V |
+| 6.1.3 | Verifique que los ajustes finos por transferencia pasen la evaluación adversarial para detectar comportamientos ocultos.                                                          |   2   |  D  |
+| 6.1.4 | Verifique que las licencias del modelo, las etiquetas de control de exportación y las declaraciones de origen de los datos se registren en una entrada de ML‑BOM.                 |   2   |  V  |
+| 6.1.5 | Verificar que los modelos de alto riesgo (pesos cargados públicamente, creadores no verificados) permanezcan en cuarentena hasta la revisión y aprobación por parte de un humano. |   3   | D/V |
 
 ---
 
-## C6.4 Aplicación de Fuente Confiable
+## C6.2 Escaneo de frameworks y bibliotecas
 
-Permitir descargas de artefactos solo desde fuentes verificadas criptográficamente y aprobadas por la organización, y bloquear todo lo demás.
+Escanear continuamente marcos y bibliotecas de ML en busca de CVEs y código malicioso para mantener segura la pila de tiempo de ejecución.
 
-|   #   | Descripción                                                                                                                                             | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 6.4.1 | Verifique que los pesos del modelo, los conjuntos de datos y los contenedores se descarguen únicamente de dominios aprobados o registros internos.      |   1   | D/V |
-| 6.4.2 | Verifique que las firmas de Sigstore/Cosign validen la identidad del editor antes de que los artefactos se almacenen en caché localmente.               |   1   | D/V |
-| 6.4.3 | Verifique que los proxies de salida bloqueen las descargas de artefactos no autenticadas para hacer cumplir la política de fuente confiable.            |   2   |  D  |
-| 6.4.4 | Verifique que las listas de permitidos del repositorio se revisen trimestralmente con evidencia de justificación comercial para cada entrada.           |   2   |  V  |
-| 6.4.5 | Verifique que las violaciones de la política desencadenen el aislamiento de los artefactos y la reversión de las ejecuciones dependientes del pipeline. |   3   |  V  |
-
----
-
-## C6.5 Evaluación de Riesgos de Conjuntos de Datos de Terceros
-
-Evalúe los conjuntos de datos externos para detectar envenenamiento, sesgo y cumplimiento legal, y monitoree su ciclo de vida completo.
-
-|   #   | Descripción                                                                                                                                                                     | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 6.5.1 | Verifique que los conjuntos de datos externos se sometan a una puntuación de riesgo de envenenamiento (por ejemplo, huellas digitales de datos, detección de valores atípicos). |   1   | D/V |
-| 6.5.2 | Verifique que las métricas de sesgo (paridad demográfica, igualdad de oportunidades) se calculen antes de la aprobación del conjunto de datos.                                  |   1   |  D  |
-| 6.5.3 | Verifique que el origen y los términos de licencia de los conjuntos de datos estén capturados en las entradas de ML‑BOM.                                                        |   2   |  V  |
-| 6.5.4 | Verifique que la monitorización periódica detecte desviaciones o corrupciones en los conjuntos de datos alojados.                                                               |   2   |  V  |
-| 6.5.5 | Verifique que el contenido no permitido (derechos de autor, información personal identificable) sea eliminado mediante un proceso automatizado antes del entrenamiento.         |   3   |  D  |
+|   #   | Descripción                                                                                                                                          | Nivel | Rol |
+| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 6.2.1 | Verifique que los pipelines de CI ejecuten escáneres de dependencias en marcos de IA y bibliotecas críticas.                                         |   1   | D/V |
+| 6.2.2 | Verifique que las vulnerabilidades críticas (CVSS ≥ 7.0) bloqueen la promoción a imágenes de producción.                                             |   1   | D/V |
+| 6.2.3 | Verifique que el análisis estático de código se ejecute en bibliotecas de ML ramificadas o vendorizadas.                                             |   2   |  D  |
+| 6.2.4 | Verifique que las propuestas de actualización de marcos incluyan una evaluación de impacto de seguridad que haga referencia a feeds CVE públicos.    |   2   |  V  |
+| 6.2.5 | Verifique que los sensores en tiempo de ejecución emitan alertas ante cargas inesperadas de bibliotecas dinámicas que se desvíen de la SBOM firmada. |   3   |  V  |
 
 ---
 
-## C6.6 Monitoreo de Ataques en la Cadena de Suministro
+## C6.3 Fijación de dependencias y verificación
 
-Detecte amenazas en la cadena de suministro temprano a través de fuentes CVE, análisis de registros de auditoría y simulaciones de equipos rojos.
+Anclar cada dependencia a sumas de verificación inmutables y reproducir las compilaciones para garantizar artefactos idénticos y libres de manipulación.
 
-|   #   | Descripción                                                                                                                                                                                | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
-| 6.6.1 | Verifique que los registros de auditoría de CI/CD se transmitan al SIEM para detectar extracciones de paquetes anómalas o pasos de compilación manipulados.                                |   1   |  V  |
-| 6.6.2 | Verifique que los playbooks de respuesta a incidentes incluyan procedimientos de reversión para modelos o bibliotecas comprometidos.                                                       |   2   |  D  |
-| 6.6.3 | Verifique que las etiquetas de enriquecimiento de inteligencia de amenazas marquen indicadores específicos de ML (por ejemplo, IoCs de envenenamiento de modelos) en el triaje de alertas. |   3   |  V  |
+|   #   | Descripción                                                                                                                              | Nivel | Rol |
+| :---: | ---------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 6.3.1 | Verifique que todos los gestores de paquetes hagan cumplir la fijación de versiones mediante archivos de bloqueo.                        |   1   | D/V |
+| 6.3.2 | Verifique que se utilicen digests inmutables en lugar de etiquetas mutables en las referencias de contenedores.                          |   1   | D/V |
+| 6.3.3 | Verifique que las verificaciones de construcción reproducible comparen hashes entre ejecuciones de CI para garantizar salidas idénticas. |   2   |  D  |
+| 6.3.4 | Verifique que las atestaciones de compilación se almacenen durante 18 meses para la trazabilidad de auditoría.                           |   2   |  V  |
+| 6.3.5 | Verifique que las dependencias caducadas disparen PRs automatizados para actualizar o bifurcar las versiones fijadas.                    |   3   |  D  |
 
 ---
 
-## C6.7 ML‑BOM para Artefactos de Modelos
+## C6.4 Cumplimiento de Fuentes Confiables
 
-Genere y firme SBOMs detallados específicos para ML (ML‑BOMs) para que los consumidores posteriores puedan verificar la integridad de los componentes en el momento del despliegue.
+Permitir descargas de artefactos solo desde fuentes verificadas criptográficamente-aprobadas por la organización y bloquear todo lo demás.
 
-|   #   | Descripción                                                                                                                                              | Nivel | Rol |
-| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 6.7.1 | Verifique que cada artefacto de modelo publique un ML-BOM que liste conjuntos de datos, pesos, hiperparámetros y licencias.                              |   1   | D/V |
-| 6.7.2 | Verifique que la generación de ML-BOM y la firma con Cosign estén automatizadas en CI y sean requeridas para la fusión.                                  |   1   | D/V |
-| 6.7.3 | Verifique que las comprobaciones de integridad del ML-BOM fallen la compilación si falta algún metadato del componente (hash, licencia).                 |   2   |  D  |
-| 6.7.4 | Verificar que los consumidores aguas abajo puedan consultar ML-BOMs a través de la API para validar los modelos importados en el momento del despliegue. |   2   |  V  |
-| 6.7.5 | Verifique que los ML‑BOMs estén controlados por versión y comparados para detectar modificaciones no autorizadas.                                        |   3   |  V  |
+|   #   | Descripción                                                                                                                                          | Nivel | Rol |
+| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 6.4.1 | Verifique que los pesos del modelo, los conjuntos de datos y los contenedores se descarguen solo desde dominios aprobados o registros internos.      |   1   | D/V |
+| 6.4.2 | Verifique que las firmas de Sigstore/Cosign validen la identidad del publicador antes de que los artefactos se almacenen en caché localmente.        |   1   | D/V |
+| 6.4.3 | Verifique que los proxies de salida bloqueen las descargas de artefactos no autenticados para hacer cumplir la política trusted‑source.              |   2   |  D  |
+| 6.4.4 | Verifique que las listas de permitidos del repositorio sean revisadas trimestralmente con evidencia de justificación comercial para cada entrada.    |   2   |  V  |
+| 6.4.5 | Verificar que los incumplimientos de políticas desencadenen la cuarentena de artefactos y la reversión de las ejecuciones de pipelines dependientes. |   3   |  V  |
+
+---
+
+## C6.5 Evaluación de riesgos de un conjunto de datos de terceros
+
+Evaluar conjuntos de datos externos para envenenamiento, sesgo y cumplimiento legal, y monitorearlos a lo largo de su ciclo de vida.
+
+|   #   | Descripción                                                                                                                                                                | Nivel | Rol |
+| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 6.5.1 | Verifique que los conjuntos de datos externos se sometan a una puntuación de riesgo de envenenamiento (p. ej., huellas digitales de datos, detección de valores atípicos). |   1   | D/V |
+| 6.5.2 | Verifique que las métricas de sesgo (paridad demográfica, igualdad de oportunidades) se calculen antes de la aprobación del conjunto de datos.                             |   1   |  D  |
+| 6.5.3 | Verifique que la proveniencia y los términos de la licencia de los conjuntos de datos estén capturados en las entradas de ML‑BOM.                                          |   2   |  V  |
+| 6.5.4 | Verificar que el monitoreo periódico detecte deriva o corrupción en conjuntos de datos alojados.                                                                           |   2   |  V  |
+| 6.5.5 | Verifique que el contenido no permitido (derechos de autor, información de identificación personal) se elimine mediante depuración automatizada antes del entrenamiento.   |   3   |  D  |
+
+---
+
+## C6.6 Monitoreo de ataques a la cadena de suministro
+
+Detectar tempranamente amenazas de la cadena de suministro mediante feeds de CVE, análisis de registros de auditoría y simulaciones de red team.
+
+|   #   | Descripción                                                                                                                                                                                  | Nivel | Rol |
+| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 6.6.1 | Verifique que los registros de auditoría de CI/CD se transmitan a las detecciones del SIEM para descargas de paquetes anómalas o pasos de compilación manipulados.                           |   1   |  V  |
+| 6.6.2 | Verifique que los planes de respuesta a incidentes incluyan procedimientos de reversión para modelos o bibliotecas comprometidos.                                                            |   2   |  D  |
+| 6.6.3 | Verifique que el enriquecimiento de inteligencia de amenazas etiquete indicadores específicos de aprendizaje automático (p. ej., IoCs de envenenamiento de modelos) en el triaje de alertas. |   3   |  V  |
+
+---
+
+## C6.7 ML‑BOM para artefactos del modelo
+
+Genere y firme SBOMs detalladas específicas para ML (ML‑BOMs) para que los consumidores aguas abajo puedan verificar la integridad de los componentes en el momento del despliegue.
+
+|   #   | Descripción                                                                                                                                               | Nivel | Rol |
+| :---: | --------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 6.7.1 | Verifique que cada artefacto del modelo publique un ML‑BOM que liste conjuntos de datos, pesos, hiperparámetros y licencias.                              |   1   | D/V |
+| 6.7.2 | Verifique que la generación de ML‑BOM y la firma de Cosign estén automatizadas en CI y sean requeridas para la fusión.                                    |   1   | D/V |
+| 6.7.3 | Verifique que las comprobaciones de completitud de ML‑BOM hagan que la compilación falle si falta algún metadato del componente (hash, licencia).         |   2   |  D  |
+| 6.7.4 | Verifique que los consumidores aguas abajo puedan consultar ML-BOMs a través de una API para validar los modelos importados en el momento del despliegue. |   2   |  V  |
+| 6.7.5 | Verifique que los ML‑BOMs estén bajo control de versiones y se comparen para detectar modificaciones no autorizadas.                                      |   3   |  V  |
 
 ---
 
