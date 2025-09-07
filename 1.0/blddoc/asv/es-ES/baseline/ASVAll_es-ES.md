@@ -2,19 +2,19 @@
 
 ### Acerca del Estándar
 
-El Estándar de Verificación de Seguridad de la Inteligencia Artificial (AISVS) es un catálogo impulsado por la comunidad de requisitos de seguridad que científicos de datos, ingenieros de MLOps, arquitectos de software, desarrolladores, evaluadores, profesionales de seguridad, proveedores de herramientas, reguladores y consumidores pueden usar para diseñar, construir, probar y verificar sistemas y aplicaciones habilitados con IA confiables. Proporciona un lenguaje común para especificar controles de seguridad a lo largo del ciclo de vida de la IA, desde la recopilación de datos y el desarrollo de modelos hasta el despliegue y la monitorización continua, de modo que las organizaciones puedan medir y mejorar la resiliencia, privacidad y seguridad de sus soluciones de IA.
+El Estándar de Verificación de Seguridad de la Inteligencia Artificial (AISVS) es un catálogo impulsado por la comunidad de requisitos de seguridad que científicos de datos, ingenieros de MLOps, arquitectos de software, desarrolladores, evaluadores, profesionales de seguridad, proveedores de herramientas, reguladores y consumidores pueden usar para diseñar, construir, probar y verificar sistemas y aplicaciones confiables habilitados con IA. Proporciona un lenguaje común para especificar controles de seguridad a lo largo del ciclo de vida de la IA, desde la recopilación de datos y el desarrollo de modelos hasta la implementación y la supervisión continua, de modo que las organizaciones puedan medir y mejorar la resiliencia, la privacidad y la seguridad de sus soluciones de IA.
 
 ### Derechos de autor y licencia
 
 Versión 0.1 (Primer Borrador Público - Trabajo en Progreso), 2025  
 
 ![license](images/license.png)
-Copyright © 2025 El Proyecto AISVS.  
+Derechos de autor © 2025 El Proyecto AISVS.  
 
-Publicado bajo laCreative Commons Attribution‑ShareAlike 4.0 International License.
+Lanzado bajo laCreative Commons Attribution‑ShareAlike 4.0 International License.
 Para cualquier reutilización o distribución, debe comunicar claramente los términos de la licencia de este trabajo a otros.
 
-### Líderes del Proyecto
+### Líderes de Proyecto
 
 Jim Manico
 Aras “Russ” Memisyazici
@@ -30,19 +30,19 @@ https://github.com/deepakrpandey12
 
 ---
 
-AISVS es un estándar completamente nuevo creado específicamente para abordar los desafíos únicos de seguridad de los sistemas de inteligencia artificial. Aunque se inspira en las mejores prácticas de seguridad más generales, cada requisito en AISVS ha sido desarrollado desde cero para reflejar el panorama de amenazas de la IA y ayudar a las organizaciones a construir soluciones de IA más seguras y resistentes.
+AISVS es un estándar completamente nuevo creado específicamente para abordar los desafíos únicos de seguridad de los sistemas de inteligencia artificial. Aunque se inspira en las mejores prácticas de seguridad más amplias, cada requisito en AISVS se ha desarrollado desde cero para reflejar el panorama de amenazas de la IA y ayudar a las organizaciones a construir soluciones de IA más seguras y resilientes.
 
 ## Prefacio
 
-¡Bienvenido al Estándar de Verificación de Seguridad de Inteligencia Artificial (AISVS) versión 1.0!
+¡Bienvenido al Estándar de Verificación de Seguridad en Inteligencia Artificial (AISVS) versión 1.0!
 
 ### Introducción
 
-Establecida en 2025 mediante un esfuerzo comunitario colaborativo, AISVS define los requisitos de seguridad a considerar al diseñar, desarrollar, desplegar y operar modelos de IA modernos, pipelines y servicios habilitados con IA.
+Establecida en 2025 mediante un esfuerzo colaborativo comunitario, AISVS define los requisitos de seguridad a considerar al diseñar, desarrollar, desplegar y operar modelos de IA modernos, canalizaciones y servicios habilitados con IA.
 
-AISVS v1.0 representa el trabajo conjunto de sus líderes de proyecto, el grupo de trabajo y colaboradores de la comunidad en general para producir una base pragmática y comprobable para asegurar los sistemas de IA.
+AISVS v1.0 representa el trabajo combinado de sus líderes de proyecto, grupo de trabajo y contribuyentes de la comunidad en general para producir una línea base pragmática y comprobable para asegurar los sistemas de IA.
 
-Nuestro objetivo con esta versión es hacer que AISVS sea fácil de adoptar, manteniéndonos enfocados con precisión en su alcance definido y abordando el paisaje de riesgos que evoluciona rápidamente y es único para la IA.
+Nuestro objetivo con esta versión es hacer que AISVS sea fácil de adoptar, manteniendo un enfoque preciso en su alcance definido y abordando el panorama de riesgos en rápida evolución, único en la IA.
 
 ### Objetivos clave para AISVS Versión 1.0
 
@@ -50,11 +50,11 @@ La versión 1.0 se creará con varios principios rectores.
 
 #### Alcance Bien Definido
 
-Cada requisito debe estar alineado con el nombre y la misión de AISVS:
+Cada requisito debe alinearse con el nombre y la misión de AISVS:
 
-Inteligencia Artificial – Los controles operan en la capa de IA/ML (datos, modelo, canalización o inferencia) y son responsabilidad de los practicantes de IA.
-Seguridad – Los requisitos mitiguen directamente los riesgos identificados de seguridad, privacidad o seguridad.
-Verificación: el lenguaje está escrito para que la conformidad pueda validarse objetivamente.
+Inteligencia Artificial – Los controles operan en la capa de IA/ML (datos, modelo, pipeline o inferencia) y son responsabilidad de los practicantes de IA.
+Seguridad – Los requisitos mitigan directamente los riesgos identificados de seguridad, privacidad o seguridad.
+Verificación: el lenguaje está escrito de manera que la conformidad pueda validarse objetivamente.
 Estándar: las secciones siguen una estructura y terminología coherentes para formar una referencia consistente.
 ​
 ---
@@ -63,15 +63,15 @@ Al seguir AISVS, las organizaciones pueden evaluar y fortalecer sistemáticament
 
 ## Usando el AISVS
 
-El Estándar de Verificación de Seguridad de la Inteligencia Artificial (AISVS) define requisitos de seguridad para aplicaciones y servicios de IA modernos, centrándose en aspectos bajo el control de los desarrolladores de aplicaciones.
+El Estándar de Verificación de Seguridad de la Inteligencia Artificial (AISVS) define los requisitos de seguridad para aplicaciones y servicios de IA modernos, enfocándose en aspectos bajo el control de los desarrolladores de aplicaciones.
 
-El AISVS está destinado a cualquier persona que desarrolle o evalúe la seguridad de aplicaciones de IA, incluidos desarrolladores, arquitectos, ingenieros de seguridad y auditores. Este capítulo presenta la estructura y el uso del AISVS, incluyendo sus niveles de verificación y casos de uso previstos.
+El AISVS está destinado a cualquier persona que desarrolle o evalúe la seguridad de aplicaciones de IA, incluidos desarrolladores, arquitectos, ingenieros de seguridad y auditores. Este capítulo presenta la estructura y el uso del AISVS, incluidos sus niveles de verificación y casos de uso previstos.
 
 ### Niveles de Verificación de Seguridad en Inteligencia Artificial
 
-El AISVS define tres niveles ascendentes de verificación de seguridad. Cada nivel añade profundidad y complejidad, permitiendo a las organizaciones adaptar su postura de seguridad al nivel de riesgo de sus sistemas de IA.
+El AISVS define tres niveles ascendentes de verificación de seguridad. Cada nivel añade profundidad y complejidad, lo que permite a las organizaciones adaptar su postura de seguridad al nivel de riesgo de sus sistemas de IA.
 
-Las organizaciones pueden comenzar en el Nivel 1 y adoptar progresivamente niveles más altos a medida que aumenta la madurez en seguridad y la exposición a amenazas.
+Las organizaciones pueden comenzar en el Nivel 1 y adoptar progresivamente niveles más altos a medida que aumentan la madurez de la seguridad y la exposición a amenazas.
 
 #### Definición de los Niveles
 
@@ -79,29 +79,29 @@ Cada requisito en AISVS v1.0 se asigna a uno de los siguientes niveles:
 
  Requisitos de Nivel 1
 
-El Nivel 1 incluye los requisitos de seguridad más críticos y fundamentales. Estos se centran en prevenir ataques comunes que no dependen de otras condiciones previas o vulnerabilidades. La mayoría de los controles del Nivel 1 son sencillos de implementar o lo suficientemente esenciales como para justificar el esfuerzo.
+El Nivel 1 incluye los requisitos de seguridad más críticos y fundamentales. Estos se centran en prevenir ataques comunes que no dependen de otras condiciones previas o vulnerabilidades. La mayoría de los controles del Nivel 1 son fáciles de implementar o lo suficientemente esenciales como para justificar el esfuerzo.
 
- Requisitos de nivel 2
+ Requisitos de Nivel 2
 
-El Nivel 2 aborda ataques más avanzados o menos comunes, así como defensas en capas contra amenazas generalizadas. Estos requisitos pueden implicar una lógica más compleja o dirigirse a prerrequisitos específicos del ataque.
+El Nivel 2 aborda ataques más avanzados o menos comunes, así como defensas en capas contra amenazas generalizadas. Estos requisitos pueden implicar una lógica más compleja o dirigirse a prerrequisitos específicos de ataques.
 
  Requisitos de nivel 3
 
-El Nivel 3 incluye controles que generalmente son más difíciles de implementar o que son aplicables en situaciones específicas. Estos a menudo representan mecanismos de defensa en profundidad o mitigaciones contra ataques especializados, dirigidos o de alta complejidad.
+El Nivel 3 incluye controles que normalmente son más difíciles de implementar o que se aplican en situaciones específicas. Estos a menudo representan mecanismos de defensa en profundidad o mitigaciones contra ataques especializados, dirigidos o de alta complejidad.
 
 #### Rol (D/V)
 
-Cada requisito de AISVS está marcado según la audiencia principal:
+Cada requisito de AISVS está marcado según el público principal:
 
 D – Requisitos enfocados en el desarrollador
-V – Requisitos enfocados en el verificador/auditor
+V – Requisitos centrados en el verificador/auditor
 D/V – Relevante tanto para desarrolladores como para verificadores
 
-## Gobernanza de Datos de Entrenamiento C1 y Gestión de Sesgos
+## C1 Gobernanza de Datos de Entrenamiento y Gestión de Sesgos
 
 ### Objetivo de Control
 
-Los datos de entrenamiento deben obtenerse, manejarse y mantenerse de manera que se preserve la procedencia, seguridad, calidad y equidad. Hacer esto cumple con obligaciones legales y reduce los riesgos de sesgos, envenenamiento o violaciones de privacidad que puedan surgir durante el entrenamiento y que podrían afectar todo el ciclo de vida de la IA.
+Los datos de entrenamiento deben ser obtenidos, manejados y mantenidos de una manera que preserve la procedencia, seguridad, calidad y equidad. Hacer esto cumple con las obligaciones legales y reduce los riesgos de sesgo, envenenamiento o violaciones de privacidad que puedan aparecer durante el entrenamiento y que podrían afectar todo el ciclo de vida de la IA.
 
 ---
 
@@ -112,75 +112,75 @@ Mantenga un inventario verificable de todos los conjuntos de datos, acepte solo 
  #1.1.1    Nivel: 1    Rol: D/V
  Verifique que se mantenga un inventario actualizado de cada fuente de datos de entrenamiento (origen, responsable/propietario, licencia, método de recopilación, restricciones de uso previstas e historial de procesamiento).
  #1.1.2    Nivel: 1    Rol: D/V
- Verifique que los procesos de datos de entrenamiento excluyan características, atributos o campos innecesarios (por ejemplo, metadatos no utilizados, PII sensible, datos de prueba filtrados).
+ Verifique que los procesos de datos de entrenamiento excluyan características, atributos o campos innecesarios (por ejemplo, metadatos no utilizados, información de identificación personal sensible, datos de prueba filtrados).
  #1.1.3    Nivel: 2    Rol: D/V
  Verifique que todos los cambios en el conjunto de datos estén sujetos a un flujo de trabajo de aprobación registrado.
  #1.1.4    Nivel: 3    Rol: D/V
- Verifique que los conjuntos de datos o subconjuntos estén marcados con marcas de agua o huellas digitales cuando sea factible.
+ Verifique que los conjuntos de datos o subconjuntos estén marcados con marcas de agua o huellas digitales cuando sea posible.
 
 ---
 
 ### C1.2 Seguridad e Integridad de los Datos de Entrenamiento
 
-Restringir el acceso a los datos de entrenamiento, cifrarlos en reposo y en tránsito, y validar su integridad para prevenir manipulaciones, robos o envenenamiento de datos.
+Restringir el acceso a los datos de entrenamiento, encriptarlos en reposo y en tránsito, y validar su integridad para prevenir la manipulación, el robo o el envenenamiento de datos.
 
  #1.2.1    Nivel: 1    Rol: D/V
  Verifique que los controles de acceso protejan el almacenamiento de datos de entrenamiento y las canalizaciones.
  #1.2.2    Nivel: 2    Rol: D/V
- Verificar que todo el acceso a los datos de entrenamiento esté registrado, incluyendo usuario, hora y acción.
+ Verifique que todo acceso a los datos de entrenamiento esté registrado, incluyendo usuario, hora y acción.
  #1.2.3    Nivel: 2    Rol: D/V
- Verifique que los conjuntos de datos de entrenamiento estén cifrados en tránsito y en reposo, utilizando algoritmos criptográficos estándar de la industria y prácticas de gestión de claves.
+ Verifique que los conjuntos de datos de entrenamiento estén cifrados durante la transferencia y en reposo, utilizando algoritmos criptográficos estándar de la industria y prácticas de gestión de claves.
  #1.2.4    Nivel: 2    Rol: D/V
- Verifique que se utilicen hashes criptográficos o firmas digitales para garantizar la integridad de los datos durante el almacenamiento y la transferencia de los datos de entrenamiento.
+ Verifique que se utilicen hashes criptográficos o firmas digitales para garantizar la integridad de los datos durante el almacenamiento y la transferencia de datos de entrenamiento.
  #1.2.5    Nivel: 2    Rol: D/V
- Verifique que se apliquen técnicas de detección automatizadas para proteger contra modificaciones no autorizadas o corrupción de los datos de entrenamiento.
+ Verifique que se apliquen técnicas automatizadas de detección para proteger contra modificaciones no autorizadas o corrupción de los datos de entrenamiento.
  #1.2.6    Nivel: 2    Rol: D/V
- Verifique que los datos de entrenamiento obsoletos se eliminen o anonimicen de manera segura.
+ Verifique que los datos de entrenamiento obsoletos se eliminen de forma segura o se anonimen.
  #1.2.7    Nivel: 3    Rol: D/V
- Verifique que todas las versiones del conjunto de datos de entrenamiento estén identificadas de manera única, almacenadas de forma inmutable y sean auditables para respaldar la reversión y el análisis forense.
+ Verifique que todas las versiones del conjunto de datos de entrenamiento estén identificadas de manera única, almacenadas de forma inmutable y sean auditables para apoyar la reversión y el análisis forense.
 
 ---
 
-### C1.3 Calidad, integridad y seguridad del etiquetado de datos de entrenamiento
+### C1.3 Calidad, Integridad y Seguridad del Etiquetado de Datos de Entrenamiento
 
-Proteger las etiquetas y requerir revisión técnica para datos críticos.
+Proteger las etiquetas y requerir una revisión técnica para los datos críticos.
 
  #1.3.1    Nivel: 2    Rol: D/V
  Verifique que se apliquen hashes criptográficos o firmas digitales a los artefactos de etiquetas para garantizar su integridad y autenticidad.
  #1.3.2    Nivel: 2    Rol: D/V
- Verifique que las interfaces y plataformas de etiquetado apliquen controles de acceso sólidos, mantengan registros de auditoría a prueba de manipulaciones de todas las actividades de etiquetado y protejan contra modificaciones no autorizadas.
+ Verifique que las interfaces y plataformas de etiquetado apliquen controles de acceso estrictos, mantengan registros de auditoría a prueba de manipulaciones de todas las actividades de etiquetado y protejan contra modificaciones no autorizadas.
  #1.3.3    Nivel: 3    Rol: D/V
- Verifique que la información sensible en las etiquetas esté redactada, anonimizada o cifrada a nivel de campo de datos, tanto en reposo como en tránsito.
+ Verifique que la información sensible en las etiquetas esté redactada, anonimizada o cifrada a nivel de campo de datos en reposo y en tránsito.
 
 ---
 
 ### C1.4 Calidad de los Datos de Entrenamiento y Garantía de Seguridad
 
-Combine la validación automatizada, las inspecciones manuales aleatorias y la remediación registrada para garantizar la fiabilidad del conjunto de datos.
+Combine la validación automatizada, las verificaciones manuales al azar y la remediación registrada para garantizar la fiabilidad del conjunto de datos.
 
  #1.4.1    Nivel: 1    Rol: D
- Verifique que las pruebas automatizadas detecten errores de formato y valores nulos en cada ingestión o transformación significativa de datos.
+ Verifique que las pruebas automatizadas detecten errores de formato y valores nulos en cada ingestión o transformación de datos significativa.
  #1.4.2    Nivel: 2    Rol: D/V
- Verifique que las canalizaciones de entrenamiento y ajuste fino de LLM implementen la detección de envenenamiento y la validación de la integridad de los datos (por ejemplo, métodos estadísticos, detección de valores atípicos, análisis de incrustaciones) para identificar posibles ataques de envenenamiento (por ejemplo, cambio de etiquetas, inserción de disparadores de puerta trasera, comandos de cambio de rol, ataques de instancias influyentes) o corrupción no intencional de datos en los datos de entrenamiento.
+ Verifique que las canalizaciones de entrenamiento y ajuste fino de LLM implementen detección de envenenamiento y validación de integridad de datos (por ejemplo, métodos estadísticos, detección de valores atípicos, análisis de embeddings) para identificar posibles ataques de envenenamiento (por ejemplo, cambio de etiqueta, inserción de disparadores de puerta trasera, comandos de intercambio de roles, ataques de instancias influyentes) o corrupción accidental de datos en los datos de entrenamiento.
  #1.4.3    Nivel: 3    Rol: D/V
- Verifique que se implementen y ajusten las defensas adecuadas, como el entrenamiento adversarial (utilizando ejemplos adversariales generados), la ampliación de datos con entradas perturbadas o técnicas de optimización robusta, para los modelos relevantes según la evaluación de riesgos.
+ Verifique que se implementen y ajusten defensas apropiadas, como el entrenamiento adversarial (utilizando ejemplos adversariales generados), la aumentación de datos con entradas perturbadas o técnicas de optimización robusta, para los modelos relevantes según la evaluación de riesgos.
  #1.4.4    Nivel: 2    Rol: D/V
- Verifique que las etiquetas generadas automáticamente (por ejemplo, mediante LLMs o supervisión débil) estén sujetas a umbrales de confianza y verificaciones de coherencia para detectar etiquetas alucinadas, engañosas o de baja confianza.
+ Verifique que las etiquetas generadas automáticamente (por ejemplo, mediante LLMs o supervisión débil) estén sujetas a umbrales de confianza y verificaciones de consistencia para detectar etiquetas alucinadas, engañosas o de baja confianza.
  #1.4.5    Nivel: 3    Rol: D
- Verifique que las pruebas automatizadas detecten desviaciones de etiquetas en cada ingreso o transformación significativa de datos.
+ Verifique que las pruebas automatizadas detecten desviaciones de etiquetas en cada ingestión o transformación de datos significativa.
 
 ---
 
-### C1.5 Linaje de Datos y Capacidad de Rastreabilidad
+### C1.5 Linaje y trazabilidad de datos
 
-Realice un seguimiento completo del recorrido de cada punto de datos desde la fuente hasta la entrada del modelo para auditoría y respuesta ante incidentes.
+Realice un seguimiento del recorrido completo de cada punto de datos desde la fuente hasta la entrada del modelo para garantizar la auditoría y la respuesta a incidentes.
 
  #1.5.1    Nivel: 2    Rol: D/V
- Verifique que el linaje de cada punto de datos, incluyendo todas las transformaciones, aumentos y combinaciones, esté registrado y pueda ser reconstruido.
+ Verifique que la genealogía de cada punto de datos, incluyendo todas las transformaciones, aumentos y fusiones, esté registrada y pueda ser reconstruida.
  #1.5.2    Nivel: 2    Rol: D/V
  Verifique que los registros de linaje sean inmutables, estén almacenados de forma segura y sean accesibles para auditorías.
  #1.5.3    Nivel: 2    Rol: D/V
- Verifique que el seguimiento de linaje cubra los datos sintéticos generados mediante técnicas de preservación de la privacidad o generativas, y que todos los datos sintéticos estén claramente etiquetados y sean distinguibles de los datos reales a lo largo de toda la canalización.
+ Verifique que el seguimiento de linaje cubra los datos sintéticos generados mediante técnicas generativas o de preservación de la privacidad y que todos los datos sintéticos estén claramente etiquetados y sean distinguibles de los datos reales a lo largo de todo el flujo de trabajo.
 
 ---
 
@@ -202,79 +202,79 @@ Supply-Chain Security for AI Data – AppSOC
 OpenAI Privacy Center – Data Deletion Controls
 Adversarial ML Dataset – Kaggle
 
-## Validación de Entrada de Usuario C2
+## Validación de entrada del usuario C2
 
 ### Objetivo de Control
 
-La validación robusta de la entrada del usuario es una defensa de primera línea contra algunos de los ataques más dañinos en los sistemas de IA. Los ataques de inyección de instrucciones pueden anular las instrucciones del sistema, filtrar datos sensibles o dirigir el modelo hacia comportamientos no permitidos. A menos que existan filtros dedicados y jerarquías de instrucciones, la investigación muestra que las "evasiones multi-disparo" que explotan ventanas de contexto muy largas serán efectivas. Además, los ataques sutiles de perturbaciones adversariales, como intercambios de homógrafos o leetspeak, pueden cambiar silenciosamente las decisiones de un modelo.
+La validación robusta de la entrada del usuario es una defensa de primera línea contra algunos de los ataques más dañinos en los sistemas de IA. Los ataques de inyección de instrucciones pueden anular las instrucciones del sistema, filtrar datos sensibles o dirigir el modelo hacia un comportamiento no permitido. A menos que existan filtros dedicados y jerarquías de instrucciones, las investigaciones muestran que las "evasiones multi-shot" que explotan ventanas de contexto muy largas serán efectivas. Además, los ataques sutiles de perturbación adversarial —como intercambios de homoglifos o leetspeak— pueden cambiar silenciosamente las decisiones de un modelo.
 
 ---
 
-### C2.1 Defensa contra la Inyección de Prompts
+### C2.1 Defensa contra Inyección de Prompts
 
 La inyección de prompt es uno de los principales riesgos para los sistemas de IA. Las defensas contra esta táctica emplean una combinación de filtros de patrones estáticos, clasificadores dinámicos y la aplicación de jerarquías de instrucciones.
 
  #2.1.1    Nivel: 1    Rol: D/V
- Verifique que las entradas del usuario sean filtradas contra una biblioteca actualizada continuamente de patrones conocidos de inyección de prompts (palabras clave de jailbreak, "ignorar lo anterior", cadenas de juegos de roles, ataques indirectos de HTML/URL).
+ Verifique que las entradas de los usuarios se filtran contra una biblioteca continuamente actualizada de patrones conocidos de inyección de indicaciones (palabras clave de jailbreak, "ignorar lo anterior", cadenas de juego de roles, ataques indirectos de HTML/URL).
  #2.1.2    Nivel: 1    Rol: D/V
- Verifique que el sistema imponga una jerarquía de instrucciones en la que los mensajes del sistema o del desarrollador prevalezcan sobre las instrucciones del usuario, incluso después de la expansión de la ventana de contexto.
+ Verifique que el sistema aplique una jerarquía de instrucciones en la que los mensajes del sistema o del desarrollador prevalezcan sobre las instrucciones del usuario, incluso después de la expansión de la ventana de contexto.
  #2.1.3    Nivel: 2    Rol: D/V
- Verifique que las pruebas de evaluación adversarial (por ejemplo, indicaciones "many-shot" del Equipo Rojo) se realicen antes de cada lanzamiento de modelo o plantilla de indicaciones, con umbrales de tasa de éxito y bloqueadores automatizados para regresiones.
+ Verifique que las pruebas de evaluación adversarial (por ejemplo, los "prompts many-shot" del Red Team) se realicen antes de cada lanzamiento de modelo o plantilla de prompt, con umbrales de tasa de éxito y bloqueadores automáticos para regresiones.
  #2.1.4    Nivel: 2    Rol: D
- Verifique que las indicaciones provenientes de contenido de terceros (páginas web, PDFs, correos electrónicos) sean limpiadas en un contexto de análisis aislado antes de ser concatenadas en la indicación principal.
+ Verifique que los prompts originados a partir de contenido de terceros (páginas web, PDFs, correos electrónicos) sean limpiados en un contexto de análisis aislado antes de ser concatenados en el prompt principal.
  #2.1.5    Nivel: 3    Rol: D/V
- Verifique que todas las actualizaciones de reglas de filtro de prompt, versiones del modelo clasificador y cambios en la lista de bloqueo estén bajo control de versiones y sean auditables.
+ Verifique que todas las actualizaciones de reglas de filtro de indicaciones, versiones de modelos clasificadores y cambios en la lista de bloqueo estén controlados por versiones y sean auditables.
 
 ---
 
 ### C2.2 Resistencia a Ejemplos Adversarios
 
-Los modelos de Procesamiento de Lenguaje Natural (PLN) aún son vulnerables a perturbaciones sutiles a nivel de caracteres o palabras que los humanos a menudo pasan por alto, pero que los modelos tienden a clasificar incorrectamente.
+Los modelos de Procesamiento de Lenguaje Natural (NLP) siguen siendo vulnerables a perturbaciones sutiles a nivel de caracteres o palabras que los humanos a menudo pasan por alto, pero que los modelos tienden a clasificar incorrectamente.
 
  #2.2.1    Nivel: 1    Rol: D
- Verifique que los pasos básicos de normalización de entrada (Unicode NFC, mapeo de homoglifos, recorte de espacios en blanco) se ejecuten antes de la tokenización.
+ Verifique que los pasos básicos de normalización de entrada (Unicode NFC, mapeo de homógrafos, recorte de espacios en blanco) se ejecuten antes de la tokenización.
  #2.2.2    Nivel: 2    Rol: D/V
- Verifique que la detección estadística de anomalías marque las entradas con una distancia de edición inusualmente alta respecto a las normas del lenguaje, tokens repetidos en exceso o distancias de incrustación anormales.
+ Verifique que la detección estadística de anomalías marque las entradas con una distancia de edición inusualmente alta respecto a las normas del lenguaje, tokens repetidos en exceso o distancias anormales en el embedding.
  #2.2.3    Nivel: 2    Rol: D
- Verifique que la canalización de inferencia soporte variantes opcionales de modelos reforzados mediante entrenamiento adversarial o capas de defensa (por ejemplo, aleatorización, destilación defensiva) para puntos finales de alto riesgo.
+ Verifique que la canalización de inferencia soporte variantes opcionales de modelos endurecidos por entrenamiento adversarial o capas de defensa (por ejemplo, aleatorización, destilación defensiva) para puntos finales de alto riesgo.
  #2.2.4    Nivel: 2    Rol: V
- Verifique que las entradas adversarias sospechosas estén en cuarentena y registradas con las cargas completas (después de la redacción de la información de identificación personal, PII).
+ Verifique que las entradas adversarias sospechosas estén en cuarentena, registradas con cargas completas (después de la redacción de la información de identificación personal).
  #2.2.5    Nivel: 3    Rol: D/V
- Verifique que las métricas de robustez (tasa de éxito de conjuntos de ataques conocidos) se rastreen a lo largo del tiempo y que las regresiones activen un bloqueador de lanzamiento.
+ Verifique que las métricas de robustez (tasa de éxito de suites de ataques conocidos) se monitoreen a lo largo del tiempo y que las regresiones activen un bloqueo de lanzamiento.
 
 ---
 
 ### C2.3 Validación de Esquema, Tipo y Longitud
 
-Los ataques de IA que presentan entradas deformadas o sobredimensionadas pueden causar errores de análisis, derrame de indicaciones entre campos y agotamiento de recursos. La aplicación estricta del esquema también es un requisito previo al realizar llamadas deterministas a herramientas.
+Los ataques de IA que presentan entradas malformadas o de tamaño excesivo pueden causar errores de análisis, desbordamiento de solicitudes entre campos y agotamiento de recursos. La aplicación estricta de esquemas también es un requisito previo al realizar llamadas a herramientas determinísticas.
 
  #2.3.1    Nivel: 1    Rol: D
- Verifique que cada endpoint de llamada a API o función defina un esquema de entrada explícito (JSON Schema, Protobuf o equivalente multimodal) y que las entradas sean validadas antes del ensamblaje del prompt.
+ Verifique que cada punto final de llamada a API o función defina un esquema de entrada explícito (JSON Schema, Protobuf o equivalente multimodal) y que las entradas sean validadas antes del ensamblaje del prompt.
  #2.3.2    Nivel: 1    Rol: D/V
- Verifique que las entradas que excedan los límites máximos de tokens o bytes sean rechazadas con un error seguro y nunca se trunquen silenciosamente.
+ Verifique que las entradas que superan los límites máximos de tokens o bytes sean rechazadas con un error seguro y nunca sean truncadas silenciosamente.
  #2.3.3    Nivel: 2    Rol: D/V
- Verifique que las comprobaciones de tipo (p. ej., rangos numéricos, valores enumerados, tipos MIME para imágenes/audio) se apliquen del lado del servidor, no solo en el código del cliente.
+ Verifique que las comprobaciones de tipo (por ejemplo, rangos numéricos, valores enumerados, tipos MIME para imágenes/audio) se apliquen en el servidor, no solo en el código del cliente.
  #2.3.4    Nivel: 2    Rol: D
- Verifique que los validadores semánticos (por ejemplo, JSON Schema) se ejecuten en tiempo constante para prevenir ataques DoS algorítmicos.
+ Verifique que los validadores semánticos (por ejemplo, JSON Schema) se ejecuten en tiempo constante para evitar ataques DoS algorítmicos.
  #2.3.5    Nivel: 3    Rol: V
- Verifique que las fallas de validación se registren con fragmentos de carga útil redactados y códigos de error inequívocos para facilitar el análisis de seguridad.
+ Verifique que los fallos de validación se registren con fragmentos de carga útil redactados y códigos de error inequívocos para facilitar la clasificación de seguridad.
 
 ---
 
-### C2.4 Filtrado de Contenido y Políticas
+### C2.4 Cribado de Contenido y Política
 
-Los desarrolladores deberían poder detectar indicaciones sintácticamente válidas que soliciten contenido prohibido (como instrucciones ilícitas, discurso de odio y texto con derechos de autor) y luego evitar que se propaguen.
+Los desarrolladores deberían ser capaces de detectar indicaciones sintácticamente válidas que soliciten contenido no permitido (como instrucciones ilícitas, discurso de odio y texto con derechos de autor) y luego evitar que se propaguen.
 
  #2.4.1    Nivel: 1    Rol: D
- Verifique que un clasificador de contenido (sin entrenamiento previo o ajustado) evalúe cada entrada para violencia, autolesiones, odio, contenido sexual y solicitudes ilegales, con umbrales configurables.
+ Verifique que un clasificador de contenido (sin entrenamiento previo o afinado) evalúe cada entrada en cuanto a violencia, autolesiones, odio, contenido sexual y solicitudes ilegales, con umbrales configurables.
  #2.4.2    Nivel: 1    Rol: D/V
- Verifique que las entradas que violen las políticas reciban rechazos estandarizados o finalizaciones seguras para que no se propaguen a llamadas posteriores de LLM.
+ Verifique que las entradas que violen las políticas reciban rechazos estandarizados o cumplimientos seguros para que no se propaguen a llamadas posteriores de LLM.
  #2.4.3    Nivel: 2    Rol: D
- Verifique que el modelo de detección o el conjunto de reglas se reentrene/actualice al menos trimestralmente, incorporando los patrones recién observados de jailbreak o evasión de políticas.
+ Verifique que el modelo de filtrado o el conjunto de reglas se reentrene/actualice al menos trimestralmente, incorporando los nuevos patrones observados de jailbreak o elusión de políticas.
  #2.4.4    Nivel: 2    Rol: D
- Verificar que el filtrado respete las políticas específicas del usuario (edad, restricciones legales regionales) mediante reglas basadas en atributos resueltas en el momento de la solicitud.
+ Verifique que la evaluación respete las políticas específicas del usuario (edad, restricciones legales regionales) mediante reglas basadas en atributos que se resuelven en el momento de la solicitud.
  #2.4.5    Nivel: 3    Rol: V
- Verifique que los registros de filtrado incluyan puntajes de confianza del clasificador y etiquetas de categoría de política para la correlación SOC y la reproducción futura del equipo rojo.
+ Verifique que los registros de filtrado incluyan puntuaciones de confianza del clasificador y etiquetas de categoría de política para la correlación SOC y la repetición futura del equipo rojo.
 
 ---
 
@@ -283,79 +283,79 @@ Los desarrolladores deberían poder detectar indicaciones sintácticamente váli
 Los desarrolladores deben prevenir el abuso, el agotamiento de recursos y los ataques automatizados contra los sistemas de IA limitando las tasas de entrada y detectando patrones de uso anómalos.
 
  #2.5.1    Nivel: 1    Rol: D/V
- Verifique que los límites de velocidad por usuario, por IP y por clave de API se apliquen en todos los puntos de entrada de entrada.
+ Verifique que los límites de tasa por usuario, por IP y por clave API se apliquen para todos los puntos de entrada de datos.
  #2.5.2    Nivel: 2    Rol: D/V
- Verifique que los límites de velocidad en ráfaga y sostenidos estén ajustados para prevenir ataques de denegación de servicio (DoS) y de fuerza bruta.
+ Verifique que los límites de velocidad por ráfaga y sostenidos estén ajustados para prevenir ataques de denegación de servicio (DoS) y ataques de fuerza bruta.
  #2.5.3    Nivel: 2    Rol: D/V
- Verifique que los patrones de uso anómalos (por ejemplo, solicitudes en ráfaga, saturación de entradas) desencadenen bloqueos automáticos o escalaciones.
+ Verificar que los patrones de uso anómalos (por ejemplo, solicitudes rápidas consecutivas, inundación de entradas) desencadenen bloqueos automáticos o escalaciones.
  #2.5.4    Nivel: 3    Rol: V
- Verifique que los registros de prevención de abusos se conserven y revisen para detectar patrones emergentes de ataque.
+ Verifique que los registros de prevención de abuso se conserven y revisen para detectar patrones de ataque emergentes.
 
 ---
 
-### C2.6 Validación de Entrada Multi-Modal
+### C2.6 Validación de Entrada Multimodal
 
-Los sistemas de IA deben incluir una validación robusta para entradas no textuales (imágenes, audio, archivos) para prevenir inyecciones, evasiones o abuso de recursos.
+Los sistemas de IA deben incluir una validación robusta para entradas no textuales (imágenes, audio, archivos) para prevenir la inyección, evasión o abuso de recursos.
 
  #2.6.1    Nivel: 1    Rol: D
- Verifique que todas las entradas que no sean de texto (imágenes, audio, archivos) sean validadas por tipo, tamaño y formato antes de su procesamiento.
+ Verifique que todas las entradas no textuales (imágenes, audio, archivos) sean validadas en cuanto a tipo, tamaño y formato antes de procesarlas.
  #2.6.2    Nivel: 2    Rol: D/V
- Verifique que los archivos sean escaneados en busca de malware y cargas útiles esteganográficas antes de la ingestión.
+ Verifique que los archivos sean escaneados en busca de malware y cargas útiles esteganográficas antes de su ingestión.
  #2.6.3    Nivel: 2    Rol: D/V
- Verificar que las entradas de imagen/audio sean revisadas para detectar perturbaciones adversariales o patrones de ataque conocidos.
+ Verifique que las entradas de imagen/audio sean revisadas para detectar perturbaciones adversariales o patrones de ataques conocidos.
  #2.6.4    Nivel: 3    Rol: V
- Verifique que las fallas en la validación de entrada multimodal se registren y generen alertas para su investigación.
+ Verifique que las fallas en la validación de entradas multimodales se registren y desencadenen alertas para su investigación.
 
 ---
 
 ### C2.7 Procedencia y Atribución de la Entrada
 
-Los sistemas de IA deben apoyar la auditoría, el seguimiento de abusos y el cumplimiento mediante la monitorización y el etiquetado de los orígenes de todas las entradas de usuario.
+Los sistemas de IA deben soportar auditorías, seguimiento de abusos y cumplimiento mediante la monitorización y etiquetado de los orígenes de todas las entradas de los usuarios.
 
  #2.7.1    Nivel: 1    Rol: D/V
- Verifique que todas las entradas de los usuarios estén etiquetadas con metadatos (ID de usuario, sesión, fuente, marca de tiempo, dirección IP) en el momento de la ingestión.
+ Verifique que todas las entradas de usuario estén etiquetadas con metadatos (ID de usuario, sesión, fuente, marca de tiempo, dirección IP) al momento de la ingestión.
  #2.7.2    Nivel: 2    Rol: D/V
- Verifique que los metadatos de procedencia se conserven y sean auditables para todas las entradas procesadas.
+ Verifique que los metadatos de procedencia se mantengan y sean auditables para todas las entradas procesadas.
  #2.7.3    Nivel: 2    Rol: D/V
- Verifique que las fuentes de entrada anómalas o no confiables sean señaladas y estén sujetas a un escrutinio o bloqueo mejorado.
+ Verifique que las fuentes de entrada anómalas o no confiables sean señaladas y estén sujetas a un escrutinio reforzado o bloqueo.
 
 ---
 
 ### C2.8 Detección Adaptativa de Amenazas en Tiempo Real
 
-Los desarrolladores deben emplear sistemas avanzados de detección de amenazas para IA que se adapten a nuevos patrones de ataque y proporcionen protección en tiempo real con coincidencia de patrones compilados.
+Los desarrolladores deben emplear sistemas avanzados de detección de amenazas para IA que se adapten a nuevos patrones de ataque y proporcionen protección en tiempo real mediante coincidencia de patrones compilados.
 
  #2.8.1    Nivel: 1    Rol: D/V
- Verifique que los patrones de detección de amenazas estén compilados en motores de expresiones regulares optimizados para un filtrado en tiempo real de alto rendimiento con un impacto mínimo en la latencia.
+ Verifique que los patrones de detección de amenazas estén compilados en motores regex optimizados para un filtrado en tiempo real de alto rendimiento con un impacto mínimo en la latencia.
  #2.8.2    Nivel: 1    Rol: D/V
- Verifique que los sistemas de detección de amenazas mantengan bibliotecas de patrones separadas para diferentes categorías de amenazas (inyección de prompts, contenido perjudicial, datos sensibles, comandos del sistema).
+ Verifique que los sistemas de detección de amenazas mantengan bibliotecas de patrones separadas para diferentes categorías de amenazas (inyección de comandos, contenido dañino, datos sensibles, comandos del sistema).
  #2.8.3    Nivel: 2    Rol: D/V
- Verifique que la detección adaptativa de amenazas incorpore modelos de aprendizaje automático que actualicen la sensibilidad a las amenazas según la frecuencia de los ataques y las tasas de éxito.
+ Verifique que la detección adaptativa de amenazas incorpore modelos de aprendizaje automático que actualicen la sensibilidad a las amenazas en función de la frecuencia de ataques y las tasas de éxito.
  #2.8.4    Nivel: 2    Rol: D/V
- Verifique que las fuentes de inteligencia de amenazas en tiempo real actualicen automáticamente las bibliotecas de patrones con nuevas firmas de ataques e IOCs (Indicadores de Compromiso).
+ Verifique que los feeds de inteligencia de amenazas en tiempo real actualicen automáticamente las bibliotecas de patrones con nuevas firmas de ataque e IOCs (Indicadores de Compromiso).
  #2.8.5    Nivel: 3    Rol: D/V
- Verifique que las tasas de falsos positivos en la detección de amenazas se supervisen de manera continua y que la especificidad de los patrones se ajuste automáticamente para minimizar la interferencia en los casos de uso legítimos.
+ Verifique que las tasas de falsos positivos en la detección de amenazas se monitoreen continuamente y que la especificidad del patrón se ajuste automáticamente para minimizar la interferencia en casos de uso legítimos.
  #2.8.6    Nivel: 3    Rol: D/V
- Verifique que el análisis de amenazas contextual considere la fuente de entrada, los patrones de comportamiento del usuario y el historial de sesiones para mejorar la precisión de la detección.
+ Verifique que el análisis contextual de amenazas considere la fuente de entrada, los patrones de comportamiento del usuario y el historial de la sesión para mejorar la precisión de la detección.
  #2.8.7    Nivel: 3    Rol: D/V
- Verifique que las métricas de desempeño en detección de amenazas (tasa de detección, latencia de procesamiento, utilización de recursos) se monitoreen y optimicen en tiempo real.
+ Verifique que las métricas de rendimiento de la detección de amenazas (tasa de detección, latencia de procesamiento, utilización de recursos) se supervisen y optimicen en tiempo real.
 
 ---
 
-### C2.9 Canalización de Validación de Seguridad Multi-Modal
+### C2.9 Canal de Validación de Seguridad Multi-Modal
 
 Los desarrolladores deben proporcionar validación de seguridad para texto, imagen, audio y otras modalidades de entrada de IA con tipos específicos de detección de amenazas y aislamiento de recursos.
 
  #2.9.1    Nivel: 1    Rol: D/V
- Verifique que cada modalidad de entrada tenga validadores de seguridad dedicados con patrones de amenazas documentados (texto: inyección de comandos, imágenes: esteganografía, audio: ataques al espectrograma) y umbrales de detección.
+ Verifique que cada modalidad de entrada tenga validadores de seguridad dedicados con patrones de amenazas documentados (texto: inyección de indicaciones, imágenes: esteganografía, audio: ataques de espectrograma) y umbrales de detección.
  #2.9.2    Nivel: 2    Rol: D/V
- Verifique que las entradas multimodales se procesen en entornos aislados con límites definidos de recursos (memoria, CPU, tiempo de procesamiento) específicos para cada tipo de modalidad y documentados en las políticas de seguridad.
+ Verifique que las entradas multimodales se procesen en entornos aislados con límites de recursos definidos (memoria, CPU, tiempo de procesamiento) específicos para cada tipo de modalidad y documentados en las políticas de seguridad.
  #2.9.3    Nivel: 2    Rol: D/V
- Verifique que la detección de ataques cruzados modales identifique ataques coordinados que abarquen múltiples tipos de entrada (por ejemplo, cargas útiles esteganográficas en imágenes combinadas con inyección de instrucciones en texto) mediante reglas de correlación y generación de alertas.
+ Verifique que la detección de ataques cruzados modales identifique ataques coordinados que abarcan múltiples tipos de entrada (por ejemplo, cargas útiles esteganográficas en imágenes combinadas con inyección de indicaciones en texto) mediante reglas de correlación y generación de alertas.
  #2.9.4    Nivel: 3    Rol: D/V
- Verifique que las fallas de validación multimodal desencadenen un registro detallado que incluya todas las modalidades de entrada, resultados de validación, puntuaciones de amenaza y análisis de correlación con formatos de registro estructurados para la integración con SIEM.
+ Verifique que las fallas de validación multimodal desencadenen un registro detallado que incluya todas las modalidades de entrada, los resultados de la validación, las puntuaciones de amenazas y el análisis de correlación con formatos de registro estructurados para la integración con SIEM.
  #2.9.5    Nivel: 3    Rol: D/V
- Verifique que los clasificadores de contenido específicos de la modalidad se actualicen según los cronogramas documentados (mínimo trimestralmente) con nuevos patrones de amenaza, ejemplos adversariales y puntos de referencia de rendimiento mantenidos por encima de los umbrales básicos.
+ Verifique que los clasificadores de contenido específicos de la modalidad se actualicen según los cronogramas documentados (mínimo trimestralmente) con nuevos patrones de amenaza, ejemplos adversariales y que los puntos de referencia de rendimiento se mantengan por encima de los umbrales básicos.
 
 ---
 
@@ -382,9 +382,9 @@ Real-time Threat Detection
 
 ### Objetivo de Control
 
-Los sistemas de IA deben implementar procesos de control de cambios que eviten que modificaciones no autorizadas o inseguras del modelo lleguen a producción. Este control garantiza la integridad del modelo durante todo el ciclo de vida--desde el desarrollo hasta el despliegue y la desactivación--lo que permite una respuesta rápida a incidentes y mantiene la responsabilidad por todos los cambios.
+Los sistemas de IA deben implementar procesos de control de cambios que eviten que modificaciones no autorizadas o inseguras del modelo lleguen a producción. Este control garantiza la integridad del modelo durante todo el ciclo de vida, desde el desarrollo hasta el despliegue y la desactivación, lo que permite una respuesta rápida ante incidentes y mantiene la responsabilidad por todos los cambios.
 
-Objetivo principal de seguridad: Solo los modelos autorizados y validados llegan a producción mediante la implementación de procesos controlados que mantienen la integridad, trazabilidad y recuperabilidad.
+Objetivo principal de seguridad: Solo los modelos autorizados y validados llegan a producción mediante procesos controlados que mantienen la integridad, trazabilidad y recuperabilidad.
 
 ---
 
@@ -395,11 +395,11 @@ Solo los modelos autorizados con integridad verificada llegan a los entornos de 
  #3.1.1    Nivel: 1    Rol: D/V
  Verifique que todos los artefactos del modelo (pesos, configuraciones, tokenizadores) estén firmados criptográficamente por entidades autorizadas antes del despliegue.
  #3.1.2    Nivel: 1    Rol: D/V
- Verifique que la integridad del modelo se valide en el momento del despliegue y que los fallos en la verificación de la firma impidan la carga del modelo.
+ Verifique que la integridad del modelo se valide en el momento del despliegue y que las fallas en la verificación de la firma impidan la carga del modelo.
  #3.1.3    Nivel: 2    Rol: D/V
- Verifique que los registros de procedencia del modelo incluyan la identidad de la entidad autorizante, sumas de verificación de los datos de entrenamiento, resultados de las pruebas de validación con estado de aprobado/reprobado y una marca de tiempo de creación.
+ Verifique que los registros de procedencia del modelo incluyan la identidad de la entidad autorizante, sumas de verificación de los datos de entrenamiento, resultados de pruebas de validación con estado de aprobado/reprobado y una marca de tiempo de creación.
  #3.1.4    Nivel: 2    Rol: D/V
- Verifique que todos los artefactos del modelo utilicen versionado semántico (MAYOR.MENOR.PARCHE) con criterios documentados que especifiquen cuándo se incrementa cada componente de la versión.
+ Verifique que todos los artefactos del modelo usen versionado semántico (MAYOR.MENOR.PARCHE) con criterios documentados que especifiquen cuándo se incrementa cada componente de la versión.
  #3.1.5    Nivel: 2    Rol: V
  Verifique que el seguimiento de dependencias mantenga un inventario en tiempo real que permita la identificación rápida de todos los sistemas consumidores.
 
@@ -407,33 +407,33 @@ Solo los modelos autorizados con integridad verificada llegan a los entornos de 
 
 ### C3.2 Validación y Pruebas del Modelo
 
-Los modelos deben pasar las validaciones definidas de seguridad y protección antes de su despliegue.
+Los modelos deben pasar las validaciones definidas de seguridad y protección antes del despliegue.
 
  #3.2.1    Nivel: 1    Rol: D/V
  Verifique que los modelos se sometan a pruebas automatizadas de seguridad que incluyan validación de entradas, saneamiento de salidas y evaluaciones de seguridad con umbrales de aprobación/reprobación organizacionales preacordados antes del despliegue.
  #3.2.2    Nivel: 1    Rol: D/V
- Verifique que las fallas de validación bloqueen automáticamente el despliegue del modelo después de la aprobación explícita de anulación por parte del personal autorizado predesignado con justificaciones comerciales documentadas.
+ Verifique que las fallas de validación bloqueen automáticamente el despliegue del modelo después de la aprobación explícita de una anulación por parte del personal autorizado predesignado con justificaciones comerciales documentadas.
  #3.2.3    Nivel: 2    Rol: V
  Verifique que los resultados de las pruebas estén firmados criptográficamente y vinculados de manera inmutable al hash de la versión específica del modelo que se está validando.
  #3.2.4    Nivel: 2    Rol: D/V
- Verificar que los despliegues de emergencia requieran una evaluación de riesgo de seguridad documentada y la aprobación de una autoridad de seguridad predesignada dentro de los plazos preestablecidos.
+ Verifique que los despliegues de emergencia requieran una evaluación documental del riesgo de seguridad y la aprobación de una autoridad de seguridad predesignada dentro de los plazos previamente acordados.
 
 ---
 
-### C3.3 Despliegue Controlado y Reversión
+### C3.3 Implementación Controlada y Reversión
 
 Las implementaciones de modelos deben ser controladas, monitoreadas y reversibles.
 
  #3.3.1    Nivel: 1    Rol: D
- Verifique que los despliegues en producción implementen mecanismos de implementación gradual (despliegues canary, despliegues blue-green) con disparadores automáticos de reversión basados en tasas de error, umbrales de latencia o criterios de alerta de seguridad preacordados.
+ Verifique que los despliegues en producción implementen mecanismos de despliegue gradual (despliegues canarios, despliegues azul-verde) con disparadores de reversión automática basados en tasas de error, umbrales de latencia o criterios de alerta de seguridad preacordados.
  #3.3.2    Nivel: 1    Rol: D/V
- Verifique que las capacidades de reversión restauran el estado completo del modelo (pesos, configuraciones, dependencias) de forma atómica dentro de las ventanas de tiempo organizacionales predefinidas.
+ Verifique que las capacidades de reversión restauran el estado completo del modelo (pesos, configuraciones, dependencias) de manera atómica dentro de las ventanas de tiempo organizativas predefinidas.
  #3.3.3    Nivel: 2    Rol: D/V
- Verifique que los procesos de implementación validen las firmas criptográficas y calculen sumas de verificación de integridad antes de la activación del modelo, fallando la implementación en caso de cualquier discrepancia.
+ Verifique que los procesos de despliegue validen las firmas criptográficas y calculen sumas de verificación de integridad antes de la activación del modelo, fallando el despliegue ante cualquier discrepancia.
  #3.3.4    Nivel: 2    Rol: D/V
- Verifique que las capacidades de apagado de emergencia del modelo puedan deshabilitar los puntos finales del modelo dentro de los tiempos de respuesta predefinidos mediante interruptores automáticos de circuito o interruptores manuales de apagado.
+ Verifique que las capacidades de apagado de emergencia del modelo puedan desactivar los puntos finales del modelo dentro de los tiempos de respuesta predefinidos mediante interruptores automáticos de circuito o interruptores manuales de apagado.
  #3.3.5    Nivel: 2    Rol: V
- Verifique que los artefactos de reversión (versiones anteriores del modelo, configuraciones, dependencias) se conserven de acuerdo con las políticas organizacionales mediante almacenamiento inmutable para la respuesta a incidentes.
+ Verifique que los artefactos de reversión (versiones anteriores del modelo, configuraciones, dependencias) se conserven según las políticas organizacionales con almacenamiento inmutable para la respuesta a incidentes.
 
 ---
 
@@ -442,43 +442,43 @@ Las implementaciones de modelos deben ser controladas, monitoreadas y reversible
 Todos los cambios en el ciclo de vida del modelo deben ser rastreables y auditables.
 
  #3.4.1    Nivel: 1    Rol: V
- Verifique que todos los cambios del modelo (despliegue, configuración, retiro) generen registros de auditoría inmutables que incluyan una marca de tiempo, una identidad de actor autenticada, un tipo de cambio y los estados antes y después.
+ Verifique que todos los cambios en el modelo (despliegue, configuración, retiro) generen registros de auditoría inmutables que incluyan una marca de tiempo, una identidad de actor autenticada, un tipo de cambio y estados antes/después.
  #3.4.2    Nivel: 2    Rol: D/V
  Verifique que el acceso al registro de auditoría requiera la autorización adecuada y que todos los intentos de acceso se registren con la identidad del usuario y una marca de tiempo.
  #3.4.3    Nivel: 2    Rol: D/V
  Verifique que las plantillas de indicaciones y los mensajes del sistema estén controlados por versiones en repositorios git con revisión de código obligatoria y aprobación de revisores designados antes del despliegue.
  #3.4.4    Nivel: 2    Rol: V
- Verifique que los registros de auditoría incluyan detalles suficientes (hashes del modelo, instantáneas de configuración, versiones de dependencias) para permitir la reconstrucción completa del estado del modelo para cualquier marca de tiempo dentro del período de retención.
+ Verifique que los registros de auditoría incluyan detalles suficientes (hashes de modelos, instantáneas de configuración, versiones de dependencias) para permitir la reconstrucción completa del estado del modelo para cualquier marca de tiempo dentro del período de retención.
 
 ---
 
 ### C3.5 Prácticas de Desarrollo Seguro
 
-Los procesos de desarrollo y entrenamiento del modelo deben seguir prácticas seguras para evitar compromisos.
+Los procesos de desarrollo y entrenamiento del modelo deben seguir prácticas seguras para prevenir compromisos.
 
  #3.5.1    Nivel: 1    Rol: D
- Verifique que los entornos de desarrollo, prueba y producción del modelo estén separados física o lógicamente. No deben compartir infraestructura, deben tener controles de acceso distintos y almacenar los datos de forma aislada.
+ Verifique que los entornos de desarrollo del modelo, pruebas y producción estén separados física o lógicamente. No deben compartir infraestructura, deben tener controles de acceso distintos y almacenes de datos aislados.
  #3.5.2    Nivel: 1    Rol: D
- Verifique que el entrenamiento y ajuste fino del modelo se realicen en entornos aislados con acceso controlado a la red.
+ Verifique que el entrenamiento y la fine-tuning del modelo ocurran en entornos aislados con acceso controlado a la red.
  #3.5.3    Nivel: 1    Rol: D/V
  Verifique que las fuentes de datos de entrenamiento sean validadas mediante controles de integridad y autenticadas a través de fuentes confiables con una cadena de custodia documentada antes de su uso en el desarrollo del modelo.
  #3.5.4    Nivel: 2    Rol: D
- Verifique que los artefactos de desarrollo del modelo (hiperparámetros, scripts de entrenamiento, archivos de configuración) estén almacenados en control de versiones y requieran la aprobación de revisión por pares antes de su uso en el entrenamiento.
+ Verifique que los artefactos de desarrollo del modelo (hiperparámetros, scripts de entrenamiento, archivos de configuración) estén almacenados en el control de versiones y requieran aprobación por revisión de pares antes de su uso en el entrenamiento.
 
 ---
 
 ### C3.6 Retiro y Desmantelamiento del Modelo
 
-Los modelos deben ser retirados de forma segura cuando ya no se necesiten o cuando se identifiquen problemas de seguridad.
+Los modelos deben ser retirados de manera segura cuando ya no sean necesarios o cuando se identifiquen problemas de seguridad.
 
  #3.6.1    Nivel: 1    Rol: D
- Verifique que los procesos de retiro de modelos escaneen automáticamente los gráficos de dependencias, identifiquen todos los sistemas consumidores y proporcionen períodos de aviso previo preacordados antes de la desactivación.
+ Verifique que los procesos de retiro del modelo escanean automáticamente los gráficos de dependencias, identifican todos los sistemas consumidores y proporcionan períodos de aviso previo acordados antes de la desactivación.
  #3.6.2    Nivel: 1    Rol: D/V
- Verifique que los artefactos de modelos retirados se eliminen de forma segura mediante borrado criptográfico o sobreescritura múltiple de acuerdo con las políticas de retención de datos documentadas y con certificados de destrucción verificados.
+ Verifique que los artefactos del modelo retirado se eliminen de forma segura utilizando borrado criptográfico o sobrescritura múltiple según las políticas documentadas de retención de datos con certificados de destrucción verificados.
  #3.6.3    Nivel: 2    Rol: V
- Verifique que los eventos de retiro del modelo se registren con la marca de tiempo y la identidad del actor, y que las firmas del modelo se revoquen para evitar su reutilización.
+ Verifique que los eventos de retirada del modelo se registren con marca de tiempo e identidad del actor, y que las firmas del modelo se revoquen para evitar su reutilización.
  #3.6.4    Nivel: 2    Rol: D/V
- Verifique que la retirada de modelos de emergencia pueda deshabilitar el acceso al modelo dentro de los plazos preestablecidos de respuesta a emergencias mediante interruptores automáticos si se descubren vulnerabilidades críticas de seguridad.
+ Verifique que la jubilación de modelos de emergencia pueda deshabilitar el acceso al modelo dentro de los plazos preestablecidos de respuesta de emergencia mediante interruptores de apagado automáticos si se descubren vulnerabilidades críticas de seguridad.
 
 ---
 
@@ -498,28 +498,28 @@ Exploring Data Provenance: Ensuring Data Integrity and Authenticity
 MITRE ATLAS
 AWS Prescriptive Guidance – Best practices for retiring applications …
 
-## Seguridad de Infraestructura, Configuración y Despliegue C4
+## Seguridad de Infraestructura, Configuración y Despliegue de C4
 
 ### Objetivo de Control
 
-La infraestructura de IA debe fortalecerse contra la escalada de privilegios, la manipulación de la cadena de suministro y el movimiento lateral mediante configuración segura, aislamiento en tiempo de ejecución, canalizaciones de despliegue confiables y monitoreo integral. Solo los componentes y configuraciones de infraestructura autorizados y validados llegan a producción a través de procesos controlados que mantienen la seguridad, integridad y auditabilidad.
+La infraestructura de IA debe ser fortalecida contra la escalada de privilegios, la manipulación de la cadena de suministro y el movimiento lateral mediante una configuración segura, aislamiento en tiempo de ejecución, canalizaciones de despliegue confiables y monitoreo integral. Solo los componentes y configuraciones de infraestructura autorizados y validados llegan a producción a través de procesos controlados que mantienen la seguridad, integridad y auditabilidad.
 
-Objetivo principal de seguridad: Solo los componentes de infraestructura firmados criptográficamente y escaneados en busca de vulnerabilidades llegan a producción a través de canales automatizados de validación que aplican políticas de seguridad y mantienen registros de auditoría inmutables.
+Objetivo principal de seguridad: Solo los componentes de infraestructura firmados criptográficamente y escaneados en busca de vulnerabilidades llegan a producción a través de canalizaciones de validación automatizadas que aplican políticas de seguridad y mantienen registros de auditoría inmutables.
 
 ---
 
 ### C4.1 Aislamiento del Entorno de Ejecución
 
-Prevenir escapes de contenedores y escalada de privilegios mediante primitivas de aislamiento a nivel de kernel y controles de acceso obligatorios.
+Prevenir escapes del contenedor y la escalada de privilegios mediante primitivas de aislamiento a nivel de kernel y controles de acceso obligatorios.
 
  #4.1.1    Nivel: 1    Rol: D/V
- Verifique que todos los contenedores de IA eliminen TODAS las capacidades de Linux excepto CAP_SETUID, CAP_SETGID y las capacidades explícitamente requeridas y documentadas en las líneas base de seguridad.
+ Verifique que todos los contenedores de IA eliminen TODAS las capacidades de Linux excepto CAP_SETUID, CAP_SETGID y las capacidades explícitamente requeridas documentadas en las líneas base de seguridad.
  #4.1.2    Nivel: 1    Rol: D/V
- Verifique que los perfiles seccomp bloqueen todas las llamadas al sistema excepto aquellas en listas de permitidos preaprobadas, con violaciones que terminen el contenedor y generen alertas de seguridad.
+ Verifique que los perfiles seccomp bloqueen todas las syscalls, excepto aquellas en listas de permitidos preaprobadas, y que las violaciones terminen el contenedor y generen alertas de seguridad.
  #4.1.3    Nivel: 2    Rol: D/V
- Verifique que las cargas de trabajo de IA se ejecuten con sistemas de archivos root de solo lectura, tmpfs para datos temporales y volúmenes nombrados para datos persistentes con opciones de montaje noexec aplicadas.
+ Verifique que las cargas de trabajo de IA se ejecuten con sistemas de archivos raíz de solo lectura, tmpfs para datos temporales y volúmenes nombrados para datos persistentes con opciones de montaje noexec aplicadas.
  #4.1.4    Nivel: 2    Rol: D/V
- Verifique que la monitorización en tiempo real basada en eBPF (Falco, Tetragon o equivalente) detecte intentos de escalada de privilegios y finalice automáticamente los procesos infractores dentro de los requisitos de tiempo de respuesta organizacionales.
+ Verifique que la monitorización en tiempo real basada en eBPF (Falco, Tetragon o equivalente) detecte intentos de escalamiento de privilegios y termine automáticamente los procesos infractores dentro de los requisitos de tiempo de respuesta organizacionales.
  #4.1.5    Nivel: 3    Rol: D/V
  Verifique que las cargas de trabajo de IA de alto riesgo se ejecuten en entornos aislados por hardware (Intel TXT, AMD SVM o nodos bare-metal dedicados) con verificación de atestación.
 
@@ -527,345 +527,345 @@ Prevenir escapes de contenedores y escalada de privilegios mediante primitivas d
 
 ### C4.2 Canalizaciones Seguras de Construcción y Despliegue
 
-Asegure la integridad criptográfica y la seguridad de la cadena de suministro mediante compilaciones reproducibles y artefactos firmados.
+Garantice la integridad criptográfica y la seguridad de la cadena de suministro mediante compilaciones reproducibles y artefactos firmados.
 
  #4.2.1    Nivel: 1    Rol: D/V
- Verifique que la infraestructura como código se escanee con herramientas (tfsec, Checkov o Terrascan) en cada commit, bloqueando las fusiones con hallazgos de severidad CRÍTICA o ALTA.
+ Verifique que la infraestructura como código se escanee con herramientas (tfsec, Checkov o Terrascan) en cada commit, bloqueando las fusiones con hallazgos de gravedad CRÍTICA o ALTA.
  #4.2.2    Nivel: 1    Rol: D/V
  Verifique que las compilaciones de contenedores sean reproducibles con hashes SHA256 idénticos en todas las compilaciones y genere atestaciones de procedencia SLSA Nivel 3 firmadas con Sigstore.
  #4.2.3    Nivel: 2    Rol: D/V
- Verifique que las imágenes de contenedores incorporen SBOMs CycloneDX o SPDX y estén firmadas con Cosign antes de su envío al registro, rechazando las imágenes sin firmar en el despliegue.
+ Verifique que las imágenes de contenedores incluyan SBOMs CycloneDX o SPDX y estén firmadas con Cosign antes de enviarlas al registro, rechazando las imágenes no firmadas en el despliegue.
  #4.2.4    Nivel: 2    Rol: D/V
- Verifique que las canalizaciones CI/CD utilicen tokens OIDC de HashiCorp Vault, roles IAM de AWS o identidad gestionada de Azure con tiempos de vida que no excedan los límites de la política de seguridad organizacional.
+ Verifique que las canalizaciones CI/CD utilicen tokens OIDC de HashiCorp Vault, Roles IAM de AWS o Identidad Administrada de Azure con duraciones que no excedan los límites establecidos por la política de seguridad organizacional.
  #4.2.5    Nivel: 2    Rol: D/V
- Verifique que las firmas Cosign y la procedencia SLSA se validen durante el proceso de implementación antes de la ejecución del contenedor y que los errores de verificación causen que la implementación falle.
+ Verifique que las firmas de Cosign y la procedencia SLSA se validen durante el proceso de implementación antes de la ejecución del contenedor y que los errores de verificación causen que la implementación falle.
  #4.2.6    Nivel: 2    Rol: D/V
- Verifique que los entornos de compilación se ejecuten en contenedores efímeros o máquinas virtuales sin almacenamiento persistente y con aislamiento de red respecto a las VPC de producción.
+ Verifique que los entornos de compilación se ejecuten en contenedores efímeros o máquinas virtuales sin almacenamiento persistente y con aislamiento de red de las VPC de producción.
 
 ---
 
 ### C4.3 Seguridad de Red y Control de Acceso
 
-Implemente redes de confianza cero con políticas de denegación predeterminada y comunicaciones cifradas.
+Implemente redes de confianza cero con políticas de denegación por defecto y comunicaciones cifradas.
 
  #4.3.1    Nivel: 1    Rol: D/V
- Verifique que las NetworkPolicies de Kubernetes o cualquier equivalente implementen un denegado predeterminado para ingress/egress con reglas explícitas de permiso para los puertos necesarios (443, 8080, etc.).
+ Verifique que las NetworkPolicies de Kubernetes o cualquier equivalente implementen denegación predeterminada de ingreso/egreso con reglas explícitas de permiso para los puertos requeridos (443, 8080, etc.).
  #4.3.2    Nivel: 1    Rol: D/V
  Verifique que SSH (puerto 22), RDP (puerto 3389) y los puntos finales de metadatos en la nube (169.254.169.254) estén bloqueados o requieran autenticación basada en certificados.
  #4.3.3    Nivel: 2    Rol: D/V
- Verifique que el tráfico de salida esté filtrado a través de proxies HTTP/HTTPS (Squid, Istio o gateways NAT en la nube) con listas de permitidos por dominio y que las solicitudes bloqueadas estén registradas.
+ Verifique que el tráfico de salida esté filtrado a través de proxies HTTP/HTTPS (Squid, Istio o gateways NAT en la nube) con listas de dominios permitidos y que las solicitudes bloqueadas estén registradas.
  #4.3.4    Nivel: 2    Rol: D/V
- Verifique que la comunicación entre servicios utilice TLS mutuo con certificados rotados según la política organizacional y que se aplique la validación de certificados (sin usar banderas de omisión de verificación).
+ Verifique que la comunicación entre servicios utilice TLS mutuo con certificados rotados según la política organizacional y que se aplique la validación de certificados (sin banderas de omisión de verificación).
  #4.3.5    Nivel: 2    Rol: D/V
- Verifique que la infraestructura de IA funcione en VPC/VNets dedicados sin acceso directo a internet y se comunique únicamente a través de puertas de enlace NAT o hosts bastión.
+ Verifique que la infraestructura de IA funcione en VPCs/VNets dedicadas sin acceso directo a internet y que se comunique únicamente a través de gateways NAT o hosts bastión.
 
 ---
 
-### C4.4 Gestión de Secretos y Claves Criptográficas
+### C4.4 Gestión de secretos y claves criptográficas
 
-Proteja las credenciales mediante almacenamiento respaldado por hardware y rotación automatizada con acceso de confianza cero.
+Proteja las credenciales mediante almacenamiento respaldado por hardware y rotación automática con acceso de confianza cero.
 
  #4.4.1    Nivel: 1    Rol: D/V
- Verifique que los secretos estén almacenados en HashiCorp Vault, AWS Secrets Manager, Azure Key Vault o Google Secret Manager con cifrado en reposo usando AES-256.
+ Verifique que los secretos estén almacenados en HashiCorp Vault, AWS Secrets Manager, Azure Key Vault o Google Secret Manager con cifrado en reposo utilizando AES-256.
  #4.4.2    Nivel: 1    Rol: D/V
- Verifique que las claves criptográficas se generen en HSMs de nivel 2 FIPS 140-2 (AWS CloudHSM, Azure Dedicated HSM) con rotación de claves de acuerdo con la política criptográfica organizacional.
+ Verifique que las claves criptográficas se generen en HSMs de Nivel 2 FIPS 140-2 (AWS CloudHSM, Azure Dedicated HSM) con rotación de claves de acuerdo con la política criptográfica organizacional.
  #4.4.3    Nivel: 2    Rol: D/V
- Verifique que la rotación de secretos esté automatizada con despliegue sin tiempo de inactividad y rotación inmediata desencadenada por cambios de personal o incidentes de seguridad.
+ Verifique que la rotación de secretos esté automatizada con despliegue sin tiempo de inactividad y rotación inmediata activada por cambios de personal o incidentes de seguridad.
  #4.4.4    Nivel: 2    Rol: D/V
- Verifique que las imágenes de contenedores se escaneen con herramientas (GitLeaks, TruffleHog o detect-secrets) que bloqueen las compilaciones que contengan claves API, contraseñas o certificados.
+ Verifique que las imágenes de contenedores sean escaneadas con herramientas (GitLeaks, TruffleHog o detect-secrets) bloqueando las compilaciones que contengan claves API, contraseñas o certificados.
  #4.4.5    Nivel: 2    Rol: D/V
- Verifique que el acceso secreto en producción requiera MFA con tokens de hardware (YubiKey, FIDO2) y que se registre mediante logs de auditoría inmutables con identidades de usuario y marcas de tiempo.
+ Verifique que el acceso secreto de producción requiera MFA con tokens de hardware (YubiKey, FIDO2) y que esté registrado mediante registros de auditoría inmutables con identidades de usuario y marcas de tiempo.
  #4.4.6    Nivel: 2    Rol: D/V
- Verifique que los secretos se inyecten mediante secretos de Kubernetes, volúmenes montados o contenedores init y asegúrese de que los secretos nunca se incrusten en variables de entorno o imágenes.
+ Verifique que los secretos se inyecten a través de secretos de Kubernetes, volúmenes montados o contenedores init y asegúrese de que los secretos nunca estén incrustados en variables de entorno o imágenes.
 
 ---
 
-### C4.5 Aislamiento y Validación de Cargas de Trabajo de IA
+### C4.5 Sandbox y Validación de Cargas de Trabajo de IA
 
-Aísle modelos de IA no confiables en entornos seguros con análisis de comportamiento exhaustivo.
+Aísle modelos de IA no confiables en entornos seguros con análisis conductual exhaustivo.
 
  #4.5.1    Nivel: 1    Rol: D/V
- Verifique que los modelos externos de IA se ejecuten en gVisor, microVMs (como Firecracker, CrossVM) o contenedores Docker con las opciones --security-opt=no-new-privileges y --read-only.
+ Verifique que los modelos de IA externos se ejecuten en gVisor, microVMs (como Firecracker, CrossVM) o contenedores Docker con las opciones --security-opt=no-new-privileges y --read-only.
  #4.5.2    Nivel: 1    Rol: D/V
- Verifique que los entornos sandbox no tengan conectividad de red (--network=none) o solo acceso localhost, con todas las solicitudes externas bloqueadas por reglas de iptables.
+ Verifique que los entornos sandbox no tengan conectividad de red (--network=none) o solo acceso a localhost con todas las solicitudes externas bloqueadas por reglas de iptables.
  #4.5.3    Nivel: 2    Rol: D/V
  Verifique que la validación del modelo de IA incluya pruebas automatizadas de red-team con cobertura de prueba definida por la organización y análisis de comportamiento para la detección de puertas traseras.
  #4.5.4    Nivel: 2    Rol: D/V
- Verifique que antes de que un modelo de IA sea promovido a producción, sus resultados en el entorno de pruebas estén firmados criptográficamente por personal autorizado de seguridad y almacenados en registros de auditoría inmutables.
+ Verifique que antes de que un modelo de IA sea promovido a producción, los resultados de su entorno de pruebas estén firmados criptográficamente por el personal de seguridad autorizado y almacenados en registros de auditoría inmutables.
  #4.5.5    Nivel: 2    Rol: D/V
- Verifique que los entornos sandbox se destruyan y se recrean a partir de imágenes base entre evaluaciones, con una limpieza completa del sistema de archivos y la memoria.
+ Verifique que los entornos sandbox se destruyan y se recrean a partir de imágenes maestras entre evaluaciones con una limpieza completa del sistema de archivos y la memoria.
 
 ---
 
-### C4.6 Monitoreo de Seguridad de la Infraestructura
+### C4.6 Monitoreo de Seguridad de Infraestructura
 
-Escanee y monitoree continuamente la infraestructura con remediación automatizada y alertas en tiempo real.
+Escanee y supervise continuamente la infraestructura con remediación automatizada y alertas en tiempo real.
 
  #4.6.1    Nivel: 1    Rol: D/V
- Verifique que las imágenes de contenedores se escaneen según los cronogramas organizacionales, con vulnerabilidades CRÍTICAS que bloqueen el despliegue según los umbrales de riesgo organizacionales.
+ Verifique que las imágenes de contenedores se escaneen según los cronogramas organizacionales, con vulnerabilidades CRÍTICAS que bloquean el despliegue según los umbrales de riesgo organizacionales.
  #4.6.2    Nivel: 1    Rol: D/V
- Verifique que la infraestructura cumpla con los CIS Benchmarks o los controles NIST 800-53 con umbrales de cumplimiento definidos por la organización y remediación automatizada para las verificaciones fallidas.
+ Verifique que la infraestructura cumpla con los puntos de referencia CIS o los controles NIST 800-53 con umbrales de cumplimiento definidos organizacionalmente y remediación automatizada para verificaciones fallidas.
  #4.6.3    Nivel: 2    Rol: D/V
- Verifique que las vulnerabilidades de severidad ALTA estén parcheadas según los plazos de gestión de riesgos organizacionales, con procedimientos de emergencia para los CVE explotados activamente.
+ Verifique que las vulnerabilidades de alta gravedad estén parcheadas según los cronogramas de gestión de riesgos organizacionales, con procedimientos de emergencia para CVE explotados activamente.
  #4.6.4    Nivel: 2    Rol: V
- Verifique que las alertas de seguridad se integren con las plataformas SIEM (Splunk, Elastic o Sentinel) utilizando formatos CEF o STIX/TAXII con enriquecimiento automatizado.
+ Verifique que las alertas de seguridad se integren con plataformas SIEM (Splunk, Elastic o Sentinel) utilizando los formatos CEF o STIX/TAXII con enriquecimiento automatizado.
  #4.6.5    Nivel: 3    Rol: V
- Verifique que las métricas de infraestructura se exporten a los sistemas de monitoreo (Prometheus, DataDog) con paneles SLA e informes ejecutivos.
+ Verifique que las métricas de infraestructura se exporten a los sistemas de monitoreo (Prometheus, DataDog) con paneles SLA y reportes ejecutivos.
  #4.6.6    Nivel: 2    Rol: D/V
- Verificar que la desviación de configuración se detecte utilizando herramientas (Chef InSpec, AWS Config) según los requisitos de monitoreo organizacional con reversión automática para cambios no autorizados.
+ Verifique que la deriva de configuración se detecte utilizando herramientas (Chef InSpec, AWS Config) según los requisitos de monitoreo organizacional con reversión automática para cambios no autorizados.
 
 ---
 
 ### C4.7 Gestión de Recursos de Infraestructura de IA
 
-Prevenir ataques de agotamiento de recursos y asegurar una asignación justa de recursos mediante cuotas y monitoreo.
+Prevenir ataques de agotamiento de recursos y garantizar una asignación justa de recursos mediante cuotas y monitoreo.
 
  #4.7.1    Nivel: 1    Rol: D/V
- Verifique que la utilización de GPU/TPU sea monitoreada con alertas activadas en los umbrales definidos por la organización y que se active el escalado automático o el balanceo de carga basado en las políticas de gestión de capacidad.
+ Verifique que la utilización de GPU/TPU se supervise con alertas activadas en los umbrales definidos por la organización y que se active el escalado automático o el balanceo de carga según las políticas de gestión de capacidad.
  #4.7.2    Nivel: 1    Rol: D/V
- Verifique que las métricas de carga de trabajo de IA (latencia de inferencia, rendimiento, tasas de error) se recopilen de acuerdo con los requisitos de monitoreo organizacional y se correlacionen con la utilización de la infraestructura.
+ Verifique que las métricas de carga de trabajo de IA (latencia de inferencia, rendimiento, tasas de error) se recopilen según los requisitos de monitoreo organizacional y se correlacionen con la utilización de la infraestructura.
  #4.7.3    Nivel: 2    Rol: D/V
- Verifique que los ResourceQuotas de Kubernetes o equivalentes limiten las cargas de trabajo individuales según las políticas organizacionales de asignación de recursos, con límites estrictamente aplicados.
+ Verifique que los ResourceQuotas de Kubernetes o un equivalente limiten las cargas de trabajo individuales de acuerdo con las políticas organizativas de asignación de recursos, con límites estrictos aplicados.
  #4.7.4    Nivel: 2    Rol: V
- Verifique que la monitorización de costos registre el gasto por carga de trabajo/inquilino con alertas basadas en los umbrales presupuestarios organizacionales y controles automatizados para los excedentes del presupuesto.
+ Verifique que la monitorización de costos rastree el gasto por carga de trabajo/inquilino con alertas basadas en los umbrales de presupuesto organizacional y controles automatizados para excedentes de presupuesto.
  #4.7.5    Nivel: 3    Rol: V
- Verifique que la planificación de capacidad utilice datos históricos con períodos de pronóstico definidos organizacionalmente y aprovisionamiento automático de recursos basado en patrones de demanda.
+ Verifique que la planificación de capacidad utilice datos históricos con períodos de pronóstico definidos por la organización y aprovisionamiento automatizado de recursos basado en patrones de demanda.
  #4.7.6    Nivel: 2    Rol: D/V
- Verifique que el agotamiento de recursos active los interruptores automáticos según los requisitos de respuesta organizacional, incluyendo la limitación de tasa basada en políticas de capacidad y el aislamiento de la carga de trabajo.
+ Verifique que la agotamiento de recursos active los interruptores automáticos según los requisitos de respuesta organizacional, incluyendo la limitación de tasa basada en políticas de capacidad y el aislamiento de la carga de trabajo.
 
 ---
 
 ### C4.8 Separación de Entornos y Controles de Promoción
 
-Implemente límites estrictos en el entorno con puertas automáticas de promoción y validación de seguridad.
+Imponer límites estrictos en el entorno con puertas de promoción automatizadas y validación de seguridad.
 
  #4.8.1    Nivel: 1    Rol: D/V
- Verifique que los entornos de desarrollo/prueba/producción funcionen en VPCs/VNets separadas sin roles IAM compartidos, grupos de seguridad ni conectividad de red.
+ Verifique que los entornos de desarrollo/prueba/producción funcionen en VPCs/VNets separadas sin roles IAM, grupos de seguridad ni conectividad de red compartidos.
  #4.8.2    Nivel: 1    Rol: D/V
  Verifique que la promoción del entorno requiera la aprobación del personal autorizado definido organizacionalmente con firmas criptográficas y registros de auditoría inmutables.
  #4.8.3    Nivel: 2    Rol: D/V
- Verifique que los entornos de producción bloqueen el acceso SSH, deshabiliten los puntos finales de depuración y requieran solicitudes de cambio con requisitos de aviso previo organizacional, excepto en emergencias.
+ Verifique que los entornos de producción bloqueen el acceso SSH, deshabiliten los puntos finales de depuración y requieran solicitudes de cambio con los requisitos de aviso previo organizacional, excepto en emergencias.
  #4.8.4    Nivel: 2    Rol: D/V
- Verifique que los cambios en infraestructura como código requieran revisión por pares con pruebas automatizadas y escaneo de seguridad antes de la fusión en la rama principal.
+ Verifique que los cambios de infraestructura como código requieran una revisión por pares con pruebas automatizadas y escaneo de seguridad antes de fusionarlos a la rama principal.
  #4.8.5    Nivel: 2    Rol: D/V
- Verifique que los datos no destinados a producción estén anonimizados de acuerdo con los requisitos de privacidad organizacionales, la generación de datos sintéticos o el enmascaramiento completo de datos con la eliminación de información de identificación personal (PII) verificada.
+ Verificar que los datos no productivos estén anonimizados según los requisitos organizacionales de privacidad, generación de datos sintéticos o enmascaramiento completo de datos con eliminación de PII verificada.
  #4.8.6    Nivel: 2    Rol: D/V
- Verifique que las puertas de promoción incluyan pruebas automatizadas de seguridad (SAST, DAST, escaneo de contenedores) con cero hallazgos CRÍTICOS requeridos para la aprobación.
+ Verifique que las puertas de promoción incluyan pruebas de seguridad automatizadas (SAST, DAST, escaneo de contenedores) sin hallazgos CRÍTICOS para la aprobación.
 
 ---
 
 ### C4.9 Respaldo y Recuperación de Infraestructura
 
-Asegure la resiliencia de la infraestructura mediante copias de seguridad automatizadas, procedimientos de recuperación probados y capacidades de recuperación ante desastres.
+Garantice la resiliencia de la infraestructura mediante copias de seguridad automáticas, procedimientos de recuperación probados y capacidades de recuperación ante desastres.
 
  #4.9.1    Nivel: 1    Rol: D/V
- Verifique que las configuraciones de infraestructura estén respaldadas según los horarios de respaldo organizacionales hacia regiones geográficamente separadas con la implementación de la estrategia de respaldo 3-2-1.
+ Verifique que las configuraciones de infraestructura estén respaldadas según los cronogramas de respaldo organizacionales en regiones geográficamente separadas con la implementación de la estrategia de respaldo 3-2-1.
  #4.9.2    Nivel: 2    Rol: D/V
- Verifique que los sistemas de respaldo funcionen en redes aisladas con credenciales separadas y almacenamiento air-gapped para la protección contra ransomware.
+ Verifique que los sistemas de respaldo funcionen en redes aisladas con credenciales separadas y almacenamiento desconectado para protección contra ransomware.
  #4.9.3    Nivel: 2    Rol: V
- Verifique que los procedimientos de recuperación sean probados y validados mediante pruebas automatizadas según los cronogramas organizacionales, cumpliendo con los objetivos de RTO y RPO que satisfacen los requisitos organizacionales.
+ Verificar que los procedimientos de recuperación sean probados y validados mediante pruebas automatizadas según los cronogramas organizacionales, con objetivos de RTO y RPO que cumplan con los requisitos de la organización.
  #4.9.4    Nivel: 3    Rol: V
- Verifique que la recuperación ante desastres incluya manuales específicos para IA con restauración de pesos de modelos, reconstrucción de clústeres GPU y mapeo de dependencias de servicios.
+ Verifique que la recuperación ante desastres incluya manuales específicos de IA con restauración de pesos del modelo, reconstrucción del clúster GPU y mapeo de dependencias del servicio.
 
 ---
 
-### C4.10 Cumplimiento y Gobernanza de Infraestructura
+### C4.10 Cumplimiento y Gobernanza de la Infraestructura
 
 Mantenga el cumplimiento normativo mediante la evaluación continua, la documentación y los controles automatizados.
 
  #4.10.1    Nivel: 2    Rol: D/V
- Verificar que el cumplimiento de la infraestructura se evalúe según los horarios organizacionales en comparación con los controles SOC 2, ISO 27001 o FedRAMP, con recopilación automatizada de evidencia.
+ Verifique que el cumplimiento de la infraestructura se evalúe de acuerdo con los cronogramas organizacionales contra los controles SOC 2, ISO 27001 o FedRAMP con recopilación automática de evidencia.
  #4.10.2    Nivel: 2    Rol: V
- Verifique que la documentación de infraestructura incluya diagramas de red, mapas de flujo de datos y modelos de amenazas actualizados según los requisitos de gestión de cambios organizacionales.
+ Verifique que la documentación de la infraestructura incluya diagramas de red, mapas de flujo de datos y modelos de amenazas actualizados conforme a los requisitos de gestión del cambio organizacional.
  #4.10.3    Nivel: 3    Rol: D/V
- Verifique que los cambios en la infraestructura pasen por una evaluación automatizada del impacto en el cumplimiento con flujos de trabajo de aprobación normativa para modificaciones de alto riesgo.
+ Verifique que los cambios en la infraestructura pasen por una evaluación automatizada de impacto de cumplimiento con flujos de trabajo de aprobación regulatoria para modificaciones de alto riesgo.
 
 ---
 
 ### C4.11 Seguridad del Hardware de IA
 
-Asegurar los componentes de hardware específicos para IA, incluidos GPUs, TPUs y aceleradores de IA especializados.
+Asegure los componentes de hardware específicos para IA, incluidos GPUs, TPUs y aceleradores especializados de IA.
 
  #4.11.1    Nivel: 2    Rol: D/V
- Verifique que el firmware del acelerador de IA (BIOS de GPU, firmware de TPU) esté verificado con firmas criptográficas y se actualice según los plazos de gestión de parches de la organización.
+ Verifique que el firmware del acelerador de IA (BIOS de GPU, firmware de TPU) esté verificado con firmas criptográficas y actualizado según los plazos de gestión de parches de la organización.
  #4.11.2    Nivel: 2    Rol: D/V
  Verifique que antes de la ejecución de la carga de trabajo, la integridad del acelerador de IA sea validada mediante atestación de hardware utilizando TPM 2.0, Intel TXT o AMD SVM.
  #4.11.3    Nivel: 2    Rol: D/V
- Verifique que la memoria de la GPU esté aislada entre las cargas de trabajo utilizando SR-IOV, MIG (GPU de instancia múltiple) o una partición de hardware equivalente con la saneamiento de memoria entre trabajos.
+ Verifique que la memoria GPU esté aislada entre cargas de trabajo utilizando SR-IOV, MIG (GPU de Instancia Múltiple) o segmentación de hardware equivalente con la sanitización de memoria entre los trabajos.
  #4.11.4    Nivel: 3    Rol: V
  Verifique que la cadena de suministro de hardware de IA incluya la verificación de procedencia con certificados del fabricante y la validación de empaques a prueba de manipulaciones.
  #4.11.5    Nivel: 3    Rol: D/V
- Verifique que los módulos de seguridad de hardware (HSM) protejan los pesos del modelo de IA y las claves criptográficas con la certificación FIPS 140-2 Nivel 3 o Common Criteria EAL4+.
+ Verifique que los módulos de seguridad de hardware (HSM) protejan los pesos del modelo de IA y las claves criptográficas con certificación FIPS 140-2 Nivel 3 o Common Criteria EAL4+.
 
 ---
 
 ### C4.12 Infraestructura de IA en el Borde y Distribuida
 
-Despliegues seguros de IA distribuida que incluyen computación en el edge, aprendizaje federado y arquitecturas multisede.
+Implementaciones seguras de IA distribuida que incluyen computación en el borde, aprendizaje federado y arquitecturas multisede.
 
  #4.12.1    Nivel: 2    Rol: D/V
- Verifique que los dispositivos de AI en el borde se autentiquen con la infraestructura central usando TLS mutuo con certificados de dispositivo rotados de acuerdo con la política organizacional de gestión de certificados.
+ Verifique que los dispositivos de IA perimetral se autentiquen con la infraestructura central mediante TLS mutuo utilizando certificados de dispositivo que se roten según la política organizacional de gestión de certificados.
  #4.12.2    Nivel: 2    Rol: D/V
- Verifique que los dispositivos edge implementen arranque seguro con firmas verificadas y protección contra retrocesos para evitar ataques de degradación de firmware.
+ Verifique que los dispositivos perimetrales implementen arranque seguro con firmas verificadas y protección contra retroceso para prevenir ataques de degradación de firmware.
  #4.12.3    Nivel: 3    Rol: D/V
- Verifique que la coordinación de IA distribuida utilice algoritmos de consenso tolerantes a fallas bizantinas con validación de participantes y detección de nodos maliciosos.
+ Verifique que la coordinación de IA distribuida utilice algoritmos de consenso tolerantes a fallos bizantinos con validación de participantes y detección de nodos maliciosos.
  #4.12.4    Nivel: 3    Rol: D/V
  Verifique que la comunicación de borde a la nube incluya limitación de ancho de banda, compresión de datos y capacidades de operación sin conexión con almacenamiento local seguro.
 
 ---
 
-### C4.13 Seguridad de Infraestructura Multi-Nube e Híbrida
+### C4.13 Seguridad en Infraestructura Multicloud e Híbrida
 
-Asegure cargas de trabajo de IA en múltiples proveedores de nube y despliegues híbridos de nube y local.
+Asegure las cargas de trabajo de IA en múltiples proveedores de la nube y despliegues híbridos en la nube y en las instalaciones.
 
  #4.13.1    Nivel: 2    Rol: D/V
- Verifique que las implementaciones de IA multi-nube utilicen federación de identidad agnóstica a la nube (OIDC, SAML) con gestión centralizada de políticas entre proveedores.
+ Verifique que las implementaciones de IA multinube utilicen federación de identidad independiente de la nube (OIDC, SAML) con gestión centralizada de políticas entre proveedores.
  #4.13.2    Nivel: 2    Rol: D/V
- Verifique que la transferencia de datos entre nubes utilice cifrado de extremo a extremo con claves gestionadas por el cliente y que los controles de residencia de datos se apliquen según la jurisdicción.
+ Verifique que la transferencia de datos entre nubes utilice cifrado de extremo a extremo con claves gestionadas por el cliente y que se apliquen controles de residencia de datos según la jurisdicción.
  #4.13.3    Nivel: 2    Rol: D/V
  Verifique que las cargas de trabajo de IA en la nube híbrida implementen políticas de seguridad consistentes tanto en entornos locales como en la nube, con monitoreo y alertas unificados.
  #4.13.4    Nivel: 3    Rol: V
- Verifique que la prevención del bloqueo del proveedor de la nube incluya infraestructura como código portátil, APIs estandarizadas y capacidades de exportación de datos con herramientas de conversión de formatos.
+ Verifique que la prevención del bloqueo de proveedor en la nube incluya infraestructura como código portátil, APIs estandarizadas y capacidades de exportación de datos con herramientas de conversión de formatos.
  #4.13.5    Nivel: 3    Rol: V
  Verifique que la optimización de costos multi-nube incluya controles de seguridad que prevengan la proliferación de recursos, así como cargos no autorizados por transferencia de datos entre nubes.
 
 ---
 
-### C4.14 Automatización de Infraestructura y Seguridad GitOps
+### C4.14 Seguridad en la Automatización de Infraestructura y GitOps
 
-Automatización segura de infraestructuras y flujos de trabajo GitOps para la gestión de infraestructuras de IA.
+Asegurar la automatización de infraestructuras y los flujos de trabajo GitOps para la gestión de infraestructuras de IA.
 
  #4.14.1    Nivel: 2    Rol: D/V
- Verifique que los repositorios GitOps requieran commits firmados con claves GPG y reglas de protección de ramas que impidan los envíos directos a las ramas principales.
+ Verifique que los repositorios de GitOps requieran commits firmados con claves GPG y reglas de protección de ramas que impidan los empujes directos a las ramas principales.
  #4.14.2    Nivel: 2    Rol: D/V
  Verifique que la automatización de la infraestructura incluya detección de desviaciones con capacidades automáticas de remediación y reversión activadas según los requisitos de respuesta organizacional para cambios no autorizados.
  #4.14.3    Nivel: 2    Rol: D/V
  Verifique que la provisión automatizada de infraestructura incluya la validación de políticas de seguridad con bloqueo de despliegue para configuraciones no conformes.
  #4.14.4    Nivel: 2    Rol: D/V
- Verifique que los secretos de automatización de la infraestructura se gestionen mediante operadores de secretos externos (External Secrets Operator, Bank-Vaults) con rotación automática.
+ Verifique que los secretos de automatización de infraestructura se gestionen a través de operadores externos de secretos (External Secrets Operator, Bank-Vaults) con rotación automática.
  #4.14.5    Nivel: 3    Rol: V
- Verifique que la infraestructura de autocuración incluya la correlación de eventos de seguridad con la respuesta automatizada a incidentes y los flujos de trabajo de notificación a las partes interesadas.
+ Verifique que la infraestructura de autocuración incluya la correlación de eventos de seguridad con respuestas automatizadas a incidentes y flujos de trabajo de notificación a las partes interesadas.
 
 ---
 
 ### C4.15 Seguridad de Infraestructura Resistente a la Computación Cuántica
 
-Prepare la infraestructura de IA para las amenazas de la computación cuántica mediante criptografía post-cuántica y protocolos seguros ante lo cuántico.
+Prepare la infraestructura de IA para las amenazas de la computación cuántica mediante criptografía post-cuántica y protocolos seguros frente a la computación cuántica.
 
  #4.15.1    Nivel: 3    Rol: D/V
  Verifique que la infraestructura de IA implemente algoritmos criptográficos post-cuánticos aprobados por NIST (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+) para el intercambio de claves y firmas digitales.
  #4.15.2    Nivel: 3    Rol: D/V
- Verifique que los sistemas de distribución de claves cuánticas (QKD) estén implementados para comunicaciones de IA de alta seguridad con protocolos de gestión de claves resistentes a la computación cuántica.
+ Verifique que los sistemas de distribución de claves cuánticas (QKD) se implementen para comunicaciones de IA de alta seguridad con protocolos de gestión de claves a prueba de cuántica.
  #4.15.3    Nivel: 3    Rol: D/V
- Verifique que los marcos de agilidad criptográfica permitan una migración rápida a nuevos algoritmos post-cuánticos con la rotación automatizada de certificados y claves.
+ Verifique que los marcos de agilidad criptográfica permitan la migración rápida a nuevos algoritmos post-cuánticos con la rotación automatizada de certificados y claves.
  #4.15.4    Nivel: 3    Rol: V
  Verifique que el modelado de amenazas cuánticas evalúe la vulnerabilidad de la infraestructura de IA a ataques cuánticos con cronogramas de migración documentados y evaluaciones de riesgo.
  #4.15.5    Nivel: 3    Rol: D/V
- Verifique que los sistemas criptográficos híbridos clásico-cuánticos proporcionen una defensa en profundidad durante el período de transición cuántica con monitoreo de rendimiento.
+ Verifique que los sistemas criptográficos híbridos clásico-cuánticos proporcionen una defensa en profundidad durante el período de transición cuántica con monitoreo del rendimiento.
 
 ---
 
 ### C4.16 Computación Confidencial y Enclaves Seguros
 
-Proteja las cargas de trabajo de IA y los pesos de los modelos utilizando entornos de ejecución confiables basados en hardware y tecnologías de computación confidencial.
+Proteja las cargas de trabajo de IA y los pesos del modelo utilizando entornos de ejecución confiables basados en hardware y tecnologías de computación confidencial.
 
  #4.16.1    Nivel: 3    Rol: D/V
- Verifique que los modelos de IA sensibles se ejecuten dentro de enclaves Intel SGX, AMD SEV-SNP o ARM TrustZone con memoria encriptada y verificación de atestación.
+ Verifique que los modelos de IA sensibles se ejecuten dentro de recintos Intel SGX, AMD SEV-SNP o ARM TrustZone con memoria encriptada y verificación de atestación.
  #4.16.2    Nivel: 3    Rol: D/V
- Verifique que los contenedores confidenciales (Kata Containers, gVisor con computación confidencial) aislan las cargas de trabajo de IA con cifrado de memoria aplicado por hardware.
+ Verificar que los contenedores confidenciales (Kata Containers, gVisor con computación confidencial) aíslan las cargas de trabajo de IA con cifrado de memoria reforzado por hardware.
  #4.16.3    Nivel: 3    Rol: D/V
  Verifique que la atestación remota valide la integridad del enclave antes de cargar modelos de IA con prueba criptográfica de la autenticidad del entorno de ejecución.
  #4.16.4    Nivel: 3    Rol: D/V
- Verifique que los servicios confidenciales de inferencia de IA previenen la extracción del modelo mediante computación cifrada con pesos del modelo sellados y ejecución protegida.
+ Verifique que los servicios confidenciales de inferencia de IA eviten la extracción del modelo mediante computación cifrada con pesos del modelo sellados y ejecución protegida.
  #4.16.5    Nivel: 3    Rol: D/V
  Verifique que la orquestación del entorno de ejecución confiable gestione el ciclo de vida del enclave seguro con atestación remota y canales de comunicación cifrados.
  #4.16.6    Nivel: 3    Rol: D/V
- Verifique que el cómputo multipartito seguro (SMPC) permite el entrenamiento colaborativo de IA sin exponer los conjuntos de datos individuales ni los parámetros del modelo.
+ Verifique que la computación multipartita segura (SMPC) permite el entrenamiento colaborativo de IA sin exponer los conjuntos de datos individuales ni los parámetros del modelo.
 
 ---
 
-### C4.17 Infraestructura de Conocimiento Cero
+### C4.17 Infraestructura de conocimiento cero
 
-Implementar sistemas de pruebas de conocimiento cero para la verificación y autenticación de IA que preserven la privacidad sin revelar información sensible.
+Implementar sistemas de prueba de conocimiento cero para la verificación y autenticación de IA que preserven la privacidad sin revelar información sensible.
 
  #4.17.1    Nivel: 3    Rol: D/V
  Verifique que las pruebas de conocimiento cero (ZK-SNARKs, ZK-STARKs) validan la integridad del modelo de IA y la procedencia del entrenamiento sin exponer los pesos del modelo ni los datos de entrenamiento.
  #4.17.2    Nivel: 3    Rol: D/V
- Verifique que los sistemas de autenticación basados en ZK permiten la verificación de usuarios preservando la privacidad para servicios de IA sin revelar información relacionada con la identidad.
+ Verifique que los sistemas de autenticación basados en ZK permitan la verificación de usuarios preservando la privacidad para los servicios de IA sin revelar información relacionada con la identidad.
  #4.17.3    Nivel: 3    Rol: D/V
- Verifique que los protocolos de intersección de conjuntos privados (PSI) permiten la coincidencia segura de datos para la IA federada sin exponer los conjuntos de datos individuales.
+ Verifique que los protocolos de intersección de conjuntos privados (PSI) permiten una coincidencia segura de datos para la IA federada sin exponer conjuntos de datos individuales.
  #4.17.4    Nivel: 3    Rol: D/V
- Verifique que los sistemas de aprendizaje automático de conocimiento cero (ZKML) permitan inferencias de IA verificables con prueba criptográfica de cómputo correcto.
+ Verifique que los sistemas de aprendizaje automático de conocimiento cero (ZKML) permiten inferencias de IA verificables con prueba criptográfica de cálculo correcto.
  #4.17.5    Nivel: 3    Rol: D/V
- Verifique que los ZK-rollups proporcionan un procesamiento de transacciones de IA escalable y que preserva la privacidad, con verificación por lotes y una reducción en la carga computacional.
+ Verifique que los ZK-rollups proporcionen un procesamiento de transacciones de IA escalable y que preserve la privacidad con verificación por lotes y una reducción de la carga computacional.
 
 ---
 
-### C4.18 Prevención de Ataques por Canal Lateral
+### C4.18 Prevención de ataques de canal lateral
 
-Proteja la infraestructura de IA contra ataques de canal lateral basados en tiempo, energía, electromagnetismo y caché que podrían filtrar información sensible.
+Proteja la infraestructura de IA contra ataques de canal lateral basados en temporización, potencia, electromagnetismo y caché que podrían filtrar información sensible.
 
  #4.18.1    Nivel: 3    Rol: D/V
  Verifique que el tiempo de inferencia de IA esté normalizado utilizando algoritmos de tiempo constante y relleno para prevenir ataques de extracción de modelos basados en el tiempo.
  #4.18.2    Nivel: 3    Rol: D/V
- Verifique que la protección contra el análisis de potencia incluya la inyección de ruido, el filtrado de la línea de alimentación y patrones de ejecución aleatorios para el hardware de IA.
+ Verifique que la protección contra el análisis de potencia incluya inyección de ruido, filtrado de línea de alimentación y patrones de ejecución aleatorios para el hardware de IA.
  #4.18.3    Nivel: 3    Rol: D/V
- Verifique que la mitigación de canales laterales basados en caché utiliza particionamiento de caché, aleatorización e instrucciones de vaciado para prevenir la filtración de información.
+ Verifique que la mitigación de canales laterales basada en caché utiliza particionamiento de caché, aleatorización e instrucciones de limpieza para evitar fugas de información.
  #4.18.4    Nivel: 3    Rol: D/V
- Verifique que la protección contra emanaciones electromagnéticas incluya blindaje, filtrado de señales y procesamiento aleatorio para prevenir ataques al estilo TEMPEST.
+ Verifique que la protección contra emanaciones electromagnéticas incluya blindaje, filtrado de señales y procesamiento aleatorizado para prevenir ataques de estilo TEMPEST.
  #4.18.5    Nivel: 3    Rol: D/V
- Verifique que las defensas de canales laterales microarquitectónicos incluyan controles de ejecución especulativa y la ofuscación de patrones de acceso a la memoria.
+ Verifique que las defensas contra canales laterales microarquitectónicos incluyan controles de ejecución especulativa y ofuscación de patrones de acceso a la memoria.
 
 ---
 
-### C4.19 Seguridad del Hardware Neuromórfico y de IA Especializada
+### C4.19 Seguridad de Hardware Neuromórfico y de IA Especializada
 
-Asegurar arquitecturas de hardware emergentes de IA, incluyendo chips neuromórficos, FPGAs, ASICs personalizados y sistemas de computación óptica.
+Asegurar las arquitecturas emergentes de hardware de IA, incluyendo chips neuromórficos, FPGAs, ASICs personalizados y sistemas de computación óptica.
 
  #4.19.1    Nivel: 3    Rol: D/V
- Verifique que la seguridad del chip neuromórfico incluya encriptación de patrones de picos, protección de pesos sinápticos y validación de reglas de aprendizaje basada en hardware.
+ Verifique que la seguridad del chip neuromórfico incluya el cifrado del patrón de picos, la protección del peso sináptico y la validación de la regla de aprendizaje basada en hardware.
  #4.19.2    Nivel: 3    Rol: D/V
- Verifique que los aceleradores de IA basados en FPGA implementen encriptación de bitstream, mecanismos anti-manipulación y carga de configuración segura con actualizaciones autenticadas.
+ Verifique que los aceleradores de IA basados en FPGA implementen cifrado de bitstream, mecanismos anti-manipulación y carga segura de configuración con actualizaciones autenticadas.
  #4.19.3    Nivel: 3    Rol: D/V
- Verifique que la seguridad del ASIC personalizado incluya procesadores de seguridad en el chip, raíz de confianza de hardware y almacenamiento seguro de claves con detección de manipulación.
+ Verifique que la seguridad personalizada de ASIC incluya procesadores de seguridad en chip, raíz de confianza de hardware y almacenamiento seguro de claves con detección de manipulaciones.
  #4.19.4    Nivel: 3    Rol: D/V
- Verifique que los sistemas de computación óptica implementen cifrado óptico cuánticamente seguro, conmutación fotónica segura y procesamiento de señales ópticas protegido.
+ Verifique que los sistemas de computación óptica implementen cifrado óptico seguro frente a la computación cuántica, conmutación fotónica segura y procesamiento óptico de señales protegido.
  #4.19.5    Nivel: 3    Rol: D/V
- Verifique que los chips de IA híbridos analógico-digital incluyan cálculo analógico seguro, almacenamiento protegido de pesos y conversión autenticada de analógico a digital.
+ Verifique que los chips híbridos de IA analógico-digital incluyan computación analógica segura, almacenamiento protegido de pesos y conversión autenticada de analógico a digital.
 
 ---
 
-### Infraestructura de Cómputo para la Protección de la Privacidad C4.20
+### C4.20 Infraestructura de Cómputo para la Protección de la Privacidad
 
-Implementar controles de infraestructura para el cálculo que preserve la privacidad y proteger los datos sensibles durante el procesamiento y análisis de IA.
+Implementar controles de infraestructura para el cómputo que preserva la privacidad con el fin de proteger datos sensibles durante el procesamiento y análisis de IA.
 
  #4.20.1    Nivel: 3    Rol: D/V
  Verifique que la infraestructura de cifrado homomórfico permita la computación cifrada en cargas de trabajo de IA sensibles con verificación de integridad criptográfica y monitoreo de rendimiento.
  #4.20.2    Nivel: 3    Rol: D/V
- Verifique que los sistemas de recuperación de información privada permiten consultas a bases de datos sin revelar patrones de consulta mediante la protección criptográfica de los patrones de acceso.
+ Verifique que los sistemas de recuperación de información privada permitan consultas a bases de datos sin revelar patrones de consulta mediante la protección criptográfica de los patrones de acceso.
  #4.20.3    Nivel: 3    Rol: D/V
- Verifique que los protocolos de cómputo multipartito seguro permitan una inferencia de IA que preserve la privacidad sin exponer entradas individuales ni cálculos intermedios.
+ Verifique que los protocolos de computación multipartita segura permitan una inferencia de IA que preserve la privacidad sin exponer entradas individuales o cálculos intermedios.
  #4.20.4    Nivel: 3    Rol: D/V
  Verifique que la gestión de claves que preserva la privacidad incluya generación distribuida de claves, criptografía umbral y rotación segura de claves con protección respaldada por hardware.
  #4.20.5    Nivel: 3    Rol: D/V
- Verifique que el rendimiento de cómputo que preserva la privacidad esté optimizado mediante agrupación, almacenamiento en caché y aceleración de hardware, manteniendo al mismo tiempo las garantías de seguridad criptográfica.
+ Verifique que el rendimiento del cómputo que preserva la privacidad esté optimizado mediante la agrupación, el almacenamiento en caché y la aceleración por hardware, manteniendo al mismo tiempo las garantías de seguridad criptográfica.
 
 ---
 
-### C4.15 Seguridad de Integración en la Nube y Despliegue Híbrido del Marco de Agentes
+### C4.15 Seguridad de la Integración en la Nube y Despliegue Híbrido del Marco de Agentes
 
-Controles de seguridad para marcos de agentes integrados en la nube con arquitecturas híbridas locales/en la nube.
+Controles de seguridad para marcos de agentes integrados en la nube con arquitecturas híbridas on-premises/nube.
 
  #4.15.1    Nivel: 1    Rol: D/V
- Verifique que la integración con el almacenamiento en la nube utilice cifrado de extremo a extremo con gestión de claves controlada por el agente.
+ Verifique que la integración del almacenamiento en la nube utilice cifrado de extremo a extremo con gestión de claves controlada por el agente.
  #4.15.2    Nivel: 2    Rol: D/V
- Verifique que los límites de seguridad del despliegue híbrido estén claramente definidos con canales de comunicación cifrados.
+ Verifique que los límites de seguridad de la implementación híbrida estén claramente definidos con canales de comunicación encriptados.
  #4.15.3    Nivel: 2    Rol: D/V
- Verifique que el acceso a los recursos en la nube incluya verificación de confianza cero con autenticación continua.
+ Verifique que el acceso a los recursos en la nube incluya una verificación de confianza cero con autenticación continua.
  #4.15.4    Nivel: 3    Rol: D/V
- Verifique que los requisitos de residencia de datos se cumplan mediante la certificación criptográfica de las ubicaciones de almacenamiento.
+ Verifique que los requisitos de residencia de datos se cumplan mediante una atestación criptográfica de las ubicaciones de almacenamiento.
  #4.15.5    Nivel: 3    Rol: D/V
- Verifique que las evaluaciones de seguridad del proveedor de la nube incluyan modelado de amenazas específico para agentes y evaluación de riesgos.
+ Verifique que las evaluaciones de seguridad del proveedor de la nube incluyan modelado de amenazas y evaluación de riesgos específicos para agentes.
 
 ---
 
@@ -907,7 +907,7 @@ Private Information Retrieval: Concepts and Constructions
 
 ### Objetivo de Control
 
-El control de acceso efectivo para los sistemas de IA requiere una gestión de identidad robusta, autorización con conciencia del contexto y aplicación en tiempo de ejecución siguiendo los principios de confianza cero. Estos controles aseguran que los humanos, servicios y agentes autónomos solo interactúen con modelos, datos y recursos computacionales dentro de los ámbitos explícitamente otorgados, con capacidades continuas de verificación y auditoría.
+El control de acceso efectivo para los sistemas de IA requiere una gestión de identidad robusta, autorización consciente del contexto y aplicación en tiempo de ejecución siguiendo los principios de confianza cero. Estos controles garantizan que los humanos, servicios y agentes autónomos solo interactúen con modelos, datos y recursos computacionales dentro de los ámbitos explícitamente otorgados, con capacidades continuas de verificación y auditoría.
 
 ---
 
@@ -916,15 +916,15 @@ El control de acceso efectivo para los sistemas de IA requiere una gestión de i
 Establecer identidades respaldadas criptográficamente para todas las entidades con autenticación multifactor para operaciones privilegiadas.
 
  #5.1.1    Nivel: 1    Rol: D/V
- Verifique que todos los usuarios humanos y los principales de servicio se autentiquen a través de un proveedor de identidad empresarial centralizado (IdP) utilizando los protocolos OIDC/SAML con asignaciones únicas de identidad a token (sin cuentas o credenciales compartidas).
+ Verifique que todos los usuarios humanos y principales de servicio se autentiquen a través de un proveedor de identidad empresarial centralizado (IdP) utilizando los protocolos OIDC/SAML con asignaciones únicas de identidad a token (sin cuentas o credenciales compartidas).
  #5.1.2    Nivel: 1    Rol: D/V
- Verifique que las operaciones de alto riesgo (despliegue del modelo, exportación de pesos, acceso a datos de entrenamiento, cambios en la configuración de producción) requieran autenticación multifactor o autenticación escalonada con revalidación de sesión.
+ Verifique que las operaciones de alto riesgo (despliegue de modelos, exportación de pesos, acceso a datos de entrenamiento, cambios en la configuración de producción) requieran autenticación multifactor o autenticación escalonada con revalidación de sesión.
  #5.1.3    Nivel: 2    Rol: D
- Verifique que los nuevos responsables pasen por un proceso de verificación de identidad alineado con NIST 800-63-3 IAL-2 o estándares equivalentes antes de recibir acceso al sistema de producción.
+ Verifique que los nuevos responsables se sometan a una verificación de identidad que esté alineada con NIST 800-63-3 IAL-2 o estándares equivalentes antes de recibir acceso al sistema de producción.
  #5.1.4    Nivel: 2    Rol: V
- Verifique que las revisiones de acceso se realicen trimestralmente con detección automatizada de cuentas inactivas, aplicación de la rotación de credenciales y flujos de trabajo de desprovisionamiento.
+ Verifique que las revisiones de acceso se realicen trimestralmente con detección automática de cuentas inactivas, aplicación de la rotación de credenciales y flujos de trabajo de desprovimiento.
  #5.1.5    Nivel: 3    Rol: D/V
- Verifique que los agentes de IA federada se autentiquen mediante aserciones JWT firmadas que tengan una vida máxima de 24 horas e incluyan prueba criptográfica de origen.
+ Verifique que los agentes de IA federados se autentiquen mediante aserciones JWT firmadas que tengan una vida útil máxima de 24 horas e incluyan prueba criptográfica de origen.
 
 ---
 
@@ -933,104 +933,104 @@ Establecer identidades respaldadas criptográficamente para todas las entidades 
 Implemente controles de acceso detallados para todos los recursos de IA con modelos de permiso explícitos y registros de auditoría.
 
  #5.2.1    Nivel: 1    Rol: D/V
- Verifique que cada recurso de IA (conjuntos de datos, modelos, puntos de enlace, colecciones vectoriales, índices de incrustación, instancias de cómputo) aplique controles de acceso basados en roles con listas de permitidos explícitas y políticas de denegación por defecto.
+ Verifique que cada recurso de IA (conjuntos de datos, modelos, puntos finales, colecciones vectoriales, índices de incrustación, instancias de computación) implemente controles de acceso basados en roles con listas de permitidos explícitas y políticas de denegación por defecto.
  #5.2.2    Nivel: 1    Rol: D/V
  Verifique que los principios de mínimo privilegio se apliquen por defecto con las cuentas de servicio, comenzando con permisos de solo lectura y requiriendo una justificación comercial documentada para el acceso de escritura.
  #5.2.3    Nivel: 1    Rol: V
- Verifique que todas las modificaciones de control de acceso estén vinculadas a solicitudes de cambio aprobadas y registradas de manera inmutable con marcas de tiempo, identidades de actores, identificadores de recursos y deltas de permisos.
+ Verifique que todas las modificaciones de control de acceso estén vinculadas a solicitudes de cambio aprobadas y registradas de forma inmutable con marcas de tiempo, identidades de actores, identificadores de recursos y deltas de permisos.
  #5.2.4    Nivel: 2    Rol: D
- Verifique que las etiquetas de clasificación de datos (PII, PHI, controladas para exportación, propietarias) se propaguen automáticamente a los recursos derivados (incrustaciones, cachés de indicaciones, salidas de modelos) con una aplicación coherente de la política.
+ Verifique que las etiquetas de clasificación de datos (PII, PHI, controladas por exportación, propietarias) se propaguen automáticamente a los recursos derivados (embeddings, cachés de prompts, salidas del modelo) con una aplicación de políticas coherente.
  #5.2.5    Nivel: 2    Rol: D/V
- Verifique que los intentos de acceso no autorizado y los eventos de escalamiento de privilegios generen alertas en tiempo real con metadatos contextuales hacia los sistemas SIEM dentro de 5 minutos.
+ Verifique que los intentos de acceso no autorizados y los eventos de escalada de privilegios desencadenen alertas en tiempo real con metadatos contextuales hacia los sistemas SIEM dentro de los 5 minutos.
 
 ---
 
 ### C5.3 Evaluación Dinámica de Políticas
 
-Despliegue motores de control de acceso basado en atributos (ABAC) para decisiones de autorización conscientes del contexto con capacidades de auditoría.
+Implemente motores de control de acceso basado en atributos (ABAC) para decisiones de autorización conscientes del contexto con capacidades de auditoría.
 
  #5.3.1    Nivel: 1    Rol: D/V
- Verifique que las decisiones de autorización estén externalizadas a un motor de políticas dedicado (OPA, Cedar o equivalente) accesible a través de APIs autenticadas con protección criptográfica de integridad.
+ Verificar que las decisiones de autorización estén externalizadas a un motor de políticas dedicado (OPA, Cedar o equivalente) accesible mediante APIs autenticadas con protección de integridad criptográfica.
  #5.3.2    Nivel: 1    Rol: D/V
  Verifique que las políticas evalúen atributos dinámicos en tiempo de ejecución, incluyendo el nivel de autorización del usuario, la clasificación de sensibilidad del recurso, el contexto de la solicitud, el aislamiento del inquilino y las restricciones temporales.
  #5.3.3    Nivel: 2    Rol: D
- Verifique que las definiciones de políticas estén controladas por versiones, revisadas por pares y validadas mediante pruebas automatizadas en las canalizaciones de CI/CD antes del despliegue en producción.
+ Verifique que las definiciones de políticas estén controladas por versiones, revisadas por pares y validadas mediante pruebas automatizadas en los pipelines de CI/CD antes del despliegue en producción.
  #5.3.4    Nivel: 2    Rol: V
- Verifique que los resultados de la evaluación de políticas incluyan racionales estructurados de decisión y se transmitan a los sistemas SIEM para el análisis de correlación y la generación de informes de cumplimiento.
+ Verifique que los resultados de la evaluación de políticas incluyan fundamentos estructurados de las decisiones y se transmitan a los sistemas SIEM para análisis de correlación e informes de cumplimiento.
  #5.3.5    Nivel: 3    Rol: D/V
- Verifique que los valores de tiempo de vida (TTL) de la caché de políticas no excedan los 5 minutos para recursos de alta sensibilidad y 1 hora para recursos estándar con capacidades de invalidación de caché.
+ Verifique que los valores de tiempo de vida (TTL) de la caché de políticas no superen los 5 minutos para recursos de alta sensibilidad y 1 hora para recursos estándar con capacidades de invalidación de caché.
 
 ---
 
 ### C5.4 Aplicación de Seguridad en Tiempo de Consulta
 
-Implemente controles de seguridad a nivel de base de datos con filtrado obligatorio y políticas de seguridad a nivel de fila.
+Implemente controles de seguridad en la capa de base de datos con filtrado obligatorio y políticas de seguridad a nivel de fila.
 
  #5.4.1    Nivel: 1    Rol: D/V
- Verifique que todas las consultas a bases de datos vectoriales y SQL incluyan filtros de seguridad obligatorios (ID de inquilino, etiquetas de sensibilidad, alcance del usuario) aplicados a nivel del motor de base de datos, y no en el código de la aplicación.
+ Verifique que todas las consultas a bases de datos vectoriales y SQL incluyan filtros de seguridad obligatorios (ID de inquilino, etiquetas de sensibilidad, alcance del usuario) aplicados a nivel del motor de base de datos, no en el código de la aplicación.
  #5.4.2    Nivel: 1    Rol: D/V
  Verifique que las políticas de seguridad a nivel de fila (RLS) y el enmascaramiento a nivel de campo estén habilitados con herencia de políticas para todas las bases de datos vectoriales, índices de búsqueda y conjuntos de datos de entrenamiento.
  #5.4.3    Nivel: 2    Rol: D
- Verifique que las evaluaciones de autorización fallidas eviten los ataques de "confused deputy" abortando inmediatamente las consultas y devolviendo códigos de error de autorización explícitos en lugar de devolver conjuntos de resultados vacíos.
+ Verifique que las evaluaciones de autorización fallidas evitarán los "ataques de delegado confundido" al abortar inmediatamente las consultas y devolver códigos de error de autorización explícitos en lugar de devolver conjuntos de resultados vacíos.
  #5.4.4    Nivel: 2    Rol: V
- Verifique que la latencia de evaluación de políticas se monitoree continuamente con alertas automatizadas para condiciones de tiempo de espera que podrían permitir eludir la autorización.
+ Verifique que la latencia de evaluación de políticas se monitoree continuamente con alertas automatizadas para condiciones de tiempo de espera que podrían permitir la omisión de la autorización.
  #5.4.5    Nivel: 3    Rol: D/V
- Verifique que los mecanismos de reintento de consultas reevalúan las políticas de autorización para tener en cuenta los cambios dinámicos de permisos dentro de las sesiones activas de usuario.
+ Verifique que los mecanismos de reintento de consultas vuelvan a evaluar las políticas de autorización para tener en cuenta los cambios dinámicos de permisos dentro de sesiones de usuario activas.
 
 ---
 
 ### Filtrado de Salida C5.5 y Prevención de Pérdida de Datos
 
-Implemente controles de posprocesamiento para prevenir la exposición no autorizada de datos en el contenido generado por IA.
+Implementar controles de postprocesamiento para prevenir la exposición no autorizada de datos en contenido generado por IA.
 
  #5.5.1    Nivel: 1    Rol: D/V
- Verifique que los mecanismos de filtrado posteriores a la inferencia escaneen y redacten la información personal identificable (PII), la información clasificada y los datos propietarios no autorizados antes de entregar el contenido a los solicitantes.
+ Verifique que los mecanismos de filtrado posterior a la inferencia escaneen y redacten información de identificación personal (PII) no autorizada, información clasificada y datos propietarios antes de entregar el contenido a los solicitantes.
  #5.5.2    Nivel: 1    Rol: D/V
- Verifique que las citas, referencias y atribuciones de fuentes en las salidas del modelo estén validadas según los derechos del llamante y se eliminen si se detecta un acceso no autorizado.
+ Verifique que las citas, referencias y atribuciones de fuentes en las salidas del modelo estén validadas según los derechos del solicitante y se eliminen si se detecta acceso no autorizado.
  #5.5.3    Nivel: 2    Rol: D
- Verificar que se apliquen las restricciones del formato de salida (PDFs sanitizados, imágenes con metadatos eliminados, tipos de archivo aprobados) según los niveles de permiso del usuario y las clasificaciones de datos.
+ Verificar que se apliquen las restricciones de formato de salida (PDFs sanitizados, imágenes con metadatos eliminados, tipos de archivos aprobados) según los niveles de permiso del usuario y las clasificaciones de datos.
  #5.5.4    Nivel: 2    Rol: V
- Verifique que los algoritmos de redacción sean deterministas, controlados por versiones y mantengan registros de auditoría para apoyar las investigaciones de cumplimiento y el análisis forense.
+ Verifique que los algoritmos de redacción sean deterministas, controlados por versiones y mantengan registros de auditoría para respaldar las investigaciones de cumplimiento y el análisis forense.
  #5.5.5    Nivel: 3    Rol: V
- Verifique que los eventos de redacción de alto riesgo generen registros adaptativos que incluyan hashes criptográficos del contenido original para la recuperación forense sin exposición de datos.
+ Verifique que los eventos de redacción de alto riesgo generen registros adaptativos que incluyan hashes criptográficos del contenido original para su recuperación forense sin exposición de datos.
 
 ---
 
 ### C5.6 Aislamiento Multiinquilino
 
-Garantizar el aislamiento criptográfico y lógico entre los inquilinos en una infraestructura de IA compartida.
+Asegurar el aislamiento criptográfico y lógico entre inquilinos en una infraestructura de IA compartida.
 
  #5.6.1    Nivel: 1    Rol: D/V
- Verificar que los espacios de memoria, almacenes de incrustaciones, entradas de caché y archivos temporales estén separados por espacio de nombres para cada inquilino, con purga segura al eliminar al inquilino o al finalizar la sesión.
+ Verifique que los espacios de memoria, los almacenes de incrustaciones, las entradas de caché y los archivos temporales estén segregados por espacio de nombres para cada inquilino, con purgado seguro al eliminar el inquilino o terminar la sesión.
  #5.6.2    Nivel: 1    Rol: D/V
- Verifique que cada solicitud de API incluya un identificador de inquilino autenticado que sea validado criptográficamente contra el contexto de la sesión y los derechos del usuario.
+ Verifique que cada solicitud de API incluya un identificador de inquilino autenticado que esté validado criptográficamente contra el contexto de sesión y los derechos del usuario.
  #5.6.3    Nivel: 2    Rol: D
- Verifique que las políticas de red implementen reglas de denegación predeterminadas para la comunicación entre inquilinos en mallas de servicios y plataformas de orquestación de contenedores.
+ Verifique que las políticas de red implementen reglas de denegación predeterminada para la comunicación entre inquilinos dentro de mallas de servicio y plataformas de orquestación de contenedores.
  #5.6.4    Nivel: 3    Rol: D
- Verificar que las claves de cifrado sean únicas por arrendatario con soporte para claves gestionadas por el cliente (CMK) y aislamiento criptográfico entre los almacenes de datos de los arrendatarios.
+ Verifique que las claves de cifrado sean únicas por inquilino con soporte de claves gestionadas por el cliente (CMK) y aislamiento criptográfico entre los almacenes de datos de los inquilinos.
 
 ---
 
-### C5.7 Autorización de Agentes Autónomos
+### C5.7 Autorización de Agente Autónomo
 
-Controla los permisos para agentes de IA y sistemas autónomos mediante tokens de capacidad con alcance y autorización continua.
+Controla los permisos para agentes de IA y sistemas autónomos mediante tokens de capacidad limitados y autorización continua.
 
  #5.7.1    Nivel: 1    Rol: D/V
  Verifique que los agentes autónomos reciban tokens de capacidad con alcance que enumeren explícitamente las acciones permitidas, los recursos accesibles, los límites de tiempo y las restricciones operativas.
  #5.7.2    Nivel: 1    Rol: D/V
  Verifique que las capacidades de alto riesgo (acceso al sistema de archivos, ejecución de código, llamadas a API externas, transacciones financieras) estén deshabilitadas por defecto y requieran autorizaciones explícitas para su activación con justificaciones comerciales.
  #5.7.3    Nivel: 2    Rol: D
- Verifique que los tokens de capacidad estén vinculados a las sesiones de usuario, incluyan protección criptográfica de integridad y aseguren que no puedan ser almacenados ni reutilizados en escenarios sin conexión.
+ Verifique que los tokens de capacidad estén vinculados a las sesiones de usuario, incluyan protección criptográfica de integridad y aseguren que no puedan persistirse o reutilizarse en escenarios sin conexión.
  #5.7.4    Nivel: 2    Rol: V
- Verifique que las acciones iniciadas por el agente pasen por una autorización secundaria a través del motor de políticas ABAC con evaluación de contexto completo y registro de auditoría.
+ Verifique que las acciones iniciadas por el agente pasen por una autorización secundaria a través del motor de políticas ABAC con evaluación de contexto completa y registro de auditoría.
  #5.7.5    Nivel: 3    Rol: V
- Verifique que las condiciones de error del agente y el manejo de excepciones incluyan información sobre el alcance de la capacidad para respaldar el análisis de incidentes y la investigación forense.
+ Verifique que las condiciones de error del agente y el manejo de excepciones incluyan información del alcance de la capacidad para respaldar el análisis de incidentes y la investigación forense.
 
 ---
 
 ### Referencias
 
-#### Normas y Marcos de Referencia
+#### Normas y Marcos de Trabajo
 
 NIST SP 800-63-3: Digital Identity Guidelines
 Zero Trust Architecture – NIST SP 800-207
@@ -1042,50 +1042,50 @@ Identity and Access Management in the AI Era: 2025 Guide – IDSA
 Attribute-Based Access Control with OPA – Permify
 How We Designed Cedar to Be Intuitive, Fast, and Safe – AWS
 ​
-#### Seguridad Específica para IA
+#### Seguridad específica para IA
 
 Row Level Security in Vector DBs for RAG – Bluetuple.ai
 Tenant Isolation in Multi-Tenant Systems – WorkOS
 Handling AI Agent Permissions – Stytch
 OWASP Top 10 for Large Language Model Applications
 
-## C6 Seguridad en la Cadena de Suministro para Modelos, Frameworks y Datos
+## Seguridad de la cadena de suministro C6 para modelos, frameworks y datos
 
 ### Objetivo de Control
 
-Los ataques a la cadena de suministro de IA explotan modelos, frameworks o conjuntos de datos de terceros para insertar puertas traseras, sesgos o código explotable. Estos controles proporcionan un control completo de la procedencia, gestión de vulnerabilidades y monitoreo para proteger todo el ciclo de vida del modelo.
+Los ataques a la cadena de suministro de IA explotan modelos, marcos o conjuntos de datos de terceros para incrustar puertas traseras, sesgos o código explotable. Estos controles proporcionan trazabilidad de extremo a extremo, gestión de vulnerabilidades y monitoreo para proteger todo el ciclo de vida del modelo.
 
 ---
 
-### C6.1 Verificación y Procedencia del Modelo Preentrenado
+### C6.1 Revisión y Procedencia de Modelos Preentrenados
 
-Evaluar y autenticar los orígenes, licencias y comportamientos ocultos de modelos de terceros antes de cualquier ajuste fino o despliegue.
+Evalúe y autentique los orígenes de modelos de terceros, licencias y comportamientos ocultos antes de cualquier ajuste fino o despliegue.
 
  #6.1.1    Nivel: 1    Rol: D/V
- Verifique que cada artefacto de modelo de terceros incluya un registro de procedencia firmado que identifique el repositorio de origen y el hash de la confirmación.
+ Verifique que cada artefacto de modelo de terceros incluya un registro de procedencia firmado que identifique el repositorio fuente y el hash del commit.
  #6.1.2    Nivel: 1    Rol: D/V
- Verifique que los modelos sean escaneados en busca de capas maliciosas o disparadores de troyanos utilizando herramientas automatizadas antes de la importación.
+ Verifique que los modelos sean escaneados en busca de capas maliciosas o activadores de troyanos utilizando herramientas automatizadas antes de la importación.
  #6.1.3    Nivel: 2    Rol: D
- Verifique que el ajuste fino de transferencia de aprendizaje supere la evaluación adversarial para detectar comportamientos ocultos.
+ Verifique que el ajuste fino mediante transferencia de aprendizaje pase la evaluación adversarial para detectar comportamientos ocultos.
  #6.1.4    Nivel: 2    Rol: V
- Verifique que las licencias del modelo, las etiquetas de control de exportación y las declaraciones de origen de los datos estén registradas en una entrada de ML‑BOM.
+ Verifique que las licencias del modelo, las etiquetas de control de exportación y las declaraciones de origen de datos estén registradas en una entrada de ML‑BOM.
  #6.1.5    Nivel: 3    Rol: D/V
- Verifique que los modelos de alto riesgo (pesos subidos públicamente, creadores no verificados) permanezcan en cuarentena hasta la revisión y aprobación humana.
+ Verifique que los modelos de alto riesgo (pesos cargados públicamente, creadores no verificados) permanezcan en cuarentena hasta la revisión y aprobación humana.
 
 ---
 
-### C6.2 Escaneo de Framework y Bibliotecas
+### C6.2 Escaneo de Frameworks y Bibliotecas
 
-Escanee continuamente los frameworks y bibliotecas de ML en busca de CVE y código malicioso para mantener segura la pila de ejecución.
+Escanear continuamente los frameworks y bibliotecas de aprendizaje automático en busca de CVEs y código malicioso para mantener segura la pila de ejecución.
 
  #6.2.1    Nivel: 1    Rol: D/V
- Verifique que las canalizaciones de CI ejecuten escáneres de dependencias en los frameworks de IA y las bibliotecas críticas.
+ Verifique que los pipelines de CI ejecuten escáneres de dependencias en los frameworks de IA y bibliotecas críticas.
  #6.2.2    Nivel: 1    Rol: D/V
  Verifique que las vulnerabilidades críticas (CVSS ≥ 7.0) bloqueen la promoción a imágenes de producción.
  #6.2.3    Nivel: 2    Rol: D
- Verifique que el análisis estático de código se ejecute en las bibliotecas de ML bifurcadas o incluidas.
+ Verifique que el análisis estático de código se ejecute en bibliotecas de ML bifurcadas o incluidas.
  #6.2.4    Nivel: 2    Rol: V
- Verifique que las propuestas de actualización del framework incluyan una evaluación de impacto de seguridad que haga referencia a fuentes públicas de CVE.
+ Verifique que las propuestas de actualización del framework incluyan una evaluación del impacto en la seguridad que haga referencia a fuentes públicas de CVE.
  #6.2.5    Nivel: 3    Rol: V
  Verifique que los sensores en tiempo de ejecución alerten sobre cargas inesperadas de bibliotecas dinámicas que se desvíen del SBOM firmado.
 
@@ -1093,18 +1093,18 @@ Escanee continuamente los frameworks y bibliotecas de ML en busca de CVE y códi
 
 ### C6.3 Fijación y Verificación de Dependencias
 
-Fije cada dependencia a sumas de verificación inmutables y reproduzca las compilaciones para garantizar artefactos idénticos y libres de manipulación.
+Fije cada dependencia a resúmenes inmutables y reproduzca las compilaciones para garantizar artefactos idénticos y libres de manipulación.
 
  #6.3.1    Nivel: 1    Rol: D/V
- Verifique que todos los gestores de paquetes apliquen el bloqueo de versiones mediante archivos de bloqueo.
+ Verifique que todos los gestores de paquetes apliquen el fijado de versiones mediante archivos de bloqueo.
  #6.3.2    Nivel: 1    Rol: D/V
  Verifique que se utilicen resúmenes inmutables en lugar de etiquetas mutables en las referencias de contenedores.
  #6.3.3    Nivel: 2    Rol: D
- Verifique que las comprobaciones de compilación reproducible comparen los hashes entre ejecuciones de CI para garantizar salidas idénticas.
+ Verifique que las comprobaciones de compilaciones reproducibles comparen los hashes entre ejecuciones de CI para garantizar salidas idénticas.
  #6.3.4    Nivel: 2    Rol: V
- Verifique que las atestaciones de compilación se almacenen durante 18 meses para la trazabilidad de auditoría.
+ Verifique que las atestaciones de compilación se almacenen por 18 meses para la trazabilidad de auditoría.
  #6.3.5    Nivel: 3    Rol: D
- Verifique que las dependencias vencidas activen solicitudes de extracción automatizadas para actualizar o bifurcar las versiones fijadas.
+ Verifique que las dependencias expiradas generen solicitudes de extracción automáticas para actualizar o bifurcar las versiones fijadas.
 
 ---
 
@@ -1117,24 +1117,24 @@ Permitir descargas de artefactos solo desde fuentes verificadas criptográficame
  #6.4.2    Nivel: 1    Rol: D/V
  Verifique que las firmas de Sigstore/Cosign validen la identidad del editor antes de que los artefactos se almacenen en caché localmente.
  #6.4.3    Nivel: 2    Rol: D
- Verifique que los proxies de salida bloqueen las descargas de artefactos no autenticadas para hacer cumplir la política de fuente confiable.
+ Verifique que los proxies de salida bloqueen las descargas de artefactos no autenticados para hacer cumplir la política de fuentes confiables.
  #6.4.4    Nivel: 2    Rol: V
- Verifique que las listas de permitidos del repositorio se revisen trimestralmente con evidencia de justificación comercial para cada entrada.
+ Verifique que las listas blancas del repositorio se revisen trimestralmente con evidencia de justificación comercial para cada entrada.
  #6.4.5    Nivel: 3    Rol: V
- Verifique que las violaciones de la política desencadenen el aislamiento de los artefactos y la reversión de las ejecuciones dependientes del pipeline.
+ Verifique que las violaciones de políticas desencadenen la cuarentena de artefactos y la reversión de las ejecuciones de canalizaciones dependientes.
 
 ---
 
 ### C6.5 Evaluación de Riesgos de Conjuntos de Datos de Terceros
 
-Evalúe los conjuntos de datos externos para detectar envenenamiento, sesgo y cumplimiento legal, y monitoree su ciclo de vida completo.
+Evaluar conjuntos de datos externos para detectar envenenamiento, sesgo y cumplimiento legal, y monitorearlos a lo largo de su ciclo de vida.
 
  #6.5.1    Nivel: 1    Rol: D/V
- Verifique que los conjuntos de datos externos se sometan a una puntuación de riesgo de envenenamiento (por ejemplo, huellas digitales de datos, detección de valores atípicos).
+ Verifique que los conjuntos de datos externos sean sometidos a una puntuación de riesgo de envenenamiento (por ejemplo, huellas digitales de datos, detección de valores atípicos).
  #6.5.2    Nivel: 1    Rol: D
  Verifique que las métricas de sesgo (paridad demográfica, igualdad de oportunidades) se calculen antes de la aprobación del conjunto de datos.
  #6.5.3    Nivel: 2    Rol: V
- Verifique que el origen y los términos de licencia de los conjuntos de datos estén capturados en las entradas de ML‑BOM.
+ Verifique que la procedencia y los términos de licencia de los conjuntos de datos estén registrados en las entradas de ML-BOM.
  #6.5.4    Nivel: 2    Rol: V
  Verifique que la monitorización periódica detecte desviaciones o corrupciones en los conjuntos de datos alojados.
  #6.5.5    Nivel: 3    Rol: D
@@ -1142,33 +1142,33 @@ Evalúe los conjuntos de datos externos para detectar envenenamiento, sesgo y cu
 
 ---
 
-### C6.6 Monitoreo de Ataques en la Cadena de Suministro
+### C6.6 Monitoreo de Ataques a la Cadena de Suministro
 
-Detecte amenazas en la cadena de suministro temprano a través de fuentes CVE, análisis de registros de auditoría y simulaciones de equipos rojos.
+Detecte las amenazas a la cadena de suministro de manera temprana mediante fuentes CVE, análisis de registros de auditoría y simulaciones de equipos rojos.
 
  #6.6.1    Nivel: 1    Rol: V
- Verifique que los registros de auditoría de CI/CD se transmitan al SIEM para detectar extracciones de paquetes anómalas o pasos de compilación manipulados.
+ Verifique que los registros de auditoría de CI/CD se transmitan a las detecciones de SIEM para extracciones anómalas de paquetes o pasos de compilación manipulados.
  #6.6.2    Nivel: 2    Rol: D
- Verifique que los playbooks de respuesta a incidentes incluyan procedimientos de reversión para modelos o bibliotecas comprometidos.
+ Verifique que los manuales de respuesta a incidentes incluyan procedimientos de reversión para los modelos o bibliotecas comprometidos.
  #6.6.3    Nivel: 3    Rol: V
- Verifique que las etiquetas de enriquecimiento de inteligencia de amenazas marquen indicadores específicos de ML (por ejemplo, IoCs de envenenamiento de modelos) en el triaje de alertas.
+ Verifique que el enriquecimiento de inteligencia sobre amenazas etiquete indicadores específicos de ML (por ejemplo, IoCs de envenenamiento de modelos) en la clasificación de alertas.
 
 ---
 
-### C6.7 ML‑BOM para Artefactos de Modelos
+### C6.7 ML‑BOM para Artefactos de Modelo
 
-Genere y firme SBOMs detallados específicos para ML (ML‑BOMs) para que los consumidores posteriores puedan verificar la integridad de los componentes en el momento del despliegue.
+Genere y firme SBOMs específicas para ML (ML-BOMs) detalladas para que los consumidores posteriores puedan verificar la integridad de los componentes en el momento del despliegue.
 
  #6.7.1    Nivel: 1    Rol: D/V
- Verifique que cada artefacto de modelo publique un ML-BOM que liste conjuntos de datos, pesos, hiperparámetros y licencias.
+ Verifique que cada artefacto de modelo publique un ML‑BOM que liste conjuntos de datos, pesos, hiperparámetros y licencias.
  #6.7.2    Nivel: 1    Rol: D/V
- Verifique que la generación de ML-BOM y la firma con Cosign estén automatizadas en CI y sean requeridas para la fusión.
+ Verifique que la generación de ML‑BOM y la firma Cosign estén automatizadas en CI y sean obligatorias para la fusión.
  #6.7.3    Nivel: 2    Rol: D
- Verifique que las comprobaciones de integridad del ML-BOM fallen la compilación si falta algún metadato del componente (hash, licencia).
+ Verifique que las comprobaciones de integridad de ML-BOM fallen la compilación si falta algún metadato del componente (hash, licencia).
  #6.7.4    Nivel: 2    Rol: V
- Verificar que los consumidores aguas abajo puedan consultar ML-BOMs a través de la API para validar los modelos importados en el momento del despliegue.
+ Verifique que los consumidores downstream puedan consultar ML-BOMs a través de la API para validar los modelos importados en el momento del despliegue.
  #6.7.5    Nivel: 3    Rol: V
- Verifique que los ML‑BOMs estén controlados por versión y comparados para detectar modificaciones no autorizadas.
+ Verifique que los ML‑BOMs estén controlados por versiones y se comparen para detectar modificaciones no autorizadas.
 
 ---
 
@@ -1190,39 +1190,39 @@ Dependency Pinning for Reproducible Python – Medium
 
 ### Objetivo de Control
 
-Las salidas del modelo deben ser estructuradas, confiables, seguras, explicables y monitoreadas continuamente en producción. Hacerlo reduce alucinaciones, fugas de privacidad, contenido dañino y acciones descontroladas, mientras aumenta la confianza del usuario y el cumplimiento normativo.
+Los resultados del modelo deben ser estructurados, confiables, seguros, explicables y monitoreados continuamente en producción. Hacerlo reduce las alucinaciones, las filtraciones de privacidad, el contenido dañino y las acciones descontroladas, mientras aumenta la confianza del usuario y el cumplimiento normativo.
 
 ---
 
 ### C7.1 Aplicación del Formato de Salida
 
-Esquemas estrictos, decodificación restringida y validación descendente detienen el contenido malformado o malicioso antes de que se propague.
+Los esquemas estrictos, la decodificación restringida y la validación posterior evitan que el contenido malformado o malicioso se propague.
 
  #7.1.1    Nivel: 1    Rol: D/V
- Verifique que los esquemas de respuesta (por ejemplo, JSON Schema) estén suministrados en el mensaje del sistema y que cada salida sea validada automáticamente; las salidas que no cumplan con el formato desencadenan una reparación o rechazo.
+ Verifique que los esquemas de respuesta (por ejemplo, el Esquema JSON) se proporcionen en el prompt del sistema y que cada salida se valide automáticamente; las salidas que no cumplan con el esquema deben provocar una reparación o un rechazo.
  #7.1.2    Nivel: 1    Rol: D/V
- Verifique que la decodificación restringida (tokens de parada, expresiones regulares, máximo de tokens) esté habilitada para prevenir desbordamientos o canales laterales de inyección en el prompt.
+ Verifique que la decodificación restringida (tokens de parada, regex, máximo de tokens) esté habilitada para prevenir desbordamientos o canales laterales de inyección de prompt.
  #7.1.3    Nivel: 2    Rol: D/V
- Verifique que los componentes descendentes traten las salidas como no confiables y las validen contra esquemas o deserializadores seguros contra inyecciones.
+ Verifique que los componentes posteriores traten las salidas como no confiables y las validen contra esquemas o deserializadores seguros contra inyecciones.
  #7.1.4    Nivel: 3    Rol: V
- Verifique que los eventos de salida incorrecta estén registrados, limitados en tasa y presentados en la monitorización.
+ Verifique que los eventos de salida incorrecta se registren, limiten la tasa y se muestren en la supervisión.
 
 ---
 
 ### C7.2 Detección y Mitigación de Alucinaciones
 
-La estimación de la incertidumbre y las estrategias de retroadaptación reducen las respuestas fabricadas.
+La estimación de la incertidumbre y las estrategias de respaldo limitan las respuestas fabricadas.
 
  #7.2.1    Nivel: 1    Rol: D/V
- Verifique que las probabilidades logarítmicas a nivel de token, la autocoherencia del conjunto, o los detectores de alucinaciones afinados asignen una puntuación de confianza a cada respuesta.
+ Verifique que las log-probabilidades a nivel de token, la auto-consistencia en conjunto o los detectores de alucinaciones afinados asignen una puntuación de confianza a cada respuesta.
  #7.2.2    Nivel: 1    Rol: D/V
- Verifique que las respuestas por debajo de un umbral de confianza configurable activen flujos de trabajo de respaldo (por ejemplo, generación aumentada por recuperación, modelo secundario o revisión humana).
+ Verifique que las respuestas por debajo de un umbral de confianza configurable activen flujos de trabajo alternativos (por ejemplo, generación aumentada por recuperación, modelo secundario o revisión humana).
  #7.2.3    Nivel: 2    Rol: D/V
- Verifique que los incidentes de alucinaciones estén etiquetados con metadatos de causa raíz y se envíen a los procesos de análisis post-mortem y ajuste fino.
+ Verifique que los incidentes de alucinación estén etiquetados con metadatos de causa raíz y se alimenten a las canalizaciones de análisis post-mortem y ajuste fino.
  #7.2.4    Nivel: 3    Rol: D/V
- Verifique que los umbrales y detectores se recalibren después de actualizaciones importantes del modelo o de la base de conocimiento.
+ Verifique que los umbrales y los detectores se recalibren después de actualizaciones importantes del modelo o de la base de conocimiento.
  #7.2.5    Nivel: 3    Rol: V
- Verifique que las visualizaciones del panel de control monitoreen las tasas de alucinaciones.
+ Verifique que las visualizaciones del tablero monitoreen las tasas de alucinación.
 
 ---
 
@@ -1231,11 +1231,11 @@ La estimación de la incertidumbre y las estrategias de retroadaptación reducen
 Los filtros de políticas y la cobertura del equipo rojo protegen a los usuarios y los datos confidenciales.
 
  #7.3.1    Nivel: 1    Rol: D/V
- Verifique que los clasificadores previos y posteriores a la generación bloqueen contenido de odio, acoso, autolesiones, extremista y sexualmente explícito alineado con la política.
+ Verifique que los clasificadores pre y post-generación bloqueen contenido de odio, acoso, autolesiones, extremista y sexualmente explícito alineado con la política.
  #7.3.2    Nivel: 1    Rol: D/V
- Verifique que la detección de PII/PCI y la redacción automática se ejecuten en cada respuesta; las violaciones generarán un incidente de privacidad.
+ Verifique que la detección de PII/PCI y la redacción automática se ejecuten en cada respuesta; las violaciones generan un incidente de privacidad.
  #7.3.3    Nivel: 2    Rol: D
- Verifique que las etiquetas de confidencialidad (por ejemplo, secretos comerciales) se propaguen a través de las modalidades para evitar fugas en texto, imágenes o código.
+ Verifique que las etiquetas de confidencialidad (p. ej., secretos comerciales) se propaguen a través de modalidades para evitar fugas en texto, imágenes o código.
  #7.3.4    Nivel: 3    Rol: D/V
  Verifique que los intentos de eludir el filtro o las clasificaciones de alto riesgo requieran una aprobación secundaria o la reautenticación del usuario.
  #7.3.5    Nivel: 3    Rol: D/V
@@ -1250,17 +1250,17 @@ Los límites de tasa y las puertas de aprobación evitan el abuso y la autonomí
  #7.4.1    Nivel: 1    Rol: D
  Verifique que las cuotas por usuario y por clave API limiten las solicitudes, los tokens y el costo con retroceso exponencial en errores 429.
  #7.4.2    Nivel: 1    Rol: D/V
- Verifique que las acciones privilegiadas (escritura de archivos, ejecución de código, llamadas de red) requieran aprobación basada en políticas o intervención humana.
+ Verifique que las acciones privilegiadas (escritura de archivos, ejecución de código, llamadas a la red) requieran aprobación basada en políticas o intervención humana.
  #7.4.3    Nivel: 2    Rol: D/V
- Verifique que las comprobaciones de consistencia cruzada modal aseguren que las imágenes, el código y el texto generados para la misma solicitud no puedan ser utilizados para introducir contenido malicioso.
+ Verifique que las comprobaciones de consistencia cruzada modal aseguren que las imágenes, el código y el texto generados para la misma solicitud no puedan ser utilizados para ocultar contenido malicioso.
  #7.4.4    Nivel: 2    Rol: D
  Verifique que la profundidad de delegación del agente, los límites de recursión y las listas de herramientas permitidas estén configurados explícitamente.
  #7.4.5    Nivel: 3    Rol: V
- Verifique que la violación de los límites emita eventos de seguridad estructurados para la ingestión en SIEM.
+ Verifique que la violación de límites emite eventos de seguridad estructurados para la ingestión en SIEM.
 
 ---
 
-### C7.5 Explicabilidad de la salida
+### C7.5 Explicabilidad de la Salida
 
 Las señales transparentes mejoran la confianza del usuario y la depuración interna.
 
@@ -1269,43 +1269,43 @@ Las señales transparentes mejoran la confianza del usuario y la depuración int
  #7.5.2    Nivel: 2    Rol: D/V
  Verifique que las explicaciones generadas eviten revelar indicaciones sensibles del sistema o datos propietarios.
  #7.5.3    Nivel: 3    Rol: D
- Verifique que el sistema capture las probabilidades logarítmicas a nivel de token o los mapas de atención y los almacene para una inspección autorizada.
+ Verifique que el sistema capture las probabilidades logarítmicas a nivel de token o los mapas de atención y los almacene para inspección autorizada.
  #7.5.4    Nivel: 3    Rol: V
- Verifique que los artefactos de explicabilidad estén controlados por versiones junto con las versiones del modelo para garantizar la auditabilidad.
+ Verifique que los artefactos de explicabilidad estén bajo control de versiones junto con las versiones del modelo para garantizar la auditabilidad.
 
 ---
 
 ### C7.6 Integración de Monitoreo
 
-La observabilidad en tiempo real cierra el ciclo entre el desarrollo y la producción.
+La observabilidad en tiempo real cierra el ciclo entre desarrollo y producción.
 
  #7.6.1    Nivel: 1    Rol: D
- Verifique que las métricas (violaciones del esquema, tasa de alucinaciones, toxicidad, fugas de PII, latencia, costo) se transmitan a una plataforma central de monitoreo.
+ Verifique que las métricas (violaciones de esquema, tasa de alucinaciones, toxicidad, fugas de información personal identificable, latencia, costo) se transmitan a una plataforma central de monitoreo.
  #7.6.2    Nivel: 1    Rol: V
- Verifique que se definan umbrales de alerta para cada métrica de seguridad, con rutas de escalamiento para el personal de guardia.
+ Verifique que los umbrales de alerta estén definidos para cada métrica de seguridad, con rutas de escalación para personal de guardia.
  #7.6.3    Nivel: 2    Rol: V
  Verifique que los paneles correlacionen las anomalías de salida con el modelo/versión, la bandera de función y los cambios en los datos ascendentes.
  #7.6.4    Nivel: 2    Rol: D/V
- Verifique que los datos de monitoreo se retroalimenten en el reentrenamiento, ajuste fino o actualizaciones de reglas dentro de un flujo de trabajo de MLOps documentado.
+ Verifique que los datos de monitoreo se retroalimenten para el reentrenamiento, afinamiento o actualizaciones de reglas dentro de un flujo de trabajo de MLOps documentado.
  #7.6.5    Nivel: 3    Rol: V
- Verifique que las canalizaciones de monitoreo estén sometidas a pruebas de penetración y control de acceso para evitar la filtración de registros sensibles.
+ Verifique que las canalizaciones de monitoreo estén sometidas a pruebas de penetración y tengan control de acceso para evitar la filtración de registros sensibles.
 
 ---
 
-### 7.7 Salvaguardas para Medios Generativos
+### 7.7 Salvaguardas de Medios Generativos
 
-Asegurar que los sistemas de IA no generen contenido mediático ilegal, dañino o no autorizado mediante la aplicación de restricciones de políticas, validación de salida y trazabilidad.
+Asegurar que los sistemas de IA no generen contenido multimedia ilegal, dañino o no autorizado mediante la aplicación de restricciones de políticas, validación de resultados y trazabilidad.
 
  #7.7.1    Nivel: 1    Rol: D/V
- Verifique que las indicaciones del sistema y las instrucciones al usuario prohíban explícitamente la generación de medios deepfake ilegales, dañinos o no consensuados (por ejemplo, imágenes, videos, audios).
+ Verifique que los mensajes del sistema y las instrucciones para el usuario prohíban explícitamente la generación de medios deepfake ilegales, dañinos o no consensuados (por ejemplo, imagen, video, audio).
  #7.7.2    Nivel: 2    Rol: D/V
- Verifique que las indicaciones sean filtradas para evitar intentos de generar suplantaciones, deepfakes sexuales explícitos o medios que representen a individuos reales sin consentimiento.
+ Verifique que las indicaciones sean filtradas para detectar intentos de generar suplantaciones, contenidos explícitos sexualmente falsificados o medios que representen a personas reales sin consentimiento.
  #7.7.3    Nivel: 2    Rol: V
- Verifique que el sistema utilice hashing perceptual, detección de marcas de agua o huellas digitales para prevenir la reproducción no autorizada de medios con derechos de autor.
+ Verifique que el sistema utilice hashing perceptual, detección de marcas de agua o huellas digitales para evitar la reproducción no autorizada de medios con derechos de autor.
  #7.7.4    Nivel: 3    Rol: D/V
- Verifique que todos los medios generados estén firmados criptográficamente, tengan marca de agua o estén integrados con metadatos de procedencia resistentes a manipulaciones para la trazabilidad posterior.
+ Verifique que todos los medios generados estén firmados criptográficamente, marcados con agua o integrados con metadatos de procedencia resistentes a manipulaciones para la trazabilidad posterior.
  #7.7.5    Nivel: 3    Rol: V
- Verifique que los intentos de eludir (por ejemplo, ofuscación de indicaciones, jerga, formulación adversaria) sean detectados, registrados y limitados en su frecuencia; el abuso repetido se informe a los sistemas de monitoreo.
+ Verifique que los intentos de eludir (por ejemplo, ofuscación de indicaciones, jerga, frases adversarias) sean detectados, registrados y limitados en frecuencia; los abusos repetidos se reportan a los sistemas de monitoreo.
 
 ### Referencias
 
@@ -1329,54 +1329,54 @@ Arize AI – LLM Observability Platform
 
 ### Objetivo de Control
 
-Los embeddings y los almacenes vectoriales actúan como la "memoria en vivo" de los sistemas de IA contemporáneos, aceptando continuamente datos suministrados por el usuario y devolviéndolos a los contextos del modelo mediante la Generación Aumentada por Recuperación (RAG). Si no se regulan, esta memoria puede filtrar información personal identificable (PII), violar el consentimiento o ser invertida para reconstruir el texto original. El objetivo de esta familia de controles es fortalecer las canalizaciones de memoria y las bases de datos vectoriales para que el acceso sea de privilegios mínimos, los embeddings respeten la privacidad, los vectores almacenados expiren o puedan ser revocados bajo demanda, y que la memoria por usuario nunca contamine las indicaciones o resultados de otro usuario.
+Las incrustaciones y las tiendas vectoriales actúan como la "memoria viva" de los sistemas de IA contemporáneos, aceptando continuamente datos proporcionados por el usuario y devolviéndolos a los contextos del modelo mediante la Generación Aumentada por Recuperación (RAG). Si no se regulan, esta memoria puede filtrar información personal identificable (PII), violar el consentimiento o invertirse para reconstruir el texto original. El objetivo de esta familia de controles es fortalecer las canalizaciones de memoria y las bases de datos vectoriales para que el acceso sea de mínimo privilegio, las incrustaciones preserven la privacidad, los vectores almacenados expiren o puedan ser revocados bajo demanda, y la memoria por usuario nunca contamine las indicaciones o resultados de otro usuario.
 
 ---
 
-### C8.1 Controles de Acceso en la Memoria y los Índices RAG
+### C8.1 Controles de acceso en memoria e índices RAG
 
-Implemente controles de acceso granulares en cada colección de vectores.
+Implemente controles de acceso detallados en cada colección de vectores.
 
  #8.1.1    Nivel: 1    Rol: D/V
- Verifique que las reglas de control de acceso a nivel de fila/espacio de nombres restrinjan las operaciones de inserción, eliminación y consulta según el inquilino, la colección o la etiqueta del documento.
+ Verifique que las reglas de control de acceso a nivel de fila/espacio de nombres restrinjan las operaciones de inserción, eliminación y consulta por inquilino, colección o etiqueta de documento.
  #8.1.2    Nivel: 1    Rol: D/V
- Verifique que las claves API o JWT contengan claims con alcance definido (por ejemplo, IDs de colección, verbos de acción) y que se roten al menos trimestralmente.
+ Verifique que las claves API o los JWT contengan reclamaciones con ámbito definido (por ejemplo, IDs de colecciones, verbos de acción) y se roten al menos cada trimestre.
  #8.1.3    Nivel: 2    Rol: D/V
- Verifique que los intentos de escalada de privilegios (por ejemplo, consultas de similitud entre espacios de nombres) se detecten y registren en un SIEM en un plazo de 5 minutos.
+ Verifique que los intentos de escalada de privilegios (por ejemplo, consultas de similitud entre distintos espacios de nombres) se detecten y registren en un SIEM en un plazo de 5 minutos.
  #8.1.4    Nivel: 2    Rol: D/V
- Verifique que la base de datos vectorial registre en el audit log el identificador del sujeto, la operación, el ID/namespace del vector, el umbral de similitud y el conteo de resultados.
+ Verifique que la base de datos vectorial registre en las auditorías el identificador del sujeto, la operación, el ID/espacio de nombres del vector, el umbral de similitud y el recuento de resultados.
  #8.1.5    Nivel: 3    Rol: V
- Verifique que las decisiones de acceso se prueben para detectar fallas de omisión cada vez que se actualicen los motores o cambien las reglas de particionado de índices.
+ Verifique que las decisiones de acceso se prueben para detectar fallas de bypass cada vez que se actualicen los motores o cambien las reglas de partición de índices.
 
 ---
 
 ### C8.2 Saneamiento y Validación de Incrustaciones
 
-Preseleccione el texto para información de identificación personal (PII), redacte o pseudonimice antes de la vectorización, y opcionalmente procese posteriormente las incrustaciones para eliminar señales residuales.
+Preseleccione el texto para identificar Información de Identificación Personal (PII), redacte o seudonimice antes de la vectorización, y opcionalmente procese las incrustaciones para eliminar señales residuales.
 
  #8.2.1    Nivel: 1    Rol: D/V
- Verifique que los datos PII y regulados se detecten mediante clasificadores automáticos y se enmascaren, tokenicen o eliminen antes de la incrustación.
+ Verifique que los datos personales identificables (PII) y los datos regulados se detecten mediante clasificadores automáticos y se enmascaren, tokenicen o eliminen antes de la incrustación.
  #8.2.2    Nivel: 1    Rol: D
- Verifique que las canalizaciones de incrustación rechacen o pongan en cuarentena las entradas que contengan código ejecutable o artefactos no UTF-8 que puedan envenenar el índice.
+ Verifique que las tuberías de incrustación rechacen o pongan en cuarentena las entradas que contengan código ejecutable o artefactos no UTF-8 que podrían envenenar el índice.
  #8.2.3    Nivel: 2    Rol: D/V
- Verifique que se aplique la sanitización de privacidad diferencial local o métrica a las incrustaciones de oraciones cuya distancia a cualquier token de información personal identificable conocido caiga por debajo de un umbral configurable.
+ Verifique que se aplique la sanitización de privacidad diferencial local o métrica a las incrustaciones de oraciones cuya distancia a cualquier token de información personal identificable (PII) conocido cae por debajo de un umbral configurable.
  #8.2.4    Nivel: 2    Rol: V
- Verifique que la eficacia de la sanitización (por ejemplo, la recuperación de la redacción de datos de identificación personal, la deriva semántica) se valide al menos de forma semestral contra corpus de referencia.
+ Verifique que la eficacia de la sanitización (por ejemplo, el recall de la redacción de PII, la deriva semántica) se valide al menos de forma semestral contra corpus de referencia.
  #8.2.5    Nivel: 3    Rol: D/V
- Verifique que las configuraciones de sanitización estén controladas por versiones y que los cambios pasen por una revisión por pares.
+ Verifique que las configuraciones de saneamiento estén controladas por versiones y que los cambios sean sometidos a revisión por pares.
 
 ---
 
-### C8.3 Caducidad, Revocación y Eliminación de Memoria
+### C8.3 Expiración, Revocación y Eliminación de Memoria
 
-El GDPR "derecho al olvido" y leyes similares requieren la eliminación oportuna; por lo tanto, las tiendas de vectores deben soportar TTL, eliminaciones permanentes y tomb-stoning para que los vectores revocados no puedan ser recuperados ni reindexados.
+El GDPR "derecho al olvido" y leyes similares requieren la eliminación oportuna; por lo tanto, los almacenes de vectores deben soportar TTL, eliminaciones definitivas y tomb-stoning para que los vectores revocados no puedan ser recuperados ni reindexados.
 
  #8.3.1    Nivel: 1    Rol: D/V
  Verifique que cada vector y registro de metadatos tenga un TTL o una etiqueta de retención explícita que sea respetada por los trabajos automáticos de limpieza.
  #8.3.2    Nivel: 1    Rol: D/V
  Verifique que las solicitudes de eliminación iniciadas por el usuario eliminen vectores, metadatos, copias de caché e índices derivados en un plazo de 30 días.
  #8.3.3    Nivel: 2    Rol: D
- Verifique que las eliminaciones lógicas sean seguidas por el triturado criptográfico de los bloques de almacenamiento si el hardware lo soporta, o por la destrucción de la clave del almacén de claves.
+ Verifique que las eliminaciones lógicas sean seguidas por el borrado criptográfico de los bloques de almacenamiento si el hardware lo soporta, o por la destrucción de la clave en el almacén de claves.
  #8.3.4    Nivel: 3    Rol: D/V
  Verifique que los vectores expirados sean excluidos de los resultados de búsqueda de vecinos más cercanos en menos de 500 ms después de la expiración.
 
@@ -1384,33 +1384,33 @@ El GDPR "derecho al olvido" y leyes similares requieren la eliminación oportuna
 
 ### C8.4 Prevenir la Inversión y Fuga de Incrustaciones
 
-Las defensas recientes—superposición de ruido, redes de proyección, perturbación de neuronas de privacidad y cifrado a nivel de aplicación—pueden reducir las tasas de inversión a nivel de token por debajo del 5%.
+Las defensas recientes—superposición de ruido, redes de proyección, perturbación de neuronas de privacidad y cifrado en la capa de aplicación—pueden reducir las tasas de inversión a nivel de token por debajo del 5%.
 
  #8.4.1    Nivel: 1    Rol: V
- Verifique que exista un modelo de amenaza formal que cubra ataques de inversión, membresía e inferencia de atributos, y que sea revisado anualmente.
+ Verifique que exista un modelo de amenaza formal que cubra ataques de inversión, de membresía y de inferencia de atributos, y que sea revisado anualmente.
  #8.4.2    Nivel: 2    Rol: D/V
- Verifique que el cifrado a nivel de aplicación o el cifrado buscable protejan los vectores contra lecturas directas por parte de los administradores de la infraestructura o el personal de la nube.
+ Verifique que el cifrado en la capa de aplicación o el cifrado buscable protejan los vectores de lecturas directas por parte de los administradores de infraestructura o el personal de la nube.
  #8.4.3    Nivel: 3    Rol: V
  Verifique que los parámetros de defensa (ε para DP, ruido σ, rango de proyección k) equilibren la privacidad ≥ 99 % de protección de tokens y la utilidad ≤ 3 % de pérdida de precisión.
  #8.4.4    Nivel: 3    Rol: D/V
- Verifique que las métricas de resiliencia a la inversión sean parte de las puertas de lanzamiento para las actualizaciones del modelo, con presupuestos de regresión definidos.
+ Verifique que las métricas de resistencia a la inversión formen parte de las puertas de lanzamiento para las actualizaciones del modelo, con presupuestos de regresión definidos.
 
 ---
 
-### C8.5 Aplicación del Alcance para Memoria Específica del Usuario
+### C8.5 Aplicación del alcance para la memoria específica del usuario
 
-La fuga entre inquilinos sigue siendo un riesgo principal en RAG: las consultas de similitud mal filtradas pueden revelar documentos privados de otro cliente.
+La filtración entre inquilinos sigue siendo un riesgo principal para RAG: las consultas de similitud incorrectamente filtradas pueden revelar documentos privados de otro cliente.
 
  #8.5.1    Nivel: 1    Rol: D/V
- Verifique que cada consulta de recuperación sea filtrada posteriormente por el ID de inquilino/usuario antes de ser pasada al prompt del LLM.
+ Verifique que cada consulta de recuperación sea filtrada posteriormente por el ID del inquilino/usuario antes de ser pasada al prompt del LLM.
  #8.5.2    Nivel: 1    Rol: D
  Verifique que los nombres de colecciones o los IDs con espacio de nombres estén salados por usuario o inquilino para que los vectores no puedan colisionar entre ámbitos.
  #8.5.3    Nivel: 2    Rol: D/V
- Verifique que los resultados de similitud por encima de un umbral de distancia configurable pero fuera del alcance del llamador sean descartados y generen alertas de seguridad.
+ Verifique que los resultados de similitud por encima de un umbral de distancia configurable, pero fuera del alcance del llamador, sean descartados y desencadenen alertas de seguridad.
  #8.5.4    Nivel: 2    Rol: V
- Verifique que las pruebas de estrés multitenant simulen consultas adversariales que intentan recuperar documentos fuera del alcance y demuestren cero filtración.
+ Verifique que las pruebas de estrés multiinquilino simulen consultas adversariales que intentan recuperar documentos fuera del alcance y demuestren cero filtraciones.
  #8.5.5    Nivel: 3    Rol: D/V
- Verifique que las claves de cifrado estén segregadas por inquilino, asegurando el aislamiento criptográfico incluso si el almacenamiento físico es compartido.
+ Verifique que las claves de cifrado estén segregadas por inquilino, asegurando aislamiento criptográfico incluso si se comparte el almacenamiento físico.
 
 ---
 
@@ -1419,15 +1419,15 @@ La fuga entre inquilinos sigue siendo un riesgo principal en RAG: las consultas 
 Controles de seguridad para arquitecturas de memoria sofisticadas que incluyen memoria episódica, semántica y de trabajo con requisitos específicos de aislamiento y validación.
 
  #8.6.1    Nivel: 1    Rol: D/V
- Verifique que los diferentes tipos de memoria (episódica, semántica, de trabajo) tengan contextos de seguridad aislados con controles de acceso basados en roles, claves de encriptación separadas y patrones de acceso documentados para cada tipo de memoria.
+ Verifique que los diferentes tipos de memoria (episódica, semántica, de trabajo) tengan contextos de seguridad aislados con controles de acceso basados en roles, claves de cifrado separadas y patrones de acceso documentados para cada tipo de memoria.
  #8.6.2    Nivel: 2    Rol: D/V
- Verifique que los procesos de consolidación de memoria incluyan validación de seguridad para prevenir la inyección de memorias maliciosas mediante la sanitización de contenido, la verificación de la fuente y las comprobaciones de integridad antes del almacenamiento.
+ Verifique que los procesos de consolidación de memoria incluyan validación de seguridad para prevenir la inyección de memorias maliciosas mediante la sanitización de contenido, verificación de fuente y controles de integridad antes del almacenamiento.
  #8.6.3    Nivel: 2    Rol: D/V
- Verifique que las consultas de recuperación de memoria sean validadas y saneadas para prevenir la extracción de información no autorizada mediante el análisis de patrones de consulta, la aplicación de control de acceso y el filtrado de resultados.
+ Verifique que las consultas de recuperación de memoria sean validadas y saneadas para evitar la extracción de información no autorizada mediante el análisis de patrones de consulta, la aplicación de controles de acceso y el filtrado de resultados.
  #8.6.4    Nivel: 3    Rol: D/V
- Verifique que los mecanismos de olvido de memoria eliminen de forma segura la información sensible con garantías de borrado criptográfico mediante eliminación de claves, sobrescritura multipaso o eliminación segura basada en hardware con certificados de verificación.
+ Verifique que los mecanismos de olvido de memoria eliminen de manera segura la información sensible con garantías de borrado criptográfico mediante la eliminación de claves, sobrescritura en múltiples pasadas o eliminación segura basada en hardware con certificados de verificación.
  #8.6.5    Nivel: 3    Rol: D/V
- Verifique que la integridad del sistema de memoria sea monitoreada continuamente para detectar modificaciones no autorizadas o corrupción mediante sumas de verificación, registros de auditoría y alertas automáticas cuando el contenido de la memoria cambie fuera de las operaciones normales.
+ Verifique que la integridad del sistema de memoria se monitoree continuamente para detectar modificaciones no autorizadas o corrupción mediante sumas de verificación, registros de auditoría y alertas automáticas cuando el contenido de la memoria cambie fuera de las operaciones normales.
 
 ---
 
@@ -1451,45 +1451,45 @@ Best Practices for Multi-Tenancy RAG with Milvus – Milvus Blog
 
 ### Objetivo de Control
 
-Asegurar que los sistemas de IA autónomos o multiagente solo puedan ejecutar acciones que sean explícitamente intencionadas, autenticadas, auditables y dentro de límites definidos de costo y riesgo. Esto protege contra amenazas como Compromiso del Sistema Autónomo, Uso Indebido de Herramientas, Detección de Bucles de Agentes, Secuestro de Comunicaciones, Suplantación de Identidad, Manipulación de Enjambres y Manipulación de Intenciones.
+Asegurar que los sistemas de IA autónomos o multiagente solo puedan ejecutar acciones que sean explícitamente intencionadas, autenticadas, auditables y dentro de umbrales limitados de costo y riesgo. Esto protege contra amenazas como Compromiso de Sistemas Autónomos, Uso Incorrecto de Herramientas, Detección de Bucles de Agentes, Secuestro de Comunicaciones, Suplantación de Identidad, Manipulación de Enjambres y Manipulación de Intenciones.
 
 ---
 
-### 9.1 Presupuestos de Planificación de Tareas y Recursión del Agente
+### 9.1 Presupuestos para la Planificación de Tareas y Recursión del Agente
 
-Limitar planes recursivos y forzar puntos de control humanos para acciones privilegiadas.
+Moderar planes recursivos y exigir puntos de control humanos para acciones privilegiadas.
 
  #9.1.1    Nivel: 1    Rol: D/V
- Verifique que la profundidad máxima de recursión, amplitud, tiempo de reloj de pared, tokens y costo monetario por ejecución de agente estén configurados centralmente y controlados por versión.
+ Verifique que la profundidad máxima de recursión, el ancho, el tiempo de reloj real, los tokens y el costo monetario por ejecución de agente estén configurados de manera centralizada y controlados por versiones.
  #9.1.2    Nivel: 1    Rol: D/V
- Verifique que las acciones privilegiadas o irreversibles (por ejemplo, confirmaciones de código, transferencias financieras) requieran aprobación humana explícita a través de un canal auditable antes de su ejecución.
+ Verifique que las acciones privilegiadas o irrevocables (por ejemplo, confirmaciones de código, transferencias financieras) requieran la aprobación explícita de un humano a través de un canal auditable antes de su ejecución.
  #9.1.3    Nivel: 2    Rol: D
- Verifique que los monitores de recursos en tiempo real activen la interrupción del disyuntor cuando se exceda cualquier umbral de presupuesto, deteniendo la expansión adicional de tareas.
+ Verifique que los monitores de recursos en tiempo real activen la interrupción del interruptor automático cuando se supere cualquier umbral del presupuesto, deteniendo la expansión adicional de tareas.
  #9.1.4    Nivel: 2    Rol: D/V
- Verifique que los eventos del disyuntor se registren con el ID del agente, la condición que lo activó y el estado del plan capturado para una revisión forense.
+ Verifique que los eventos del interruptor automático se registren con la ID del agente, la condición que lo activó y el estado del plan capturado para una revisión forense.
  #9.1.5    Nivel: 3    Rol: V
- Verifique que las pruebas de seguridad cubran los escenarios de agotamiento de presupuesto y de plan descontrolado, confirmando la detención segura sin pérdida de datos.
+ Verifique que las pruebas de seguridad cubran escenarios de agotamiento del presupuesto y planes descontrolados, confirmando una detención segura sin pérdida de datos.
  #9.1.6    Nivel: 3    Rol: D
- Verifique que las políticas presupuestarias estén expresadas como política-como-código y se apliquen en CI/CD para bloquear la desviación de configuración.
+ Verifique que las políticas de presupuesto estén expresadas como política-como-código y se apliquen en CI/CD para bloquear la desviación de configuración.
 
 ---
 
-### 9.2 Aislamiento de plugins de herramientas
+### 9.2 Aislamiento de complementos de herramientas
 
-Aislar las interacciones de las herramientas para prevenir el acceso no autorizado al sistema o la ejecución de código.
+Aísle las interacciones con las herramientas para prevenir el acceso no autorizado al sistema o la ejecución de código.
 
  #9.2.1    Nivel: 1    Rol: D/V
- Verifique que cada herramienta/plugin se ejecute dentro de un sistema operativo, contenedor o sandbox a nivel WASM con políticas de sistema de archivos, red y llamadas al sistema de mínimo privilegio.
+ Verifique que cada herramienta/plugin se ejecute dentro de un sistema operativo, contenedor o sandbox a nivel WASM con políticas de sistema de archivos, red y llamadas al sistema con privilegios mínimos.
  #9.2.2    Nivel: 1    Rol: D/V
- Verifique que las cuotas de recursos del sandbox (CPU, memoria, disco, salida de red) y los tiempos de espera de ejecución se apliquen y registren.
+ Verifique que se apliquen y registren las cuotas de recursos del sandbox (CPU, memoria, disco, salida de red) y los tiempos de espera de ejecución.
  #9.2.3    Nivel: 2    Rol: D/V
- Verifique que los binarios o descriptores de la herramienta estén firmados digitalmente; las firmas se validan antes de la carga.
+ Verifique que los binarios o descriptores de las herramientas estén firmados digitalmente; las firmas se validan antes de cargarlos.
  #9.2.4    Nivel: 2    Rol: V
- Verifique que la telemetría del sandbox se transmita a un SIEM; las anomalías (por ejemplo, intentos de conexiones salientes) generen alertas.
+ Verificar que la telemetría del sandbox se transmita a un SIEM; las anomalías (por ejemplo, intentos de conexiones salientes) generan alertas.
  #9.2.5    Nivel: 3    Rol: V
- Verifique que los plugins de alto riesgo pasen por una revisión de seguridad y pruebas de penetración antes de su despliegue en producción.
+ Verifique que los complementos de alto riesgo se sometan a una revisión de seguridad y pruebas de penetración antes del despliegue en producción.
  #9.2.6    Nivel: 3    Rol: D/V
- Verifique que los intentos de escape del sandbox se bloqueen automáticamente y el complemento infractor sea puesto en cuarentena a la espera de una investigación.
+ Verifique que los intentos de escape del sandbox sean bloqueados automáticamente y que el plugin infractor sea puesto en cuarentena mientras se realiza la investigación.
 
 ---
 
@@ -1498,13 +1498,13 @@ Aislar las interacciones de las herramientas para prevenir el acceso no autoriza
 Detectar y detener la recursión no controlada entre agentes y las explosiones de costos.
 
  #9.3.1    Nivel: 1    Rol: D/V
- Verifique que las llamadas entre agentes incluyan un límite de saltos o TTL que el tiempo de ejecución decrementa y aplica.
+ Verifique que las llamadas entre agentes incluyan un límite de saltos o TTL que el tiempo de ejecución decrete y haga cumplir.
  #9.3.2    Nivel: 2    Rol: D
- Verifique que los agentes mantengan un ID único de grafo de invocación para detectar auto-invocaciones o patrones cíclicos.
+ Verifique que los agentes mantengan un ID único de grafo de invocación para detectar auto-invocación o patrones cíclicos.
  #9.3.3    Nivel: 2    Rol: D/V
- Verifique que los contadores acumulativos de unidades de cómputo y gasto se registren por cadena de solicitud; sobrepasar el límite aborta la cadena.
+ Verifique que los contadores acumulativos de unidades de cómputo y gastos se rastreen por cadena de solicitud; superar el límite aborta la cadena.
  #9.3.4    Nivel: 3    Rol: V
- Verifique que el análisis formal o la verificación mediante modelos demuestren la ausencia de recursión no acotada en los protocolos de agentes.
+ Verifique que el análisis formal o la verificación de modelos demuestren la ausencia de recursión no acotada en los protocolos del agente.
  #9.3.5    Nivel: 3    Rol: D
  Verifique que los eventos de aborto de bucle generen alertas y alimenten métricas de mejora continua.
 
@@ -1517,13 +1517,13 @@ Canales de comunicación seguros entre agentes y sistemas externos para prevenir
  #9.4.1    Nivel: 1    Rol: D/V
  Verifique que todos los mensajes de agente a herramienta y de agente a agente estén autenticados (por ejemplo, TLS mutuo o JWT) y cifrados de extremo a extremo.
  #9.4.2    Nivel: 1    Rol: D
- Verifique que los esquemas sean validados estrictamente; los campos desconocidos o los mensajes mal formados deben ser rechazados.
+ Verifique que los esquemas sean validados estrictamente; los campos desconocidos o los mensajes malformados sean rechazados.
  #9.4.3    Nivel: 2    Rol: D/V
  Verifique que las comprobaciones de integridad (MAC o firmas digitales) cubran toda la carga útil del mensaje, incluidos los parámetros de la herramienta.
  #9.4.4    Nivel: 2    Rol: D
- Verifique que la protección contra repetición (nonces o ventanas de marca de tiempo) se aplique en la capa del protocolo.
+ Verifique que la protección contra repeticiones (nonces o ventanas de marcas de tiempo) se aplique en la capa del protocolo.
  #9.4.5    Nivel: 3    Rol: V
- Verifique que las implementaciones de protocolos se sometan a fuzzing y análisis estático para detectar fallas de inyección o deserialización.
+ Verifique que las implementaciones del protocolo se sometan a fuzzing y análisis estático para detectar fallas de inyección o deserialización.
 
 ---
 
@@ -1534,130 +1534,130 @@ Asegurar que las acciones sean atribuibles y las modificaciones detectables.
  #9.5.1    Nivel: 1    Rol: D/V
  Verifique que cada instancia de agente posea una identidad criptográfica única (par de claves o credencial basada en hardware).
  #9.5.2    Nivel: 2    Rol: D/V
- Verifique que todas las acciones del agente estén firmadas y con sello de tiempo; los registros incluyen la firma para no repudio.
+ Verifique que todas las acciones del agente estén firmadas y con marca de tiempo; los registros incluyen la firma para evitar la repudiación.
  #9.5.3    Nivel: 2    Rol: V
- Verifique que los registros con evidencia de manipulación se almacenen en un medio de solo anexar o de escritura única.
+ Verifique que los registros a prueba de manipulaciones se almacenen en un medio de solo anexado o de escritura única.
  #9.5.4    Nivel: 3    Rol: D
- Verificar que las claves de identidad roten según un calendario definido y ante indicadores de compromiso.
+ Verifique que las claves de identidad roten según un cronograma definido y ante indicadores de compromiso.
  #9.5.5    Nivel: 3    Rol: D/V
  Verifique que los intentos de suplantación o conflicto de claves desencadenen la cuarentena inmediata del agente afectado.
 
 ---
 
-### 9.6 Reducción de Riesgos en Enjambres Multi-Agente
+### 9.6 Reducción de Riesgo en Enjambres Multiagente
 
-Mitigue los riesgos de comportamiento colectivo mediante aislamiento y modelado formal de seguridad.
+Mitigar los riesgos del comportamiento colectivo mediante el aislamiento y la modelización formal de la seguridad.
 
  #9.6.1    Nivel: 1    Rol: D/V
- Verifique que los agentes que operan en diferentes dominios de seguridad se ejecuten en entornos de ejecución aislados o en segmentos de red separados.
+ Verifique que los agentes que operan en diferentes dominios de seguridad se ejecuten en entornos de ejecución aislados o segmentos de red.
  #9.6.2    Nivel: 3    Rol: V
- Verifique que los comportamientos en enjambre estén modelados y formalmente verificados para vivacidad y seguridad antes del despliegue.
+ Verifique que los comportamientos de enjambre estén modelados y formalmente verificados para vivacidad y seguridad antes del despliegue.
  #9.6.3    Nivel: 3    Rol: D
- Verifique que los monitores de tiempo de ejecución detecten patrones emergentes inseguros (por ejemplo, oscilaciones, bloqueos) e inicien acciones correctivas.
+ Verifique que los monitores en tiempo de ejecución detecten patrones inseguros emergentes (por ejemplo, oscilaciones, bloqueos) e inicien acciones correctivas.
 
 ---
 
-### 9.7 Autenticación / Autorización de Usuario y Herramienta
+### 9.7 Autenticación / Autorización de Usuarios y Herramientas
 
-Implemente controles de acceso robustos para cada acción activada por agentes.
+Implemente controles de acceso robustos para cada acción iniciada por un agente.
 
  #9.7.1    Nivel: 1    Rol: D/V
- Verifique que los agentes se autentiquen como principales de primera clase en los sistemas descendentes, sin reutilizar nunca las credenciales del usuario final.
+ Verifique que los agentes se autentiquen como principales de primera clase ante los sistemas descendentes, sin reutilizar nunca las credenciales del usuario final.
  #9.7.2    Nivel: 2    Rol: D
  Verifique que las políticas de autorización de granularidad fina restrinjan qué herramientas puede invocar un agente y qué parámetros puede suministrar.
  #9.7.3    Nivel: 2    Rol: V
  Verifique que las comprobaciones de privilegios se reevalúen en cada llamada (autorización continua), no solo al inicio de la sesión.
  #9.7.4    Nivel: 3    Rol: D
- Verifique que los privilegios delegados expiren automáticamente y requieran nuevo consentimiento después del tiempo de espera o un cambio en el alcance.
+ Verifique que los privilegios delegados expiren automáticamente y requieran un nuevo consentimiento después de un tiempo de espera o un cambio en el alcance.
 
 ---
 
-### 9.8 Seguridad en la Comunicación entre Agentes
+### 9.8 Seguridad en la Comunicación Agente a Agente
 
-Cifrar y proteger la integridad de todos los mensajes entre agentes para evitar la interceptación y la manipulación.
+Cifre y proteja la integridad de todos los mensajes entre agentes para impedir la escucha clandestina y la manipulación.
 
  #9.8.1    Nivel: 1    Rol: D/V
- Verifique que la autenticación mutua y la encriptación con secreto perfecto hacia adelante (por ejemplo, TLS 1.3) sean obligatorias para los canales de agentes.
+ Verifique que la autenticación mutua y el cifrado con secreto perfecto hacia adelante (por ejemplo, TLS 1.3) sean obligatorios para los canales de agentes.
  #9.8.2    Nivel: 1    Rol: D
- Verifique que la integridad y el origen del mensaje sean validados antes de procesarlo; las fallas generan alertas y descartan el mensaje.
+ Verifique que la integridad y el origen del mensaje estén validados antes de procesarlo; las fallas generan alertas y descartan el mensaje.
  #9.8.3    Nivel: 2    Rol: D/V
  Verifique que los metadatos de comunicación (marcas de tiempo, números de secuencia) se registren para apoyar la reconstrucción forense.
  #9.8.4    Nivel: 3    Rol: V
- Verifique que la verificación formal o la comprobación de modelos confirme que las máquinas de estados del protocolo no pueden ser llevadas a estados inseguros.
+ Verifique que la verificación formal o la modelización confirmatoria aseguren que las máquinas de estado del protocolo no puedan ser llevadas a estados inseguros.
 
 ---
 
 ### 9.9 Verificación de Intenciones y Aplicación de Restricciones
 
-Validar que las acciones del agente se alineen con la intención declarada del usuario y las restricciones del sistema.
+Validar que las acciones del agente estén alineadas con la intención declarada del usuario y las restricciones del sistema.
 
  #9.9.1    Nivel: 1    Rol: D
- Verifique que los solucionadores de restricciones previas a la ejecución comprueben las acciones propuestas contra reglas rígidas de seguridad y políticas.
+ Verifique que los solucionadores de restricciones previas a la ejecución verifiquen las acciones propuestas contra las reglas de seguridad y política codificadas.
  #9.9.2    Nivel: 2    Rol: D/V
- Verificar que las acciones de alto impacto (financieras, destructivas, sensibles a la privacidad) requieran una confirmación explícita de intención por parte del usuario que las inicia.
+ Verifique que las acciones de alto impacto (financieras, destructivas, sensibles a la privacidad) requieran una confirmación explícita de la intención por parte del usuario que las inicia.
  #9.9.3    Nivel: 2    Rol: V
- Verifique que las comprobaciones de postcondición validen que las acciones completadas lograron los efectos previstos sin efectos secundarios; las discrepancias desencadenan una reversión.
+ Verifique que las comprobaciones posteriores a la condición validen que las acciones completadas lograron los efectos previstos sin efectos secundarios; las discrepancias activan la reversión.
  #9.9.4    Nivel: 3    Rol: V
- Verifique que los métodos formales (por ejemplo, la verificación de modelos, la demostración teórica) o las pruebas basadas en propiedades demuestren que los planes del agente cumplen con todas las restricciones declaradas.
+ Verifique que los métodos formales (por ejemplo, la verificación de modelos, la demostración de teoremas) o las pruebas basadas en propiedades demuestren que los planes de los agentes cumplen con todas las restricciones declaradas.
  #9.9.5    Nivel: 3    Rol: D
- Verifique que los incidentes de desacuerdo de intención o violación de restricciones alimenten los ciclos de mejora continua y el intercambio de inteligencia sobre amenazas.
+ Verifique que los incidentes de discrepancia de intención o violación de restricciones alimenten ciclos de mejora continua y el intercambio de inteligencia sobre amenazas.
 
 ---
 
 ### 9.10 Seguridad de la Estrategia de Razonamiento del Agente
 
-Selección y ejecución segura de diferentes estrategias de razonamiento, incluyendo los enfoques ReAct, Cadena-de-Pensamiento y Árbol-de-Pensamientos.
+Selección y ejecución segura de diferentes estrategias de razonamiento, incluyendo enfoques ReAct, Cadena de Pensamiento y Árbol de Pensamientos.
 
  #9.10.1    Nivel: 1    Rol: D/V
  Verifique que la selección de la estrategia de razonamiento utilice criterios deterministas (complejidad de la entrada, tipo de tarea, contexto de seguridad) y que entradas idénticas produzcan selecciones de estrategia idénticas dentro del mismo contexto de seguridad.
  #9.10.2    Nivel: 1    Rol: D/V
  Verifique que cada estrategia de razonamiento (ReAct, Cadena-de-Pensamiento, Árbol-de-Pensamientos) tenga validación de entrada dedicada, saneamiento de salida y límites de tiempo de ejecución específicos para su enfoque cognitivo.
  #9.10.3    Nivel: 2    Rol: D/V
- Verifique que las transiciones de la estrategia de razonamiento se registren con el contexto completo, incluyendo las características de entrada, los valores de los criterios de selección y los metadatos de ejecución para la reconstrucción de la pista de auditoría.
+ Verifique que las transiciones de la estrategia de razonamiento se registren con un contexto completo que incluya las características de entrada, los valores de los criterios de selección y los metadatos de ejecución para la reconstrucción del historial de auditoría.
  #9.10.4    Nivel: 2    Rol: D/V
  Verifique que el razonamiento de Árbol de Pensamientos incluya mecanismos de poda de ramas que terminen la exploración cuando se detecten violaciones de políticas, límites de recursos o límites de seguridad.
  #9.10.5    Nivel: 2    Rol: D/V
  Verifique que los ciclos ReAct (Razonar-Actuar-Observar) incluyan puntos de control de validación en cada fase: verificación del paso de razonamiento, autorización de la acción y saneamiento de la observación antes de continuar.
  #9.10.6    Nivel: 3    Rol: D/V
- Verifique que los métricas de rendimiento de la estrategia de razonamiento (tiempo de ejecución, uso de recursos, calidad de salida) se monitoreen con alertas automáticas cuando las métricas se desvíen más allá de los umbrales configurados.
+ Verifique que los métricas de rendimiento de la estrategia de razonamiento (tiempo de ejecución, uso de recursos, calidad de salida) sean monitoreadas con alertas automáticas cuando las métricas se desvíen más allá de los umbrales configurados.
  #9.10.7    Nivel: 3    Rol: D/V
  Verifique que los enfoques de razonamiento híbrido que combinan múltiples estrategias mantengan la validación de entrada y las restricciones de salida de todas las estrategias constituyentes sin eludir ningún control de seguridad.
  #9.10.8    Nivel: 3    Rol: D/V
- Verifique que la estrategia de razonamiento en las pruebas de seguridad incluya fuzzing con entradas malformadas, indicaciones adversas diseñadas para forzar el cambio de estrategia y pruebas de condiciones límite para cada enfoque cognitivo.
+ Verifique que las pruebas de seguridad de la estrategia de razonamiento incluyan fuzzing con entradas malformadas, indicaciones adversarias diseñadas para forzar el cambio de estrategia y pruebas de condiciones límite para cada enfoque cognitivo.
 
 ---
 
 ### 9.11 Gestión del Estado del Ciclo de Vida del Agente y Seguridad
 
-Inicialización segura del agente, transiciones de estado y terminación con registros de auditoría criptográficos y procedimientos de recuperación definidos.
+Inicialización segura del agente, transiciones de estado y terminación con registros criptográficos de auditoría y procedimientos de recuperación definidos.
 
  #9.11.1    Nivel: 1    Rol: D/V
- Verifique que la inicialización del agente incluya el establecimiento de identidad criptográfica con credenciales respaldadas por hardware y registros de auditoría de inicio inmutables que contengan la ID del agente, la marca de tiempo, el hash de configuración y los parámetros de inicialización.
+ Verifique que la inicialización del agente incluya el establecimiento de identidad criptográfica con credenciales respaldadas por hardware y registros de auditoría de inicio inmutables que contengan ID del agente, marca de tiempo, hash de configuración y parámetros de inicialización.
  #9.11.2    Nivel: 2    Rol: D/V
- Verifique que las transiciones de estado del agente estén firmadas criptográficamente, con marca de tiempo y registradas con contexto completo, incluyendo los eventos que las desencadenaron, el hash del estado anterior, el hash del nuevo estado y las validaciones de seguridad realizadas.
+ Verifique que las transiciones de estado del agente estén firmadas criptográficamente, tengan sello de tiempo y se registren con contexto completo, incluyendo los eventos que las desencadenan, el hash del estado anterior, el hash del nuevo estado y las validaciones de seguridad realizadas.
  #9.11.3    Nivel: 2    Rol: D/V
- Verifique que los procedimientos de apagado del agente incluyan el borrado seguro de memoria mediante borrado criptográfico o sobrescritura múltiple, la revocación de credenciales con notificación a la autoridad certificante y la generación de certificados de terminación a prueba de manipulaciones.
+ Verifique que los procedimientos de apagado del agente incluyan el borrado seguro de la memoria mediante eliminación criptográfica o sobrescritura múltiple, la revocación de credenciales con notificación a la autoridad certificadora y la generación de certificados de terminación con evidencia de manipulación.
  #9.11.4    Nivel: 3    Rol: D/V
- Verifique que los mecanismos de recuperación del agente validen la integridad del estado utilizando sumas de verificación criptográficas (mínimo SHA-256) y que retrocedan a estados conocidos como buenos cuando se detecte corrupción, con alertas automáticas y requisitos de aprobación manual.
+ Verifique que los mecanismos de recuperación del agente validen la integridad del estado utilizando sumas de verificación criptográficas (SHA-256 como mínimo) y que retrocedan a estados conocidos como buenos cuando se detecte corrupción, con alertas automáticas y requisitos de aprobación manual.
  #9.11.5    Nivel: 3    Rol: D/V
- Verifique que los mecanismos de persistencia del agente cifren los datos de estado sensibles con claves AES-256 por agente e implementen una rotación segura de claves en calendarios configurables (máximo 90 días) con despliegue sin tiempo de inactividad.
+ Verifique que los mecanismos de persistencia del agente cifren los datos de estado sensibles con claves AES-256 por agente e implementen la rotación segura de claves según horarios configurables (máximo 90 días) con despliegue sin tiempo de inactividad.
 
 ---
 
 ### 9.12 Marco de Seguridad para la Integración de Herramientas
 
-Controles de seguridad para la carga dinámica de herramientas, su ejecución y la validación de resultados con procesos definidos de evaluación de riesgos y aprobación.
+Controles de seguridad para la carga dinámica de herramientas, ejecución y validación de resultados con procesos definidos de evaluación de riesgos y aprobación.
 
  #9.12.1    Nivel: 1    Rol: D/V
- Verifique que los descriptores de herramientas incluyan metadatos de seguridad que especifiquen los privilegios requeridos (lectura/escritura/ejecución), niveles de riesgo (bajo/medio/alto), límites de recursos (CPU, memoria, red) y los requisitos de validación documentados en los manifiestos de la herramienta.
+ Verifique que los descriptores de herramientas incluyan metadatos de seguridad que especifiquen los privilegios requeridos (lectura/escritura/ejecución), niveles de riesgo (bajo/medio/alto), límites de recursos (CPU, memoria, red) y los requisitos de validación documentados en los manifiestos de las herramientas.
  #9.12.2    Nivel: 1    Rol: D/V
- Verifique que los resultados de la ejecución de la herramienta sean validados contra los esquemas esperados (Esquema JSON, Esquema XML) y las políticas de seguridad (saneamiento de salida, clasificación de datos) antes de la integración, con límites de tiempo y procedimientos de manejo de errores.
+ Verifique que los resultados de la ejecución de herramientas se validen contra esquemas esperados (Esquema JSON, Esquema XML) y políticas de seguridad (saneamiento de salida, clasificación de datos) antes de la integración con límites de tiempo y procedimientos de manejo de errores.
  #9.12.3    Nivel: 2    Rol: D/V
- Verifique que los registros de interacción de la herramienta incluyan un contexto de seguridad detallado, que abarque el uso de privilegios, patrones de acceso a datos, tiempo de ejecución, consumo de recursos y códigos de retorno, con registro estructurado para la integración con SIEM.
+ Verifique que los registros de interacción con las herramientas incluyan un contexto de seguridad detallado que abarque el uso de privilegios, los patrones de acceso a datos, el tiempo de ejecución, el consumo de recursos y los códigos de retorno, con un registro estructurado para la integración con SIEM.
  #9.12.4    Nivel: 2    Rol: D/V
- Verifique que los mecanismos de carga dinámica de herramientas validen las firmas digitales utilizando infraestructura PKI e implementen protocolos de carga seguros con aislamiento en sandbox y verificación de permisos antes de la ejecución.
+ Verifique que los mecanismos de carga dinámica de herramientas validen las firmas digitales utilizando la infraestructura PKI e implementen protocolos de carga segura con aislamiento en sandbox y verificación de permisos antes de la ejecución.
  #9.12.5    Nivel: 3    Rol: D/V
- Verifique que las evaluaciones de seguridad de la herramienta se activen automáticamente para nuevas versiones con puertas de aprobación obligatorias que incluyan análisis estático, pruebas dinámicas y revisión por parte del equipo de seguridad, con criterios de aprobación documentados y requisitos de SLA.
+ Verifique que las evaluaciones de seguridad de las herramientas se activen automáticamente para las nuevas versiones con puertas de aprobación obligatorias que incluyan análisis estático, pruebas dinámicas y revisión del equipo de seguridad, con criterios de aprobación documentados y requisitos de SLA.
 
 ---
 
@@ -1679,7 +1679,7 @@ An Analysis Using a Controlled Benchmark](https://www.arxiv.org/pdf/2505.18761)
 Large Language Model Sentinel: LLM Agent for Adversarial Purification
 Securing Agentic AI: A Comprehensive Threat Model and Mitigation Framework for Generative AI Agents
 
-## 10 Robustez Adversarial y Defensa de Privacidad
+## 10 Robustez adversaria y defensa de la privacidad
 
 ### Objetivo de Control
 
@@ -1689,57 +1689,57 @@ Asegurar que los modelos de IA permanezcan confiables, preserven la privacidad y
 
 ### 10.1 Alineación y Seguridad del Modelo
 
-Protéjase contra resultados dañinos o que infrinjan políticas.
+Protéjase contra resultados dañinos o que violen la política.
 
  #10.1.1    Nivel: 1    Rol: D/V
- Verifique que un conjunto de pruebas de alineación (indicaciones de equipo rojo, sondas de jailbreak, contenido no permitido) esté controlado por versiones y se ejecute en cada lanzamiento del modelo.
+ Verifique que un conjunto de pruebas de alineación (indicaciones de red-team, sondas de jailbreak, contenido no permitido) esté bajo control de versiones y se ejecute en cada lanzamiento del modelo.
  #10.1.2    Nivel: 1    Rol: D
- Verifique que se apliquen las barreras de rechazo y finalización segura.
+ Verifique que se apliquen las barreras de rechazo y de finalización segura.
  #10.1.3    Nivel: 2    Rol: D/V
- Verificar que un evaluador automatizado mida la tasa de contenido dañino y señale las regresiones que superen un umbral establecido.
+ Verifique que un evaluador automatizado mida la tasa de contenido dañino y marque las regresiones que superen un umbral establecido.
  #10.1.4    Nivel: 2    Rol: D
  Verifique que el entrenamiento contra jailbreak esté documentado y sea reproducible.
  #10.1.5    Nivel: 3    Rol: V
- Verifique que las pruebas formales de cumplimiento de políticas o la monitorización certificada cubran dominios críticos.
+ Verifique que las pruebas formales de cumplimiento de políticas o la supervisión certificada cubran dominios críticos.
 
 ---
 
-### 10.2 Endurecimiento contra ejemplos adversariales
+### 10.2 Endurecimiento contra Ejemplos Adversariales
 
-Incrementar la resiliencia frente a entradas manipuladas. El entrenamiento adversarial robusto y la puntuación de referencia son la mejor práctica actual.
+Aumentar la resistencia a entradas manipuladas. El entrenamiento adversarial robusto y la evaluación con benchmarks son las mejores prácticas actuales.
 
  #10.2.1    Nivel: 1    Rol: D
  Verifique que los repositorios del proyecto incluyan configuraciones de entrenamiento adversarial con semillas reproducibles.
  #10.2.2    Nivel: 2    Rol: D/V
- Verifique que la detección de ejemplos adversariales genere alertas de bloqueo en las canalizaciones de producción.
+ Verifique que la detección de ejemplos adversarios genere alertas de bloqueo en las canalizaciones de producción.
  #10.2.4    Nivel: 3    Rol: V
  Verifique que las pruebas de robustez certificada o los certificados de límite de intervalo cubran al menos las clases críticas principales.
  #10.2.5    Nivel: 3    Rol: V
- Verifique que las pruebas de regresión utilicen ataques adaptativos para confirmar que no hay pérdida de robustez medible.
+ Verifique que las pruebas de regresión utilicen ataques adaptativos para confirmar que no haya pérdida de robustez medible.
 
 ---
 
 ### 10.3 Mitigación de inferencia de membresía
 
-Limitar la capacidad de decidir si un registro formaba parte de los datos de entrenamiento. La privacidad diferencial y el enmascaramiento de la puntuación de confianza siguen siendo las defensas conocidas más efectivas.
+Limitar la capacidad de decidir si un registro estaba en los datos de entrenamiento. La privacidad diferencial y el enmascaramiento de la puntuación de confianza siguen siendo las defensas conocidas más efectivas.
 
  #10.3.1    Nivel: 1    Rol: D
- Verifique que la regularización de entropía por consulta o el escalado de temperatura reduce las predicciones con exceso de confianza.
+ Verifique que la regularización de entropía por consulta o la escala de temperatura reduce las predicciones sobreconfiadas.
  #10.3.2    Nivel: 2    Rol: D
- Verifique que el entrenamiento utilice optimización con privacidad diferencial acotada por ε para conjuntos de datos sensibles.
+ Verifique que el entrenamiento emplea optimización diferencialmente privada acotada por ε para conjuntos de datos sensibles.
  #10.3.3    Nivel: 2    Rol: V
- Verifique que las simulaciones de ataque (modelo sombra o caja negra) muestren un AUC de ataque ≤ 0.60 en los datos reservados.
+ Verifique que las simulaciones de ataque (modelo en sombra o caja negra) muestren un AUC de ataque ≤ 0.60 en datos reservados.
 
 ---
 
-### 10.4 Resistencia a la Inversión de Modelo
+### 10.4 Resistencia a la Inversión del Modelo
 
-Evitar la reconstrucción de atributos privados. Encuestas recientes enfatizan la truncación de salida y las garantías de DP como defensas prácticas.
+Prevenir la reconstrucción de atributos privados. Encuestas recientes destacan la truncación de salida y las garantías de privacidad diferencial (DP) como defensas prácticas.
 
  #10.4.1    Nivel: 1    Rol: D
- Verifique que los atributos sensibles nunca se muestren directamente; cuando sea necesario, utilice categorías o transformaciones unidireccionales.
+ Verifique que los atributos sensibles nunca se expongan directamente; cuando sea necesario, use agrupaciones o transformaciones unidireccionales.
  #10.4.2    Nivel: 1    Rol: D/V
- Verifique que los límites de tasa de consultas controlen las consultas adaptativas repetidas del mismo principal.
+ Verifique que los límites de tasa de consulta restrinjan las consultas adaptativas repetidas del mismo principal.
  #10.4.3    Nivel: 2    Rol: D
  Verifique que el modelo esté entrenado con ruido que preserve la privacidad.
 
@@ -1747,50 +1747,50 @@ Evitar la reconstrucción de atributos privados. Encuestas recientes enfatizan l
 
 ### 10.5 Defensa contra la extracción de modelos
 
-Detectar y disuadir la clonación no autorizada. Se recomienda el uso de marcas de agua y análisis de patrones de consulta.
+Detectar y disuadir la clonación no autorizada. Se recomienda el marcado de agua y el análisis de patrones de consulta.
 
  #10.5.1    Nivel: 1    Rol: D
  Verifique que las pasarelas de inferencia apliquen límites de tasa globales y por clave API ajustados al umbral de memorización del modelo.
  #10.5.2    Nivel: 2    Rol: D/V
- Verifique que las estadísticas de query-entropy e input-plurality alimentan un detector de extracción automatizado.
+ Verifique que las estadísticas de entropía de consulta y pluralidad de entrada alimenten un detector de extracción automatizado.
  #10.5.3    Nivel: 2    Rol: V
  Verifique que las marcas de agua frágiles o probabilísticas puedan demostrarse con p < 0.01 en ≤ 1 000 consultas contra un clon sospechoso.
  #10.5.4    Nivel: 3    Rol: D
- Verifique que las claves de marca de agua y los conjuntos de activación estén almacenados en un módulo de seguridad de hardware y que se roten anualmente.
+ Verifique que las claves de marca de agua y los conjuntos de activación estén almacenados en un módulo de seguridad de hardware y se roten anualmente.
  #10.5.5    Nivel: 3    Rol: V
- Verifique que los eventos de alerta de extracción incluyan las consultas infractoras y estén integrados con los libros de jugadas de respuesta a incidentes.
+ Verifique que los eventos de alerta de extracción incluyan consultas ofensivas y estén integrados con los libros de jugadas de respuesta a incidentes.
 
 ---
 
-### 10.6 Detección de datos envenenados en tiempo de inferencia
+### 10.6 Detección de Datos Envenenados en Tiempo de Inferencia
 
-Identificar y neutralizar entradas con puertas traseras o envenenadas.
+Identificar y neutralizar entradas con puertas traseras o contaminadas.
 
  #10.6.1    Nivel: 1    Rol: D
  Verifique que las entradas pasen por un detector de anomalías (por ejemplo, STRIP, puntuación de consistencia) antes de la inferencia del modelo.
  #10.6.2    Nivel: 1    Rol: V
  Verifique que los umbrales del detector estén ajustados en conjuntos de validación limpios/envenenados para lograr menos del 5% de falsos positivos.
  #10.6.3    Nivel: 2    Rol: D
- Verificar que las entradas marcadas como contaminadas desencadenen bloqueos suaves y flujos de trabajo de revisión humana.
+ Verifique que las entradas marcadas como contaminadas desencadenen el bloqueo suave y los flujos de trabajo de revisión humana.
  #10.6.4    Nivel: 2    Rol: V
- Verifique que los detectores sean sometidos a pruebas de estrés con ataques de puerta trasera adaptativos y sin disparadores.
+ Verifique que los detectores sean sometidos a pruebas de resistencia con ataques de puerta trasera adaptativos y sin activadores.
  #10.6.5    Nivel: 3    Rol: D
- Verifique que las métricas de eficacia de detección se registren y se reevaluén periódicamente con inteligencia de amenazas actualizada.
+ Verifique que las métricas de eficacia de detección se registren y se vuelvan a evaluar periódicamente con inteligencia de amenazas actualizada.
 
 ---
 
-### 10.7 Adaptación Dinámica de la Política de Seguridad
+### 10.7 Adaptación Dinámica de Políticas de Seguridad
 
-Actualizaciones de políticas de seguridad en tiempo real basadas en inteligencia de amenazas y análisis de comportamiento.
+Actualizaciones en tiempo real de políticas de seguridad basadas en inteligencia de amenazas y análisis de comportamiento.
 
  #10.7.1    Nivel: 1    Rol: D/V
  Verifique que las políticas de seguridad puedan actualizarse dinámicamente sin reiniciar el agente, manteniendo la integridad de la versión de la política.
  #10.7.2    Nivel: 2    Rol: D/V
  Verifique que las actualizaciones de políticas estén firmadas criptográficamente por el personal de seguridad autorizado y validadas antes de su aplicación.
  #10.7.3    Nivel: 2    Rol: D/V
- Verifique que los cambios dinámicos en la política se registren con auditorías completas que incluyan justificación, cadenas de aprobación y procedimientos de reversión.
+ Verifique que los cambios dinámicos en la política se registren con pistas completas de auditoría que incluyan justificación, cadenas de aprobación y procedimientos de reversión.
  #10.7.4    Nivel: 3    Rol: D/V
- Verifique que los mecanismos de seguridad adaptativa ajusten la sensibilidad de detección de amenazas según el contexto de riesgo y los patrones de comportamiento.
+ Verifique que los mecanismos de seguridad adaptativos ajusten la sensibilidad de la detección de amenazas basándose en el contexto de riesgo y los patrones de comportamiento.
  #10.7.5    Nivel: 3    Rol: D/V
  Verifique que las decisiones de adaptación de políticas sean explicables e incluyan registros de evidencia para la revisión del equipo de seguridad.
 
@@ -1798,35 +1798,35 @@ Actualizaciones de políticas de seguridad en tiempo real basadas en inteligenci
 
 ### 10.8 Análisis de Seguridad Basado en Reflexión
 
-Validación de seguridad mediante la autorreflexión del agente y el análisis metacognitivo.
+Validación de seguridad a través de la autorreflexión del agente y el análisis metacognitivo.
 
  #10.8.1    Nivel: 1    Rol: D/V
  Verifique que los mecanismos de reflexión del agente incluyan una autoevaluación centrada en la seguridad de las decisiones y acciones.
  #10.8.2    Nivel: 2    Rol: D/V
- Verifique que las salidas de reflexión estén validadas para prevenir la manipulación de los mecanismos de autoevaluación por entradas adversariales.
+ Verifique que las salidas de reflexión estén validadas para prevenir la manipulación de los mecanismos de autoevaluación mediante entradas adversarias.
  #10.8.3    Nivel: 2    Rol: D/V
- Verifique que el análisis de seguridad metacognitivo identifique posibles sesgos, manipulaciones o compromisos en los procesos de razonamiento del agente.
+ Verifique que el análisis de seguridad meta-cognitiva identifique posibles sesgos, manipulaciones o compromisos en los procesos de razonamiento del agente.
  #10.8.4    Nivel: 3    Rol: D/V
- Verifique que las advertencias de seguridad basadas en reflexión activen la monitorización mejorada y los posibles flujos de trabajo de intervención humana.
+ Verifique que las advertencias de seguridad basadas en reflexión desencadenen una supervisión mejorada y posibles flujos de trabajo de intervención humana.
  #10.8.5    Nivel: 3    Rol: D/V
  Verifique que el aprendizaje continuo a partir de reflexiones de seguridad mejora la detección de amenazas sin degradar la funcionalidad legítima.
 
 ---
 
-### 10.9 Seguridad en Evolución y Auto-Mejora
+### 10.9 Seguridad en la Evolución y Auto-Mejora
 
-Controles de seguridad para sistemas agentes capaces de auto-modificación y evolución.
+Controles de seguridad para sistemas de agentes capaces de auto-modificación y evolución.
 
  #10.9.1    Nivel: 1    Rol: D/V
- Verifique que las capacidades de auto-modificación estén restringidas a áreas designadas seguras con límites de verificación formal.
+ Verifique que las capacidades de auto-modificación estén restringidas a áreas seguras designadas con límites de verificación formal.
  #10.9.2    Nivel: 2    Rol: D/V
- Verifique que las propuestas de evolución se sometan a una evaluación del impacto de seguridad antes de su implementación.
+ Verifique que las propuestas de evolución sean sometidas a una evaluación de impacto en la seguridad antes de su implementación.
  #10.9.3    Nivel: 2    Rol: D/V
  Verifique que los mecanismos de auto-mejora incluyan capacidades de reversión con verificación de integridad.
  #10.9.4    Nivel: 3    Rol: D/V
- Verifique que la seguridad de meta-aprendizaje previene la manipulación adversarial de los algoritmos de mejora.
+ Verifique que la seguridad del meta-aprendizaje previene la manipulación adversarial de los algoritmos de mejora.
  #10.9.5    Nivel: 3    Rol: D/V
- Verifique que la mejora recursiva propia esté limitada por restricciones formales de seguridad con pruebas matemáticas de convergencia.
+ Verifique que la auto-mejora recursiva esté limitada por restricciones formales de seguridad con pruebas matemáticas de convergencia.
 
 ---
 
@@ -1849,44 +1849,44 @@ BDetCLIP: Multimodal Prompting Backdoor Detection — Niu et al., 2024
 
 ### Objetivo de Control
 
-Mantener garantías rigurosas de privacidad a lo largo de todo el ciclo de vida de la IA—recolección, entrenamiento, inferencia y respuesta a incidentes—de modo que los datos personales se procesen únicamente con consentimiento explícito, alcance mínimo necesario, borrado demostrable y garantías formales de privacidad.
+Mantenga rigurosas garantías de privacidad a lo largo de todo el ciclo de vida de la IA—recolección, entrenamiento, inferencia y respuesta a incidentes—de modo que los datos personales se procesen únicamente con consentimiento claro, ámbito mínimo necesario, eliminación demostrable y garantías formales de privacidad.
 
 ---
 
 ### 11.1 Anonimización y Minimización de Datos
 
  #11.1.1    Nivel: 1    Rol: D/V
- Verifique que los identificadores directos y cuasi-identificadores sean eliminados o hasheados.
+ Verifique que los identificadores directos y cuasi-identificadores sean eliminados o codificados mediante hash.
  #11.1.2    Nivel: 2    Rol: D/V
  Verifique que las auditorías automatizadas midan k-anonimato/l-diversidad y alerten cuando los umbrales caigan por debajo de la política.
  #11.1.3    Nivel: 2    Rol: V
- Verifique que los informes de importancia de características del modelo demuestren que no hay filtración de identificadores más allá de ε = 0.01 de información mutua.
+ Verifique que los informes de importancia de características del modelo demuestren que no existe filtración de identificadores más allá de ε = 0.01 de información mutua.
  #11.1.4    Nivel: 3    Rol: V
- Verifique que las pruebas formales o la certificación con datos sintéticos muestren que el riesgo de reidentificación sea ≤ 0.05 incluso bajo ataques de enlace.
+ Verifique que las pruebas formales o la certificación con datos sintéticos demuestren que el riesgo de reidentificación sea ≤ 0.05 incluso bajo ataques de enlace.
 
 ---
 
 ### 11.2 Derecho a ser olvidado y aplicación de la eliminación
 
  #11.2.1    Nivel: 1    Rol: D/V
- Verifique que las solicitudes de eliminación de datos de sujetos se propaguen a los conjuntos de datos sin procesar, puntos de control, incrustaciones, registros y copias de seguridad dentro de los acuerdos de nivel de servicio de menos de 30 días.
+ Verifique que las solicitudes de eliminación de datos personales se propagan a los conjuntos de datos sin procesar, puntos de control, incrustaciones, registros y copias de seguridad dentro de los acuerdos de nivel de servicio de menos de 30 días.
  #11.2.2    Nivel: 2    Rol: D
  Verifique que las rutinas de "desaprendizaje automático" reentrenen físicamente o aproximen la eliminación utilizando algoritmos certificados de desaprendizaje.
  #11.2.3    Nivel: 2    Rol: V
- Verifique que la evaluación del modelo sombra demuestra que los registros olvidados influyen en menos del 1% de las salidas después del desaprendizaje.
+ Verifique que la evaluación del modelo sombra demuestre que los registros olvidados influyen en menos del 1% de los resultados después del olvido.
  #11.2.4    Nivel: 3    Rol: V
  Verifique que los eventos de eliminación se registren de forma inmutable y sean auditables para los reguladores.
 
 ---
 
-### 11.3 Salvaguardas de Privacidad Diferencial
+### 11.3 Salvaguardas de privacidad diferencial
 
  #11.3.1    Nivel: 2    Rol: D/V
  Verifique que los paneles de control de contabilidad de pérdida de privacidad alerten cuando ε acumulativo exceda los umbrales de la política.
  #11.3.2    Nivel: 2    Rol: V
  Verifique que las auditorías de privacidad de caja negra estimen ε̂ dentro del 10% del valor declarado.
  #11.3.3    Nivel: 3    Rol: V
- Verifique que las pruebas formales cubran todas las afinaciones posteriores al entrenamiento y las incrustaciones.
+ Verifique que las pruebas formales cubran todos los afinamientos y embeddings posteriores al entrenamiento.
 
 ---
 
@@ -1895,22 +1895,22 @@ Mantener garantías rigurosas de privacidad a lo largo de todo el ciclo de vida 
  #11.4.1    Nivel: 1    Rol: D
  Verifique que cada conjunto de datos y punto de control del modelo lleve una etiqueta de propósito legible por máquina alineada con el consentimiento original.
  #11.4.2    Nivel: 1    Rol: D/V
- Verifique que los monitores en tiempo de ejecución detecten consultas inconsistentes con el propósito declarado y activen una denegación suave.
+ Verifique que los monitores de tiempo de ejecución detecten consultas inconsistentes con el propósito declarado y activen una negativa suave.
  #11.4.3    Nivel: 3    Rol: D
- Verifique que las políticas como código bloqueen el redepliegue de modelos a nuevos dominios sin una revisión de DPIA.
+ Verifique que las puertas de política como código bloqueen la redeployación de modelos a nuevos dominios sin una revisión de DPIA.
  #11.4.4    Nivel: 3    Rol: V
  Verifique que las pruebas formales de trazabilidad muestren que todo el ciclo de vida de los datos personales permanece dentro del alcance consentido.
 
 ---
 
-### 11.5 Gestión del Consentimiento y Seguimiento Basado en Fundamento Legal
+### 11.5 Gestión del Consentimiento y Seguimiento con Base Jurídica
 
  #11.5.1    Nivel: 1    Rol: D/V
- Verifique que una Plataforma de Gestión de Consentimientos (CMP) registre el estado de aceptación, el propósito y el período de retención por sujeto de datos.
+ Verifique que una Plataforma de Gestión de Consentimiento (CMP) registre el estado de aceptación, el propósito y el período de retención por sujeto de datos.
  #11.5.2    Nivel: 2    Rol: D
  Verifique que las API expongan tokens de consentimiento; los modelos deben validar el alcance del token antes de la inferencia.
  #11.5.3    Nivel: 2    Rol: D/V
- Verifique que el consentimiento denegado o retirado detenga las canalizaciones de procesamiento dentro de las 24 horas.
+ Verifique que el consentimiento denegado o retirado detenga las cadenas de procesamiento dentro de las 24 horas.
 
 ---
 
@@ -1919,11 +1919,11 @@ Mantener garantías rigurosas de privacidad a lo largo de todo el ciclo de vida 
  #11.6.1    Nivel: 1    Rol: D
  Verifique que las actualizaciones del cliente utilicen la adición de ruido de privacidad diferencial local antes de la agregación.
  #11.6.2    Nivel: 2    Rol: D/V
- Verifique que las métricas de entrenamiento sean diferencialmente privadas y nunca revelen la pérdida de un solo cliente.
+ Verifique que las métricas de entrenamiento sean privadamente diferenciales y nunca revelen la pérdida de un solo cliente.
  #11.6.3    Nivel: 2    Rol: V
- Verifique que la agregación resistente al envenenamiento (por ejemplo, Krum/Trimmed-Mean) esté habilitada.
+ Verifique que la agregación resistente a envenenamiento (por ejemplo, Krum/Trimmed-Mean) esté habilitada.
  #11.6.4    Nivel: 3    Rol: V
- Verifique que las pruebas formales demuestren un presupuesto general de ε con una pérdida de utilidad menor a 5.
+ Verifique que las pruebas formales demuestren un presupuesto total de ε con una pérdida de utilidad inferior a 5.
 
 ---
 
@@ -1946,74 +1946,74 @@ Secure Aggregation in DP Federated Learning — ArXiv 2024
 
 ### Objetivo de Control
 
-Esta sección proporciona requisitos para ofrecer visibilidad en tiempo real y forense sobre lo que el modelo y otros componentes de IA ven, hacen y devuelven, para que se puedan detectar, clasificar y aprender de las amenazas.
+Esta sección proporciona requisitos para ofrecer visibilidad en tiempo real y forense sobre lo que el modelo y otros componentes de IA ven, hacen y devuelven, de modo que las amenazas puedan ser detectadas, clasificadas y aprendidas.
 
 ### C12.1 Registro de Solicitudes y Respuestas
 
  #12.1.1    Nivel: 1    Rol: D/V
- Verifique que todas las indicaciones de usuario y respuestas del modelo estén registradas con los metadatos apropiados (por ejemplo, marca de tiempo, ID de usuario, ID de sesión, versión del modelo).
+ Verifique que todos los mensajes de los usuarios y las respuestas del modelo se registren con los metadatos apropiados (por ejemplo, marca de tiempo, ID de usuario, ID de sesión, versión del modelo).
  #12.1.2    Nivel: 1    Rol: D/V
- Verifique que los registros se almacenen en repositorios seguros y controlados por acceso, con políticas de retención y procedimientos de respaldo adecuados.
+ Verifique que los registros se almacenen en repositorios seguros y con control de acceso, con políticas de retención y procedimientos de respaldo apropiados.
  #12.1.3    Nivel: 1    Rol: D/V
  Verifique que los sistemas de almacenamiento de registros implementen cifrado en reposo y en tránsito para proteger la información sensible contenida en los registros.
  #12.1.4    Nivel: 1    Rol: D/V
  Verifique que los datos sensibles en las indicaciones y salidas se redacten o enmascaren automáticamente antes de registrarlos, con reglas de redacción configurables para información de identificación personal (PII), credenciales e información propietaria.
  #12.1.5    Nivel: 2    Rol: D/V
- Verifique que las decisiones de políticas y las acciones de filtrado de seguridad se registren con suficiente detalle para permitir la auditoría y la depuración de los sistemas de moderación de contenido.
+ Verifique que las decisiones de política y las acciones de filtrado de seguridad se registren con suficiente detalle para permitir la auditoría y la depuración de los sistemas de moderación de contenido.
  #12.1.6    Nivel: 2    Rol: D/V
  Verifique que la integridad del registro esté protegida mediante, por ejemplo, firmas criptográficas o almacenamiento de solo escritura.
 
 ---
 
-### C12.2 Detección de abuso y alertas
+### C12.2 Detección y Alertas de Abuso
 
  #12.2.1    Nivel: 1    Rol: D/V
- Verifique que el sistema detecte y alerte sobre patrones conocidos de jailbreak, intentos de inyección de prompts y entradas adversarias utilizando detección basada en firmas.
+ Verifique que el sistema detecte y alerte sobre patrones conocidos de jailbreak, intentos de inyección de prompts y entradas adversariales mediante detección basada en firmas.
  #12.2.2    Nivel: 1    Rol: D/V
- Verifique que el sistema se integre con las plataformas existentes de Gestión de Información y Eventos de Seguridad (SIEM) utilizando formatos y protocolos estándar de registros.
+ Verifique que el sistema se integre con las plataformas existentes de Gestión de Información y Eventos de Seguridad (SIEM) utilizando formatos de registro y protocolos estándar.
  #12.2.3    Nivel: 2    Rol: D/V
  Verifique que los eventos de seguridad enriquecidos incluyan contexto específico de IA, como identificadores de modelos, puntuaciones de confianza y decisiones del filtro de seguridad.
  #12.2.4    Nivel: 2    Rol: D/V
- Verifique que la detección de anomalías conductuales identifique patrones de conversación inusuales, intentos excesivos de reintento o comportamientos de sondeo sistemático.
+ Verifique que la detección de anomalías conductuales identifique patrones inusuales de conversación, intentos repetidos excesivos o comportamientos sistemáticos de sondeo.
  #12.2.5    Nivel: 2    Rol: D/V
  Verifique que los mecanismos de alerta en tiempo real notifiquen a los equipos de seguridad cuando se detecten posibles violaciones de políticas o intentos de ataque.
  #12.2.6    Nivel: 2    Rol: D/V
- Verifique que se incluyan reglas personalizadas para detectar patrones de amenaza específicos de IA, incluyendo intentos coordinados de jailbreak, campañas de inyección de instrucciones y ataques de extracción de modelos.
+ Verifique que se incluyan reglas personalizadas para detectar patrones de amenazas específicos de IA, incluyendo intentos coordinados de jailbreak, campañas de inyección de prompts y ataques de extracción de modelos.
  #12.2.7    Nivel: 3    Rol: D/V
- Verifique que los flujos de trabajo automatizados de respuesta a incidentes puedan aislar modelos comprometidos, bloquear usuarios maliciosos y escalar eventos críticos de seguridad.
+ Verifique que los flujos de trabajo automatizados de respuesta a incidentes puedan aislar modelos comprometidos, bloquear usuarios maliciosos y escalar eventos de seguridad críticos.
 
 ---
 
 ### C12.3 Detección de Deriva del Modelo
 
  #12.3.1    Nivel: 1    Rol: D/V
- Verifique que el sistema rastree métricas básicas de rendimiento como precisión, puntajes de confianza, latencia y tasas de error a lo largo de las versiones del modelo y periodos de tiempo.
+ Verifique que el sistema registre métricas básicas de rendimiento como precisión, puntuaciones de confianza, latencia y tasas de error a lo largo de las versiones del modelo y los períodos de tiempo.
  #12.3.2    Nivel: 2    Rol: D/V
- Verifique que las alertas automatizadas se activen cuando las métricas de rendimiento superen los umbrales de degradación predefinidos o se desvíen significativamente de las líneas base.
+ Verifique que las alertas automatizadas se activen cuando los métricas de rendimiento superen los umbrales de degradación predefinidos o se desvíen significativamente de las líneas base.
  #12.3.3    Nivel: 2    Rol: D/V
- Verifique que los monitores de detección de alucinaciones identifiquen y señalen los casos en los que las salidas del modelo contienen información factualmente incorrecta, inconsistente o fabricada.
+ Verifique que los monitores de detección de alucinaciones identifiquen y señalen las instancias cuando las salidas del modelo contienen información factualmente incorrecta, inconsistente o fabricada.
 
 ---
 
 ### C12.4 Telemetría de Rendimiento y Comportamiento
 
  #12.4.1    Nivel: 1    Rol: D/V
- Verifique que las métricas operativas, incluidas la latencia de las solicitudes, el consumo de tokens, el uso de memoria y el rendimiento, se recopilen y supervisen de manera continua.
+ Verifique que las métricas operativas, incluyendo la latencia de las solicitudes, el consumo de tokens, el uso de memoria y el rendimiento, se recopilen y supervisen de manera continua.
  #12.4.2    Nivel: 1    Rol: D/V
  Verifique que las tasas de éxito y fracaso se registren con la categorización de los tipos de errores y sus causas raíz.
  #12.4.3    Nivel: 2    Rol: D/V
- Verifique que la supervisión de la utilización de recursos incluya el uso de GPU/CPU, el consumo de memoria y los requisitos de almacenamiento, con alertas ante incumplimientos de los umbrales.
+ Verifique que la monitorización de la utilización de recursos incluya el uso de GPU/CPU, el consumo de memoria y los requisitos de almacenamiento, con alertas en caso de superación de umbrales.
 
 ---
 
 ### C12.5 Planificación y Ejecución de la Respuesta a Incidentes de IA
 
  #12.5.1    Nivel: 1    Rol: D/V
- Verifique que los planes de respuesta a incidentes aborden específicamente los eventos de seguridad relacionados con la IA, incluyendo la compromisión de modelos, el envenenamiento de datos y los ataques adversarios.
+ Verifique que los planes de respuesta a incidentes aborden específicamente los eventos de seguridad relacionados con IA, incluyendo la compromisión del modelo, el envenenamiento de datos y los ataques adversarios.
  #12.5.2    Nivel: 2    Rol: D/V
  Verifique que los equipos de respuesta a incidentes tengan acceso a herramientas forenses específicas de IA y experiencia para investigar el comportamiento del modelo y los vectores de ataque.
  #12.5.3    Nivel: 3    Rol: D/V
- Verifique que el análisis posterior al incidente incluya consideraciones de reentrenamiento del modelo, actualizaciones del filtro de seguridad e integración de las lecciones aprendidas en los controles de seguridad.
+ Verifique que el análisis posterior al incidente incluya consideraciones sobre el reentrenamiento del modelo, actualizaciones de filtros de seguridad e integración de las lecciones aprendidas en los controles de seguridad.
 
 ---
 
@@ -2022,32 +2022,32 @@ Esta sección proporciona requisitos para ofrecer visibilidad en tiempo real y f
 Monitorear y detectar la degradación en el rendimiento y la calidad del modelo de IA con el tiempo.
 
  #12.5.1    Nivel: 1    Rol: D/V
- Verifique que la precisión, exactitud, exhaustividad y las puntuaciones F1 del modelo se supervisen continuamente y se comparen con los umbrales base.
+ Verifique que la precisión, la exactitud, la sensibilidad y las puntuaciones F1 del modelo se supervisen continuamente y se comparen con los umbrales de referencia.
  #12.5.2    Nivel: 1    Rol: D/V
- Verifique que la detección de deriva de datos supervise los cambios en la distribución de entrada que puedan afectar el rendimiento del modelo.
+ Verifique que la detección de deriva de datos monitoree cambios en la distribución de entrada que puedan afectar el rendimiento del modelo.
  #12.5.3    Nivel: 2    Rol: D/V
- Verifique que la detección de deriva del concepto identifique cambios en la relación entre las entradas y las salidas esperadas.
+ Verifique que la detección de deriva conceptual identifique cambios en la relación entre las entradas y las salidas esperadas.
  #12.5.4    Nivel: 2    Rol: D/V
- Verifique que la degradación del rendimiento active alertas automáticas e inicie los flujos de trabajo de reentrenamiento o reemplazo del modelo.
+ Verifique que la degradación del rendimiento active alertas automáticas e inicie flujos de trabajo de reentrenamiento o reemplazo del modelo.
  #12.5.5    Nivel: 3    Rol: V
- Verificar que el análisis de la causa raíz de la degradación correlacione las caídas de rendimiento con cambios en los datos, problemas de infraestructura o factores externos.
+ Verifique que el análisis de la causa raíz de la degradación correlacione las caídas de rendimiento con cambios en los datos, problemas de infraestructura o factores externos.
 
 ---
 
 ### C12.6 Visualización de DAG y Seguridad del Flujo de Trabajo
 
-Proteja los sistemas de visualización de flujos de trabajo contra fugas de información y ataques de manipulación.
+Proteja los sistemas de visualización de flujos de trabajo contra filtraciones de información y ataques de manipulación.
 
  #12.6.1    Nivel: 1    Rol: D/V
  Verifique que los datos de visualización del DAG estén depurados para eliminar información sensible antes de su almacenamiento o transmisión.
  #12.6.2    Nivel: 1    Rol: D/V
  Verifique que los controles de acceso a la visualización del flujo de trabajo aseguren que solo los usuarios autorizados puedan ver las rutas de decisión del agente y los rastros de razonamiento.
  #12.6.3    Nivel: 2    Rol: D/V
- Verifique que la integridad de los datos en el DAG esté protegida mediante firmas criptográficas y mecanismos de almacenamiento a prueba de manipulaciones.
+ Verifique que la integridad de los datos del DAG esté protegida mediante firmas criptográficas y mecanismos de almacenamiento a prueba de manipulaciones.
  #12.6.4    Nivel: 2    Rol: D/V
- Verifique que los sistemas de visualización de flujos de trabajo implementen la validación de entradas para prevenir ataques de inyección a través de datos manipulados de nodos o aristas.
+ Verifique que los sistemas de visualización de flujos de trabajo implementen validación de entrada para prevenir ataques de inyección a través de datos manipulados de nodos o aristas.
  #12.6.5    Nivel: 3    Rol: D/V
- Verifique que las actualizaciones en tiempo real del DAG estén limitadas en tasa y validadas para prevenir ataques de denegación de servicio en los sistemas de visualización.
+ Verifique que las actualizaciones en tiempo real del DAG estén sujetas a limitación de tasa y validadas para prevenir ataques de denegación de servicio en los sistemas de visualización.
 
 ---
 
@@ -2056,15 +2056,15 @@ Proteja los sistemas de visualización de flujos de trabajo contra fugas de info
 Detección y prevención de amenazas de seguridad mediante el análisis proactivo del comportamiento de agentes.
 
  #12.7.1    Nivel: 1    Rol: D/V
- Verifique que los comportamientos proactivos del agente estén validados en términos de seguridad antes de la ejecución, integrando la evaluación de riesgos.
+ Verifique que los comportamientos proactivos del agente estén validados en términos de seguridad antes de la ejecución, con integración de evaluación de riesgos.
  #12.7.2    Nivel: 2    Rol: D/V
- Verifique que los disparadores de iniciativa autónoma incluyan la evaluación del contexto de seguridad y la evaluación del panorama de amenazas.
+ Verifique que los disparadores de la iniciativa autónoma incluyan la evaluación del contexto de seguridad y la evaluación del panorama de amenazas.
  #12.7.3    Nivel: 2    Rol: D/V
- Verifique que los patrones de comportamiento proactivo sean analizados para posibles implicaciones de seguridad y consecuencias no deseadas.
+ Verifique que los patrones de comportamiento proactivo se analicen para posibles implicaciones de seguridad y consecuencias no deseadas.
  #12.7.4    Nivel: 3    Rol: D/V
  Verifique que las acciones proactivas críticas para la seguridad requieran cadenas de aprobación explícitas con registros de auditoría.
  #12.7.5    Nivel: 3    Rol: D/V
- Verifique que la detección de anomalías conductuales identifique desviaciones en los patrones de agentes proactivos que puedan indicar compromiso.
+ Verifique que la detección de anomalías de comportamiento identifique desviaciones en los patrones del agente proactivo que puedan indicar compromiso.
 
 ---
 
@@ -2078,33 +2078,33 @@ EU AI Act — Article 12, 13, 16 and 19 on Logging and Record-keeping
 
 ### Objetivo de Control
 
-Este capítulo proporciona requisitos para mantener la supervisión humana y cadenas claras de responsabilidad en los sistemas de IA, garantizando explicabilidad, transparencia y una gestión ética a lo largo del ciclo de vida de la IA.
+Este capítulo establece los requisitos para mantener la supervisión humana y cadenas claras de responsabilidad en los sistemas de IA, asegurando la explicabilidad, transparencia y la gestión ética a lo largo del ciclo de vida de la IA.
 
 ---
 
-### C13.1 Mecanismos de Interruptor de Emergencia y Anulación
+### C13.1 Mecanismos de Interruptor de Apagado y Anulación
 
 Proporcionar rutas de apagado o reversión cuando se observe un comportamiento inseguro del sistema de IA.
 
  #13.1.1    Nivel: 1    Rol: D/V
- Verifique que exista un mecanismo manual de interruptor de apagado para detener inmediatamente la inferencia y las salidas del modelo de IA.
+ Verifique que exista un mecanismo manual de interrupción para detener inmediatamente la inferencia y las salidas del modelo de IA.
  #13.1.2    Nivel: 1    Rol: D
  Verifique que los controles de anulación sean accesibles únicamente para el personal autorizado.
  #13.1.3    Nivel: 3    Rol: D/V
- Verifique que los procedimientos de reversión puedan restaurar versiones anteriores del modelo o las operaciones en modo seguro.
+ Verifique que los procedimientos de reversión puedan volver a versiones anteriores del modelo o a operaciones en modo seguro.
  #13.1.4    Nivel: 3    Rol: V
  Verifique que los mecanismos de anulación se prueben regularmente.
 
 ---
 
-### C13.2 Puntos de Control de Decisión con Intervención Humana
+### C13.2 Puntos de control de decisiones con intervención humana
 
 Requerir aprobaciones humanas cuando las apuestas superen los umbrales de riesgo predefinidos.
 
  #13.2.1    Nivel: 1    Rol: D/V
- Verifique que las decisiones de IA de alto riesgo requieran la aprobación explícita de un humano antes de su ejecución.
+ Verifique que las decisiones de IA de alto riesgo requieran aprobación humana explícita antes de su ejecución.
  #13.2.2    Nivel: 1    Rol: D
- Verifique que los umbrales de riesgo estén claramente definidos y activen automáticamente los flujos de trabajo de revisión humana.
+ Verifique que los umbrales de riesgo estén claramente definidos y que activen automáticamente los flujos de trabajo de revisión humana.
  #13.2.3    Nivel: 2    Rol: D
  Verifique que las decisiones sensibles al tiempo tengan procedimientos de respaldo cuando no se pueda obtener la aprobación humana dentro de los plazos requeridos.
  #13.2.4    Nivel: 3    Rol: D/V
@@ -2117,20 +2117,20 @@ Requerir aprobaciones humanas cuando las apuestas superen los umbrales de riesgo
 Registrar las acciones del operador y las decisiones del modelo.
 
  #13.3.1    Nivel: 1    Rol: D/V
- Verifique que todas las decisiones del sistema de IA y las intervenciones humanas se registren con marcas de tiempo, identidades de usuario y la justificación de la decisión.
+ Verifique que todas las decisiones del sistema de IA y las intervenciones humanas estén registradas con marcas de tiempo, identidades de usuario y la justificación de la decisión.
  #13.3.2    Nivel: 2    Rol: D
- Verifique que los registros de auditoría no puedan ser alterados e incluyan mecanismos de verificación de integridad.
+ Verifique que los registros de auditoría no puedan ser manipulados e incluyan mecanismos de verificación de integridad.
 
 ---
 
 ### C13.4 Técnicas de IA Explicable
 
-Importancia de características superficiales, contrafactuales y explicaciones locales.
+Importancia de características superficiales, contra-factuales y explicaciones locales.
 
  #13.4.1    Nivel: 1    Rol: D/V
- Verifique que los sistemas de IA proporcionen explicaciones básicas de sus decisiones en un formato comprensible para los humanos.
+ Verifique que los sistemas de IA proporcionen explicaciones básicas de sus decisiones en un formato legible para humanos.
  #13.4.2    Nivel: 2    Rol: V
- Verifique que la calidad de la explicación se valide mediante estudios y métricas de evaluación humana.
+ Verifique que la calidad de la explicación sea validada mediante estudios y métricas de evaluación humana.
  #13.4.3    Nivel: 3    Rol: D/V
  Verifique que las puntuaciones de importancia de características o los métodos de atribución (SHAP, LIME, etc.) estén disponibles para decisiones críticas.
  #13.4.4    Nivel: 3    Rol: V
@@ -2143,13 +2143,13 @@ Importancia de características superficiales, contrafactuales y explicaciones l
 Mantener tarjetas de modelo para el uso previsto, métricas de rendimiento y consideraciones éticas.
 
  #13.5.1    Nivel: 1    Rol: D
- Verifique que las tarjetas de modelo documenten los casos de uso previstos, las limitaciones y los modos de falla conocidos.
+ Verifique que las fichas del modelo documenten los casos de uso previstos, las limitaciones y los modos de fallo conocidos.
  #13.5.2    Nivel: 1    Rol: D/V
  Verifique que se divulguen las métricas de rendimiento en los diferentes casos de uso aplicables.
  #13.5.3    Nivel: 2    Rol: D
- Verifique que las consideraciones éticas, evaluaciones de sesgo, evaluaciones de equidad, características de los datos de entrenamiento y limitaciones conocidas de los datos de entrenamiento estén documentadas y actualizadas regularmente.
+ Verifique que las consideraciones éticas, evaluaciones de sesgos, evaluaciones de equidad, características de los datos de entrenamiento y limitaciones conocidas de los datos de entrenamiento estén documentadas y actualizadas regularmente.
  #13.5.4    Nivel: 2    Rol: D/V
- Verifique que las tarjetas de modelo estén bajo control de versiones y se mantengan durante todo el ciclo de vida del modelo con seguimiento de cambios.
+ Verifique que las tarjetas de modelo estén controladas por versiones y se mantengan durante todo el ciclo de vida del modelo con seguimiento de cambios.
 
 ---
 
@@ -2160,11 +2160,11 @@ Propagar puntajes de confianza o medidas de entropía en las respuestas.
  #13.6.1    Nivel: 1    Rol: D
  Verifique que los sistemas de IA proporcionen puntajes de confianza o medidas de incertidumbre con sus resultados.
  #13.6.2    Nivel: 2    Rol: D/V
- Verifique que los umbrales de incertidumbre desencadenen una revisión humana adicional o caminos de decisión alternativos.
+ Verifique que los umbrales de incertidumbre activen una revisión humana adicional o vías de decisión alternativas.
  #13.6.3    Nivel: 2    Rol: V
  Verifique que los métodos de cuantificación de incertidumbre estén calibrados y validados con datos de referencia.
  #13.6.4    Nivel: 3    Rol: D/V
- Verifique que la propagación de incertidumbre se mantenga a través de flujos de trabajo de IA de múltiples pasos.
+ Verifique que la propagación de la incertidumbre se mantenga a lo largo de los flujos de trabajo de IA de múltiples pasos.
 
 ---
 
@@ -2173,11 +2173,11 @@ Propagar puntajes de confianza o medidas de entropía en las respuestas.
 Proporcionar divulgaciones periódicas sobre incidentes, desviaciones y uso de datos.
 
  #13.7.1    Nivel: 1    Rol: D/V
- Verifique que las políticas de uso de datos y las prácticas de gestión del consentimiento del usuario se comuniquen claramente a las partes interesadas.
+ Verifique que las políticas de uso de datos y las prácticas de gestión del consentimiento del usuario estén claramente comunicadas a las partes interesadas.
  #13.7.2    Nivel: 2    Rol: D/V
- Verifique que se realicen evaluaciones de impacto de IA y que los resultados se incluyan en los informes.
+ Verifique que se realicen evaluaciones de impacto de la IA y que los resultados se incluyan en los informes.
  #13.7.3    Nivel: 2    Rol: D/V
- Verifique que los informes de transparencia publicados regularmente divulguen incidentes de IA y métricas operativas con un nivel de detalle razonable.
+ Verifique que los informes de transparencia publicados regularmente revelen incidentes de IA y métricas operativas con un detalle razonable.
 
 #### Referencias
 
@@ -2196,99 +2196,99 @@ Human Oversight under Article 14 of the EU AI Act (Fink, 2025)
 
 ## Apéndice A: Glosario
 
-Este glosario completo proporciona definiciones de términos clave de IA, ML y seguridad utilizados en todo el AISVS para garantizar claridad y comprensión común.
+Este glosario completo proporciona definiciones de términos clave de IA, ML y seguridad utilizados en todo el AISVS para asegurar claridad y comprensión común.
 
-Ejemplo Adversarial: Una entrada diseñada deliberadamente para causar que un modelo de IA cometa un error, a menudo agregando perturbaciones sutiles imperceptibles para los humanos.
+Ejemplo adversarial: Una entrada diseñada deliberadamente para hacer que un modelo de IA cometa un error, a menudo añadiendo perturbaciones sutiles imperceptibles para los humanos.
 ​
-Robustez adversarial – La robustez adversarial en IA se refiere a la capacidad de un modelo para mantener su rendimiento y resistir ser engañado o manipulado por entradas maliciosas intencionalmente diseñadas para causar errores.
+Robustez adversarial: la robustez adversarial en IA se refiere a la capacidad de un modelo para mantener su rendimiento y resistir ser engañado o manipulado por entradas maliciosas diseñadas intencionalmente para causar errores.
 ​
 Agente – Los agentes de IA son sistemas de software que utilizan IA para perseguir objetivos y completar tareas en nombre de los usuarios. Muestran razonamiento, planificación y memoria, y tienen un nivel de autonomía para tomar decisiones, aprender y adaptarse.
 ​
-IA Agente: sistemas de IA que pueden operar con cierto grado de autonomía para alcanzar objetivos, a menudo tomando decisiones y realizando acciones sin intervención humana directa.
+IA agente: sistemas de IA que pueden operar con cierto grado de autonomía para alcanzar objetivos, a menudo tomando decisiones y realizando acciones sin intervención humana directa.
 ​
 Control de Acceso Basado en Atributos (ABAC): Un paradigma de control de acceso donde las decisiones de autorización se basan en atributos del usuario, recurso, acción y entorno, evaluados en tiempo de consulta.
 ​
-Ataque de puerta trasera: Un tipo de ataque de envenenamiento de datos donde el modelo se entrena para responder de una manera específica a ciertos disparadores mientras se comporta normalmente de otra manera.
+Ataque de puerta trasera: Un tipo de ataque de envenenamiento de datos donde el modelo se entrena para responder de una manera específica a ciertos desencadenantes mientras se comporta normalmente en otros casos.
 ​
-Sesgo: Errores sistemáticos en las salidas del modelo de IA que pueden conducir a resultados injustos o discriminatorios para ciertos grupos o en contextos específicos.
+Sesgo: Errores sistemáticos en las salidas de modelos de IA que pueden conducir a resultados injustos o discriminatorios para ciertos grupos o en contextos específicos.
 ​
 Explotación de sesgos: Una técnica de ataque que aprovecha los sesgos conocidos en los modelos de IA para manipular resultados o salidas.
 ​
-Cedar: el lenguaje y motor de políticas de Amazon para permisos detallados utilizado en la implementación de ABAC para sistemas de IA.
+Cedar: lenguaje y motor de políticas de Amazon para permisos detallados utilizado en la implementación de ABAC para sistemas de IA.
 ​
-Cadena de pensamiento: Una técnica para mejorar el razonamiento en modelos de lenguaje al generar pasos intermedios de razonamiento antes de producir una respuesta final.
+Cadena de pensamiento: Una técnica para mejorar el razonamiento en modelos de lenguaje mediante la generación de pasos intermedios de razonamiento antes de producir una respuesta final.
 ​
-Interruptores automáticos: Mecanismos que detienen automáticamente las operaciones del sistema de IA cuando se superan umbrales específicos de riesgo.
+Interruptores automáticos: mecanismos que detienen automáticamente las operaciones del sistema de IA cuando se superan ciertos umbrales de riesgo.
 ​
-Fuga de datos: Exposición no intencionada de información sensible a través de las salidas o comportamiento del modelo de IA.
+Fuga de datos: exposición no intencionada de información sensible a través de los resultados o el comportamiento del modelo de IA.
 ​
-Envenenamiento de datos: La corrupción deliberada de datos de entrenamiento para comprometer la integridad del modelo, a menudo para instalar puertas traseras o degradar el rendimiento.
+Envenenamiento de Datos: La corrupción deliberada de los datos de entrenamiento para comprometer la integridad del modelo, a menudo para instalar puertas traseras o degradar el rendimiento.
 ​
-Privacidad diferencial: la privacidad diferencial es un marco matemáticamente riguroso para divulgar información estadística sobre conjuntos de datos mientras se protege la privacidad de los sujetos individuales de los datos. Permite a un titular de datos compartir patrones agregados del grupo mientras limita la información que se filtra sobre individuos específicos.
+Privacidad Diferencial – La privacidad diferencial es un marco matemáticamente riguroso para divulgar información estadística sobre conjuntos de datos mientras se protege la privacidad de los sujetos individuales. Permite que un titular de datos comparta patrones agregados del grupo limitando la información filtrada sobre individuos específicos.
 ​
-Embeddings: Representaciones vectoriales densas de datos (texto, imágenes, etc.) que capturan el significado semántico en un espacio de alta dimensionalidad.
+Embeddings: Representaciones vectoriales densas de datos (texto, imágenes, etc.) que capturan el significado semántico en un espacio de alta dimensión.
 ​
-Explicabilidad – La explicabilidad en IA es la capacidad de un sistema de IA para proporcionar razones comprensibles por humanos para sus decisiones y predicciones, ofreciendo perspectivas sobre su funcionamiento interno.
+Explicabilidad: la explicabilidad en la IA es la capacidad de un sistema de IA para proporcionar razones comprensibles por humanos para sus decisiones y predicciones, ofreciendo ideas sobre su funcionamiento interno.
 ​
-IA Explicable (XAI): Sistemas de IA diseñados para proporcionar explicaciones comprensibles para los humanos sobre sus decisiones y comportamientos mediante diversas técnicas y marcos de trabajo.
+IA explicable (XAI): sistemas de IA diseñados para proporcionar explicaciones comprensibles para los humanos sobre sus decisiones y comportamientos mediante diversas técnicas y marcos de trabajo.
 ​
 Aprendizaje Federado: Un enfoque de aprendizaje automático donde los modelos se entrenan en múltiples dispositivos descentralizados que poseen muestras de datos locales, sin intercambiar los datos en sí.
 ​
 Guardarraíles: Restricciones implementadas para evitar que los sistemas de IA produzcan resultados dañinos, sesgados o de otro modo indeseables.
 ​
-Alucinación – Una alucinación de IA se refiere a un fenómeno donde un modelo de IA genera información incorrecta o engañosa que no se basa en sus datos de entrenamiento ni en la realidad factual.
+Alucinación – Una alucinación de IA se refiere a un fenómeno en el que un modelo de IA genera información incorrecta o engañosa que no se basa en sus datos de entrenamiento ni en la realidad factual.
 ​
 Human-in-the-Loop (HITL): Sistemas diseñados para requerir supervisión, verificación o intervención humana en puntos cruciales de decisión.
 ​
-Infraestructura como Código (IaC): Gestión y aprovisionamiento de la infraestructura a través de código en lugar de procesos manuales, permitiendo el escaneo de seguridad y despliegues consistentes.
+Infraestructura como Código (IaC): gestión y aprovisionamiento de infraestructura a través de código en lugar de procesos manuales, permitiendo el escaneo de seguridad y despliegues consistentes.
 ​
-Jailbreak: Técnicas utilizadas para eludir las medidas de seguridad en los sistemas de IA, especialmente en los modelos de lenguaje grande, para producir contenido prohibido.
+Jailbreak: Técnicas utilizadas para eludir las barreras de seguridad en los sistemas de IA, particularmente en los modelos de lenguaje grande, para producir contenido prohibido.
 ​
-Mínimos privilegios: El principio de seguridad que consiste en otorgar solo los derechos de acceso mínimos necesarios para usuarios y procesos.
+Privilegio Mínimo: El principio de seguridad de otorgar únicamente los derechos de acceso mínimos necesarios para usuarios y procesos.
 ​
-LIME (Explicaciones Locales Interpretables Agnósticas al Modelo): Una técnica para explicar las predicciones de cualquier clasificador de aprendizaje automático aproximándolo localmente con un modelo interpretable.
+LIME (Explicaciones Locales Interpretable y Agnósticas al Modelo): Una técnica para explicar las predicciones de cualquier clasificador de aprendizaje automático aproximándolo localmente con un modelo interpretable.
 ​
 Ataque de Inferencia de Membresía: Un ataque que tiene como objetivo determinar si un punto de datos específico fue utilizado para entrenar un modelo de aprendizaje automático.
 ​
 MITRE ATLAS: Panorama de Amenazas Adversarias para Sistemas de Inteligencia Artificial; una base de conocimientos de tácticas y técnicas adversarias contra sistemas de IA.
 ​
-Tarjeta de Modelo – Una tarjeta de modelo es un documento que proporciona información estandarizada sobre el desempeño de un modelo de IA, sus limitaciones, usos previstos y consideraciones éticas para promover la transparencia y el desarrollo responsable de la IA.
+Tarjeta de Modelo – Una tarjeta de modelo es un documento que proporciona información estandarizada sobre el rendimiento, las limitaciones, los usos previstos y las consideraciones éticas de un modelo de IA para promover la transparencia y el desarrollo responsable de la IA.
 ​
-Extracción de Modelo: Un ataque donde un adversario consulta repetidamente un modelo objetivo para crear una copia funcionalmente similar sin autorización.
+Extracción de modelo: Un ataque donde un adversario consulta repetidamente un modelo objetivo para crear una copia funcionalmente similar sin autorización.
 ​
-Inversión de modelo: Un ataque que intenta reconstruir los datos de entrenamiento analizando las salidas del modelo.
+Inversión de Modelo: Un ataque que intenta reconstruir los datos de entrenamiento analizando las salidas del modelo.
 ​
-Gestión del ciclo de vida del modelo – La gestión del ciclo de vida del modelo de IA es el proceso de supervisar todas las etapas de la existencia de un modelo de IA, incluyendo su diseño, desarrollo, implementación, monitoreo, mantenimiento y eventual retiro, para asegurar que se mantenga efectivo y alineado con los objetivos.
+Gestión del Ciclo de Vida del Modelo – La Gestión del Ciclo de Vida del Modelo de IA es el proceso de supervisar todas las etapas de la existencia de un modelo de IA, incluyendo su diseño, desarrollo, despliegue, monitoreo, mantenimiento y eventual retiro, para asegurar que se mantenga efectivo y alineado con los objetivos.
 ​
-Envenenamiento del modelo: Introducción de vulnerabilidades o puertas traseras directamente en un modelo durante el proceso de entrenamiento.
+Envenenamiento de modelos: Introducción de vulnerabilidades o puertas traseras directamente en un modelo durante el proceso de entrenamiento.
 ​
-Robo/Robo de modelos: Extraer una copia o aproximación de un modelo propietario mediante consultas repetidas.
+Robo/Robo de modelo: Extraer una copia o aproximación de un modelo propietario mediante consultas repetidas.
 ​
-Sistema multiagente: un sistema compuesto por múltiples agentes de IA que interactúan, cada uno con capacidades y objetivos potencialmente distintos.
+Sistema multiagente: Un sistema compuesto por múltiples agentes de IA que interactúan, cada uno con capacidades y objetivos potencialmente diferentes.
 ​
-OPA (Open Policy Agent): Un motor de políticas de código abierto que permite la aplicación unificada de políticas en toda la pila.
+OPA (Open Policy Agent): Un motor de políticas de código abierto que permite la aplicación unificada de políticas a lo largo de toda la pila.
 ​
-Aprendizaje Automático Preservador de la Privacidad (PPML): Técnicas y métodos para entrenar y desplegar modelos de ML mientras se protege la privacidad de los datos de entrenamiento.
+Aprendizaje Automático que Preserva la Privacidad (PPML): Técnicas y métodos para entrenar y desplegar modelos de ML mientras se protege la privacidad de los datos de entrenamiento.
 ​
-Inyección de instrucciones: Un ataque donde se incrustan instrucciones maliciosas en las entradas para anular el comportamiento previsto de un modelo.
+Inyección de indicaciones: un ataque donde se insertan instrucciones maliciosas en las entradas para anular el comportamiento previsto de un modelo.
 ​
-RAG (Generación Aumentada por Recuperación): Una técnica que mejora los modelos de lenguaje grandes recuperando información relevante de fuentes externas de conocimiento antes de generar una respuesta.
+RAG (Generación Aumentada por Recuperación): Una técnica que mejora los grandes modelos de lenguaje al recuperar información relevante de fuentes de conocimiento externas antes de generar una respuesta.
 ​
-Red-Teaming: La práctica de probar activamente sistemas de IA simulando ataques adversariales para identificar vulnerabilidades.
+Red-Teaming: La práctica de probar activamente sistemas de IA simulando ataques adversarios para identificar vulnerabilidades.
 ​
-SBOM (Factura de Materiales de Software): Un registro formal que contiene los detalles y las relaciones de la cadena de suministro de varios componentes utilizados en la construcción de software o modelos de IA.
+SBOM (Lista de Materiales de Software): Un registro formal que contiene los detalles y las relaciones de la cadena de suministro de varios componentes utilizados en la construcción de software o modelos de IA.
 ​
-SHAP (SHapley Additive exPlanations): Un enfoque basado en la teoría de juegos para explicar la salida de cualquier modelo de aprendizaje automático mediante el cálculo de la contribución de cada característica a la predicción.
+SHAP (Explicaciones Aditivas de Shapley): Un enfoque basado en la teoría de juegos para explicar la salida de cualquier modelo de aprendizaje automático mediante el cálculo de la contribución de cada característica a la predicción.
 ​
-Ataque a la cadena de suministro: Comprometer un sistema atacando elementos menos seguros en su cadena de suministro, como bibliotecas de terceros, conjuntos de datos o modelos preentrenados.
+Ataque a la cadena de suministro: comprometer un sistema al apuntar a elementos menos seguros en su cadena de suministro, como bibliotecas de terceros, conjuntos de datos o modelos preentrenados.
 ​
-Aprendizaje por transferencia: una técnica en la que un modelo desarrollado para una tarea se reutiliza como punto de partida para un modelo en una segunda tarea.
+Aprendizaje por Transferencia: Una técnica donde un modelo desarrollado para una tarea se reutiliza como punto de partida para un modelo en una segunda tarea.
 ​
 Base de datos vectorial: Una base de datos especializada diseñada para almacenar vectores de alta dimensión (incrustaciones) y realizar búsquedas de similitud eficientes.
 ​
-Escaneo de vulnerabilidades: Herramientas automatizadas que identifican vulnerabilidades de seguridad conocidas en componentes de software, incluyendo frameworks de IA y dependencias.
+Escaneo de Vulnerabilidades: Herramientas automatizadas que identifican vulnerabilidades de seguridad conocidas en componentes de software, incluidos marcos de trabajo de IA y dependencias.
 ​
-Marcas de agua: Técnicas para insertar marcadores imperceptibles en contenido generado por IA para rastrear su origen o detectar la generación por IA.
+Marca de agua: Técnicas para incrustar marcadores imperceptibles en contenido generado por IA para rastrear su origen o detectar generación por IA.
 ​
 Vulnerabilidad de Día Cero: Una vulnerabilidad previamente desconocida que los atacantes pueden explotar antes de que los desarrolladores creen y desplieguen un parche.
 
@@ -2300,18 +2300,18 @@ Vulnerabilidad de Día Cero: Una vulnerabilidad previamente desconocida que los 
 
 ### Objetivo
 
-Este apéndice proporciona requisitos fundamentales para establecer estructuras organizativas, políticas y procesos para gobernar la seguridad de la IA a lo largo del ciclo de vida del sistema.
+Este apéndice proporciona los requisitos fundamentales para establecer estructuras organizativas, políticas y procesos para gobernar la seguridad de la IA a lo largo del ciclo de vida del sistema.
 
 ---
 
 ### AC.1 Adopción del Marco de Gestión de Riesgos de IA
 
-Proporcione un marco formal para identificar, evaluar y mitigar los riesgos específicos de la IA a lo largo del ciclo de vida del sistema.
+Proporcionar un marco formal para identificar, evaluar y mitigar los riesgos específicos de IA a lo largo del ciclo de vida del sistema.
 
  #AC.1.1    Nivel: 1    Rol: D/V
  Verifique que una metodología de evaluación de riesgos específica para IA esté documentada e implementada.
  #AC.1.2    Nivel: 2    Rol: D
- Verifique que se realicen evaluaciones de riesgos en puntos clave del ciclo de vida de la IA y antes de cambios significativos.
+ Verifique que se realicen evaluaciones de riesgo en puntos clave del ciclo de vida de la IA y antes de cambios significativos.
  #AC.1.3    Nivel: 3    Rol: D/V
  Verifique que el marco de gestión de riesgos esté alineado con los estándares establecidos (por ejemplo, NIST AI RMF).
 
@@ -2319,33 +2319,33 @@ Proporcione un marco formal para identificar, evaluar y mitigar los riesgos espe
 
 ### AC.2 Política y Procedimientos de Seguridad de IA
 
-Definir y hacer cumplir estándares organizacionales para el desarrollo, despliegue y operación seguros de la IA.
+Definir y hacer cumplir estándares organizacionales para el desarrollo, despliegue y operación seguros de IA.
 
  #AC.2.1    Nivel: 1    Rol: D/V
- Verifique que existan políticas de seguridad de IA documentadas.
+ Verificar que existan políticas documentadas de seguridad de IA.
  #AC.2.2    Nivel: 2    Rol: D
- Verifique que las políticas se revisen y actualicen al menos anualmente y después de cambios significativos en el panorama de amenazas.
+ Verifique que las políticas sean revisadas y actualizadas al menos anualmente y después de cambios significativos en el panorama de amenazas.
  #AC.2.3    Nivel: 3    Rol: D/V
  Verifique que las políticas aborden todas las categorías AISVS y los requisitos regulatorios aplicables.
 
 ---
 
-### AC.3 Roles y Responsabilidades para la Seguridad de la IA
+### AC.3 Roles y Responsabilidades para la Seguridad de IA
 
 Establecer una responsabilidad clara para la seguridad de la IA en toda la organización.
 
  #AC.3.1    Nivel: 1    Rol: D/V
  Verifique que los roles y responsabilidades de seguridad de IA estén documentados.
  #AC.3.2    Nivel: 2    Rol: D
- Verifique que las personas responsables posean la experiencia de seguridad adecuada.
+ Verifique que las personas responsables posean la experiencia adecuada en seguridad.
  #AC.3.3    Nivel: 3    Rol: D/V
- Verifique que se haya establecido un comité de ética de IA o una junta de gobierno para sistemas de IA de alto riesgo.
+ Verifique que se establezca un comité de ética de IA o un consejo de gobernanza para sistemas de IA de alto riesgo.
 
 ---
 
-### AC.4 Aplicación de las Directrices Éticas para la IA
+### AC.4 Aplicación de las Directrices Éticas de IA
 
-Garantizar que los sistemas de IA operen de acuerdo con los principios éticos establecidos.
+Asegurar que los sistemas de IA funcionen de acuerdo con los principios éticos establecidos.
 
  #AC.4.1    Nivel: 1    Rol: D/V
  Verifique que existan directrices éticas para el desarrollo y despliegue de IA.
@@ -2356,7 +2356,7 @@ Garantizar que los sistemas de IA operen de acuerdo con los principios éticos e
 
 ---
 
-### AC.5 Monitoreo de Cumplimiento Regulatorio de IA
+### AC.5 Supervisión del Cumplimiento Regulatorio de IA
 
 Mantener la conciencia y el cumplimiento de las regulaciones de IA en evolución.
 
@@ -2365,102 +2365,102 @@ Mantener la conciencia y el cumplimiento de las regulaciones de IA en evolución
  #AC.5.2    Nivel: 2    Rol: D
  Verifique que se evalúe el cumplimiento de todos los requisitos regulatorios.
  #AC.5.3    Nivel: 3    Rol: D/V
- Verificar que los cambios regulatorios desencadenen revisiones y actualizaciones oportunas de los sistemas de IA.
+ Verificar que los cambios regulatorios desencadenen revisiones y actualizaciones oportunas en los sistemas de IA.
 
 ### AC.6 Gobernanza, Documentación y Proceso de Datos de Entrenamiento
 
  #1.1.2    Nivel: 1    Rol: D/V
- Verifique que solo se permitan conjuntos de datos evaluados por su calidad, representatividad, obtención ética y cumplimiento de licencias, reduciendo los riesgos de envenenamiento, sesgos incorporados e infracción de propiedad intelectual.
+ Verifique que solo se permitan conjuntos de datos evaluados por su calidad, representatividad, origen ético y cumplimiento de licencias, reduciendo los riesgos de envenenamiento, sesgos incorporados e infracción de propiedad intelectual.
  #1.1.5    Nivel: 2    Rol: D/V
- Verifique que la calidad del etiquetado/annotación esté asegurada mediante verificaciones cruzadas o consenso entre revisores.
+ Verifique que la calidad del etiquetado/anotación esté asegurada mediante revisiones cruzadas por parte de revisores o consenso.
  #1.1.6    Nivel: 2    Rol: D/V
- Verifique que se mantengan "tarjetas de datos" o "hojas de datos para conjuntos de datos" para los conjuntos de datos de entrenamiento significativos, detallando características, motivaciones, composición, procesos de recopilación, preprocesamiento y usos recomendados/desaconsejados.
+ Verifique que se mantengan "tarjetas de datos" o "fichas técnicas para conjuntos de datos" para los conjuntos de datos de entrenamiento significativos, detallando características, motivaciones, composición, procesos de recolección, preprocesamiento y usos recomendados/desaconsejados.
  #1.3.2    Nivel: 2    Rol: D/V
- Verificar que los sesgos identificados se mitiguen mediante estrategias documentadas como reequilibrio, aumento de datos dirigido, ajustes algorítmicos (por ejemplo, técnicas de preprocesamiento, procesamiento interno, o postprocesamiento) o reponderación, y que se evalúe el impacto de la mitigación tanto en la equidad como en el rendimiento general del modelo.
+ Verifique que los sesgos identificados se mitiguen mediante estrategias documentadas, como el reequilibrio, la aumento de datos dirigida, ajustes algorítmicos (por ejemplo, técnicas de preprocesamiento, procesamiento durante el modelo y post-procesamiento) o la reasignación de pesos, y que se evalúe el impacto de la mitigación tanto en la equidad como en el rendimiento general del modelo.
  #1.3.3    Nivel: 2    Rol: D/V
- Verifique que las métricas de equidad posteriores al entrenamiento sean evaluadas y documentadas.
+ Verifique que las métricas de equidad posteriores al entrenamiento se evalúen y documenten.
  #1.3.4    Nivel: 3    Rol: D/V
- Verifique que una política de gestión de sesgos en el ciclo de vida asigne responsables y frecuencia de revisión.
+ Verifique que una política de gestión de sesgos en el ciclo de vida asigne propietarios y una cadencia de revisión.
  #1.4.1    Nivel: 2    Rol: D/V
- Verifique que la calidad del etiquetado/anotación se garantice mediante directrices claras, verificaciones cruzadas por revisores, mecanismos de consenso (por ejemplo, monitoreo del acuerdo entre anotadores) y procesos definidos para resolver discrepancias.
+ Verifique que la calidad del etiquetado/anotación esté asegurada mediante directrices claras, revisiones cruzadas por parte de los evaluadores, mecanismos de consenso (por ejemplo, monitoreo del acuerdo entre anotadores) y procesos definidos para resolver discrepancias.
  #1.4.4    Nivel: 3    Rol: D/V
- Verifique que las etiquetas críticas para la seguridad, la protección o la justicia (por ejemplo, la identificación de contenido tóxico, hallazgos médicos críticos) reciban una revisión dual independiente obligatoria o una verificación robusta equivalente.
+ Verifique que las etiquetas críticas para la seguridad, la protección o la equidad (por ejemplo, la identificación de contenido tóxico, hallazgos médicos críticos) reciban una revisión doble independiente obligatoria o una verificación robusta equivalente.
  #1.4.6    Nivel: 2    Rol: D/V
- Verifique que las guías de etiquetado e instrucciones sean completas, estén controladas por versiones y sean revisadas por pares.
+ Verifique que las guías de etiquetado e instrucciones sean completas, estén controladas por versiones y hayan sido revisadas por pares.
  #1.4.6    Nivel: 2    Rol: D/V
  Verifique que los esquemas de datos para las etiquetas estén claramente definidos y controlados por versiones.
  #1.3.1    Nivel: 1    Rol: D/V
- Verifique que los conjuntos de datos sean perfilados para detectar desequilibrios representativos y posibles sesgos en atributos legalmente protegidos (por ejemplo, raza, género, edad) y otras características éticamente sensibles relevantes para el dominio de aplicación del modelo (por ejemplo, estatus socioeconómico, ubicación).
+ Verificar que los conjuntos de datos estén perfilados para identificar desequilibrios representativos y sesgos potenciales en atributos legalmente protegidos (por ejemplo, raza, género, edad) y otras características éticamente sensibles relevantes para el dominio de aplicación del modelo (por ejemplo, estatus socioeconómico, ubicación).
  #1.5.3    Nivel: 2    Rol: V
- Verifique que las revisiones manuales aleatorias realizadas por expertos del dominio cubran una muestra estadísticamente significativa (por ejemplo, ≥1% o 1,000 muestras, lo que sea mayor, o según lo determine la evaluación de riesgos) para identificar problemas de calidad sutiles que no fueron detectados por la automatización.
+ Verifique que las revisiones manuales puntuales realizadas por expertos en el dominio cubran una muestra estadísticamente significativa (por ejemplo, ≥1% o 1,000 muestras, lo que sea mayor, o según lo determinado por la evaluación de riesgos) para identificar problemas sutiles de calidad que no detecta la automatización.
  #1.8.4    Nivel: 2    Rol: D/V
- Verifique que los flujos de trabajo de etiquetado subcontratados o de crowdsourcing incluyan salvaguardas técnicas/procedimentales para garantizar la confidencialidad, integridad de los datos, calidad de las etiquetas y prevenir la fuga de datos.
+ Verifique que los flujos de trabajo de etiquetado externalizados o crowdsourced incluyan salvaguardas técnicas/procedimentales para garantizar la confidencialidad de los datos, la integridad, la calidad de las etiquetas y evitar la filtración de datos.
  #1.5.4    Nivel: 2    Rol: D/V
- Verifique que los pasos de remediación estén anexados a los registros de procedencia.
+ Verifique que los pasos de remediación estén agregados a los registros de procedencia.
  #1.6.2    Nivel: 2    Rol: D/V
- Verifique que las muestras señaladas activen una revisión manual antes del entrenamiento.
+ Verifique que las muestras marcadas desencadenen una revisión manual antes del entrenamiento.
  #1.6.3    Nivel: 2    Rol: V
- Verifique que los resultados alimenten el expediente de seguridad del modelo e informen la inteligencia de amenazas continua.
+ Verifique que los resultados alimenten el expediente de seguridad del modelo e informen la inteligencia de amenazas en curso.
  #1.6.4    Nivel: 3    Rol: D/V
  Verifique que la lógica de detección se actualice con nueva inteligencia de amenazas.
  #1.6.5    Nivel: 3    Rol: D/V
- Verifique que las canalizaciones de aprendizaje en línea monitoreen el cambio de distribución.
+ Verifique que las canalizaciones de aprendizaje en línea monitoreen la deriva de distribución.
  #1.7.1    Nivel: 1    Rol: D/V
- Verificar que los flujos de trabajo de eliminación de datos de entrenamiento purguen datos primarios y derivados y evalúen el impacto en el modelo, y que el impacto en los modelos afectados sea evaluado y, si es necesario, abordado (por ejemplo, mediante reentrenamiento o recalibración).
+ Verifique que los flujos de trabajo de eliminación de datos de entrenamiento purguen datos primarios y derivados y evalúen el impacto en el modelo, y que el impacto en los modelos afectados sea evaluado y, si es necesario, tratado (por ejemplo, mediante reentrenamiento o recalibración).
  #1.7.2    Nivel: 2    Rol: D
- Verifique que existan mecanismos para rastrear y respetar el alcance y estado del consentimiento del usuario (y sus retiradas) para los datos utilizados en el entrenamiento, y que el consentimiento se valide antes de que los datos se incorporen en nuevos procesos de entrenamiento o actualizaciones significativas del modelo.
+ Verifique que existan mecanismos para rastrear y respetar el alcance y el estado del consentimiento del usuario (y las retiradas) para los datos usados en el entrenamiento, y que el consentimiento sea validado antes de que los datos se incorporen a nuevos procesos de entrenamiento o actualizaciones significativas del modelo.
  #1.7.3    Nivel: 2    Rol: V
  Verifique que los flujos de trabajo se prueben anualmente y se registren.
  #1.8.1    Nivel: 2    Rol: D/V
- Verifique que los proveedores de datos de terceros, incluidos los proveedores de modelos preentrenados y conjuntos de datos externos, cumplan con la debida diligencia en seguridad, privacidad, obtención ética y calidad de los datos antes de que sus datos o modelos sean integrados.
+ Verificar que los proveedores de datos terceros, incluidos los proveedores de modelos preentrenados y conjuntos de datos externos, se sometan a una debida diligencia en seguridad, privacidad, adquisición ética y calidad de datos antes de integrar sus datos o modelos.
  #1.8.2    Nivel: 1    Rol: D
- Verifique que las transferencias externas utilicen TLS/autenticación y controles de integridad.
+ Verifique que las transferencias externas utilicen TLS/autenticación y verificaciones de integridad.
  #1.8.3    Nivel: 2    Rol: D/V
- Verifique que las fuentes de datos de alto riesgo (por ejemplo, conjuntos de datos de código abierto con procedencia desconocida, proveedores no verificados) reciban un escrutinio reforzado, como análisis en entornos aislados, controles exhaustivos de calidad/sesgo y detección dirigida de envenenamiento, antes de usarse en aplicaciones sensibles.
+ Verifique que las fuentes de datos de alto riesgo (por ejemplo, conjuntos de datos de código abierto con procedencia desconocida, proveedores no evaluados) reciban un escrutinio reforzado, como análisis en entornos aislados, verificaciones extensas de calidad/sesgo y detección específica de contaminación, antes de su uso en aplicaciones sensibles.
  #1.8.4    Nivel: 3    Rol: D/V
- Verifique que los modelos pre-entrenados obtenidos de terceros sean evaluados para detectar sesgos incorporados, posibles puertas traseras, integridad de su arquitectura y la procedencia de sus datos de entrenamiento originales antes de realizar ajustes finos o implementarlos.
+ Verifique que los modelos preentrenados obtenidos de terceros sean evaluados para detectar sesgos incorporados, posibles puertas traseras, integridad de su arquitectura y la procedencia de sus datos de entrenamiento originales antes de realizar el ajuste fino o su despliegue.
  #1.5.3    Nivel: 2    Rol: D/V
- Verifique que si se utiliza entrenamiento adversarial, la generación, gestión y versionado de conjuntos de datos adversariales estén documentados y controlados.
+ Verifique que, si se utiliza entrenamiento adversarial, la generación, gestión y versionado de los conjuntos de datos adversariales estén documentados y controlados.
  #1.5.3    Nivel: 3    Rol: D/V
- Verifique que el impacto del entrenamiento de robustez adversarial en el rendimiento del modelo (tanto contra entradas limpias como adversariales) y en las métricas de equidad sea evaluado, documentado y monitoreado.
+ Verificar que el impacto del entrenamiento de robustez adversarial en el rendimiento del modelo (tanto contra datos limpios como adversariales) y en las métricas de equidad sea evaluado, documentado y monitorizado.
  #1.5.4    Nivel: 3    Rol: D/V
- Verifique que las estrategias para el entrenamiento adversarial y la robustez sean revisadas y actualizadas periódicamente para contrarrestar las técnicas de ataque adversarial en evolución.
+ Verifique que las estrategias para el entrenamiento adversarial y la robustez se revisen y actualicen periódicamente para contrarrestar las técnicas evolutivas de ataques adversariales.
  #1.4.2    Nivel: 2    Rol: D/V
- Verifique que los conjuntos de datos fallidos estén en cuarentena con registros de auditoría.
+ Verifique que los conjuntos de datos fallidos estén puestos en cuarentena con registros de auditoría.
  #1.4.3    Nivel: 2    Rol: D/V
- Verificar que las puertas de calidad bloqueen conjuntos de datos subestándar a menos que se aprueben excepciones.
+ Verifique que las puertas de calidad bloqueen los conjuntos de datos de calidad inferior a menos que se aprueben excepciones.
  #1.11.2    Nivel: 2    Rol: D/V
  Verifique que el proceso de generación, los parámetros y el uso previsto de los datos sintéticos estén documentados.
  #1.11.3    Nivel: 2    Rol: D/V
- Verifique que los datos sintéticos sean evaluados en cuanto a riesgos de sesgo, filtración de privacidad y problemas de representación antes de usarlos en el entrenamiento.
+ Verifique que los datos sintéticos sean evaluados en cuanto a riesgos de sesgo, filtración de privacidad y problemas de representación antes de su uso en el entrenamiento.
  #1.12.3    Nivel: 2    Rol: D/V
- Verifique que se generen alertas para eventos de acceso sospechosos y que se investiguen de manera inmediata.
+ Verifique que se generen alertas para eventos de acceso sospechosos y que se investiguen con prontitud.
  #1.13.1    Nivel: 1    Rol: D/V
  Verifique que se definan períodos de retención explícitos para todos los conjuntos de datos de entrenamiento.
  #1.13.2    Nivel: 2    Rol: D/V
- Verifique que los conjuntos de datos se expiran, eliminan o revisan automáticamente para su eliminación al final de su ciclo de vida.
+ Verifique que los conjuntos de datos se expiren, eliminen o revisen automáticamente para su eliminación al final de su ciclo de vida.
  #1.13.3    Nivel: 2    Rol: D/V
  Verifique que las acciones de retención y eliminación estén registradas y sean auditables.
  #1.14.1    Nivel: 2    Rol: D/V
- Verifique que los requerimientos de residencia de datos y transferencia transfronteriza sean identificados y aplicados para todos los conjuntos de datos.
+ Verifique que los requisitos de residencia de datos y transferencia transfronteriza estén identificados y aplicados para todos los conjuntos de datos.
  #1.14.2    Nivel: 2    Rol: D/V
- Verifique que se identifiquen y aborden las regulaciones específicas del sector (por ejemplo, salud, finanzas) en el manejo de datos.
+ Verifique que se identifiquen y aborden las regulaciones específicas de cada sector (por ejemplo, salud, finanzas) en el manejo de datos.
  #1.14.3    Nivel: 2    Rol: D/V
- Verifique que el cumplimiento con las leyes de privacidad relevantes (por ejemplo, GDPR, CCPA) esté documentado y se revise regularmente.
+ Verifique que el cumplimiento con las leyes de privacidad pertinentes (por ejemplo, GDPR, CCPA) esté documentado y se revise regularmente.
  #1.16.1    Nivel: 2    Rol: D/V
- Verifique que existan mecanismos para responder a las solicitudes de los sujetos de datos para acceso, rectificación, restricción u oposición.
+ Verifique que existan mecanismos para responder a las solicitudes de los sujetos de datos para acceso, rectificación, restricción u objeción.
  #1.16.2    Nivel: 2    Rol: D/V
  Verifique que las solicitudes se registren, rastreen y cumplan dentro de los plazos legalmente establecidos.
  #1.16.3    Nivel: 2    Rol: D/V
- Verificar que los procesos de derechos del sujeto de datos se prueben y revisen regularmente para asegurar su efectividad.
+ Verifique que los procesos de derechos del sujeto de datos se prueben y revisen regularmente para asegurar su efectividad.
  #1.17.1    Nivel: 2    Rol: D/V
- Verificar que se realice un análisis de impacto antes de actualizar o reemplazar una versión del conjunto de datos, cubriendo el rendimiento del modelo, la equidad y el cumplimiento.
+ Verifique que se realice un análisis de impacto antes de actualizar o reemplazar una versión del conjunto de datos, cubriendo el rendimiento del modelo, la equidad y el cumplimiento.
  #1.17.2    Nivel: 2    Rol: D/V
- Verificar que los resultados del análisis de impacto estén documentados y revisados por las partes interesadas relevantes.
+ Verifique que los resultados del análisis de impacto estén documentados y sean revisados por las partes interesadas relevantes.
  #1.17.3    Nivel: 2    Rol: D/V
- Verifique que existen planes de reversión en caso de que las nuevas versiones introduzcan riesgos inaceptables o regresiones.
+ Verifique que existan planes de reversión en caso de que las nuevas versiones introduzcan riesgos inaceptables o regresiones.
  #1.18.1    Nivel: 2    Rol: D/V
- Verifique que todo el personal involucrado en la anotación de datos haya sido sometido a una verificación de antecedentes y esté capacitado en seguridad y privacidad de datos.
+ Verifique que todo el personal involucrado en la anotación de datos haya pasado una verificación de antecedentes y esté capacitado en seguridad y privacidad de datos.
  #1.18.2    Nivel: 2    Rol: D/V
  Verifique que todo el personal de anotación firme acuerdos de confidencialidad y no divulgación.
  #1.18.3    Nivel: 2    Rol: D/V
@@ -2478,85 +2478,85 @@ ISO/IEC 24029‑2:2023 — Robustness of Neural Networks — Methodology for For
 
 ### Objetivo
 
-Este capítulo define controles organizacionales básicos para el uso seguro y efectivo de herramientas de codificación asistida por IA durante el desarrollo de software, asegurando la seguridad y la trazabilidad en todo el SDLC.
+Este capítulo define controles organizacionales básicos para el uso seguro y eficaz de herramientas de codificación asistidas por IA durante el desarrollo de software, asegurando la seguridad y la trazabilidad a lo largo del ciclo de vida del desarrollo de software (SDLC).
 
 ---
 
 ### AD.1 Flujo de trabajo de codificación segura asistida por IA
 
-Integrar herramientas de IA en el ciclo de vida de desarrollo de software seguro (SSDLC) de la organización sin debilitar las puertas de seguridad existentes.
+Integrar herramientas de IA en el ciclo de vida de desarrollo de software seguro (SSDLC) de la organización sin debilitar los controles de seguridad existentes.
 
  #AD.1.1    Nivel: 1    Rol: D/V
  Verifique que un flujo de trabajo documentado describa cuándo y cómo las herramientas de IA pueden generar, refactorizar o revisar código.
  #AD.1.2    Nivel: 2    Rol: D
- Verifique que el flujo de trabajo corresponda a cada fase del SSDLC (diseño, implementación, revisión de código, pruebas, despliegue).
+ Verifique que el flujo de trabajo se corresponda con cada fase del SSDLC (diseño, implementación, revisión de código, pruebas, despliegue).
  #AD.1.3    Nivel: 3    Rol: D/V
- Verifique que las métricas (por ejemplo, densidad de vulnerabilidades, tiempo medio para detectar) se recopilen sobre el código producido por IA y se comparen con las bases de referencia solo humanas.
+ Verifique que las métricas (por ejemplo, densidad de vulnerabilidades, tiempo medio para detectar) se recopilen en el código generado por IA y se comparen con las líneas base solo humanas.
 
 ---
 
-### Calificación de herramientas de IA AD.2 y modelado de amenazas
+### Calificación de Herramientas de IA AD.2 y Modelado de Amenazas
 
-Asegúrese de que las herramientas de codificación de IA sean evaluadas en cuanto a capacidades de seguridad, riesgo e impacto en la cadena de suministro antes de su adopción.
+Asegúrese de que las herramientas de codificación de IA sean evaluadas por sus capacidades de seguridad, riesgos e impacto en la cadena de suministro antes de su adopción.
 
  #AD.2.1    Nivel: 1    Rol: D/V
- Verifique que un modelo de amenaza para cada herramienta de IA identifique el uso indebido, inversión de modelo, fuga de datos y riesgos de cadena de dependencias.
+ Verifique que un modelo de amenazas para cada herramienta de IA identifique el uso indebido, la inversión de modelo, la filtración de datos y los riesgos de cadena de dependencia.
  #AD.2.2    Nivel: 2    Rol: D
- Verifique que las evaluaciones de la herramienta incluyan análisis estático/dinámico de cualquier componente local y evaluación de los endpoints SaaS (TLS, autenticación/autorización, registro).
+ Verifique que las evaluaciones de la herramienta incluyan análisis estático/dinámico de cualquier componente local y evaluación de los puntos finales SaaS (TLS, autenticación/autorización, registros).
  #AD.2.3    Nivel: 3    Rol: D/V
  Verifique que las evaluaciones sigan un marco reconocido y se realicen nuevamente después de cambios importantes de versión.
 
 ---
 
-### AD.3 Gestión Segura de Instrucciones y Contexto
+### AD.3 Gestión Segura de Indicaciones y Contexto
 
-Prevenir la filtración de secretos, código propietario y datos personales al construir indicaciones o contextos para modelos de IA.
+Prevenir la fuga de secretos, código propietario y datos personales al construir indicaciones o contextos para modelos de IA.
 
  #AD.3.1    Nivel: 1    Rol: D/V
- Verifique que las directrices escritas prohíban enviar secretos, credenciales o datos clasificados en las indicaciones.
+ Verifique que las pautas escritas prohíben enviar secretos, credenciales o datos clasificados en las indicaciones.
  #AD.3.2    Nivel: 2    Rol: D
  Verifique que los controles técnicos (redacción del lado del cliente, filtros de contexto aprobados) eliminen automáticamente los artefactos sensibles.
  #AD.3.3    Nivel: 3    Rol: D/V
- Verifique que los prompts y las respuestas estén tokenizados, encriptados durante la transmisión y en reposo, y que los períodos de retención cumplan con la política de clasificación de datos.
+ Verifique que las indicaciones y respuestas estén tokenizadas, cifradas en tránsito y en reposo, y que los períodos de retención cumplan con la política de clasificación de datos.
 
 ---
 
 ### AD.4 Validación del Código Generado por IA
 
-Detectar y corregir vulnerabilidades introducidas por la salida de IA antes de que el código sea fusionado o desplegado.
+Detectar y remediar vulnerabilidades introducidas por la salida de IA antes de que el código se fusione o despliegue.
 
  #AD.4.1    Nivel: 1    Rol: D/V
- Verifique que el código generado por IA siempre sea sometido a una revisión humana del código.
+ Verifique que el código generado por IA siempre sea sometido a revisión humana de código.
  #AD.4.2    Nivel: 2    Rol: D
- Verifique que los escáneres automatizados (SAST/IAST/DAST) se ejecuten en cada solicitud de incorporación de cambios que contenga código generado por IA y bloqueen las fusiones en caso de hallazgos críticos.
+ Verifique que los escáneres automatizados (SAST/IAST/DAST) se ejecuten en cada solicitud de extracción que contenga código generado por IA y bloqueen las fusiones en caso de hallazgos críticos.
  #AD.4.3    Nivel: 3    Rol: D/V
- Verifique que las pruebas de fuzzing diferencial o las pruebas basadas en propiedades demuestren comportamientos críticos para la seguridad (por ejemplo, la validación de entradas, la lógica de autorización).
+ Verifique que las pruebas de fuzzing diferencial o las pruebas basadas en propiedades demuestren comportamientos críticos para la seguridad (por ejemplo, validación de entradas, lógica de autorización).
 
 ---
 
-### AD.5 Explicabilidad y trazabilidad de las sugerencias de código
+### AD.5 Explicabilidad y Trazabilidad de las Sugerencias de Código
 
-Proporcione a los auditores y desarrolladores una visión sobre por qué se hizo una sugerencia y cómo evolucionó.
+Proporcionar a los auditores y desarrolladores información sobre por qué se hizo una sugerencia y cómo evolucionó.
 
  #AD.5.1    Nivel: 1    Rol: D/V
- Verifique que los pares de solicitud/respuesta se registren con los IDs de confirmación.
+ Verifique que los pares de indicaciones/respuestas se registren con IDs de commit.
  #AD.5.2    Nivel: 2    Rol: D
- Verifique que los desarrolladores puedan mostrar citas del modelo (fragmentos de entrenamiento, documentación) que respalden una sugerencia.
+ Verificar que los desarrolladores puedan mostrar citas del modelo (fragmentos de entrenamiento, documentación) que respalden una sugerencia.
  #AD.5.3    Nivel: 3    Rol: D/V
- Verifique que los informes de explicabilidad se almacenen junto con los artefactos de diseño y se referencien en las revisiones de seguridad, cumpliendo con los principios de trazabilidad de la norma ISO/IEC 42001.
+ Verifique que los informes de explicabilidad se almacenen junto con los artefactos de diseño y se mencionen en las revisiones de seguridad, cumpliendo con los principios de trazabilidad de la norma ISO/IEC 42001.
 
 ---
 
-### AD.6 Retroalimentación Continua y Ajuste Fino del Modelo
+### AD.6 Retroalimentación continua y ajuste fino del modelo
 
-Mejorar el rendimiento de la seguridad del modelo con el tiempo mientras se previene la deriva negativa.
+Mejorar el rendimiento de la seguridad del modelo a lo largo del tiempo mientras se previene la deriva negativa.
 
  #AD.6.1    Nivel: 1    Rol: D/V
- Verificar que los desarrolladores puedan señalar sugerencias inseguras o no conformes, y que dichas señales sean registradas.
+ Verificar que los desarrolladores puedan marcar sugerencias inseguras o no conformes, y que las marcas sean rastreadas.
  #AD.6.2    Nivel: 2    Rol: D
- Verifique que la retroalimentación agregada informe la afinación periódica o la generación aumentada por recuperación con corpora de codificación segura verificados (por ejemplo, OWASP Cheat Sheets).
+ Verifique que la retroalimentación agregada informe el ajuste fino periódico o la generación aumentada por recuperación con corpora de codificación segura evaluados (por ejemplo, OWASP Cheat Sheets).
  #AD.6.3    Nivel: 3    Rol: D/V
- Verifique que un arnés de evaluación de circuito cerrado ejecute pruebas de regresión después de cada ajuste fino; las métricas de seguridad deben cumplir o superar las líneas base anteriores antes del despliegue.
+ Verifique que un entorno de evaluación de circuito cerrado ejecute pruebas de regresión después de cada ajuste fino; las métricas de seguridad deben cumplir o superar las bases de referencia anteriores antes del despliegue.
 
 ---
 
@@ -2570,7 +2570,7 @@ OWASP Secure Coding Practices — Quick Reference Guide
 
 ### Objetivo
 
-Este capítulo proporciona ejemplos de herramientas y frameworks que pueden apoyar la implementación o cumplimiento de un requisito dado del AISVS. Estos no deben considerarse como recomendaciones o avales por parte del equipo AISVS o del Proyecto de Seguridad OWASP GenAI.
+Este capítulo proporciona ejemplos de herramientas y marcos que pueden apoyar la implementación o el cumplimiento de un requisito determinado de AISVS. Estos no deben considerarse como recomendaciones o respaldos por parte del equipo de AISVS o del Proyecto de Seguridad OWASP GenAI.
 
 ---
 
@@ -2579,18 +2579,18 @@ Este capítulo proporciona ejemplos de herramientas y frameworks que pueden apoy
 Herramientas utilizadas para análisis de datos, gobernanza y gestión de sesgos.
 
  #AE.1.1    Sección: 1.1
- Herramientas de Inventario de Datos: Herramientas de gestión de inventario de datos como...
+ Herramientas para el Inventario de Datos: Herramientas para la gestión del inventario de datos como...
  #AE.1.2    Sección: 1.2
  Cifrado en tránsito Utilice TLS para aplicaciones basadas en HTTPS, con herramientas como openSSL y python's`ssl` biblioteca.
 
 ---
 
-### AE.2 Validación de Entrada del Usuario
+### AE.2 Validación de entrada del usuario
 
 Herramientas para manejar y validar entradas de usuario.
 
  #AE.2.1    Sección: 2.1
- Herramientas de Defensa contra Inyección de Prompts: Use herramientas de guardia como NeMo de NVIDIA o Guardrails AI.
+ Herramientas de Defensa contra Inyecciones de Prompts: Utilice herramientas de guardarraíl como NeMo de NVIDIA o Guardrails AI.
 
 ---
 

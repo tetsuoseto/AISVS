@@ -2,75 +2,75 @@
 
 ## Objetivo de Control
 
-Los embeddings y los almacenes vectoriales actúan como la "memoria en vivo" de los sistemas de IA contemporáneos, aceptando continuamente datos suministrados por el usuario y devolviéndolos a los contextos del modelo mediante la Generación Aumentada por Recuperación (RAG). Si no se regulan, esta memoria puede filtrar información personal identificable (PII), violar el consentimiento o ser invertida para reconstruir el texto original. El objetivo de esta familia de controles es fortalecer las canalizaciones de memoria y las bases de datos vectoriales para que el acceso sea de privilegios mínimos, los embeddings respeten la privacidad, los vectores almacenados expiren o puedan ser revocados bajo demanda, y que la memoria por usuario nunca contamine las indicaciones o resultados de otro usuario.
+Las incrustaciones y las tiendas vectoriales actúan como la "memoria viva" de los sistemas de IA contemporáneos, aceptando continuamente datos proporcionados por el usuario y devolviéndolos a los contextos del modelo mediante la Generación Aumentada por Recuperación (RAG). Si no se regulan, esta memoria puede filtrar información personal identificable (PII), violar el consentimiento o invertirse para reconstruir el texto original. El objetivo de esta familia de controles es fortalecer las canalizaciones de memoria y las bases de datos vectoriales para que el acceso sea de mínimo privilegio, las incrustaciones preserven la privacidad, los vectores almacenados expiren o puedan ser revocados bajo demanda, y la memoria por usuario nunca contamine las indicaciones o resultados de otro usuario.
 
 ---
 
-## C8.1 Controles de Acceso en la Memoria y los Índices RAG
+## C8.1 Controles de acceso en memoria e índices RAG
 
-Implemente controles de acceso granulares en cada colección de vectores.
+Implemente controles de acceso detallados en cada colección de vectores.
 
-|   #   | Descripción                                                                                                                                                                                                    | Nivel | Rol |
-| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 8.1.1 | Verifique que las reglas de control de acceso a nivel de fila/espacio de nombres restrinjan las operaciones de inserción, eliminación y consulta según el inquilino, la colección o la etiqueta del documento. |   1   | D/V |
-| 8.1.2 | Verifique que las claves API o JWT contengan claims con alcance definido (por ejemplo, IDs de colección, verbos de acción) y que se roten al menos trimestralmente.                                            |   1   | D/V |
-| 8.1.3 | Verifique que los intentos de escalada de privilegios (por ejemplo, consultas de similitud entre espacios de nombres) se detecten y registren en un SIEM en un plazo de 5 minutos.                             |   2   | D/V |
-| 8.1.4 | Verifique que la base de datos vectorial registre en el audit log el identificador del sujeto, la operación, el ID/namespace del vector, el umbral de similitud y el conteo de resultados.                     |   2   | D/V |
-| 8.1.5 | Verifique que las decisiones de acceso se prueben para detectar fallas de omisión cada vez que se actualicen los motores o cambien las reglas de particionado de índices.                                      |   3   |  V  |
+|   #   | Descripción                                                                                                                                                                                             | Nivel | Rol |
+| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 8.1.1 | Verifique que las reglas de control de acceso a nivel de fila/espacio de nombres restrinjan las operaciones de inserción, eliminación y consulta por inquilino, colección o etiqueta de documento.      |   1   | D/V |
+| 8.1.2 | Verifique que las claves API o los JWT contengan reclamaciones con ámbito definido (por ejemplo, IDs de colecciones, verbos de acción) y se roten al menos cada trimestre.                              |   1   | D/V |
+| 8.1.3 | Verifique que los intentos de escalada de privilegios (por ejemplo, consultas de similitud entre distintos espacios de nombres) se detecten y registren en un SIEM en un plazo de 5 minutos.            |   2   | D/V |
+| 8.1.4 | Verifique que la base de datos vectorial registre en las auditorías el identificador del sujeto, la operación, el ID/espacio de nombres del vector, el umbral de similitud y el recuento de resultados. |   2   | D/V |
+| 8.1.5 | Verifique que las decisiones de acceso se prueben para detectar fallas de bypass cada vez que se actualicen los motores o cambien las reglas de partición de índices.                                   |   3   |  V  |
 
 ---
 
 ## C8.2 Saneamiento y Validación de Incrustaciones
 
-Preseleccione el texto para información de identificación personal (PII), redacte o pseudonimice antes de la vectorización, y opcionalmente procese posteriormente las incrustaciones para eliminar señales residuales.
+Preseleccione el texto para identificar Información de Identificación Personal (PII), redacte o seudonimice antes de la vectorización, y opcionalmente procese las incrustaciones para eliminar señales residuales.
 
-|   #   | Descripción                                                                                                                                                                                                                                      | Nivel | Rol |
-| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
-| 8.2.1 | Verifique que los datos PII y regulados se detecten mediante clasificadores automáticos y se enmascaren, tokenicen o eliminen antes de la incrustación.                                                                                          |   1   | D/V |
-| 8.2.2 | Verifique que las canalizaciones de incrustación rechacen o pongan en cuarentena las entradas que contengan código ejecutable o artefactos no UTF-8 que puedan envenenar el índice.                                                              |   1   |  D  |
-| 8.2.3 | Verifique que se aplique la sanitización de privacidad diferencial local o métrica a las incrustaciones de oraciones cuya distancia a cualquier token de información personal identificable conocido caiga por debajo de un umbral configurable. |   2   | D/V |
-| 8.2.4 | Verifique que la eficacia de la sanitización (por ejemplo, la recuperación de la redacción de datos de identificación personal, la deriva semántica) se valide al menos de forma semestral contra corpus de referencia.                          |   2   |  V  |
-| 8.2.5 | Verifique que las configuraciones de sanitización estén controladas por versiones y que los cambios pasen por una revisión por pares.                                                                                                            |   3   | D/V |
+|   #   | Descripción                                                                                                                                                                                                                                          | Nivel | Rol |
+| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 8.2.1 | Verifique que los datos personales identificables (PII) y los datos regulados se detecten mediante clasificadores automáticos y se enmascaren, tokenicen o eliminen antes de la incrustación.                                                        |   1   | D/V |
+| 8.2.2 | Verifique que las tuberías de incrustación rechacen o pongan en cuarentena las entradas que contengan código ejecutable o artefactos no UTF-8 que podrían envenenar el índice.                                                                       |   1   |  D  |
+| 8.2.3 | Verifique que se aplique la sanitización de privacidad diferencial local o métrica a las incrustaciones de oraciones cuya distancia a cualquier token de información personal identificable (PII) conocido cae por debajo de un umbral configurable. |   2   | D/V |
+| 8.2.4 | Verifique que la eficacia de la sanitización (por ejemplo, el recall de la redacción de PII, la deriva semántica) se valide al menos de forma semestral contra corpus de referencia.                                                                 |   2   |  V  |
+| 8.2.5 | Verifique que las configuraciones de saneamiento estén controladas por versiones y que los cambios sean sometidos a revisión por pares.                                                                                                              |   3   | D/V |
 
 ---
 
-## C8.3 Caducidad, Revocación y Eliminación de Memoria
+## C8.3 Expiración, Revocación y Eliminación de Memoria
 
-El GDPR "derecho al olvido" y leyes similares requieren la eliminación oportuna; por lo tanto, las tiendas de vectores deben soportar TTL, eliminaciones permanentes y tomb-stoning para que los vectores revocados no puedan ser recuperados ni reindexados.
+El GDPR "derecho al olvido" y leyes similares requieren la eliminación oportuna; por lo tanto, los almacenes de vectores deben soportar TTL, eliminaciones definitivas y tomb-stoning para que los vectores revocados no puedan ser recuperados ni reindexados.
 
 |   #   | Descripción                                                                                                                                                                                              | Nivel | Rol |
 | :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
 | 8.3.1 | Verifique que cada vector y registro de metadatos tenga un TTL o una etiqueta de retención explícita que sea respetada por los trabajos automáticos de limpieza.                                         |   1   | D/V |
 | 8.3.2 | Verifique que las solicitudes de eliminación iniciadas por el usuario eliminen vectores, metadatos, copias de caché e índices derivados en un plazo de 30 días.                                          |   1   | D/V |
-| 8.3.3 | Verifique que las eliminaciones lógicas sean seguidas por el triturado criptográfico de los bloques de almacenamiento si el hardware lo soporta, o por la destrucción de la clave del almacén de claves. |   2   |  D  |
+| 8.3.3 | Verifique que las eliminaciones lógicas sean seguidas por el borrado criptográfico de los bloques de almacenamiento si el hardware lo soporta, o por la destrucción de la clave en el almacén de claves. |   2   |  D  |
 | 8.3.4 | Verifique que los vectores expirados sean excluidos de los resultados de búsqueda de vecinos más cercanos en menos de 500 ms después de la expiración.                                                   |   3   | D/V |
 
 ---
 
 ## C8.4 Prevenir la Inversión y Fuga de Incrustaciones
 
-Las defensas recientes—superposición de ruido, redes de proyección, perturbación de neuronas de privacidad y cifrado a nivel de aplicación—pueden reducir las tasas de inversión a nivel de token por debajo del 5%.
+Las defensas recientes—superposición de ruido, redes de proyección, perturbación de neuronas de privacidad y cifrado en la capa de aplicación—pueden reducir las tasas de inversión a nivel de token por debajo del 5%.
 
-|   #   | Descripción                                                                                                                                                                                          | Nivel | Rol |
-| :---: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 8.4.1 | Verifique que exista un modelo de amenaza formal que cubra ataques de inversión, membresía e inferencia de atributos, y que sea revisado anualmente.                                                 |   1   |  V  |
-| 8.4.2 | Verifique que el cifrado a nivel de aplicación o el cifrado buscable protejan los vectores contra lecturas directas por parte de los administradores de la infraestructura o el personal de la nube. |   2   | D/V |
-| 8.4.3 | Verifique que los parámetros de defensa (ε para DP, ruido σ, rango de proyección k) equilibren la privacidad ≥ 99 % de protección de tokens y la utilidad ≤ 3 % de pérdida de precisión.             |   3   |  V  |
-| 8.4.4 | Verifique que las métricas de resiliencia a la inversión sean parte de las puertas de lanzamiento para las actualizaciones del modelo, con presupuestos de regresión definidos.                      |   3   | D/V |
+|   #   | Descripción                                                                                                                                                                                      | Nivel | Rol |
+| :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---: | :-: |
+| 8.4.1 | Verifique que exista un modelo de amenaza formal que cubra ataques de inversión, de membresía y de inferencia de atributos, y que sea revisado anualmente.                                       |   1   |  V  |
+| 8.4.2 | Verifique que el cifrado en la capa de aplicación o el cifrado buscable protejan los vectores de lecturas directas por parte de los administradores de infraestructura o el personal de la nube. |   2   | D/V |
+| 8.4.3 | Verifique que los parámetros de defensa (ε para DP, ruido σ, rango de proyección k) equilibren la privacidad ≥ 99 % de protección de tokens y la utilidad ≤ 3 % de pérdida de precisión.         |   3   |  V  |
+| 8.4.4 | Verifique que las métricas de resistencia a la inversión formen parte de las puertas de lanzamiento para las actualizaciones del modelo, con presupuestos de regresión definidos.                |   3   | D/V |
 
 ---
 
-## C8.5 Aplicación del Alcance para Memoria Específica del Usuario
+## C8.5 Aplicación del alcance para la memoria específica del usuario
 
-La fuga entre inquilinos sigue siendo un riesgo principal en RAG: las consultas de similitud mal filtradas pueden revelar documentos privados de otro cliente.
+La filtración entre inquilinos sigue siendo un riesgo principal para RAG: las consultas de similitud incorrectamente filtradas pueden revelar documentos privados de otro cliente.
 
-|   #   | Descripción                                                                                                                                                                      | Nivel | Rol |
-| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 8.5.1 | Verifique que cada consulta de recuperación sea filtrada posteriormente por el ID de inquilino/usuario antes de ser pasada al prompt del LLM.                                    |   1   | D/V |
-| 8.5.2 | Verifique que los nombres de colecciones o los IDs con espacio de nombres estén salados por usuario o inquilino para que los vectores no puedan colisionar entre ámbitos.        |   1   |  D  |
-| 8.5.3 | Verifique que los resultados de similitud por encima de un umbral de distancia configurable pero fuera del alcance del llamador sean descartados y generen alertas de seguridad. |   2   | D/V |
-| 8.5.4 | Verifique que las pruebas de estrés multitenant simulen consultas adversariales que intentan recuperar documentos fuera del alcance y demuestren cero filtración.                |   2   |  V  |
-| 8.5.5 | Verifique que las claves de cifrado estén segregadas por inquilino, asegurando el aislamiento criptográfico incluso si el almacenamiento físico es compartido.                   |   3   | D/V |
+|   #   | Descripción                                                                                                                                                                             | Nivel | Rol |
+| :---: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 8.5.1 | Verifique que cada consulta de recuperación sea filtrada posteriormente por el ID del inquilino/usuario antes de ser pasada al prompt del LLM.                                          |   1   | D/V |
+| 8.5.2 | Verifique que los nombres de colecciones o los IDs con espacio de nombres estén salados por usuario o inquilino para que los vectores no puedan colisionar entre ámbitos.               |   1   |  D  |
+| 8.5.3 | Verifique que los resultados de similitud por encima de un umbral de distancia configurable, pero fuera del alcance del llamador, sean descartados y desencadenen alertas de seguridad. |   2   | D/V |
+| 8.5.4 | Verifique que las pruebas de estrés multiinquilino simulen consultas adversariales que intentan recuperar documentos fuera del alcance y demuestren cero filtraciones.                  |   2   |  V  |
+| 8.5.5 | Verifique que las claves de cifrado estén segregadas por inquilino, asegurando aislamiento criptográfico incluso si se comparte el almacenamiento físico.                               |   3   | D/V |
 
 ---
 
@@ -78,13 +78,13 @@ La fuga entre inquilinos sigue siendo un riesgo principal en RAG: las consultas 
 
 Controles de seguridad para arquitecturas de memoria sofisticadas que incluyen memoria episódica, semántica y de trabajo con requisitos específicos de aislamiento y validación.
 
-|   #   | Descripción                                                                                                                                                                                                                                                                                        | Nivel | Rol |
-| :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
-| 8.6.1 | Verifique que los diferentes tipos de memoria (episódica, semántica, de trabajo) tengan contextos de seguridad aislados con controles de acceso basados en roles, claves de encriptación separadas y patrones de acceso documentados para cada tipo de memoria.                                    |   1   | D/V |
-| 8.6.2 | Verifique que los procesos de consolidación de memoria incluyan validación de seguridad para prevenir la inyección de memorias maliciosas mediante la sanitización de contenido, la verificación de la fuente y las comprobaciones de integridad antes del almacenamiento.                         |   2   | D/V |
-| 8.6.3 | Verifique que las consultas de recuperación de memoria sean validadas y saneadas para prevenir la extracción de información no autorizada mediante el análisis de patrones de consulta, la aplicación de control de acceso y el filtrado de resultados.                                            |   2   | D/V |
-| 8.6.4 | Verifique que los mecanismos de olvido de memoria eliminen de forma segura la información sensible con garantías de borrado criptográfico mediante eliminación de claves, sobrescritura multipaso o eliminación segura basada en hardware con certificados de verificación.                        |   3   | D/V |
-| 8.6.5 | Verifique que la integridad del sistema de memoria sea monitoreada continuamente para detectar modificaciones no autorizadas o corrupción mediante sumas de verificación, registros de auditoría y alertas automáticas cuando el contenido de la memoria cambie fuera de las operaciones normales. |   3   | D/V |
+|   #   | Descripción                                                                                                                                                                                                                                                                                     | Nivel | Rol |
+| :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :-: |
+| 8.6.1 | Verifique que los diferentes tipos de memoria (episódica, semántica, de trabajo) tengan contextos de seguridad aislados con controles de acceso basados en roles, claves de cifrado separadas y patrones de acceso documentados para cada tipo de memoria.                                      |   1   | D/V |
+| 8.6.2 | Verifique que los procesos de consolidación de memoria incluyan validación de seguridad para prevenir la inyección de memorias maliciosas mediante la sanitización de contenido, verificación de fuente y controles de integridad antes del almacenamiento.                                     |   2   | D/V |
+| 8.6.3 | Verifique que las consultas de recuperación de memoria sean validadas y saneadas para evitar la extracción de información no autorizada mediante el análisis de patrones de consulta, la aplicación de controles de acceso y el filtrado de resultados.                                         |   2   | D/V |
+| 8.6.4 | Verifique que los mecanismos de olvido de memoria eliminen de manera segura la información sensible con garantías de borrado criptográfico mediante la eliminación de claves, sobrescritura en múltiples pasadas o eliminación segura basada en hardware con certificados de verificación.      |   3   | D/V |
+| 8.6.5 | Verifique que la integridad del sistema de memoria se monitoree continuamente para detectar modificaciones no autorizadas o corrupción mediante sumas de verificación, registros de auditoría y alertas automáticas cuando el contenido de la memoria cambie fuera de las operaciones normales. |   3   | D/V |
 
 ---
 
