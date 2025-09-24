@@ -102,11 +102,12 @@ def _set_lang_specific_fields(cs: Dict[str, Any], lang:str):
         "",
         "",
         "",
-        "",
-        "August 20th, 2025"
+        "PDF of OWASP/AISVS commit 64a7ca4",
+        "September 24th, 2025"
     ]
     cs["doc_revision_history"] = [
         "    2025-08-20  1.0  Tetsuo Seto  Initial Commit",
+        "    2025-09-24  1.0  Tetsuo Seto  OWASP/AISVS commit 64a7ca4",
     ]
     cs["doc_toc_contents_title"] = "Table of Contents"
     cs["doc_toc_figures_title"] = "Figures"
