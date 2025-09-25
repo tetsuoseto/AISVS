@@ -186,7 +186,7 @@ jobs:
 
       # STEP 6: Delete used files
       - name: Delete used files
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
           rm -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf
           rm -rf ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
@@ -194,7 +194,7 @@ jobs:
 
       # STEP B: Recover the files
       - name: Recover the files
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
           # cd UNZIPPED/pdf5-main/1.0/blddoc
           cd UNZIPPED/AISVS-main/1.0/blddoc
@@ -207,7 +207,7 @@ jobs:
 
       # STEP 7: Clean up
       - name: Clean up
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
           rm -rf ${{ github.workspace }}/1.0/blddoc/asv/en-ZZ
           rm -rf UNZIPPED
