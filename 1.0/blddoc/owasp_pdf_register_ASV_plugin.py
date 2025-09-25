@@ -153,8 +153,8 @@ def register_project(proj_code: str, lang_codes: Tuple[str, ...],
 DFLT_LEVEL_COLORS = ["ghostwhite", "ghostwhite"]
 LEVEL_COLORS = {
     1: ["mistyrose", "mistyrose"], # [head line color, description color]
-    2: ["lightcyan", "lightcyan"],
-    3: ["greenyellow", "greenyellow"],
+    2: ["yellow", "yellow"],
+    3: ["palegreen", "palegreen"],
 }
 
 def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
