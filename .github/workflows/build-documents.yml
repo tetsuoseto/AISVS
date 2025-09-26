@@ -160,32 +160,29 @@ jobs:
 
       # STEP 5: Build
       - name: Call ./owasp_pdf with ${{ env.LANG }}
-        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == '' }}
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == '' }}
         run: |
           cd ${{ github.workspace }}/1.0/blddoc
           ./owasp_pdf -s -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }}'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'mt'
         env:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
-        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'mt' }}
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'mt' }}
         run: |
           cd ${{ github.workspace }}/1.0/blddoc
           ./owasp_pdf -s --mt gpt-4.1-mini -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'x'
-        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'x' }}
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'x' }}
         run: |
           cd ${{ github.workspace }}/1.0/blddoc
           ./owasp_pdf -s -x -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'b'
         env:
           WATERMARK_SECRET_KEY: ${{ secrets.WATERMARK_SECRET_KEY }}
-        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'b' }}
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'b' }}
         run: |
           cd ${{ github.workspace }}/1.0/blddoc
           ./owasp_pdf -s -y -l ASV_${{ env.LANG }}
-      - name: Set DOC_BUILD_SUCCEEDED to 'no' only if owasp_pdf failed
-        if: ${{ failure() }}
-        run: echo "DOC_BUILD_SUCCEEDED=no" >> $GITHUB_ENV
 
       # STEP 6: Delete used files
       - name: Delete used files
@@ -218,7 +215,7 @@ jobs:
 
       # STEP 8: Commit and PR
       - name: Commit the changes
-        if: ${{ always() && env.DOC_BUILD_SUCCEEDED != 'no' && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:  |
@@ -229,7 +226,7 @@ jobs:
           git commit -m "PDF created for ${{ env.LANG }} with the commit ${{ github.sha }}"
           git push --set-upstream origin '${{ env.TARGET_BRANCH_NAME }}'
       - name: Create Pull Request with the generated PDF
-        if: ${{ always() && env.DOC_BUILD_SUCCEEDED != 'no' && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:  |
