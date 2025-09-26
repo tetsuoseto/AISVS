@@ -162,8 +162,10 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
     # pylint: disable=too-many-statements, too-many-branches, too-many-locals
     assert proj_code == "ASV"
 
-    def compile_two_lines(headers: List[str], contents: List[str]):
-        assert len(headers) == len(contents)
+    def compile_two_lines(headers: List[str], contents: List[str],
+            raw_line: str = ""):
+        assert len(headers) == len(contents), \
+            f"Check MD line: {raw_line}"
         level: int = 0
         level_str: str = "TRANS ERR"
         try:
@@ -200,7 +202,8 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                 raw_line_orig = raw_line
                 if raw_line[-1] != "\n":
                     raw_line += "\n"
-                assert raw_line[-1] == "\n"
+                assert raw_line[-1] == "\n", \
+                    f"Check MD line: {raw_line}"
                 raw_line = raw_line[:-1].strip()
                 skip_write: bool = False
                 if raw_line == "\n":
@@ -253,10 +256,12 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                     # table detected
                     if id_num == 1001:
                         if is_processing_table:
-                            assert len(headers) > 0
+                            assert len(headers) > 0, \
+                                f"Check MD line: {raw_line}"
                             contents = [content.strip(" :-") \
                                 for content in re.split(r"[|｜]", raw_line)]
-                            assert len(contents) >= len(headers)
+                            assert len(contents) >= len(headers), \
+                                f"Check MD line: {raw_line}"
                             contents = contents[1:len(headers)+1]
                             if all(len(content)==0 for content in contents):
                                 skip_write = True
@@ -273,12 +278,14 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                                 is_processing_table = True
                                 headers = [header.strip(" ") \
                                     for header in re.split(r"[|｜]", raw_line)]
-                                assert len(headers) >= 2
+                                assert len(headers) >= 2, \
+                                    f"Check MD line: {raw_line}"
                                 headers = headers[1:3]
                                 skip_write = True
                     elif 1101 <= id_num <= 1299:
                         if is_processing_table:
-                            assert len(headers) > 0
+                            assert len(headers) > 0, \
+                                f"Check MD line: {raw_line}"
                             contents = [content.strip(" :-") \
                                 for content in re.split(r"[|｜]", raw_line)]
                             len_contents = len(headers) + 1
@@ -287,8 +294,8 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                                 skip_write = True
                             else:
                                 # table contents
-                                two_lines = \
-                                    compile_two_lines(headers, contents)
+                                two_lines = compile_two_lines(headers,
+                                    contents, raw_line)
                                 out_fp.write(two_lines[0] + "\n")
                                 out_fp.write(two_lines[1] + "\n")
                                 skip_write = True
@@ -302,7 +309,7 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                                 if headers[-1] == "":
                                     len_headers -= 1
                                 assert len_headers >= 4, "".join(
-                                    ["ASV Plugin:len_headers >= 4, ",
+                                    ["ERR: ASV Plugin:len_headers >= 4, ",
                                     f"but it's {len_headers}"])
                                 headers = headers[1:len_headers]
                                 skip_write = True
