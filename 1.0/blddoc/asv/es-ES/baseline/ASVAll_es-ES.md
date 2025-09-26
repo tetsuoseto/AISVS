@@ -2594,3 +2594,96 @@ Herramientas para manejar y validar entradas de usuario.
 
 ---
 
+## Appendix B: Strategic Controls
+
+### C4.15 Quantum-Resistant Infrastructure Security
+
+Prepare AI infrastructure for quantum computing threats through post-quantum cryptography and quantum-safe protocols.
+
+ #4.15.1    Level: 3    Role: D/V
+ Verify that AI infrastructure implements NIST-approved post-quantum cryptographic algorithms (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+) for key exchange and digital signatures.
+ #4.15.2    Level: 3    Role: D/V
+ Verify that quantum key distribution (QKD) systems are implemented for high-security AI communications with quantum-safe key management protocols.
+ #4.15.3    Level: 3    Role: D/V
+ Verify that cryptographic agility frameworks enable rapid migration to new post-quantum algorithms with automated certificate and key rotation.
+ #4.15.4    Level: 3    Role: V
+ Verify that quantum threat modeling assesses AI infrastructure vulnerability to quantum attacks with documented migration timelines and risk assessments.
+ #4.15.5    Level: 3    Role: D/V
+ Verify that hybrid classical-quantum cryptographic systems provide defense-in-depth during the quantum transition period with performance monitoring.
+
+---
+
+### C4.17 Zero-Knowledge Infrastructure
+
+Implement zero-knowledge proof systems for privacy-preserving AI verification and authentication without revealing sensitive information.
+
+ #4.17.1    Level: 3    Role: D/V
+ Verify that zero-knowledge proofs (ZK-SNARKs, ZK-STARKs) verify AI model integrity and training provenance without exposing model weights or training data.
+ #4.17.2    Level: 3    Role: D/V
+ Verify that ZK-based authentication systems enable privacy-preserving user verification for AI services without revealing identity-related information.
+ #4.17.3    Level: 3    Role: D/V
+ Verify that private set intersection (PSI) protocols enable secure data matching for federated AI without exposing individual datasets.
+ #4.17.4    Level: 3    Role: D/V
+ Verify that zero-knowledge machine learning (ZKML) systems enable verifiable AI inferences with cryptographic proof of correct computation.
+ #4.17.5    Level: 3    Role: D/V
+ Verify that ZK-rollups provide scalable, privacy-preserving AI transaction processing with batch verification and reduced computational overhead.
+
+---
+
+### C4.18 Side-Channel Attack Prevention
+
+Protect AI infrastructure from timing, power, electromagnetic, and cache-based side-channel attacks that could leak sensitive information.
+
+ #4.18.1    Level: 3    Role: D/V
+ Verify that AI inference timing is normalized using constant-time algorithms and padding to prevent timing-based model extraction attacks.
+ #4.18.2    Level: 3    Role: D/V
+ Verify that power analysis protection includes noise injection, power line filtering, and randomized execution patterns for AI hardware.
+ #4.18.3    Level: 3    Role: D/V
+ Verify that cache-based side-channel mitigation uses cache partitioning, randomization, and flush instructions to prevent information leakage.
+ #4.18.4    Level: 3    Role: D/V
+ Verify that electromagnetic emanation protection includes shielding, signal filtering, and randomized processing to prevent TEMPEST-style attacks.
+ #4.18.5    Level: 3    Role: D/V
+ Verify that microarchitectural side-channel defenses include speculative execution controls and memory access pattern obfuscation.
+
+---
+
+### C4.19 Neuromorphic & Specialized AI Hardware Security
+
+Secure emerging AI hardware architectures including neuromorphic chips, FPGAs, custom ASICs, and optical computing systems.
+
+ #4.19.1    Level: 3    Role: D/V
+ Verify that neuromorphic chip security includes spike pattern encryption, synaptic weight protection, and hardware-based learning rule validation.
+ #4.19.2    Level: 3    Role: D/V
+ Verify that FPGA-based AI accelerators implement bitstream encryption, anti-tamper mechanisms, and secure configuration loading with authenticated updates.
+ #4.19.3    Level: 3    Role: D/V
+ Verify that custom ASIC security includes on-chip security processors, hardware root of trust, and secure key storage with tamper detection.
+ #4.19.4    Level: 3    Role: D/V
+ Verify that optical computing systems implement quantum-safe optical encryption, secure photonic switching, and protected optical signal processing.
+ #4.19.5    Level: 3    Role: D/V
+ Verify that hybrid analog-digital AI chips include secure analog computation, protected weight storage, and authenticated analog-to-digital conversion.
+
+---
+
+### C4.20 Privacy-Preserving Compute Infrastructure
+
+Implement infrastructure controls for privacy-preserving computation to protect sensitive data during AI processing and analysis.
+
+ #4.20.1    Level: 3    Role: D/V
+ Verify that homomorphic encryption infrastructure enables encrypted computation on sensitive AI workloads with cryptographic integrity verification and performance monitoring.
+ #4.20.2    Level: 3    Role: D/V
+ Verify that private information retrieval systems enable database queries without revealing query patterns with cryptographic protection of access patterns.
+ #4.20.3    Level: 3    Role: D/V
+ Verify that secure multi-party computation protocols enable privacy-preserving AI inference without exposing individual inputs or intermediate computations.
+ #4.20.4    Level: 3    Role: D/V
+ Verify that privacy-preserving key management includes distributed key generation, threshold cryptography, and secure key rotation with hardware-backed protection.
+ #4.20.5    Level: 3    Role: D/V
+ Verify that privacy-preserving compute performance is optimized through batching, caching, and hardware acceleration while maintaining cryptographic security guarantees.
+
+ 4.9.14.9.2    1: 2    D/V: D/V
+ Verify that multi-cloud deployments use federated identity standards (e.g., OIDC, SAML) with centralized policy enforcement across providers.
+ 4.9.14.9.3    1: 2    D/V: D/V
+ Verify that cross-cloud and hybrid data transfers use end-to-end encryption with customer-managed keys and enforce jurisdictional data residency requirements.
+ 4.9.14.9.1    1: 1    D/V: D/V
+ Verify that cloud storage integration uses end-to-end encryption with agent-controlled key management.
+ 4.9.14.9.2    1: 2    D/V: D/V
+ Verify that hybrid deployment security boundaries are clearly defined with encrypted communication channels.
