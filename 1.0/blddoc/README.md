@@ -2,7 +2,7 @@
 
 1. Click [Download ZIP](https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip) link to download the all-in-one zip file, AISVS-main.zip (143MB) on your Ubuntu Desktop 24.04.2 LTS or Ubuntu instance on cloud. The zip file contains the original AISVS repo + the owasp_pdf_5 build environment: `AISVS-main/1.0/blddoc` directory.
 
-2. Open terminal window, `cd` to `AISVS-main/1.0/blddoc` directory and run `shasum -a 256 owasp_pdf` to calculate the sha256 hash code of `owasp_pdf` executable. It should match 69c8e48d0b3865b81ffec7f3c9fb0780901ad6acac2ada3068667fab38683698
+2. Open terminal window, `cd` to `AISVS-main/1.0/blddoc` directory and run `shasum -a 256 owasp_pdf` to calculate the sha256 hash code of `owasp_pdf` executable. It should match 35ec7275a22cd83f35d56cdd4e0dfe923a370ee5377a246c3a8d8cf7ed1b12a9
 
 3. Make sure all the source MD files under `AISVS-main/1.0/blddoc/asv/` are symbolic-linked to the original MD files on `AISVS-main/1.0/en/` Note that the source MD file (symbolic link) names follow owasp_pdf naming convention, e.g., `ASV1001_0x01-Frontispiece.md` for `0x01-Frontispiece.md`.
 
@@ -13,9 +13,9 @@
 ```
 $ cd ~/AISVS-main/1.0/blddoc
 $ shasum -a 256 owasp_pdf
-69c8e48d0b3865b81ffec7f3c9fb0780901ad6acac2ada3068667fab38683698  owasp_pdf
+35ec7275a22cd83f35d56cdd4e0dfe923a370ee5377a246c3a8d8cf7ed1b12a9  owasp_pdf
 $ ./owasp_pdf -v
-OWASP_PDF Version: OWASP PDF v5.0.0 20250830-220735
+OWASP_PDF Version: OWASP PDF v5.0.0 20250925-202425
 $ ./owasp_pdf -y -l ASV_en-US
 *** initializing owasp_pdf build environment...
 *** Loaded 'owasp_pdf_register_ASV_plugin'
@@ -121,6 +121,7 @@ AISVS-main
 │   │   │   ├── ASV1202_0x92-Appendix-C_Governance_and_Documentation.md -> ../../en/0x92-Appendix-C_Governance_and_Documentation.md
 │   │   │   ├── ASV1203_0x93-Appendix-D_AI_for_Code_Generation.md -> ../../en/0x93-Appendix-D_AI_for_Code_Generation.md
 │   │   │   └── ASV1204_0x94-Appendix-E_Example_Tools_and_Frameworks.md -> ../../en/0x94-Appendix-E_Example_Tools_and_Frameworks.md
+│   │   │   └── ASV1205_0x95-Appendix-F_Strategic_Controls.md -> ../../en/0x95-Appendix-F_Strategic_Controls.md
 │   │   ├── owasp_pdf
 │   │   ├── owasp_pdf_data_ASV
 │   │   │   ├── appendix_pages
@@ -156,6 +157,7 @@ AISVS-main
 │   │   ├── 0x92-Appendix-C_Governance_and_Documentation.md
 │   │   ├── 0x93-Appendix-D_AI_for_Code_Generation.md
 │   │   ├── 0x94-Appendix-E_Example_Tools_and_Frameworks.md
+│   │   ├── 0x95-Appendix-F_Strategic_Controls.md
 │   │   └── Categories.md
 │   ├── images
 │   │   ├── license.png
