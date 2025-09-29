@@ -83,12 +83,19 @@ jobs:
             exit 1
           fi
 
-      # STEP 1: Check out repository code
+      # STEP 1: Check out the repository code; we'll commit bld result/PR to it
+      # We'll download the owasp_pdf_5 tool on to it.
       - name: Check out repository code
         if: ${{ env.LANG != '' }}
         uses: actions/checkout@v4
+        with:
+          # test bed
+          repository: tetsuoseto/AISVS
+          # production
+          # repository: OWASP/AISVS
+          ref: main
 
-      # STEP A: Remove the files
+      # STEP A: Remove the bld tool files in case of test bed
       - name: Remove the files
         if: ${{ env.LANG != '' }}
         run: |
@@ -126,24 +133,28 @@ jobs:
           fi
 
       # STEP 4: Prep for build
-      - name: Download zip file
+      - name: Download the tool as a zip file
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          # curl -L -o main.zip "https://github.com/OWASP/pdf5/archive/refs/heads/main.zip"
+          # test bed
           curl -L -o main.zip "https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip"
-      - name: Unzip the file
+          # production
+          # curl -L -o main.zip "https://github.com/OWASP/pdf5/archive/refs/heads/main.zip"
+      - name: Unzip the tool zip file
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
           unzip main.zip -d UNZIPPED
-      - name: List the files checked out to the build workspace
+      - name: List the tool files checked out to the build workspace
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
           ls -la ${{ github.workspace }}
       - name: Copy owasp_pdf and plug-in module
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          # cd UNZIPPED/pdf5-main/1.0/blddoc
+          # test bed
           cd UNZIPPED/AISVS-main/1.0/blddoc
+          # production
+          # cd UNZIPPED/pdf5-main/1.0/blddoc
           cp owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
           cp -r owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
           cp owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
@@ -192,7 +203,7 @@ jobs:
           rm -rf ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
           rm -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
 
-      # STEP B: Recover the files
+      # STEP B: Recover the files in case of test bed
       - name: Recover the files
         if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
