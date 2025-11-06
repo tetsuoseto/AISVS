@@ -70,6 +70,7 @@ def _set_proj_common_fields(cs: Dict[str, Any]):
         "header_font.color": "white",
         "chapter_pivot.pt_x": 306,
         "chapter_pivot.pt_y": 40,
+        "chapter_title_bottom_aligned": False,
         "chapter_font.size": 20,
         "chapter_font.line_pitch": 35,
         "chapter_font.line_alignment": "center",
@@ -102,12 +103,13 @@ def _set_lang_specific_fields(cs: Dict[str, Any], lang:str):
         "",
         "",
         "",
-        "PDF of OWASP/AISVS commit 64a7ca4",
-        "September 24th, 2025"
+        "PDF of OWASP/AISVS commit 312e738",
+        "November 5th, 2025"
     ]
     cs["doc_revision_history"] = [
         "    2025-08-20  1.0  Tetsuo Seto  Initial Commit",
         "    2025-09-24  1.0  Tetsuo Seto  OWASP/AISVS commit 64a7ca4",
+        "    2025-11-05  1.0  Tetsuo Seto  OWASP/AISVS commit 312e738",
     ]
     cs["doc_toc_contents_title"] = "Table of Contents"
     cs["doc_toc_figures_title"] = "Figures"
@@ -231,6 +233,11 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                         out_fp.write(out_str)
                         continue
                 # sharp tag adjustment
+                #-----------------------
+                # "---"?
+                if raw_line == "---":
+                    out_fp.write(">white|black|center|||mr " + "─"*40 + "\n")
+                    continue
                 #-----------------------
                 # Does the line start with "#"?
                 matched = re.match(re_sharp, raw_line)
