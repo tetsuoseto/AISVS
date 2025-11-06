@@ -28,7 +28,6 @@ Ensure cryptographic integrity and supply chain security through reproducible bu
 
 | # | Description | Level | Role |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-
 | **4.2.1** | **Verify that** builds are reproducible and produce signed provenance metadata as appropriate for the build artifacts that can be independently verified. | 1 | D/V |
 | **4.2.2** | **Verify that** builds produce a software bill of materials (SBOM) and are signed before being accepted for deployment. | 2 | D/V |
 | **4.2.3** | **Verify that** build artifact (e.g., container images) signatures and provenance metadata are validated at deployment, and unverified artifacts are rejected. | 2 | D/V |
@@ -55,9 +54,9 @@ Protect secrets and cryptographic keys with secure storage, automated rotation, 
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
 | **4.4.1** | **Verify that** secrets are stored in a dedicated secrets management system with encryption at rest and isolated from application workloads. | 1 | D/V |
 | **4.4.2** | **Verify that** cryptographic keys are generated and stored in hardware-backed modules (e.g., HSMs, cloud KMS). | 1 | D/V |
-| **4.4.3** | **Verify that** secrets rotation is automated. | 2 | D/V |
-| **4.4.4** | **Verify that** access to production secrets requires strong authentication. |
-| **4.4.5** | **Verify that** secrets are deployed to applications at runtime through a secrets management solution. Secrets must never be embedded in source code, configuration files, build artifacts, container images, or environment variables. | 2 | D/V |
+| **4.4.3** | **Verify that** access to production secrets requires strong authentication. | 1 | D/V |
+| **4.4.4** | **Verify that** secrets are deployed to applications at runtime through a dedicated secrets management system. Secrets must never be embedded in source code, configuration files, build artifacts, container images, or environment variables. | 1 | D/V |
+| **4.4.5** | **Verify that** secrets rotation is automated. | 2 | D/V |
 
 ---
 
@@ -98,6 +97,11 @@ Secure AI-specific hardware components including GPUs, TPUs, and specialized AI 
 | **4.7.1** | **Verify that** before workload execution, AI accelerator integrity is validated using hardware-based attestation mechanisms (e.g., TPM, DRTM, or equivalent). | 2 | D/V |
 | **4.7.2** | **Verify that** accelerator (GPU) memory is isolated between workloads through partitioning mechanisms with memory sanitization between jobs. | 2 | D/V |
 | **4.7.3** | **Verify that** hardware security modules (HSMs) protect AI model weights and cryptographic keys with certification to FIPS 140-3 Level 3 or Common Criteria EAL4+. | 3 | D/V |
+| **4.7.4** | **Verify that** accelerator firmware (GPU/TPU/NPUs) is version-pinned, signed, and attested at boot; unsigned or debug firmware is blocked. | 2 | D/V |
+| **4.7.5** | **Verify that** VRAM and on-package memory are zeroed between jobs/tenants and that device reset policies prevent cross-tenant data remanence. | 2 | D/V |
+| **4.7.6** | **Verify that** partitioning/isolation features (e.g., MIG/VM partitioning) are enforced per tenant and prevent peer-to-peer memory access across partitions. | 2 | D/V |
+| **4.7.7** | **Verify that** accelerator interconnects (NVLink/PCIe/InfiniBand/RDMA/NCCL) are restricted to approved topologies and authenticated endpoints; plaintext cross-tenant links are disallowed. | 3 | D/V |
+| **4.7.8** | **Verify that** accelerator telemetry (power, temps, ECC, perf counters) is exported to SIEM/OTel and alerts on anomalies indicative of side-channels or covert channels. | 3 | D |
 
 ---
 
@@ -118,9 +122,7 @@ Secure distributed AI deployments including edge computing, federated learning, 
 
 * [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
 * [CIS Controls v8](https://www.cisecurity.org/controls/v8)
-* [OWASP Container Security Verification Standard](https://github.com/OWASP/Container-Security-Verification-Standard)
 * [Kubernetes Security Best Practices](https://kubernetes.io/docs/concepts/security/)
-* [SLSA Supply Chain Security Framework](https://slsa.dev/)
 * [Cloud Security Alliance: Cloud Controls Matrix](https://cloudsecurityalliance.org/research/cloud-controls-matrix/)
 * [ENISA: Secure Infrastructure Design](https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services)
 * [ISO 27001:2022 Information Security Management](https://www.iso.org/standard/27001)

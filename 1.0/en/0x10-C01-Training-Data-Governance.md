@@ -53,7 +53,7 @@ Combine automated validation, manual spot-checks, and logged remediation to guar
 
 | # | Description | Level | Role |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.4.1** | **Verify that** automated tests catch format errors amd nulls on every ingest or significant data transformation. | 1 | D |
+| **1.4.1** | **Verify that** automated tests catch format errors and nulls on every ingest or significant data transformation. | 1 | D |
 | **1.4.2** | **Verify that** LLM training and fine-tuning pipelines implement poisoning detection & data integrity validation (e.g., statistical methods, outlier detection, embedding analysis) to identify potential poisoning attacks (e.g., label flipping, backdoor trigger insertion, role-switching commands, influential instance attacks) or unintentional data corruption in training data. | 2 | D/V |
 | **1.4.3** | **Verify that** automatically generated labels (e.g., via LLMs or weak supervision) are subject to confidence thresholds and consistency checks to detect hallucinated, misleading, or low-confidence labels. | 2 | D/V |
 | **1.4.4** | **Verify that** appropriate defenses, such as adversarial training (using generated adversarial examples), data augmentation with perturbed inputs, or robust optimization techniques, are implemented and tuned for relevant models based on risk assessment. | 3 | D/V |
@@ -77,16 +77,5 @@ Track the full journey of each data point from source to model input for auditab
 
 * [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 * [EU AI Act – Article 10: Data & Data Governance](https://artificialintelligenceact.eu/article/10/)
-* [MITRE ATLAS: Adversary Tactics for AI](https://atlas.mitre.org/)
-* [Survey of ML Bias Mitigation Techniques – MDPI](https://www.mdpi.com/2673-6470/4/1/1)
-* [Data Provenance & Lineage Best Practices – Nightfall AI](https://www.nightfall.ai/ai-security-101/data-provenance-and-lineage)
-* [Data Labeling Quality Standards – LabelYourData](https://labelyourdata.com/articles/data-labeling-quality-and-how-to-measure-it)
-* [Training Data Poisoning Guide – Lakera.ai](https://www.lakera.ai/blog/training-data-poisoning)
 * [CISA Advisory: Securing Data for AI Systems](https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-142a)
-* [ISO/IEC 23053: AI Management Systems Framework](https://www.iso.org/sectors/it-technologies/ai)
-* [IBM: What is AI Governance?](https://www.ibm.com/think/topics/ai-governance)
-* [Google AI Principles](https://ai.google/principles/)
-* [GDPR & AI Training Data – DataProtectionReport](https://www.dataprotectionreport.com/2024/08/recent-regulatory-developments-in-training-artificial-intelligence-ai-models-under-the-gdpr/)
-* [Supply-Chain Security for AI Data – AppSOC](https://www.appsoc.com/blog/ai-is-the-new-frontier-of-supply-chain-security)
 * [OpenAI Privacy Center – Data Deletion Controls](https://privacy.openai.com/policies?modal=take-control)
-* [Adversarial ML Dataset – Kaggle](https://www.kaggle.com/datasets/cnrieiit/adversarial-machine-learning-dataset)
