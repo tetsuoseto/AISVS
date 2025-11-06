@@ -65,6 +65,7 @@ def _set_proj_common_fields(cs: Dict[str, Any]):
         "header_font.color": "black",
         "chapter_pivot.pt_x": 306,
         "chapter_pivot.pt_y": 40,
+        "chapter_title_bottom_aligned": False,
         "chapter_font.size": 20,
         "chapter_font.line_pitch": 35,
         "chapter_font.line_alignment": "center",
