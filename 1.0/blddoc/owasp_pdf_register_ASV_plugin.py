@@ -70,6 +70,7 @@ def _set_proj_common_fields(cs: Dict[str, Any]):
         "header_font.color": "white",
         "chapter_pivot.pt_x": 306,
         "chapter_pivot.pt_y": 40,
+        "chapter_title_bottom_aligned": False,
         "chapter_font.size": 20,
         "chapter_font.line_pitch": 35,
         "chapter_font.line_alignment": "center",
@@ -231,6 +232,11 @@ def translate_markdown(proj_code: str, lang_code: str, markdown_path: Path,
                         out_fp.write(out_str)
                         continue
                 # sharp tag adjustment
+                #-----------------------
+                # "---"?
+                if raw_line == "---":
+                    out_fp.write(">white|black|center|||mr " + "─"*40 + "\n")
+                    continue
                 #-----------------------
                 # Does the line start with "#"?
                 matched = re.match(re_sharp, raw_line)
