@@ -21,7 +21,7 @@ For any reuse or distribution, you must clearly communicate the license terms of
 |-------------------------|-----------------------------|
 | **Jim Manico**          | **Aras “Russ” Memisyazici** |
 
-## Colaboradores y revisores
+## Colaboradoras y revisoras
 
 |                                    |                             |
 |------------------------------------|-----------------------------|
