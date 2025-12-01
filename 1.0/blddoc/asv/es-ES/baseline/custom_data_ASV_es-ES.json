@@ -2,38 +2,38 @@
     "doc_template_type": "classic",
     "doc_cover": true,
     "doc_title": [
-        "Artificial Intelligence",
-        "Security Verification Standard"
+        "Inteligencia artificial",
+        "Estándar de verificación de seguridad"
     ],
     "doc_title_pivot.pt_x": 306,
     "doc_title_pivot.pt_y": 250,
     "doc_subtitles": [
         "",
-        "Initial Version Work In Progress",
+        "Versión inicial en proceso",
         "",
         "",
         "",
         "",
         "",
         "",
-        "August 20th, 2025"
+        "20 de agosto de 2025"
     ],
     "doc_site_name": "owasp.org",
     "doc_site_url": "https://owasp.org/www-project-application-security-verification-standard/",
-    "doc_header": "Artificial Intelligence Security Verification Standard",
+    "doc_header": "Estándar de verificación de seguridad de inteligencia artificial",
     "doc_header_pivot.pt_x": 95,
     "doc_header_pivot.pt_y": 16,
     "doc_legal_notice": false,
     "doc_owasp_logo": false,
     "doc_revision_history": [
-        "    2025-08-20  1.0  Tetsuo Seto  Initial Commit"
+        "    2025-08-20  1.0  Tetsuo Seto  Compromiso inicial"
     ],
     "doc_toc": true,
     "doc_authors_toc": false,
     "doc_toc_title_pivot.pt_x": 306,
     "doc_toc_title_pivot.pt_y": 80,
-    "doc_toc_contents_title": "Table of Contents",
-    "doc_toc_figures_title": "Figures",
+    "doc_toc_contents_title": "Tabla de contenido",
+    "doc_toc_figures_title": "Figuras",
     "doc_watermark": false,
     "doc_appendix_titles": [],
     "doc_sponsor_page_titles": [],
