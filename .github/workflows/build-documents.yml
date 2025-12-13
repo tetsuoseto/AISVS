@@ -95,19 +95,15 @@ jobs:
             exit 1
           fi
           if ${{ env.MT_X == 'mt' && (
-            github.event.comment.author_association != 'OWNER' &&
-            github.event.comment.author_association != 'COLLABORATOR' &&
-            github.event.comment.author_association != 'MEMBER')
+            github.event.comment.author_association != 'OWNER')
           }}; then
-            echo "MT is not allowed. Pls consult with the repo maintener."
+            echo "MT is not allowed. Pls consult with the repo maintainer."
             exit 1
           fi
           if ${{ env.MT_X == 'b' && (
-            github.event.comment.author_association != 'OWNER' &&
-            github.event.comment.author_association != 'COLLABORATOR' &&
-            github.event.comment.author_association != 'MEMBER')
+            github.event.comment.author_association != 'OWNER')
           }}; then
-            echo "B is not allowed. Pls consult with the repo maintener."
+            echo "B is not allowed. Pls consult with the repo maintainer."
             exit 1
           fi
 
