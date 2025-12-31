@@ -10,7 +10,7 @@
 
 ![license](../images/license.png)
 
-著作権 © 2025 The AISVS Project.  
+著作権 © 2025-2026 The AISVS Project.  
 
 以下の条件のもとリリースされています[Creative Commons Attribution‑ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).  
 この作品を再利用または配布する場合、必ずライセンス条件を他者に明確に伝える必要があります。
