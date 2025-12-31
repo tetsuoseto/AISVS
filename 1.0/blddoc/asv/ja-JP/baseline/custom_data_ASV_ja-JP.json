@@ -34,7 +34,7 @@
     "doc_toc_title_pivot.pt_y": 172,
     "doc_toc_contents_title": "Table of Contents",
     "doc_toc_figures_title": "Figures",
-    "doc_watermark": false,
+    "doc_watermark": true,
     "doc_appendix_titles": [],
     "doc_sponsor_page_titles": [
         "Project Sponsors",
@@ -87,7 +87,7 @@
     "unordered_list_marker": "circle",
     "md_file_range": [
         0,
-        1001
+        999999
     ],
     "max_image_scale": 2.0
 }
