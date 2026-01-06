@@ -121,14 +121,14 @@ jobs:
       - name: Check if owasp_pdf executable exists
         if: ${{ env.LANG != '' }}
         run: |
-          if [ -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf ]; then
+          if [ -f ${{ github.workspace }}/1.0/docgen/owasp_pdf ]; then
             echo "EXECUTABLE_EXISTS=yes" >> $GITHUB_ENV;
             mkdir ${{ github.workspace }}/SAVED;
-            cp ${{ github.workspace }}/1.0/blddoc/owasp_pdf ${{ github.workspace }}/SAVED;
-            cp -r ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV ${{ github.workspace }}/SAVED;
-            cp ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/SAVED;
-            cp -r ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ZZZ ${{ github.workspace }}/SAVED;
-            cp ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/SAVED;
+            cp ${{ github.workspace }}/1.0/docgen/owasp_pdf ${{ github.workspace }}/SAVED;
+            cp -r ${{ github.workspace }}/1.0/docgen/owasp_pdf_data_ASV ${{ github.workspace }}/SAVED;
+            cp ${{ github.workspace }}/1.0/docgen/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/SAVED;
+            cp -r ${{ github.workspace }}/1.0/docgen/owasp_pdf_data_ZZZ ${{ github.workspace }}/SAVED;
+            cp ${{ github.workspace }}/1.0/docgen/owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/SAVED;
           else
             echo "EXECUTABLE_EXISTS=no" >> $GITHUB_ENV;
           fi
@@ -183,75 +183,75 @@ jobs:
           # cd UNZIPPED/pdf5-main/
           unzip linux.zip -d BldEnv20241124
           cd BldEnv20241124/linux
-          cp owasp_pdf ${{ github.workspace }}/1.0/blddoc/owasp_pdf
+          cp owasp_pdf ${{ github.workspace }}/1.0/docgen/owasp_pdf
           cd ..
-          cp -rf owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc
-          cp -f owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc
-          cp -rf owasp_pdf_data_ZZZ ${{ github.workspace }}/1.0/blddoc
-          cp -f owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/1.0/blddoc
+          cp -rf owasp_pdf_data_ASV ${{ github.workspace }}/1.0/docgen
+          cp -f owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/docgen
+          cp -rf owasp_pdf_data_ZZZ ${{ github.workspace }}/1.0/docgen
+          cp -f owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/1.0/docgen
 
-      - name: List files under 1.0/blddoc
+      - name: List files under 1.0/docgen
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          cd ${{ github.workspace }}/1.0/blddoc
+          cd ${{ github.workspace }}/1.0/docgen
           ls -la
-      - name: List files under 1.0/blddoc/asv
+      - name: List files under 1.0/docgen/asv
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          cd ${{ github.workspace }}/1.0/blddoc/asv
+          cd ${{ github.workspace }}/1.0/docgen/asv
           ls -la
 
       # STEP 5: Build
       - name: Call ./owasp_pdf with ${{ env.LANG }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == '' }}
         run: |
-          cd ${{ github.workspace }}/1.0/blddoc
+          cd ${{ github.workspace }}/1.0/docgen
           ./owasp_pdf -s -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }}'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'mt'
         env:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'mt' }}
         run: |
-          cd ${{ github.workspace }}/1.0/blddoc
+          cd ${{ github.workspace }}/1.0/docgen
           ./owasp_pdf -s --mt gpt-4.1-mini -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'x'
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'x' }}
         run: |
-          cd ${{ github.workspace }}/1.0/blddoc
+          cd ${{ github.workspace }}/1.0/docgen
           ./owasp_pdf -s -x -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'b'
         env:
           WATERMARK_SECRET_KEY: ${{ secrets.WATERMARK_SECRET_KEY }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'b' }}
         run: |
-          cd ${{ github.workspace }}/1.0/blddoc
+          cd ${{ github.workspace }}/1.0/docgen
           ./owasp_pdf -s -y -l ASV_${{ env.LANG }}
 
       # STEP 6: Delete used files
       - name: Delete used files
         if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          rm -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf
-          rm -rf ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ASV
-          rm -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ASV_plugin.py
-          rm -rf ${{ github.workspace }}/1.0/blddoc/owasp_pdf_data_ZZZ
-          rm -f ${{ github.workspace }}/1.0/blddoc/owasp_pdf_register_ZZZ_plugin.py
+          rm -f ${{ github.workspace }}/1.0/docgen/owasp_pdf
+          rm -rf ${{ github.workspace }}/1.0/docgen/owasp_pdf_data_ASV
+          rm -f ${{ github.workspace }}/1.0/docgen/owasp_pdf_register_ASV_plugin.py
+          rm -rf ${{ github.workspace }}/1.0/docgen/owasp_pdf_data_ZZZ
+          rm -f ${{ github.workspace }}/1.0/docgen/owasp_pdf_register_ZZZ_plugin.py
       - name: Recover the original owasp_pdf
         if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.EXECUTABLE_EXISTS == 'yes' }}
         run: |
-          cp ${{ github.workspace }}/SAVED/owasp_pdf ${{ github.workspace }}/1.0/blddoc;
-          cp -r ${{ github.workspace }}/SAVED/owasp_pdf_data_ASV ${{ github.workspace }}/1.0/blddoc;
-          cp ${{ github.workspace }}/SAVED/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/blddoc;
-          cp -r ${{ github.workspace }}/SAVED/owasp_pdf_data_ZZZ ${{ github.workspace }}/1.0/blddoc;
-          cp ${{ github.workspace }}/SAVED/owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/1.0/blddoc;
+          cp ${{ github.workspace }}/SAVED/owasp_pdf ${{ github.workspace }}/1.0/docgen;
+          cp -r ${{ github.workspace }}/SAVED/owasp_pdf_data_ASV ${{ github.workspace }}/1.0/docgen;
+          cp ${{ github.workspace }}/SAVED/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/docgen;
+          cp -r ${{ github.workspace }}/SAVED/owasp_pdf_data_ZZZ ${{ github.workspace }}/1.0/docgen;
+          cp ${{ github.workspace }}/SAVED/owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/1.0/docgen;
           rm -rf ${{ github.workspace }}/SAVED
 
       # STEP 7: Clean up
       - name: Clean up
         if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          rm -rf ${{ github.workspace }}/1.0/blddoc/asv/en-ZZ
-          rm -rf ${{ github.workspace }}/1.0/blddoc/asv/${{ env.LANG }}/baseline/ASVAll_${{ env.LANG }}.md
+          rm -rf ${{ github.workspace }}/1.0/docgen/asv/en-ZZ
+          rm -rf ${{ github.workspace }}/1.0/docgen/asv/${{ env.LANG }}/baseline/ASVAll_${{ env.LANG }}.md
           rm -rf UNZIPPED
           rm -f main.zip
 
