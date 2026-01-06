@@ -118,19 +118,14 @@ jobs:
           # production
           # repository: OWASP/AISVS
           ref: main
-      - name: Check if owasp_pdf executable exists
+      - name: Check if linux.zip exists
         if: ${{ env.LANG != '' }}
         run: |
-          if [ -f ${{ github.workspace }}/1.0/docgen/owasp_pdf ]; then
-            echo "EXECUTABLE_EXISTS=yes" >> $GITHUB_ENV;
-            mkdir ${{ github.workspace }}/SAVED;
-            cp ${{ github.workspace }}/1.0/docgen/owasp_pdf ${{ github.workspace }}/SAVED;
-            cp -r ${{ github.workspace }}/1.0/docgen/owasp_pdf_data_ASV ${{ github.workspace }}/SAVED;
-            cp ${{ github.workspace }}/1.0/docgen/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/SAVED;
-            cp -r ${{ github.workspace }}/1.0/docgen/owasp_pdf_data_ZZZ ${{ github.workspace }}/SAVED;
-            cp ${{ github.workspace }}/1.0/docgen/owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/SAVED;
+          if [ -f ${{ github.workspace }}/1.0/docgen/linux.zip ]; then
+            echo "LINUX_ZIP_EXISTS=yes" >> $GITHUB_ENV;
+            cp -rf ${{ github.workspace }}/1.0/docgen/linux.zip ${{ github.workspace }}/main.zip;
           else
-            echo "EXECUTABLE_EXISTS=no" >> $GITHUB_ENV;
+            echo "LINUX_ZIP_EXISTS=no" >> $GITHUB_ENV;
           fi
 
       # STEP 2: Define target branch name
@@ -162,13 +157,14 @@ jobs:
       - name: Download the tool as a zip file
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          # test bed
-          curl -L -o main.zip "https://github.com/tetsuoseto/Tenzing/archive/refs/heads/main.zip"
-          # production
-          # curl -L -o main.zip "https://github.com/OWASP/pdf5/archive/refs/heads/main.zip"
+          # serve from the tool repository
+          # curl -L -o main.zip "https://github.com/tetsuoseto/Tenzing/archive/refs/heads/main.zip"
+          # self serve
+          curl -L -o main.zip "https://github.com/tetsuoseto/AISVS/archive/refs/heads/main.zip"
       - name: Unzip the tool zip file
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
+          ls -la ${{ github.workspace }}
           unzip main.zip -d UNZIPPED
       - name: List the tool files checked out to the build workspace
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
@@ -177,14 +173,20 @@ jobs:
       - name: Copy owasp_pdf and plug-in module
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          # test bed
-          cd UNZIPPED/Tenzing-main/
-          # production
-          # cd UNZIPPED/pdf5-main/
-          unzip linux.zip -d BldEnv20241124
-          cd BldEnv20241124/linux
+          # serve from the tool repository
+          # cd UNZIPPED/Tenzing-main/
+          # self serve
+          cd UNZIPPED/AISVS-main/1.0/docgen
+          unzip linux.zip
+          cd linux
+          # unzip linux.zip -d BldEnv20241124
+          # cd BldEnv20241124/linux
+          pwd
+          ls -la
           cp owasp_pdf ${{ github.workspace }}/1.0/docgen/owasp_pdf
           cd ..
+          pwd
+          ls -la
           cp -rf owasp_pdf_data_ASV ${{ github.workspace }}/1.0/docgen
           cp -f owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/1.0/docgen
           cp -rf owasp_pdf_data_ZZZ ${{ github.workspace }}/1.0/docgen
