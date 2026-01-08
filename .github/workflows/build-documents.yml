@@ -141,6 +141,7 @@ jobs:
           else
             echo "TOOL_SELF_SERVABLE=no" >> $GITHUB_ENV;
           fi
+          echo "TOOL_SELF_SERVABLE=no" >> $GITHUB_ENV;
 
       # STEP 4: Define target branch name
       - name: Define target branch name with MT_X
@@ -175,7 +176,7 @@ jobs:
           unzip -qq main.zip -d UNZIPPED
           cd UNZIPPED/${{ env.TOOL_DIR }}-main;
           unzip linux.zip -d unzipped_linux
-          cp -f unzipped_linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          cp -f unzipped_linux/linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           rm -rf unzipped_linux
           cd BldEnv20241124;
           cp -rf owasp_pdf_data_${{ env.PROJ_CODE }} ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
@@ -185,7 +186,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           unzip linux.zip -d unzipped_linux
-          cp -f unzipped_linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          cp -f unzipped_linux/linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           rm -rf unzipped_linux
 
       - name: List files under ${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
