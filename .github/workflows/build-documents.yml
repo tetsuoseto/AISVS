@@ -232,26 +232,7 @@ jobs:
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           ./owasp_pdf -s -y -l ASV_${{ env.LANG }}
 
-      # STEP 8: Delete used files
-      - name: Delete used files
-        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
-        run: |
-          rm -f ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/owasp_pdf
-          rm -rf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/owasp_pdf_data_ASV
-          rm -f ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/owasp_pdf_register_ASV_plugin.py
-          rm -rf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/owasp_pdf_data_ZZZ
-          rm -f ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/owasp_pdf_register_ZZZ_plugin.py
-      - name: Recover the original owasp_pdf
-        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.EXECUTABLE_EXISTS == 'yes' }}
-        run: |
-          cp ${{ github.workspace }}/SAVED/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }};
-          cp -r ${{ github.workspace }}/SAVED/owasp_pdf_data_ASV ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }};
-          cp ${{ github.workspace }}/SAVED/owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }};
-          cp -r ${{ github.workspace }}/SAVED/owasp_pdf_data_ZZZ ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }};
-          cp ${{ github.workspace }}/SAVED/owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }};
-          rm -rf ${{ github.workspace }}/SAVED
-
-      # STEP 9: Clean up
+      # STEP 8: Clean up
       - name: Clean up
         if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
@@ -260,7 +241,7 @@ jobs:
           rm -rf UNZIPPED
           rm -f main.zip
 
-      # STEP 10: Commit and PR
+      # STEP 9: Commit and PR
       - name: Commit the changes
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         env:
