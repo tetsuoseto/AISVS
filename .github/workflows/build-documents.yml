@@ -50,23 +50,23 @@ jobs:
     steps:
 
       # STEP 1: Define system parameters
-      - name: Define TOOL, BUILD, PROJ global variables
+      - name: Define TOOL, BUILD, PROJ global constants
         run: |
           echo "ROOT_DIR=1.0" >> $GITHUB_ENV
           echo "BUILD_DIR=docgen" >> $GITHUB_ENV
           echo "PROJ_DIR=asv" >> $GITHUB_ENV
           echo "PROJ_CODE=ASV" >> $GITHUB_ENV
-          #-------------------------
+          #-------------------------------------------------------
+          # tool location
+          echo "TOOL_REPO=tetsuoseto" >> $GITHUB_ENV
+          echo "TOOL_DIR=Tenzing" >> $GITHUB_ENV
+          #------- choose production or testbed ------------------
           # production
           # echo "CODE_REPO=OWASP" >> $GITHUB_ENV
           # echo "CODE_DIR=AISVS" >> $GITHUB_ENV
-          # test bed
+          # testbed
           echo "CODE_REPO=tetsuoseto" >> $GITHUB_ENV
           echo "CODE_DIR=AISVS" >> $GITHUB_ENV
-          #-------------------------
-          # default tool location; will be updated if self-servable
-          echo "TOOL_REPO=tetsuoseto" >> $GITHUB_ENV
-          echo "TOOL_DIR=Tenzing" >> $GITHUB_ENV
 
       # STEP 2: Define LANG, MT_X, owasp_pdf parameters
       - name: Read owasp_pdf parameters
@@ -138,8 +138,6 @@ jobs:
         run: |
           if [ -f ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/linux.zip ]; then
             echo "TOOL_SELF_SERVABLE=yes" >> $GITHUB_ENV;
-            echo "TOOL_REPO=${{ env.CODE_REPO }}" >> $GITHUB_ENV;
-            echo "TOOL_DIR=${{ env.CODE_DIR }}" >> $GITHUB_ENV;
           else
             echo "TOOL_SELF_SERVABLE=no" >> $GITHUB_ENV;
           fi
@@ -170,29 +168,26 @@ jobs:
           fi
 
       # STEP 6: Prep for build
-      - name: Download the tool
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+      - name: Download and copy texecutable and plugin if not self_servable
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.TOOL_SELF_SERVABLE == 'no' }}
         run: |
           curl -L -o main.zip "https://github.com/${{ env.TOOL_REPO }}/${{ env.TOOL_DIR }}/archive/refs/heads/main.zip"
-      - name: Unzip the curled main.zip file
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
-        run: |
           unzip -qq main.zip -d UNZIPPED
-      - name: Copy plug-in module and owasp_pdf executable
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+          cd UNZIPPED/${{ env.TOOL_DIR }}-main;
+          unzip linux.zip -d unzipped_linux
+          cp -f unzipped_linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          rm -rf unzipped_linux
+          cd BldEnv20241124;
+          cp -rf owasp_pdf_data_${{ env.PROJ_CODE }} ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          cp  -f owasp_pdf_register_${{ env.PROJ_CODE }}_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+      - name: Copy executable if self_servable
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.TOOL_SELF_SERVABLE == 'yes' }}
         run: |
-          if ${{ env.TOOL_SELF_SERVABLE == 'yes' }}; then
-            cd UNZIPPED/${{ env.TOOL_DIR }}-main/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }};
-          else
-            cd UNZIPPED/${{ env.TOOL_DIR }}-main;
-          fi
-          unzip linux.zip
-          cp -f linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          if ${{ env.TOOL_SELF_SERVABLE == 'no' }}; then
-            cd BldEnv20241124;
-            cp -rf owasp_pdf_data_${{ env.PROJ_CODE }} ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-            cp  -f owasp_pdf_register_${{ env.PROJ_CODE }}_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          fi
+          cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          unzip linux.zip -d unzipped_linux
+          cp -f unzipped_linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          rm -rf unzipped_linux
+
       - name: List files under ${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
@@ -233,18 +228,20 @@ jobs:
 
       # STEP 8: Clean up
       - name: Clean up
-        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          rm -rf UNZIPPED
-          rm  -f main.zip
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           rm  -f owasp_pdf
           rm -rf ${{ env.PROJ_DIR }}/en-ZZ
           rm -rf ${{ env.PROJ_DIR }}/${{ env.LANG }}/baseline/${{ env.PROJ_CODE }}All_${{ env.LANG }}.md
-          if ${{ env.TOOL_SELF_SERVABLE == 'no' }}; then
-            rm -rf owasp_pdf_data_${{ env.PROJ_CODE }}
-            rm  -f owasp_pdf_register_${{ env.PROJ_CODE }}_plugin.py
-          fi
+      - name: Clean up more if not self_servable
+        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.TOOL_SELF_SERVABLE == 'no' }}
+        run: |
+          rm  -f main.zip
+          rm -rf UNZIPPED
+          cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          rm -rf owasp_pdf_data_${{ env.PROJ_CODE }}
+          rm  -f owasp_pdf_register_${{ env.PROJ_CODE }}_plugin.py
 
       # STEP 9: Commit and PR
       - name: Commit the changes
@@ -264,3 +261,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:  |
           gh pr create --base 'main' --head '${{ env.TARGET_BRANCH_NAME }}' --title 'Automated PR with ${{ env.TARGET_BRANCH_NAME }}' --body 'PDF generated for ${{ env.LANG }} with the commit ${{ github.sha }}'
+
+      # STEP 10: Show message in case build skipped because env.BRANCH_EXISTS == 'yes'
+      - name: Show message in case build skipped
+        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'yes' }}
+        run: |
+          echo "Build skipped because ${{ env.TARGET_BRANCH_NAME }} branch exists and already PR'ed."
+          echo "*****************************************************************************"
