@@ -170,17 +170,11 @@ jobs:
           fi
 
       # STEP 6: Prep for build
-      - name: Download the tool
+      - name: Download, unzip, copy the tool, and list resulted files
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
           curl -L -o main.zip "https://github.com/${{ env.TOOL_REPO }}/${{ env.TOOL_DIR }}/archive/refs/heads/main.zip"
-      - name: Unzip the curled main.zip file
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
-        run: |
           unzip -qq main.zip -d UNZIPPED
-      - name: Copy plug-in module and owasp_pdf executable
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
-        run: |
           if ${{ env.TOOL_SELF_SERVABLE == 'yes' }}; then
             cd UNZIPPED/${{ env.TOOL_DIR }}-main/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }};
           else
@@ -193,9 +187,6 @@ jobs:
             cp -rf owasp_pdf_data_${{ env.PROJ_CODE }} ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
             cp  -f owasp_pdf_register_${{ env.PROJ_CODE }}_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           fi
-      - name: List files under ${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
-        run: |
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           echo '-----------------------'
           pwd
@@ -264,3 +255,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:  |
           gh pr create --base 'main' --head '${{ env.TARGET_BRANCH_NAME }}' --title 'Automated PR with ${{ env.TARGET_BRANCH_NAME }}' --body 'PDF generated for ${{ env.LANG }} with the commit ${{ github.sha }}'
+
+      # STEP 10: Show message in case build skipped because env.BRANCH_EXISTS == 'yes'
+      - name: Show message in case build skipped
+        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'yes' }}
+        run: |
+          echo "Build skipped because ${{ env.TARGET_BRANCH_NAME }} branch exists and already PR'ed."
+          echo "*****************************************************************************"
