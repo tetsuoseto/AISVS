@@ -264,3 +264,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:  |
           gh pr create --base 'main' --head '${{ env.TARGET_BRANCH_NAME }}' --title 'Automated PR with ${{ env.TARGET_BRANCH_NAME }}' --body 'PDF generated for ${{ env.LANG }} with the commit ${{ github.sha }}'
+
+      # STEP 10: Show message in case build skipped because env.BRANCH_EXISTS == 'yes'
+      - name: Show message in case build skipped
+        if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'yes' }}
+        run: |
+          echo "Build skipped because ${{ env.TARGET_BRANCH_NAME }} exists and already PR'ed."
