@@ -137,9 +137,9 @@ jobs:
         if: ${{ env.LANG != '' }}
         run: |
           if [ -f ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/linux.zip ]; then
-            echo "TOOL_SELF_SERVABLE=yes" >> $GITHUB_ENV;
-            echo "TOOL_REPO=${{ env.CODE_REPO }}" >> $GITHUB_ENV;
-            echo "TOOL_DIR=${{ env.CODE_DIR }}" >> $GITHUB_ENV;
+            echo "TOOL_SELF_SERVABLE=no" >> $GITHUB_ENV;
+            # echo "TOOL_REPO=${{ env.CODE_REPO }}" >> $GITHUB_ENV;
+            # echo "TOOL_DIR=${{ env.CODE_DIR }}" >> $GITHUB_ENV;
           else
             echo "TOOL_SELF_SERVABLE=no" >> $GITHUB_ENV;
           fi
