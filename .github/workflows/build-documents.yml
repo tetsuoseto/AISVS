@@ -50,11 +50,12 @@ jobs:
     steps:
 
       # STEP 1: Define system parameters
-      - name: Define TOOL_REPOSITORY and CODE_REPOSITORY
+      - name: Define TOOL, BUILD, PROJ global variables
         run: |
           echo "ROOT_DIR=1.0" >> $GITHUB_ENV
           echo "BUILD_DIR=docgen" >> $GITHUB_ENV
           echo "PROJ_DIR=asv" >> $GITHUB_ENV
+          echo "PROJ_CODE=ASV" >> $GITHUB_ENV
           #-------------------------
           # production
           # echo "CODE_REPO=OWASP" >> $GITHUB_ENV
@@ -125,8 +126,7 @@ jobs:
             exit 1;
           fi
 
-      # STEP 3: Check out the repository code; we'll commit bld result/PR to it
-      # We'll download the tool on to it.
+      # STEP 3: Check out the repository code; we'll commit the result and submit a pull-request
       - name: Check out repository code
         if: ${{ env.LANG != '' }}
         uses: actions/checkout@v4
@@ -190,8 +190,8 @@ jobs:
           cp -f linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           if ${{ env.TOOL_SELF_SERVABLE == 'no' }}; then
             cd BldEnv20241124;
-            cp -rf owasp_pdf_data_ASV ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-            cp  -f owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+            cp -rf owasp_pdf_data_${{ env.PROJ_CODE }} ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+            cp  -f owasp_pdf_register_${{ env.PROJ_CODE }}_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           fi
       - name: List files under ${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
@@ -210,26 +210,26 @@ jobs:
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == '' }}
         run: |
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          ./owasp_pdf -s -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }}'
+          ./owasp_pdf -s -y -l ${{ env.PROJ_CODE }}_${{ env.LANG }} --hdr '${{ github.sha }}'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'mt'
         env:
           TRANSLATE_ACCESS_KEY: ${{ secrets.TRANSLATE_ACCESS_KEY }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'mt' }}
         run: |
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          ./owasp_pdf -s --mt gpt-4.1-mini -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
+          ./owasp_pdf -s --mt gpt-4.1-mini -y -l ${{ env.PROJ_CODE }}_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'x'
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'x' }}
         run: |
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          ./owasp_pdf -s -x -y -l ASV_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
+          ./owasp_pdf -s -x -y -l ${{ env.PROJ_CODE }}_${{ env.LANG }} --hdr '${{ github.sha }} MACHINE TRANSLATED'
       - name: Call ./owasp_pdf with ${{ env.LANG }} and 'b'
         env:
           WATERMARK_SECRET_KEY: ${{ secrets.WATERMARK_SECRET_KEY }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' && env.MT_X == 'b' }}
         run: |
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          ./owasp_pdf -s -y -l ASV_${{ env.LANG }}
+          ./owasp_pdf -s -y -l ${{ env.PROJ_CODE }}_${{ env.LANG }}
 
       # STEP 8: Clean up
       - name: Clean up
@@ -240,10 +240,10 @@ jobs:
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           rm  -f owasp_pdf
           rm -rf ${{ env.PROJ_DIR }}/en-ZZ
-          rm -rf ${{ env.PROJ_DIR }}/${{ env.LANG }}/baseline/ASVAll_${{ env.LANG }}.md
+          rm -rf ${{ env.PROJ_DIR }}/${{ env.LANG }}/baseline/${{ env.PROJ_CODE }}All_${{ env.LANG }}.md
           if ${{ env.TOOL_SELF_SERVABLE == 'no' }}; then
-            rm -rf owasp_pdf_data_ASV
-            rm  -f owasp_pdf_register_ASV_plugin.py
+            rm -rf owasp_pdf_data_${{ env.PROJ_CODE }}
+            rm  -f owasp_pdf_register_${{ env.PROJ_CODE }}_plugin.py
           fi
 
       # STEP 9: Commit and PR
