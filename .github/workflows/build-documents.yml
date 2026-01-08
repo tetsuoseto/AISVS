@@ -190,20 +190,19 @@ jobs:
           cp -f linux/owasp_pdf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           if ${{ env.TOOL_SELF_SERVABLE == 'no' }}; then
             cd BldEnv20241124;
+            cp -rf owasp_pdf_data_ASV ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+            cp  -f owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
           fi
-          cp -rf owasp_pdf_data_ASV ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          cp -f owasp_pdf_register_ASV_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          cp -rf owasp_pdf_data_ZZZ ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-          cp -f owasp_pdf_register_ZZZ_plugin.py ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
-      - name: List files under ROOT_DIR/BUILD_DIR
+      - name: List files under ${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
         if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
           cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          echo '-----------------------'
+          pwd
           ls -la
-      - name: List files under ROOT_DIR/BUILD_DIR/PROJ_DIR
-        if: ${{ env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
-        run: |
-          cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/${{ env.PROJ_DIR }}
+          cd ${{ env.PROJ_DIR }}
+          echo '-----------------------'
+          pwd
           ls -la
 
       # STEP 7: Build
@@ -236,10 +235,16 @@ jobs:
       - name: Clean up
         if: ${{ always() && env.LANG != '' && env.BRANCH_EXISTS == 'no' }}
         run: |
-          rm -rf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/${{ env.PROJ_DIR }}/en-ZZ
-          rm -rf ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}/${{ env.PROJ_DIR }}/${{ env.LANG }}/baseline/ASVAll_${{ env.LANG }}.md
           rm -rf UNZIPPED
-          rm -f main.zip
+          rm  -f main.zip
+          cd ${{ github.workspace }}/${{ env.ROOT_DIR }}/${{ env.BUILD_DIR }}
+          rm  -f owasp_pdf
+          rm -rf ${{ env.PROJ_DIR }}/en-ZZ
+          rm -rf ${{ env.PROJ_DIR }}/${{ env.LANG }}/baseline/ASVAll_${{ env.LANG }}.md
+          if ${{ env.TOOL_SELF_SERVABLE == 'no' }}; then
+            rm -rf owasp_pdf_data_ASV
+            rm  -f owasp_pdf_register_ASV_plugin.py
+          fi
 
       # STEP 9: Commit and PR
       - name: Commit the changes
